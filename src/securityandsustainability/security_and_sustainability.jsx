@@ -242,12 +242,10 @@ function Security_and_sustainability() {
             <br />
             Protect data and the planet with smart AI solutions.
           </h2>
-          <a
-            href="#"
-            className="inline-block bg-white text-black font-medium px-6 py-3 rounded-md shadow-sm hover:bg-gray-100 transition"
-          >
-            Explore Security & Sustainability
-          </a>
+             <button onClick={()=>{alert("Requested successfully")}} className="relative inline-block px-6 py-3 font-medium group overflow-hidden border bg-black text-white rounded">
+            <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-300 ease-out group-hover:w-full"></span>
+            <span className="relative z-10 group-hover:text-black">Know More</span>
+          </button>
         </div>
       </section>
 

@@ -28,16 +28,15 @@ function Home(){
 
     return(
         <>
-        <section class="min-h-screen flex items-center justify-center text-center pt-10 px-4" >
+        <section className="min-h-screen flex items-center justify-center text-center pt-10 px-4" >
             <div data-aos="fade-up">
-                <h1 class="text-6xl font-extrabold text-white tracking-tight mb-4" >Automate The Mundane</h1>
-                <p class="text-lg mb-6 max-w-xl mx-auto text-white">Elevate The Human Potential</p>
-                <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                  <span class="relative z-10 group-hover:text-black">Request a Demo</span>
-                </a>
-
-  
+                <h1 className="text-6xl font-extrabold text-white tracking-tight mb-4" >Automate The Mundane</h1>
+                <p className="text-lg mb-6 max-w-xl mx-auto text-white">Elevate The Human Potential</p>
+                <button onClick={()=>{ alert("Demo requested") }} 
+                 className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+                  <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+                  <span className="relative z-10 group-hover:text-black">Request a Demo</span>
+                </button>
 
             </div>
         </section>
@@ -62,6 +61,19 @@ function Home(){
 
         </div>
         <br />
+              {/* Closing CTA */}
+      <section className="bg-[#D5D1DB] py-24 text-center" data-aos="fade-up">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-3xl  font-medium text-black mb-8">
+            Empower with Data, Accelerate with Agility
+            
+          </h2>
+          <button onClick={()=>{alert("Requested successfully")}} className="relative inline-block px-6 py-3 font-medium group overflow-hidden border bg-black text-white rounded">
+            <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-300 ease-out group-hover:w-full"></span>
+            <span className="relative z-10 group-hover:text-black">Request a Demo</span>
+          </button>
+        </div>
+      </section>
         </>
     )
 }

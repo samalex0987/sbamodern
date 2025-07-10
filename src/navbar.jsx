@@ -32,7 +32,10 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="text-2xl font-bold text-white">
-            <img src={logo} alt="" width={50} />
+            <a href="/">
+
+            <img src={logo} alt="" width={50}  />
+            </a>
           </div>
 
           {/* Desktop Menu */}
@@ -41,7 +44,7 @@ const Navbar = () => {
             <div className="relative group">
               <a
                 href="#"
-                className="hover:text-gray-300 flex items-center pr-7 text-sm text-white"
+                className=" flex items-center pr-7 text-sm text-white"
               >
                 Solutions
                 <span className="ml-1 transition-transform duration-200 group-hover:rotate-180">
@@ -51,34 +54,34 @@ const Navbar = () => {
               <div className="absolute hidden group-hover:block bg-black bg-opacity-90 py-2 w-48 rounded-md shadow-lg">
                 <a
                   href="data-and-ai"
-                  className="block px-4 py-2 hover:bg-gray-800 text-sm text-white"
+                  className="block px-4 py-2  text-sm text-white"
                 >
                   Data and AI
                 </a>
                 <a
                   href="It_and_buisness_automation"
-                  className="block px-4 py-2 hover:bg-gray-800 text-sm text-white"
+                  className="block px-4 py-2  text-sm text-white"
                 >
                   IT and Business Automation
                 </a>
                 <a
                   href="Open_hybrid_cloud"
-                  className="block px-4 py-2 hover:bg-gray-800 text-sm text-white"
+                  className="block px-4 py-2  text-sm text-white"
                 >
                   Open Hybrid Cloud
                 </a>
                 <a
                   href="Security_and_sustainability"
-                  className="block px-4 py-2 hover:bg-gray-800 text-sm text-white"
+                  className="block px-4 py-2  text-sm text-white"
                 >
                   Security and Sustainability
                 </a>
               </div>
             </div>
-            <a href="#" className="hover:text-gray-300 pr-7 text-sm text-white">
+            <a href="Company" className="hover:text-gray-300 pr-7 text-sm text-white">
               Company
             </a>
-            <a href="#" className="hover:text-gray-300 pr-7 text-sm text-white">
+            <a href="Join-with-us" className="hover:text-gray-300 pr-7 text-sm text-white">
               Carrers
             </a>
             <div className="relative group">
@@ -92,22 +95,23 @@ const Navbar = () => {
                 </span>
               </a>
               <div className="absolute hidden group-hover:block bg-black bg-opacity-90 py-2 w-48 rounded-md shadow-lg">
-                <a href="#" className="block px-4 py-2 hover:bg-gray-800 text-sm text-white">
+                <a href="#" className="block px-4 py-2  text-sm text-white">
                   About us
                 </a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-800 text-sm text-white">
+                <a href="#" className="block px-4 py-2 text-sm text-white">
                   Blog
                 </a>
               </div>
             </div>
             <a href="#" className="hover:text-gray-300 text-sm text-white">
-              Company
+              Stories
             </a>
           </div>
           <div className="hidden md:block">
-            <a href="#" className="hover:text-gray-300 text-sm text-white">
-              Login
-            </a>
+            <button onClick={()=>{ alert("Demo requested") }} class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+                  <span class="relative z-10 group-hover:text-black">Request a Demo</span>
+                </button>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -127,34 +131,7 @@ const Navbar = () => {
               id="nav-links"
             >
               <div className="flex flex-col items-start space-y-2">
-                <div className="relative group w-full">
-                  <a
-                    href="#"
-                    className="hover:text-gray-300 flex items-center text-white text-[1.1rem] p-3 w-full"
-                    onClick={() => toggleDropdown('platform')}
-                  >
-                    Platform
-                    <span className={`ml-1 transition-transform duration-200 ${openDropdown === 'platform' ? 'rotate-180' : ''}`}>
-                      <i className="fa-solid fa-angle-down"></i>
-                    </span>
-                  </a>
-                  <div
-                    className={`bg-black bg-opacity-90 py-2 w-full transition-all duration-300 ease-in-out ${openDropdown === 'platform' ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
-                  >
-                    <a href="#" className="block px-8 py-2 hover:bg-gray-800 text-white">
-                      Assistant
-                    </a>
-                    <a href="#" className="block px-8 py-2 hover:bg-gray-800 text-white">
-                      Vault
-                    </a>
-                    <a href="#" className="block px-8 py-2 hover:bg-gray-800 text-white">
-                      Knowledge
-                    </a>
-                    <a href="#" className="block px-8 py-2 hover:bg-gray-800 text-white">
-                      Workflows
-                    </a>
-                  </div>
-                </div>
+                
                 <div className="relative group w-full">
                   <a
                     href="#"
@@ -170,36 +147,36 @@ const Navbar = () => {
                     className={`bg-black bg-opacity-90 py-2 w-full transition-all duration-300 ease-in-out ${openDropdown === 'solutions' ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
                   >
                     <a
-                      href="./data_and_ai.html"
+                      href="data-and-ai"
                       className="block px-8 py-2 hover:bg-gray-800 text-white"
                     >
                       Data and AI
                     </a>
                     <a
-                      href="./it_and_buisness_automation.html"
+                      href="It_and_buisness_automation"
                       className="block px-8 py-2 hover:bg-gray-800 text-white"
                     >
                       IT and Business Automation
                     </a>
                     <a
-                      href="./open_hybrid_cloud.html"
+                      href="Open_hybrid_cloud"
                       className="block px-8 py-2 hover:bg-gray-800 text-white"
                     >
                       Open Hybrid Cloud
                     </a>
                     <a
-                      href="./security_and_sustainability.html"
+                      href="Security_and_sustainability"
                       className="block px-8 py-2 hover:bg-gray-800 text-white"
                     >
                       Security and Sustainability
                     </a>
                   </div>
                 </div>
-                <a href="#" className="hover:text-gray-300 text-white text-[1.1rem] p-3 w-full">
-                  Customers
+                <a href="Company" className="hover:text-gray-300 text-white text-[1.1rem] p-3 w-full">
+                  Company
                 </a>
-                <a href="#" className="hover:text-gray-300 text-white text-[1.1rem] p-3 w-full">
-                  Security
+                <a href="Join-with-us" className="hover:text-gray-300 text-white text-[1.1rem] p-3 w-full">
+                  carreres
                 </a>
                 <div className="relative group w-full">
                   <a
@@ -227,10 +204,11 @@ const Navbar = () => {
                   </div>
                 </div>
                 <a href="#" className="hover:text-gray-300 text-white text-[1.1rem] p-3 w-full">
-                  Company
+                  Stories
                 </a>
-                <a href="#" className="hover:text-gray-300 text-white text-[1.1rem] p-3 w-full">
-                  Login
+                <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+                  <span class="relative z-10 group-hover:text-black">Request a Demo</span>
                 </a>
               </div>
             </div>

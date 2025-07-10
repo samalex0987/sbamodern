@@ -4,6 +4,8 @@ import "aos/dist/aos.css";
 
 import watson_assistant from "./watson_assistant.gif";
 import watson_discovery from "./watson_discovery.gif";
+import cognos from "./cognos.gif";
+
 
 function Dataandai() {
   useEffect(() => {
@@ -21,10 +23,11 @@ function Dataandai() {
           <p className="text-lg mb-6 max-w-xl mx-auto text-white">
             With Trusted AI Solutions
           </p>
-          <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                  <span class="relative z-10 group-hover:text-black">Request a Demo</span>
-                </a>
+          <button onClick={()=>{ alert("Demo requested") }} 
+                 className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+                  <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+                  <span className="relative z-10 group-hover:text-black">Request a Demo</span>
+            </button>
         </div>
       </section>
 
@@ -174,6 +177,31 @@ function Dataandai() {
         </div>
       </div>
 
+      {/* Cognos Section */}
+      <div className="py-16 text-white" data-aos="fade-up">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
+            <div className="order-1 lg:order-1">
+              <img
+                src={cognos}
+                alt="Watson Assistant"
+                className="w-full rounded-lg shadow-lg"
+              />
+            </div>
+            <div className="order-2 lg:order-2">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Cognos</h2>
+              <p className="text-lg mb-6">
+                Unleash the power of your data through AI-driven automation and insights in Cognos Analytics. Simply pose a question or hypothesis, and let AI provide the insights you require.
+              </p>
+              <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+                  <span class="relative z-10 group-hover:text-black">Learn More</span>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Final Feature Grid */}
       <section className="max-w-7xl mx-auto px-4 py-16" data-aos="fade-up">
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12 text-white">
@@ -229,10 +257,10 @@ function Dataandai() {
             <br />
             Now let AI unlock its potential.
           </h2>
-          <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border bg-black text-white rounded">
-            <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-300 ease-out group-hover:w-full"></span>
-            <span class="relative z-10 group-hover:text-black">Unlock</span>
-          </a>
+          <button onClick={()=>{alert("Requested successfully")}} className="relative inline-block px-6 py-3 font-medium group overflow-hidden border bg-black text-white rounded">
+            <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-300 ease-out group-hover:w-full"></span>
+            <span className="relative z-10 group-hover:text-black">unlock</span>
+          </button>
 
 
         </div>
