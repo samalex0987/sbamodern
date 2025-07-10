@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -8,12 +8,74 @@ import cognos from "./cognos.gif";
 
 
 function Dataandai() {
+  const [showPopup, setShowPopup] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    message: ''
+  });
+
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({
+          duration: 1000,
+          once: true,
+        });
   }, []);
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = () => {
+    if (formData.name && formData.email) {
+      alert("Demo booked successfully!");
+      setShowPopup(false);
+      setFormData({ name: '', email: '', company: '', message: '' });
+    } else {
+      alert("Please fill in required fields (Name and Email)");
+    }
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
-    <>
+    <div className="bg-black min-h-screen">
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+        
+        .animate-scaleIn {
+          animation: scaleIn 0.3s ease-out;
+        }
+      `}</style>
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center text-center pt-20 px-4">
         <div data-aos="fade-up">
@@ -23,98 +85,188 @@ function Dataandai() {
           <p className="text-lg mb-6 max-w-xl mx-auto text-white">
             With Trusted AI Solutions
           </p>
-          <button onClick={()=>{ alert("Demo requested") }} 
-                 className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                  <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                  <span className="relative z-10 group-hover:text-black">Request a Demo</span>
-            </button>
+          <button 
+            onClick={() => setShowPopup(true)}
+            className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
+          >
+            <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+            <span className="relative z-10 group-hover:text-black">Request a Demo</span>
+          </button>
         </div>
       </section>
 
+     {/* Demo Request Popup */}
+      {showPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 animate-fadeIn">
+          <div className=" rounded-lg p-6 w-full max-w-md relative animate-scaleIn transform">
+            <button
+              onClick={closePopup}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl"
+            >
+              ×
+            </button>
+            
+            <h2 className="text-2xl font-bold text-gray-100 mb-4">Request a Demo</h2>
+            
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-100 mb-1">
+                  Name *
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border border-gray-100  text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-100 mb-1">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border text-white border-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-100 mb-1">
+                  Company
+                </label>
+                <input
+                  type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border text-white border-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-100 mb-1">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={3}
+                  className="w-full px-3 py-2 text-white border border-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Tell us about your requirements..."
+                />
+              </div>
+              
+              <div className="flex gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={closePopup}
+                  className="flex-1 px-4 py-2 border border-gray-100 text-gray-100 rounded-md hover:bg-gray-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  className="flex-1 px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-blue-700"
+                >
+                  Submit Request
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="py-16">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div
-      className="text-center mb-12"
-      data-aos="fade-up"
-      // data-aos-delay="200"
-    >
-      <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl text-white">
-        Everything You Need to Power IT & Automation in One Platform
-      </h2>
-    </div>
-
-    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {/* Feature 1 */}
-      <div
-        className="p-6 shadow hover:shadow-md transition"
-        data-aos="fade-up"
-        style={{ borderRight: "1px solid #1F1D1A" }}
-      >
-        <div className="mb-4 w-12 h-12 mx-auto">
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-full h-full text-white transition-transform transform group-hover:scale-110"
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className="text-center mb-12"
+            data-aos="fade-up"
           >
-            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z" />
-          </svg>
-        </div>
-        <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
-          Augment Human Expertise with AI
-        </h3>
-        <p className="text-sm text-gray-100 text-center">
-          Enhance decision-making by pairing human intelligence with real-time insights from AI. Empower your workforce to focus on high-value tasks, not manual analysis.
-        </p>
-      </div>
+            <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl text-white">
+              Everything You Need to Power IT & Automation in One Platform
+            </h2>
+          </div>
 
-      {/* Feature 2 */}
-      <div
-        className="p-6 shadow hover:shadow-md transition"
-        data-aos="fade-up"
-        style={{ borderRight: "1px solid #1F1D1A" }}
-      >
-        <div className="mb-4 w-12 h-12 mx-auto">
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-full h-full text-white transition-transform transform group-hover:scale-110"
-          >
-            <path d="M4 4h16v2H4zm0 5h16v2H4zm0 5h10v2H4z" />
-          </svg>
-        </div>
-        <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
-          Operationalize AI at Scale
-        </h3>
-        <p className="text-sm text-gray-100 text-center">
-          Deploy machine learning models faster and with confidence. Automate workflows, monitor performance, and drive outcomes with responsible, explainable AI tailored to your business needs.
-        </p>
-      </div>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Feature 1 */}
+            <div
+              className="p-6 shadow hover:shadow-md transition"
+              data-aos="fade-up"
+              style={{ borderRight: "1px solid #1F1D1A" }}
+            >
+              <div className="mb-4 w-12 h-12 mx-auto">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-full h-full text-white transition-transform transform group-hover:scale-110"
+                >
+                  <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
+                Augment Human Expertise with AI
+              </h3>
+              <p className="text-sm text-gray-100 text-center">
+                Enhance decision-making by pairing human intelligence with real-time insights from AI. Empower your workforce to focus on high-value tasks, not manual analysis.
+              </p>
+            </div>
 
-      {/* Feature 3 */}
-      <div
-        className="p-6 rounded-xl shadow hover:shadow-md transition"
-        data-aos="fade-up"
-      >
-        <div className="mb-4 w-12 h-12 mx-auto">
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-full h-full text-white transition-transform transform group-hover:scale-110"
-          >
-            <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-3.31 0-6 2.69-6 6h2a4 4 0 0 1 8 0h2c0-3.31-2.69-6-6-6z" />
-          </svg>
-        </div>
-        <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
-          Accelerate Time to Value
-        </h3>
-        <p className="text-sm text-gray-100 text-center">
-          Leverage pre-built data pipelines, model templates, and intelligent automations to move from idea to impact in weeks — not months.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+            {/* Feature 2 */}
+            <div
+              className="p-6 shadow hover:shadow-md transition"
+              data-aos="fade-up"
+              style={{ borderRight: "1px solid #1F1D1A" }}
+            >
+              <div className="mb-4 w-12 h-12 mx-auto">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-full h-full text-white transition-transform transform group-hover:scale-110"
+                >
+                  <path d="M4 4h16v2H4zm0 5h16v2H4zm0 5h10v2H4z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
+                Operationalize AI at Scale
+              </h3>
+              <p className="text-sm text-gray-100 text-center">
+                Deploy machine learning models faster and with confidence. Automate workflows, monitor performance, and drive outcomes with responsible, explainable AI tailored to your business needs.
+              </p>
+            </div>
 
+            {/* Feature 3 */}
+            <div
+              className="p-6 rounded-xl shadow hover:shadow-md transition"
+              data-aos="fade-up"
+            >
+              <div className="mb-4 w-12 h-12 mx-auto">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-full h-full text-white transition-transform transform group-hover:scale-110"
+                >
+                  <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-3.31 0-6 2.69-6 6h2a4 4 0 0 1 8 0h2c0-3.31-2.69-6-6-6z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
+                Accelerate Time to Value
+              </h3>
+              <p className="text-sm text-gray-100 text-center">
+                Leverage pre-built data pipelines, model templates, and intelligent automations to move from idea to impact in weeks — not months.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* WatsonX Header */}
       <div className="text-center mb-12" data-aos="fade-up">
@@ -134,17 +286,17 @@ function Dataandai() {
                 className="w-full rounded-lg shadow-lg"
               />
             </div>
-            <div className="order-2 lg:order-2">
+            <div className="order-2 lg:order-2 pl-10 pb-5">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">Watson Assistant</h2>
               <p className="text-lg mb-6">
                 IBM Watson Assistant is a conversation AI platform that helps you provide customers
                 fast, straightforward, and accurate answers to their questions, across any
                 application, device, or channel.
               </p>
-              <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                  <span class="relative z-10 group-hover:text-black">Learn More</span>
-                </a>
+              <a href="#" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+                <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+                <span className="relative z-10 group-hover:text-black">Learn More</span>
+              </a>
             </div>
           </div>
         </div>
@@ -154,17 +306,17 @@ function Dataandai() {
       <div className="py-16 text-white" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-            <div className="order-2 lg:order-1 pl-10">
+            <div className="order-2 lg:order-1 pl-10 pb-5">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">Watson Discovery</h2>
               <p className="text-lg mb-6">
                 IBM Watson Discovery is an award-winning enterprise search and AI search technology
                 that breaks open data silos and retrieves specific answers to your questions while
                 analyzing trends and relationships buried in enterprise data.
               </p>
-              <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                  <span class="relative z-10 group-hover:text-black">Learn More</span>
-                </a>
+              <a href="#" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+                <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+                <span className="relative z-10 group-hover:text-black">Learn More</span>
+              </a>
             </div>
             <div className="order-1 lg:order-2">
               <img
@@ -184,19 +336,19 @@ function Dataandai() {
             <div className="order-1 lg:order-1">
               <img
                 src={cognos}
-                alt="Watson Assistant"
+                alt="Cognos"
                 className="w-full rounded-lg shadow-lg"
               />
             </div>
-            <div className="order-2 lg:order-2">
+            <div className="order-2 lg:order-2 pl-10 pb-5">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">Cognos</h2>
               <p className="text-lg mb-6">
                 Unleash the power of your data through AI-driven automation and insights in Cognos Analytics. Simply pose a question or hypothesis, and let AI provide the insights you require.
               </p>
-              <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                  <span class="relative z-10 group-hover:text-black">Learn More</span>
-                </a>
+              <a href="#" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+                <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+                <span className="relative z-10 group-hover:text-black">Learn More</span>
+              </a>
             </div>
           </div>
         </div>
@@ -257,15 +409,16 @@ function Dataandai() {
             <br />
             Now let AI unlock its potential.
           </h2>
-          <button onClick={()=>{alert("Requested successfully")}} className="relative inline-block px-6 py-3 font-medium group overflow-hidden border bg-black text-white rounded">
+          <button 
+             onClick={() => setShowPopup(true)} 
+            className="relative inline-block px-6 py-3 font-medium group overflow-hidden border bg-black text-white rounded"
+          >
             <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-300 ease-out group-hover:w-full"></span>
             <span className="relative z-10 group-hover:text-black">unlock</span>
           </button>
-
-
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

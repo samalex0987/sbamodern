@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import herosectionvideo from "./nature.mp4"
 import VideoCarousel from './carousal';
 import AOS from "aos";
@@ -19,20 +19,50 @@ function Home(){
   };
 
 
-   useEffect(() => {
-      AOS.init({
-        duration: 1000,
-        once: true,
+const [showPopup, setShowPopup] = useState(false);
+      const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        company: '',
+        message: ''
       });
-    }, []);
-
+    
+      useEffect(() => {
+        AOS.init({
+              duration: 1000,
+              once: true,
+            });
+      }, []);
+    
+      const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+          ...prev,
+          [name]: value
+        }));
+      };
+    
+      const handleSubmit = () => {
+        if (formData.name && formData.email) {
+          alert("Demo booked successfully!");
+          setShowPopup(false);
+          setFormData({ name: '', email: '', company: '', message: '' });
+        } else {
+          alert("Please fill in required fields (Name and Email)");
+        }
+      };
+    
+      const closePopup = () => {
+        setShowPopup(false);
+      };
+    
     return(
         <>
         <section className="min-h-screen flex items-center justify-center text-center pt-10 px-4" >
             <div data-aos="fade-up">
                 <h1 className="text-6xl font-extrabold text-white tracking-tight mb-4" >Automate The Mundane</h1>
                 <p className="text-lg mb-6 max-w-xl mx-auto text-white">Elevate The Human Potential</p>
-                <button onClick={()=>{ alert("Demo requested") }} 
+                <button onClick={() => setShowPopup(true)} 
                  className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
                   <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                   <span className="relative z-10 group-hover:text-black">Request a Demo</span>
@@ -40,6 +70,125 @@ function Home(){
 
             </div>
         </section>
+  <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+        
+        .animate-scaleIn {
+          animation: scaleIn 0.3s ease-out;
+        }
+      `}</style>
+        {/* Demo Request Popup */}
+      {showPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 animate-fadeIn">
+          <div className=" rounded-lg p-6 w-full max-w-md relative animate-scaleIn transform">
+            <button
+              onClick={closePopup}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl"
+            >
+              ×
+            </button>
+            
+            <h2 className="text-2xl font-bold text-gray-100 mb-4">Request a Demo</h2>
+            
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-100 mb-1">
+                  Name *
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border border-gray-100  text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-100 mb-1">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border text-white border-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-100 mb-1">
+                  Company
+                </label>
+                <input
+                  type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border text-white border-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-100 mb-1">
+                  Message
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  rows={3}
+                  className="w-full px-3 py-2 text-white border border-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Tell us about your requirements..."
+                />
+              </div>
+              
+              <div className="flex gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={closePopup}
+                  className="flex-1 px-4 py-2 border border-gray-100 text-gray-100 rounded-md hover:bg-gray-50"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  className="flex-1 px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-blue-700"
+                >
+                  Submit Request
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
         <br /><br /><br />
         <div data-aos="fade-up" className="video-container relative w-full max-w-[1300px] mx-auto aspect-[16/9]">
             <video ref={videoRef} className="w-full h-full object-cover">
@@ -68,7 +217,7 @@ function Home(){
             Empower with Data, Accelerate with Agility
             
           </h2>
-          <button onClick={()=>{alert("Requested successfully")}} className="relative inline-block px-6 py-3 font-medium group overflow-hidden border bg-black text-white rounded">
+          <button onClick={() => setShowPopup(true)} className="relative inline-block px-6 py-3 font-medium group overflow-hidden border bg-black text-white rounded">
             <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-300 ease-out group-hover:w-full"></span>
             <span className="relative z-10 group-hover:text-black">Request a Demo</span>
           </button>
