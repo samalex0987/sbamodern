@@ -1,133 +1,317 @@
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
+import watson_assistant from "./watson_assistant.gif";
+import watson_discovery from "./watson_discovery.gif";
 
+function Open_hybrid_cloud() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration in ms
+      once: true, // whether animation should happen only once
+    });
+  }, []);
 
-function Open_hybrid_cloud(){
+  return (
+    <>
+      <section
+        className="min-h-screen flex items-center justify-center text-center pt-20 px-4"
+        data-aos="fade-up"
+      >
+        <div>
+          <h1 className="text-6xl font-extrabold tracking-tight mb-4 text-white">
+            Open Hybrid Cloud
+          </h1>
+          <p className="text-lg mb-6 max-w-xl mx-auto text-white">
+            Integrated Cloud Solutions
+          </p>
+          <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+                <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+                <span class="relative z-10 group-hover:text-black">Request a Demo</span>
+            </a>
+        </div>
+      </section>
 
-    return(
-        <>
-        <section class="min-h-screen flex items-center justify-center text-center pt-20 px-4">
-            <div>
-                <h1 class="text-6xl font-extrabold tracking-tight mb-4 text-white">Open Hybrid Cloud</h1>
-                <p class="text-lg mb-6 max-w-xl mx-auto text-white">Integrated Cloud Solutions</p>
-                <a href="#" class="bg-white text-black font-semibold py-3 px-6 rounded hover:bg-gray-200 transition">Request a Demo</a>
-            </div>
-        </section>
-
-
-         <div class="py-16">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-gray-q00 sm:text-4xl">
+      {/* Open Hybrid Cloud Strategy Section */}
+<div className="py-16">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      className="text-center mb-12"
+      data-aos="fade-up"
+      // data-aos-delay="200"
+    >
+      <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl text-white">
         Enable an Open Hybrid Cloud Strategy
       </h2>
     </div>
 
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      
-      <div class=" p-6 rounded-xl shadow hover:shadow-md transition">
-        <div class="mb-4  w-12 h-12 mx-auto">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
-            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/>
+    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Feature 1: Unified Cloud Infrastructure */}
+      <div
+        className="p-6 shadow hover:shadow-md transition"
+        data-aos="fade-up"
+        // data-aos-delay="300"
+        style={{ borderRight: "1px solid #1F1D1A" }}
+      >
+        <div className="mb-4 w-12 h-12 mx-auto">
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-full h-full text-white transition-transform transform group-hover:scale-110"
+          >
+            {/* Cloud Network Icon */}
+            <path d="M19 10.55c-1.38 0-2.69.58-3.57 1.53-.92-2.65-3.32-4.53-6.43-4.53-3.56 0-6.45 2.74-6.89 6.2C5.65 13.88 3 15.5 3 17.5c0 1.66 1.34 3 3 3h13c1.66 0 3-1.34 3-3 0-2.66-2.34-4.95-5.57-4.95z" />
           </svg>
         </div>
-        <h3 class="text-lg font-semibold text-gray-100 text-center mb-2">Unified Cloud Infrastructure</h3>
-        <p class="text-sm text-gray-100 text-center">
+        <h3 className="text-lg font-semibold text-gray-100  mb-2">
+          Unified Cloud Infrastructure
+        </h3>
+        <p className="text-sm text-gray-100">
           Simplify hybrid deployments with a consistent platform across public and private clouds — improving workload mobility and governance.
         </p>
       </div>
 
-      <div class=" p-6 rounded-xl shadow hover:shadow-md transition">
-        <div class="mb-4 w-12 h-12 mx-auto">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
-            <path d="M4 4h16v2H4zm0 5h16v2H4zm0 5h10v2H4z"/>
+      {/* Feature 2: Open Ecosystem Integration */}
+      <div
+        className="p-6 shadow hover:shadow-md transition"
+        data-aos="fade-up"
+        // data-aos-delay="400"
+        style={{ borderRight: "1px solid #1F1D1A" }}
+      >
+        <div className="mb-4 w-12 h-12 mx-auto">
+          <div>
+            <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-full h-full text-white transition-transform transform group-hover:scale-110"
+          >
+            {/* API Integration Icon */}
+            <path d="M12 2v4h8v12h-8v4h4v-6h-4v-4h4V2h-8z" />
           </svg>
+          </div>
         </div>
-        <h3 class="text-lg font-semibold text-gray-100 text-center mb-2">Open Ecosystem Integration</h3>
-        <p class="text-sm text-gray-100 text-center">
+        <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
+          Open Ecosystem Integration
+        </h3>
+        <p className="text-sm text-gray-100 text-center">
           Integrate seamlessly with open-source tools and APIs to support innovation while avoiding vendor lock-in.
         </p>
       </div>
 
-      <div class=" p-6 rounded-xl shadow hover:shadow-md transition">
-        <div class="mb-4  w-12 h-12 mx-auto">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="w-full h-full">
-            <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-3.31 0-6 2.69-6 6h2a4 4 0 0 1 8 0h2c0-3.31-2.69-6-6-6z"/>
+      {/* Feature 3: Secure & Scalable Architecture */}
+      <div
+        className="p-6 rounded-xl shadow hover:shadow-md transition"
+        data-aos="fade-up"
+        // data-aos-delay="500"
+      >
+        <div className="mb-4 w-12 h-12 mx-auto">
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-full h-full text-white transition-transform transform group-hover:scale-110"
+          >
+            {/* Shield/Lock Icon for Security */}
+            <path d="M12 2L2 7v10c0 5 3 8 8 8s8-3 8-8V7l-10-5zm0 13H9v-2h3v2zm0-4H9V7h3v4z" />
           </svg>
         </div>
-        <h3 class="text-lg font-semibold text-gray-100 text-center mb-2">Secure & Scalable Architecture</h3>
-        <p class="text-sm text-gray-100 text-center">
+        <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
+          Secure & Scalable Architecture
+        </h3>
+        <p className="text-sm text-gray-100 text-center">
           Ensure enterprise-grade security, compliance, and scalability from edge to core to cloud with a unified approach.
         </p>
       </div>
+    </div>
+  </div>
+</div>
 
+      {/* Powered By */}
+      <div className="text-center mb-12" data-aos="fade-up" data-aos-delay="600">
+        <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl">
+          Intelligent Solutions by Redhat
+        </h2>
+      </div>
+
+      <div className="py-16 text-white ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+          <div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]"
+            data-aos="fade-up"
+            // data-aos-delay="700"
+          >
+            <div className="order-1 lg:order-1">
+              <img
+                src={watson_assistant}
+                alt="RHEL Illustration"
+                className="w-full rounded-lg shadow-lg"
+              />
             </div>
-        </div>
-        </div>
 
-
-        <section class="max-w-7xl mx-auto px-4 py-16">
-            <h2 class="text-3xl md:text-4xl font-semibold text-center mb-12 text-white">
-                Everything You Need to Build an Open Hybrid Cloud<br class="hidden md:block" />
-                in One Unified Platform
-            </h2>
-
-            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                
-                <div class="bg-neutral-900 p-6 rounded-xl">
-                <div class="mb-4 text-2xl"></div>
-                <h3 class="text-lg font-semibold text-white mb-2">Unified Cloud Management</h3>
-                <p class="text-sm text-gray-300">
-                    Centrally manage workloads across private, public, and edge environments to ensure consistency, visibility, and governance.
-                </p>
-                </div>
-
-                <div class="bg-neutral-900 p-6 rounded-xl">
-                <div class="mb-4 text-2xl"></div>
-                <h3 class="text-lg font-semibold text-white mb-2">Cloud-Native Flexibility</h3>
-                <p class="text-sm text-gray-300">
-                    Empower developers with Kubernetes, containers, and microservices to build and scale cloud-native applications across any cloud.
-                </p>
-                </div>
-
-                <div class="bg-neutral-900 p-6 rounded-xl">
-                <div class="mb-4 text-2xl"></div>
-                <h3 class="text-lg font-semibold text-white mb-2">Interoperability & Portability</h3>
-                <p class="text-sm text-gray-300">
-                    Avoid vendor lock-in with open standards that allow apps and data to move freely across hybrid and multicloud ecosystems.
-                </p>
-                </div>
-
-                <div class="bg-neutral-900 p-6 rounded-xl">
-                <div class="mb-4 text-2xl"></div>
-                <h3 class="text-lg font-semibold text-white mb-2">Security & Compliance</h3>
-                <p class="text-sm text-gray-300">
-                    Maintain enterprise-grade security and meet regulatory needs with built-in controls, identity federation, and audit-ready policies.
-                </p>
-                </div>
-
-                <div class="bg-neutral-900 p-6 rounded-xl">
-                <div class="mb-4 text-2xl"></div>
-                <h3 class="text-lg font-semibold text-white mb-2">Cost Optimization</h3>
-                <p class="text-sm text-gray-300">
-                    Gain insights into usage and spend across hybrid environments with intelligent cost tracking, forecasting, and chargeback models.
-                </p>
-                </div>
-
-                <div class="bg-neutral-900 p-6 rounded-xl">
-                <div class="mb-4 text-2xl"></div>
-                <h3 class="text-lg font-semibold text-white mb-2">Edge-to-Core Integration</h3>
-                <p class="text-sm text-gray-300">
-                    Extend hybrid capabilities to the edge, enabling real-time processing, AI at the edge, and always-on connectivity from core to cloud.
-                </p>
-                </div>
-
+            <div className="order-2 lg:order-2">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">RHEL</h2>
+              <p className="text-lg mb-6">
+                Red Hat Enterprise Linux (RHEL) is a stable and secure Linux
+                distribution tailored for enterprise environments, offering
+                robust performance and comprehensive support. It includes
+                features like SELinux for enhanced security, regular updates
+                for vulnerability management, and extensive documentation to
+                aid system administrators in maintaining their infrastructure.
+              </p>
+               <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+                  <span class="relative z-10 group-hover:text-black">Learn More</span>
+                </a>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
 
-        
-        </>
-    )
+      <div className="py-16 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center  bg-[#1F1D1A]"
+            data-aos="fade-up"
+            // data-aos-delay="800"
+          >
+            <div className="order-2 lg:order-1 pl-10">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ansible</h2>
+              <p className="text-lg mb-6">
+                Ansible is an open-source automation tool that simplifies IT
+                processes such as configuration management, application
+                deployment, and orchestration by using human-readable YAML
+                playbooks, eliminating the need for agents on target systems.
+              </p>
+               <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+                  <span class="relative z-10 group-hover:text-black">Learn More</span>
+                </a>
+            </div>
+
+            <div className="order-1 lg:order-2">
+              <img
+                src={watson_discovery}
+                alt="Ansible Illustration"
+                className="w-full rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Powered By */}
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        <h2
+          className="text-3xl md:text-4xl font-semibold text-center mb-12 text-white"
+          data-aos="fade-up"
+          // data-aos-delay="900"
+        >
+          Everything You Need to Build an Open Hybrid Cloud
+          <br className="hidden md:block" />
+          in One Unified Platform
+        </h2>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div
+            className="bg-neutral-900 p-6 rounded-xl"
+            data-aos="fade-up"
+            // data-aos-delay="1000"
+          >
+            <h3 className="text-lg font-semibold text-white mb-2">
+              Unified Cloud Management
+            </h3>
+            <p className="text-sm text-gray-300">
+              Centrally manage workloads across private, public, and edge
+              environments to ensure consistency, visibility, and governance.
+            </p>
+          </div>
+
+          <div
+            className="bg-neutral-900 p-6 rounded-xl"
+            data-aos="fade-up"
+            // data-aos-delay="1100"
+          >
+            <h3 className="text-lg font-semibold text-white mb-2">
+              Cloud-Native Flexibility
+            </h3>
+            <p className="text-sm text-gray-300">
+              Empower developers with Kubernetes, containers, and microservices
+              to build and scale cloud-native applications across any cloud.
+            </p>
+          </div>
+
+          <div
+            className="bg-neutral-900 p-6 rounded-xl"
+            data-aos="fade-up"
+            // data-aos-delay="1200"
+          >
+            <h3 className="text-lg font-semibold text-white mb-2">
+              Interoperability & Portability
+            </h3>
+            <p className="text-sm text-gray-300">
+              Avoid vendor lock-in with open standards that allow apps and data
+              to move freely across hybrid and multicloud ecosystems.
+            </p>
+          </div>
+
+          <div
+            className="bg-neutral-900 p-6 rounded-xl"
+            data-aos="fade-up"
+            // data-aos-delay="1300"
+          >
+            <h3 className="text-lg font-semibold text-white mb-2">
+              Security & Compliance
+            </h3>
+            <p className="text-sm text-gray-300">
+              Maintain enterprise-grade security and meet regulatory needs with
+              built-in controls, identity federation, and audit-ready policies.
+            </p>
+          </div>
+
+          <div
+            className="bg-neutral-900 p-6 rounded-xl"
+            data-aos="fade-up"
+            // data-aos-delay="1400"
+          >
+            <h3 className="text-lg font-semibold text-white mb-2">Cost Optimization</h3>
+            <p className="text-sm text-gray-300">
+              Gain insights into usage and spend across hybrid environments with
+              intelligent cost tracking, forecasting, and chargeback models.
+            </p>
+          </div>
+
+          <div
+            className="bg-neutral-900 p-6 rounded-xl"
+            data-aos="fade-up"
+            // data-aos-delay="1500"
+          >
+            <h3 className="text-lg font-semibold text-white mb-2">Edge-to-Core Integration</h3>
+            <p className="text-sm text-gray-300">
+              Extend hybrid capabilities to the edge, enabling real-time
+              processing, AI at the edge, and always-on connectivity from core
+              to cloud.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA for Open Hybrid Cloud */}
+      <section className="bg-[#D5D1DB] py-24 text-center" data-aos="fade-up">
+        <div className="max-w-3xl mx-auto px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-3xl font-serif font-medium text-black mb-8">
+            Secure and Sustainable Hybrid Cloud Solutions.
+            <br />
+            Build resilient infrastructure while reducing your environmental impact.
+          </h2>
+          <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border bg-black text-white rounded">
+            <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-300 ease-out group-hover:w-full"></span>
+            <span class="relative z-10 group-hover:text-black">Discover</span>
+          </a>
+        </div>
+      </section>
+
+    </>
+  );
 }
 
-export default Open_hybrid_cloud
-
+export default Open_hybrid_cloud;

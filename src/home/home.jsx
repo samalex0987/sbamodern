@@ -1,6 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import herosectionvideo from "./nature.mp4"
 import VideoCarousel from './carousal';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Home(){
 
@@ -16,17 +18,31 @@ function Home(){
     }
   };
 
+
+   useEffect(() => {
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    }, []);
+
     return(
         <>
-        <section class="min-h-screen flex items-center justify-center text-center pt-10 px-4">
-            <div>
-                <h1 class="text-6xl font-extrabold text-white tracking-tight mb-4">Professional Class AI</h1>
-                <p class="text-lg mb-6 max-w-xl mx-auto text-white">Domain-specific AI for law firms, professional service providers, and the Fortune 500.</p>
-                <a href="#" class="bg-white text-black font-semibold py-3 px-6 rounded hover:bg-gray-200 transition">Request a Demo</a>
+        <section class="min-h-screen flex items-center justify-center text-center pt-10 px-4" >
+            <div data-aos="fade-up">
+                <h1 class="text-6xl font-extrabold text-white tracking-tight mb-4" >Automate The Mundane</h1>
+                <p class="text-lg mb-6 max-w-xl mx-auto text-white">Elevate The Human Potential</p>
+                <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+                  <span class="relative z-10 group-hover:text-black">Request a Demo</span>
+                </a>
+
+  
+
             </div>
         </section>
         <br /><br /><br />
-        <div className="video-container relative w-full max-w-[1300px] mx-auto aspect-[16/9]">
+        <div data-aos="fade-up" className="video-container relative w-full max-w-[1300px] mx-auto aspect-[16/9]">
             <video ref={videoRef} className="w-full h-full object-cover">
                 <source src={herosectionvideo} type="video/mp4" />
                 Your browser does not support the video tag.
@@ -40,7 +56,12 @@ function Home(){
     </div>
 
         <br /><br /><br />
-    <VideoCarousel />
+
+        <div data-aos="fade-up">
+    <VideoCarousel/>
+
+        </div>
+        <br />
         </>
     )
 }

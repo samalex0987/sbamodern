@@ -5,23 +5,15 @@ const Footer = () => {
    <>
     
     <footer className="bg-[#1a1a1a] text-white py-8 px-4 font-arial flex flex-wrap justify-between gap-4">
-      <div className="logo text-2xl font-bold">H</div>
-      <div className="column min-w-[120px] mx-4">
-        <h3 className="text-gray-600 text-sm mb-2">Platform</h3>
-        <ul className="list-none p-0">
-          <li className="mb-1"><a href="#" className="text-white text-[0.85rem] no-underline hover:underline">Assistant</a></li>
-          <li className="mb-1"><a href="#" className="text-white text-[0.85rem] no-underline hover:underline">Vault</a></li>
-          <li className="mb-1"><a href="#" className="text-white text-[0.85rem] no-underline hover:underline">Knowledge</a></li>
-          <li className="mb-1"><a href="#" className="text-white text-[0.85rem] no-underline hover:underline">Workflows</a></li>
-        </ul>
-      </div>
+      <div className="logo text-2xl font-bold">SBA</div>
+      
       <div className="column min-w-[120px] mx-4">
         <h3 className="text-gray-600 text-sm mb-2">Solutions</h3>
         <ul className="list-none p-0">
-          <li className="mb-1"><a href="#" className="text-white text-[0.85rem] no-underline hover:underline">Innovation</a></li>
-          <li className="mb-1"><a href="#" className="text-white text-[0.85rem] no-underline hover:underline">In-House</a></li>
-          <li className="mb-1"><a href="#" className="text-white text-[0.85rem] no-underline hover:underline">Transactional</a></li>
-          <li className="mb-1"><a href="#" className="text-white text-[0.85rem] no-underline hover:underline">Litigation</a></li>
+          <li className="mb-1"><a href="#" className="text-white text-[0.85rem] no-underline hover:underline">Data And AI</a></li>
+          <li className="mb-1"><a href="#" className="text-white text-[0.85rem] no-underline hover:underline">IT and Buisness Automation</a></li>
+          <li className="mb-1"><a href="#" className="text-white text-[0.85rem] no-underline hover:underline">Open Hybrid Cloud</a></li>
+          <li className="mb-1"><a href="#" className="text-white text-[0.85rem] no-underline hover:underline">Security And Sustainability</a></li>
         </ul>
       </div>
       <div className="column min-w-[120px] mx-4">
@@ -51,7 +43,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className="copyright w-full text-center text-gray-600 text-[0.75rem] mt-4">
-        Copyright © 2025 Counsel AI Corporation. All rights reserved.
+        Copyright © 1996 - 2025, SBA Info Solutions.
       </div>
     </footer>
    </>

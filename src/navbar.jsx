@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import logo from "./logo.png"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,35 +31,13 @@ const Navbar = () => {
     <nav className="fixed w-full bg-black bg-opacity-90 shadow-md z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-white">SBA</div>
+          <div className="text-2xl font-bold text-white">
+            <img src={logo} alt="" width={50} />
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex md:space-x-4">
-            <div className="relative group">
-              <a
-                href="#"
-                className="hover:text-gray-300 flex items-center pr-7 text-sm text-white"
-              >
-                Platform
-                <span className="ml-1 transition-transform duration-200 group-hover:rotate-180">
-                  <i className="fa-solid fa-angle-down"></i>
-                </span>
-              </a>
-              <div className="absolute hidden group-hover:block bg-black bg-opacity-90 py-2 w-48 rounded-md shadow-lg">
-                <a href="#" className="block px-4 py-2 hover:bg-gray-800 text-sm text-white">
-                  Assistant
-                </a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-800 text-sm text-white">
-                  Vault
-                </a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-800 text-sm text-white">
-                  Knowledge
-                </a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-800 text-sm text-white">
-                  Workflows
-                </a>
-              </div>
-            </div>
+            
             <div className="relative group">
               <a
                 href="#"
@@ -97,10 +76,10 @@ const Navbar = () => {
               </div>
             </div>
             <a href="#" className="hover:text-gray-300 pr-7 text-sm text-white">
-              Customers
+              Company
             </a>
             <a href="#" className="hover:text-gray-300 pr-7 text-sm text-white">
-              Security
+              Carrers
             </a>
             <div className="relative group">
               <a
@@ -114,10 +93,7 @@ const Navbar = () => {
               </a>
               <div className="absolute hidden group-hover:block bg-black bg-opacity-90 py-2 w-48 rounded-md shadow-lg">
                 <a href="#" className="block px-4 py-2 hover:bg-gray-800 text-sm text-white">
-                  Updates
-                </a>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-800 text-sm text-white">
-                  Press
+                  About us
                 </a>
                 <a href="#" className="block px-4 py-2 hover:bg-gray-800 text-sm text-white">
                   Blog
