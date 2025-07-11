@@ -77,18 +77,24 @@ function It_and_buisness_automation() {
         }
       `}</style>
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center text-center pt-20 px-4">
-        <div data-aos="fade-up">
-          <h1 className="text-6xl font-extrabold tracking-tight mb-4 text-white">
+      <section className="min-h-screen flex items-center justify-center text-center pt-20 px-4 sm:px-6 lg:px-8">
+        <div data-aos="fade-up" className="max-w-3xl mx-auto">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-white">
             IT Automation
           </h1>
-          <p className="text-lg mb-6 max-w-xl mx-auto text-white">Empower Your Operation</p>
-           <button onClick={() => setShowPopup(true)} class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                <span class="relative z-10 group-hover:text-black">Request a Demo</span>
-            </button>
+          <p className="text-base sm:text-lg md:text-xl mb-6 text-white max-w-xl mx-auto">
+            Empower Your Operation
+          </p>
+          <button
+            onClick={() => setShowPopup(true)}
+            className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded transition"
+          >
+            <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+            <span className="relative z-10 group-hover:text-black">Request a Demo</span>
+          </button>
         </div>
       </section>
+
 
        {/* Demo Request Popup */}
       {showPopup && (

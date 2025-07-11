@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import one from "./one.jpg"
 
 
 
@@ -199,48 +199,132 @@ function Company() {
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {/* Header Section */}
     <div className="text-center mb-12">
-      <h2 className="text-3xl font-bold sm:text-4xl">
-        Who We Are
-      </h2>
-      <p className="text-lg mt-4 text-gray-300 max-w-3xl mx-auto">
-       SBA Info Solutions Private Limited is a leading automation company based in Chennai, with over three decades of expertise in delivering cutting-edge enterprise solutions. Our core mission is to empower businesses and professionals through innovative technology that drives transformative results.
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-With a focus on seamlessly integrating Data & AI, IT & Business Automation, Security & Sustainability, and Open Hybrid Cloud technologies, we provide scalable, future-ready solutions designed to enhance efficiency, innovation, and sustainability for organizations across industries.
-      </p>
+      {/* Left: Image */}
+      <div className="w-full">
+        <img
+          src={one} // replace with actual image path
+          alt="About SBA Info Solutions"
+          className="w-full h-auto rounded-lg shadow-lg"
+        />
+      </div>
+
+      {/* Right: Text Content */}
+      <div>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+          Who We Are
+        </h2>
+        <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed" style={{textAlign:"left"}}>
+          SBA Info Solutions Private Limited is a leading automation company based in Chennai,
+          with over three decades of expertise in delivering cutting-edge enterprise solutions.
+          Our core mission is to empower businesses and professionals through innovative technology
+          that drives transformative results.
+        </p>
+        <p className="mt-4 text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed" style={{textAlign:"left"}}>
+          With a focus on seamlessly integrating <strong>Data & AI</strong>,
+          <strong> IT & Business Automation</strong>, <strong>Security & Sustainability</strong>,
+          and <strong>Open Hybrid Cloud</strong> technologies, we provide scalable, future-ready
+          solutions designed to enhance efficiency, innovation, and sustainability for organizations
+          across industries.
+        </p>
+      </div>
+
+    </div>
     </div>
 
   <br /><br /><br />
+
+  
     {/* Values Section */}
-    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3" data-aos="fade-up">
-      <div className="text-center">
-        <h4 className="text-xl font-semibold mb-2">MISSON</h4>
-        <p className="text-gray-300">To be the transformative force that shapes an agile, purposeful future of work on a global scale</p>
-      </div>
+  
 
-      <div className="text-center">
-        <h4 className="text-xl font-semibold mb-2">VISION</h4>
-        <p className="text-gray-300">To become a global leader in creating agile and secure work environments that boost productivity and promote sustainable growth, contributing to a more resilient and equitable global economy</p>
-      </div>
-
-      <div className="text-center">
-        <h4 className="text-xl font-semibold mb-2">VALUES</h4>
-        <p className="text-gray-300">
-            <ul>
-                <li>Rentless curiosity & agility</li>
-                <li>Bold experimentation</li>
-                <li>Multidisciplinary Innovation</li>
-                <li>Wisdom in Action</li>
-                <li>Data and Future Obessed</li>
-            </ul>
+   <div className="py-16 text-white" data-aos="fade-up">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 text-center">
+      
+      {/* Mission */}
+      <div>
+        <h4 className="text-2xl font-semibold mb-4">MISSION</h4>
+        <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+          To be the transformative force that shapes an agile, purposeful future of work on a global scale.
         </p>
       </div>
+
+      {/* Vision */}
+      <div>
+        <h4 className="text-2xl font-semibold mb-4">VISION</h4>
+        <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
+          To become a global leader in creating agile and secure work environments that boost productivity and promote sustainable growth, contributing to a more resilient and equitable global economy.
+        </p>
+      </div>
+
+      {/* Values */}
+      <div>
+        <h4 className="text-2xl font-semibold mb-4">VALUES</h4>
+        <ul className="text-gray-300 text-base sm:text-lg leading-relaxed space-y-2 pl-30 text-left sm:text-center lg:text-left">
+          <li>Relentless curiosity & agility</li>
+          <li>Bold experimentation</li>
+          <li>Multidisciplinary innovation</li>
+          <li>Wisdom in action</li>
+          <li>Data and future-obsessed</li>
+        </ul>
+      </div>
+
     </div>
+  </div>
+</div>
+
 
   
      
     
   </div>
 </div>
+
+<div className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className="text-center mb-12"
+            data-aos="fade-up"
+          >
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
+              Our Impact
+            </h2>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Feature 1 */}
+            <div className="p-6 shadow hover:shadow-md transition border-b border-[#1F1D1A] lg:border-b-0 lg:border-r" data-aos="fade-up">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
+                300+
+              </h3>
+              <p className="text-base sm:text-lg md:text-xl text-white text-center">
+                Customers
+              </p>
+            </div>
+
+            <div className="p-6 shadow hover:shadow-md transition border-b border-[#1F1D1A] lg:border-b-0 lg:border-r" data-aos="fade-up">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
+                  30+
+                </h3>
+                <p className="text-base sm:text-lg md:text-xl text-white text-center">
+                  Years in Market
+                </p>
+              </div>
+
+            <div className="p-6 shadow hover:shadow-md transition border-b border-[#1F1D1A] lg:border-b-0 lg:border-r" data-aos="fade-up">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
+                  Best
+                </h3>
+                <p className="text-base sm:text-lg md:text-xl text-white text-center">
+                  Predictive Support
+                </p>
+              </div>
+
+          </div>
+        </div>
+      </div>
 
    
       {/* Closing CTA */}
