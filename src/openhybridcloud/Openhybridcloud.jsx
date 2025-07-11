@@ -78,24 +78,32 @@ function Open_hybrid_cloud() {
         }
       `}</style>
 
-
       <section
         className="min-h-screen flex items-center justify-center text-center pt-20 px-4"
         data-aos="fade-up"
       >
         <div>
-          <h1 className="text-6xl font-extrabold tracking-tight mb-4 text-white">
+          {/* Responsive Heading */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-white">
             Open Hybrid Cloud
           </h1>
-          <p className="text-lg mb-6 max-w-xl mx-auto text-white">
+
+          {/* Responsive Subheading */}
+          <p className="text-sm sm:text-base md:text-lg mb-6 max-w-xl mx-auto text-white">
             Integrated Cloud Solutions
           </p>
-          <button onClick={() => setShowPopup(true)} class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                <span class="relative z-10 group-hover:text-black">Request a Demo</span>
-            </button>
+
+          {/* Responsive Button */}
+          <button 
+            onClick={() => setShowPopup(true)} 
+            className="relative inline-block px-5 py-2.5 sm:px-6 sm:py-3 font-medium group overflow-hidden border border-white text-white rounded"
+          >
+            <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+            <span className="relative z-10 group-hover:text-black">Request a Demo</span>
+          </button>
         </div>
       </section>
+
 
 
       {/* Demo Request Popup */}
@@ -282,78 +290,83 @@ function Open_hybrid_cloud() {
   </div>
 </div>
 
-      {/* Powered By */}
-      <div className="text-center mb-12" data-aos="fade-up" data-aos-delay="600">
-        <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl">
-          Intelligent Solutions by Redhat
-        </h2>
+{/* Powered By */}
+<div className="text-center mb-12" data-aos="fade-up" data-aos-delay="600">
+  <h2 className="text-2xl sm:text-3xl font-bold text-gray-100 sm:text-4xl">
+    Intelligent Solutions by Redhat
+  </h2>
+</div>
+
+<div className="py-16 text-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]"
+      data-aos="fade-up"
+    >
+      <div className="order-1 lg:order-1">
+        <img
+          src={watson_assistant}
+          alt="RHEL Illustration"
+          className="w-full rounded-lg shadow-lg"
+        />
       </div>
 
-      <div className="py-16 text-white ">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-          <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]"
-            data-aos="fade-up"
-            // data-aos-delay="700"
-          >
-            <div className="order-1 lg:order-1">
-              <img
-                src={watson_assistant}
-                alt="RHEL Illustration"
-                className="w-full rounded-lg shadow-lg"
-              />
-            </div>
+      <div className="order-2 lg:order-2 lg:pl-10 px-4 sm:px-6 pb-5">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">RHEL</h2>
+        <p className="text-base sm:text-lg mb-6">
+          Red Hat Enterprise Linux (RHEL) is a stable and secure Linux
+          distribution tailored for enterprise environments, offering
+          robust performance and comprehensive support. It includes
+          features like SELinux for enhanced security, regular updates
+          for vulnerability management, and extensive documentation to
+          aid system administrators in maintaining their infrastructure.
+        </p>
+        <a
+          href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux"
+          className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
+        >
+          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+          <span className="relative z-10 group-hover:text-black">Learn More</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
-            <div className="order-2 lg:order-2 pl-10 pb-5">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">RHEL</h2>
-              <p className="text-lg mb-6">
-                Red Hat Enterprise Linux (RHEL) is a stable and secure Linux
-                distribution tailored for enterprise environments, offering
-                robust performance and comprehensive support. It includes
-                features like SELinux for enhanced security, regular updates
-                for vulnerability management, and extensive documentation to
-                aid system administrators in maintaining their infrastructure.
-              </p>
-               <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                  <span class="relative z-10 group-hover:text-black">Learn More</span>
-                </a>
-            </div>
-          </div>
-        </div>
+<div className="py-16 text-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]"
+      data-aos="fade-up"
+    >
+      <div className="order-2 lg:order-1 lg:pl-10 px-4 sm:px-6 pb-5">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Ansible</h2>
+        <p className="text-base sm:text-lg mb-6">
+          Ansible is an open-source automation tool that simplifies IT
+          processes such as configuration management, application
+          deployment, and orchestration by using human-readable YAML
+          playbooks, eliminating the need for agents on target systems.
+        </p>
+        <a
+          href="https://www.redhat.com/en/ansible-collaborative"
+          className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
+        >
+          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+          <span className="relative z-10 group-hover:text-black">Learn More</span>
+        </a>
       </div>
 
-      <div className="py-16 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center  bg-[#1F1D1A]"
-            data-aos="fade-up"
-            // data-aos-delay="800"
-          >
-            <div className="order-2 lg:order-1 pl-10 pb-5">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Ansible</h2>
-              <p className="text-lg mb-6">
-                Ansible is an open-source automation tool that simplifies IT
-                processes such as configuration management, application
-                deployment, and orchestration by using human-readable YAML
-                playbooks, eliminating the need for agents on target systems.
-              </p>
-               <a href="https://www.redhat.com/en/ansible-collaborative" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                  <span class="relative z-10 group-hover:text-black">Learn More</span>
-                </a>
-            </div>
-
-            <div className="order-1 lg:order-2">
-              <img
-                src={watson_discovery}
-                alt="Ansible Illustration"
-                className="w-full rounded-lg shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
+      <div className="order-1 lg:order-2">
+        <img
+          src={watson_discovery}
+          alt="Ansible Illustration"
+          className="w-full rounded-lg shadow-lg"
+        />
       </div>
+    </div>
+  </div>
+</div>
+
 
       {/* Powered By */}
       <section className="max-w-7xl mx-auto px-4 py-16">

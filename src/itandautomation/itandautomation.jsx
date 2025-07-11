@@ -282,54 +282,60 @@ function It_and_buisness_automation() {
       </div>
 
       {/* Instana Section */}
-      <div className="py-16 text-white" data-aos="fade-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-            <div className="order-1 lg:order-1">
-              <img
-                src={watson_assistant}
-                alt="Watson Assistant"
-                className="w-full rounded-lg shadow-lg"
-              />
-            </div>
-            <div className="order-2 lg:order-2 pl-10 pb-5">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Instana</h2>
-              <p className="text-lg mb-6">
-                provides real-time, full-stack observability for applications, enabling automatic discovery and continuous monitoring of performance metrics across various environments
-              </p>
-              <a href="https://www.ibm.com/products/instana" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                  <span class="relative z-10 group-hover:text-black">Learn More</span>
-                </a>
-            </div>
-          </div>
-        </div>
+<div className="py-16 text-white" data-aos="fade-up">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
+      <div className="order-1 lg:order-1">
+        <img
+          src={watson_assistant}
+          alt="Watson Assistant"
+          className="w-full rounded-lg shadow-lg"
+        />
       </div>
+      <div className="order-2 lg:order-2 px-4 sm:px-6 lg:pl-10 pb-5">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Instana</h2>
+        <p className="text-base sm:text-lg mb-6">
+          Provides real-time, full-stack observability for applications, enabling automatic discovery and continuous monitoring of performance metrics across various environments.
+        </p>
+        <a
+          href="https://www.ibm.com/products/instana"
+          className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
+        >
+          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+          <span className="relative z-10 group-hover:text-black">Learn More</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
-      {/* Turbonomic Section */}
-      <div className="py-16 text-white" data-aos="fade-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-            <div className="order-2 lg:order-1 pl-10 pb-5">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Turbonomic</h2>
-              <p className="text-lg mb-6">
-                offers visibility into application performance and resource utilization, allowing organizations to optimize their infrastructure based on real-time data.
-              </p>
-              <a href="https://www.ibm.com/products/turbonomic" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                  <span class="relative z-10 group-hover:text-black">Learn More</span>
-                </a>
-            </div>
-            <div className="order-1 lg:order-2">
-              <img
-                src={watson_discovery}
-                alt="Watson Discovery"
-                className="w-full rounded-lg shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
+{/* Turbonomic Section */}
+<div className="py-16 text-white" data-aos="fade-up">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
+      <div className="order-2 lg:order-1 px-4 sm:px-6 lg:pl-10 pb-5">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Turbonomic</h2>
+        <p className="text-base sm:text-lg mb-6">
+          Offers visibility into application performance and resource utilization, allowing organizations to optimize their infrastructure based on real-time data.
+        </p>
+        <a
+          href="https://www.ibm.com/products/turbonomic"
+          className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
+        >
+          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+          <span className="relative z-10 group-hover:text-black">Learn More</span>
+        </a>
       </div>
+      <div className="order-1 lg:order-2">
+        <img
+          src={watson_discovery}
+          alt="Watson Discovery"
+          className="w-full rounded-lg shadow-lg"
+        />
+      </div>
+    </div>
+  </div>
+</div>
 
       {/* Final Grid */}
       <section className="max-w-7xl mx-auto px-4 py-16" data-aos="fade-up">

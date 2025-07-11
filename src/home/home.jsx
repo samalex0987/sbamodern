@@ -203,6 +203,74 @@ const [showPopup, setShowPopup] = useState(false);
       </div>
     </div>
 
+    <section className="py-16 bg-[#121212] text-white" data-aos="fade-up">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-4xl font-bold mb-6">Automation Powered by IBM & Red Hat</h2>
+    <p className="max-w-3xl mx-auto text-lg mb-8">
+      Streamline your business processes with intelligent automation solutions using IBM's AI and analytics tools combined with Red Hat's open-source automation platforms.
+    </p>
+    <div className="flex flex-col sm:flex-row justify-center gap-8">
+      <div className="bg-[#1F1D1A] p-6 rounded-lg shadow-md w-full sm:w-1/3">
+        <h3 className="text-xl font-semibold mb-3">IBM Watson AI</h3>
+        <p>Leverage AI-powered chatbots and assistants to automate customer service and insights.</p>
+      </div>
+      <div className="bg-[#1F1D1A] p-6 rounded-lg shadow-md w-full sm:w-1/3">
+        <h3 className="text-xl font-semibold mb-3">Red Hat Ansible Automation</h3>
+        <p>Automate IT infrastructure, application deployment, and configuration management seamlessly.</p>
+      </div>
+      <div className="bg-[#1F1D1A] p-6 rounded-lg shadow-md w-full sm:w-1/3">
+        <h3 className="text-xl font-semibold mb-3">Hybrid Cloud & DevOps</h3>
+        <p>Enable continuous integration and delivery with flexible hybrid cloud automation solutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+        <br /><br /><br />
+      <div className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className="text-center mb-12"
+            data-aos="fade-up"
+          >
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
+              Our Impact
+            </h2>
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Feature 1 */}
+            <div className="p-6 shadow hover:shadow-md transition border-b border-[#1F1D1A] lg:border-b-0 lg:border-r" data-aos="fade-up">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
+                300+
+              </h3>
+              <p className="text-base sm:text-lg md:text-xl text-white text-center">
+                Customers
+              </p>
+            </div>
+
+            <div className="p-6 shadow hover:shadow-md transition border-b border-[#1F1D1A] lg:border-b-0 lg:border-r" data-aos="fade-up">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
+                  30+
+                </h3>
+                <p className="text-base sm:text-lg md:text-xl text-white text-center">
+                  Years in Market
+                </p>
+              </div>
+
+            <div className="p-6 shadow hover:shadow-md transition border-b border-[#1F1D1A] lg:border-b-0 lg:border-r" data-aos="fade-up">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
+                  Best
+                </h3>
+                <p className="text-base sm:text-lg md:text-xl text-white text-center">
+                  Predictive Support
+                </p>
+              </div>
+
+          </div>
+        </div>
+      </div>
+
         <br /><br /><br />
 
         <div data-aos="fade-up">

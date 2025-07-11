@@ -77,20 +77,29 @@ function Security_and_sustainability() {
         }
       `}</style>
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center text-center pt-20 px-4">
-        <div data-aos="fade-up">
-          <h1 className="text-6xl font-extrabold tracking-tight mb-4 text-white">
-            Security and Sustainability
-          </h1>
-          <p className="text-lg mb-6 max-w-xl mx-auto text-white">
-            Secure Enterprise Computing
-          </p>
-          <button onClick={() => setShowPopup(true)} class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                <span class="relative z-10 group-hover:text-black">Request a Demo</span>
-            </button>
-        </div>
-      </section>
+<section className="min-h-screen flex items-center justify-center text-center pt-20 px-4" data-aos="fade-up">
+  <div>
+    {/* Responsive Heading */}
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-white">
+      Security and Sustainability
+    </h1>
+
+    {/* Responsive Subheading */}
+    <p className="text-sm sm:text-base md:text-lg mb-6 max-w-xl mx-auto text-white">
+      Secure Enterprise Computing
+    </p>
+
+    {/* Responsive Button */}
+    <button
+      onClick={() => setShowPopup(true)}
+      className="relative inline-block px-5 py-2.5 sm:px-6 sm:py-3 font-medium group overflow-hidden border border-white text-white rounded"
+    >
+      <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+      <span className="relative z-10 group-hover:text-black">Request a Demo</span>
+    </button>
+  </div>
+</section>
+
 
       {/* Demo Request Popup */}
       {showPopup && (
@@ -277,59 +286,59 @@ function Security_and_sustainability() {
       </div>
 
       {/* Watson Assistant Section */}
-      <div className="py-16 text-white" data-aos="fade-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-            <div className="order-1 lg:order-1">
-              <img
-                src={watson_assistant}
-                alt="Watson Assistant"
-                className="w-full rounded-lg shadow-lg"
-              />
-            </div>
-            <div className="order-2 lg:order-2 pl-10 pb-4">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">LinuxOne</h2>
-              <p className="text-lg mb-6">
-                LinuxONE is a portfolio of hardware, software, and solutions designed for an enterprise-grade Linux environment. It is optimized for running more transactions faster and with more security and reliability, specifically for the open-source community.
-              </p>
-              <a
-                href="https://www.ibm.com/products/linuxone"
-                className="inline-block px-6 py-3 bg-gray-100 hover:bg-gray-300 rounded text-black font-medium transition"
-              >
-                Learn More
-              </a>
-             
-            </div>
-          </div>
-        </div>
+<div className="py-16 text-white" data-aos="fade-up">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
+      <div className="order-1 lg:order-1">
+        <img
+          src={watson_assistant}
+          alt="Watson Assistant"
+          className="w-full rounded-lg shadow-lg"
+        />
       </div>
+      <div className="order-2 lg:order-2 lg:pl-10 px-4 sm:px-6 pb-6">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">LinuxOne</h2>
+        <p className="text-base sm:text-lg mb-6">
+          LinuxONE is a portfolio of hardware, software, and solutions designed for an enterprise-grade Linux environment. It is optimized for running more transactions faster and with more security and reliability, specifically for the open-source community.
+        </p>
+        <a
+          href="https://www.ibm.com/products/linuxone"
+          className="inline-block px-6 py-3 bg-gray-100 hover:bg-gray-300 rounded text-black font-medium transition"
+        >
+          Learn More
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
-      {/* Watson Discovery Section */}
-      <div className="py-16 text-white" data-aos="fade-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-            <div className="order-2 lg:order-1 pl-10 pb-5">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Mainframe</h2>
-              <p className="text-lg mb-6">
-                Mainframe computing uses large, powerful computers for high-volume data processing and critical applications. These systems offer exceptional reliability, security, and processing power for industries like banking and healthcare.
-              </p>
-              <a
-                href="https://www.ibm.com/think/topics/mainframe"
-                className="inline-block px-6 py-3 bg-gray-100 hover:bg-gray-300 rounded text-black font-medium transition"
-              >
-                Learn More
-              </a>
-            </div>
-            <div className="order-1 lg:order-2">
-              <img
-                src={watson_discovery}
-                alt="Watson Discovery"
-                className="w-full rounded-lg shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
+{/* Watson Discovery Section */}
+<div className="py-16 text-white" data-aos="fade-up">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
+      <div className="order-2 lg:order-1 lg:pl-10 px-4 sm:px-6 pb-6">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">Mainframe</h2>
+        <p className="text-base sm:text-lg mb-6">
+          Mainframe computing uses large, powerful computers for high-volume data processing and critical applications. These systems offer exceptional reliability, security, and processing power for industries like banking and healthcare.
+        </p>
+        <a
+          href="https://www.ibm.com/think/topics/mainframe"
+          className="inline-block px-6 py-3 bg-gray-100 hover:bg-gray-300 rounded text-black font-medium transition"
+        >
+          Learn More
+        </a>
       </div>
+      <div className="order-1 lg:order-2">
+        <img
+          src={watson_discovery}
+          alt="Watson Discovery"
+          className="w-full rounded-lg shadow-lg"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
 
       {/* Grid Section 2 */}
       <section className="max-w-7xl mx-auto px-4 py-16" data-aos="fade-up">

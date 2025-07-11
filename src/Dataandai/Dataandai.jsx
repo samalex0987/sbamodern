@@ -76,24 +76,30 @@ function Dataandai() {
           animation: scaleIn 0.3s ease-out;
         }
       `}</style>
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center text-center pt-20 px-4">
-        <div data-aos="fade-up">
-          <h1 className="text-6xl font-extrabold tracking-tight mb-4 text-white">
-            Empower Your Business
-          </h1>
-          <p className="text-lg mb-6 max-w-xl mx-auto text-white">
-            With Trusted AI Solutions
-          </p>
-          <button 
-            onClick={() => setShowPopup(true)}
-            className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
-          >
-            <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-            <span className="relative z-10 group-hover:text-black">Request a Demo</span>
-          </button>
-        </div>
-      </section>
+     {/* Hero Section */}
+<section className="min-h-screen flex items-center justify-center text-center pt-20 px-4">
+  <div data-aos="fade-up">
+    {/* Responsive Heading */}
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-white">
+      Empower Your Business
+    </h1>
+
+    {/* Responsive Subheading */}
+    <p className="text-sm sm:text-base md:text-lg mb-6 max-w-xl mx-auto text-white">
+      With Trusted AI Solutions
+    </p>
+
+    {/* Styled Button */}
+    <button 
+      onClick={() => setShowPopup(true)}
+      className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
+    >
+      <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+      <span className="relative z-10 group-hover:text-black">Request a Demo</span>
+    </button>
+  </div>
+</section>
+
 
      {/* Demo Request Popup */}
       {showPopup && (
@@ -275,84 +281,84 @@ function Dataandai() {
         </h2>
       </div>
 
-      {/* Watson Assistant Section */}
-      <div className="py-16 text-white" data-aos="fade-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-            <div className="order-1 lg:order-1">
-              <img
-                src={watson_assistant}
-                alt="Watson Assistant"
-                className="w-full rounded-lg shadow-lg"
-              />
-            </div>
-            <div className="order-2 lg:order-2 pl-10 pb-5">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Watson Assistant</h2>
-              <p className="text-lg mb-6">
-                IBM Watson Assistant is a conversation AI platform that helps you provide customers
-                fast, straightforward, and accurate answers to their questions, across any
-                application, device, or channel.
-              </p>
-              <a href="https://www.ibm.com/products/watsonx-assistant" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                <span className="relative z-10 group-hover:text-black">Learn More</span>
-              </a>
-            </div>
-          </div>
-        </div>
+     {/* Watson Assistant Section */}
+<div className="py-16 text-white" data-aos="fade-up">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
+      <div className="order-1 lg:order-1">
+        <img
+          src={watson_assistant}
+          alt="Watson Assistant"
+          className="w-full rounded-lg shadow-lg"
+        />
       </div>
+      <div className="order-2 lg:order-2 px-4 sm:px-6 lg:pl-10 pb-5">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Watson Assistant</h2>
+        <p className="text-base sm:text-lg mb-6">
+          IBM Watson Assistant is a conversation AI platform that helps you provide customers
+          fast, straightforward, and accurate answers to their questions, across any
+          application, device, or channel.
+        </p>
+        <a href="https://www.ibm.com/products/watsonx-assistant" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+          <span className="relative z-10 group-hover:text-black">Learn More</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
-      {/* Watson Discovery Section */}
-      <div className="py-16 text-white" data-aos="fade-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-            <div className="order-2 lg:order-1 pl-10 pb-5">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Watson Discovery</h2>
-              <p className="text-lg mb-6">
-                IBM Watson Discovery is an award-winning enterprise search and AI search technology
-                that breaks open data silos and retrieves specific answers to your questions while
-                analyzing trends and relationships buried in enterprise data.
-              </p>
-              <a href="https://www.ibm.com/products/watson-discovery" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                <span className="relative z-10 group-hover:text-black">Learn More</span>
-              </a>
-            </div>
-            <div className="order-1 lg:order-2">
-              <img
-                src={watson_discovery}
-                alt="Watson Discovery"
-                className="w-full rounded-lg shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
+{/* Watson Discovery Section */}
+<div className="py-16 text-white" data-aos="fade-up">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
+      <div className="order-2 lg:order-1 px-4 sm:px-6 lg:pl-10 pb-5">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Watson Discovery</h2>
+        <p className="text-base sm:text-lg mb-6">
+          IBM Watson Discovery is an award-winning enterprise search and AI search technology
+          that breaks open data silos and retrieves specific answers to your questions while
+          analyzing trends and relationships buried in enterprise data.
+        </p>
+        <a href="https://www.ibm.com/products/watson-discovery" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+          <span className="relative z-10 group-hover:text-black">Learn More</span>
+        </a>
       </div>
+      <div className="order-1 lg:order-2">
+        <img
+          src={watson_discovery}
+          alt="Watson Discovery"
+          className="w-full rounded-lg shadow-lg"
+        />
+      </div>
+    </div>
+  </div>
+</div>
 
-      {/* Cognos Section */}
-      <div className="py-16 text-white" data-aos="fade-up">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-            <div className="order-1 lg:order-1">
-              <img
-                src={cognos}
-                alt="Cognos"
-                className="w-full rounded-lg shadow-lg"
-              />
-            </div>
-            <div className="order-2 lg:order-2 pl-10 pb-5">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Cognos</h2>
-              <p className="text-lg mb-6">
-                Unleash the power of your data through AI-driven automation and insights in Cognos Analytics. Simply pose a question or hypothesis, and let AI provide the insights you require.
-              </p>
-              <a href="https://www.ibm.com/products/cognos-analytics" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                <span className="relative z-10 group-hover:text-black">Learn More</span>
-              </a>
-            </div>
-          </div>
-        </div>
+{/* Cognos Section */}
+<div className="py-16 text-white" data-aos="fade-up">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
+      <div className="order-1 lg:order-1">
+        <img
+          src={cognos}
+          alt="Cognos"
+          className="w-full rounded-lg shadow-lg"
+        />
       </div>
+      <div className="order-2 lg:order-2 px-4 sm:px-6 lg:pl-10 pb-5">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Cognos</h2>
+        <p className="text-base sm:text-lg mb-6">
+          Unleash the power of your data through AI-driven automation and insights in Cognos Analytics. Simply pose a question or hypothesis, and let AI provide the insights you require.
+        </p>
+        <a href="https://www.ibm.com/products/cognos-analytics" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+          <span className="relative z-10 group-hover:text-black">Learn More</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
       {/* Final Feature Grid */}
       <section className="max-w-7xl mx-auto px-4 py-16" data-aos="fade-up">

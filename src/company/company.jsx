@@ -46,21 +46,32 @@ function Company() {
   
   return (
     <>
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center text-center pt-20 px-4">
-        <div data-aos="fade-up">
-          <h1 className="text-6xl font-extrabold tracking-tight mb-4 text-white">
-            Intelligent Solutions, Limitless Potential
-          </h1>
-          <p className="text-lg mb-6 max-w-xl mx-auto text-white">
-            With Trusted AI Solutions
-          </p>
-          <button onClick={() => setShowPopup(true)} class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-                  <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                  <span class="relative z-10 group-hover:text-black">Request a Demo</span>
-                </button>
-        </div>
-      </section>
+     {/* Hero Section */}
+<section className="min-h-screen flex items-center justify-center text-center pt-20 px-4">
+  <div data-aos="fade-up">
+    
+    {/* Responsive Heading */}
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-white">
+      Intelligent Solutions, Limitless Potential
+    </h1>
+
+    {/* Responsive Paragraph */}
+    <p className="text-sm sm:text-base md:text-lg mb-6 max-w-xl mx-auto text-white">
+      With Trusted AI Solutions
+    </p>
+
+    {/* Button */}
+    <button 
+      onClick={() => setShowPopup(true)} 
+      className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
+    >
+      <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+      <span className="relative z-10 group-hover:text-black">Request a Demo</span>
+    </button>
+    
+  </div>
+</section>
+
 
        <style jsx>{`
         @keyframes fadeIn {

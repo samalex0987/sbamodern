@@ -242,32 +242,28 @@ const SuccessStories = () => {
           </h1>
           
           {/* Category Filter */}
-          <div className="flex justify-center gap-4 mt-8 mb-8">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => handleCategoryClick(category.id)}
-                className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 relative overflow-hidden border ${
-                  selectedCategory === category.id
-                    ? 'bg-white text-black scale-105 shadow-lg border-white'
-                    : 'bg-[#1F1D1A] text-white hover:bg-[#2F2D2A] border-gray-600'
-                }`}
-              >
-                {/* Fill effect for auto-rotation - fills from left to right */}
-                {isAutoRotating && selectedCategory === category.id && (
-                  <span 
-                    className="absolute inset-0 w-0 bg-white transition-all duration-300 ease-out animate-fill-progress"
-                  ></span>
-                )}
-                
-                <span className={`relative z-10 transition-colors duration-300 ${
-                  isAutoRotating && selectedCategory === category.id ? 'text-black' : ''
-                }`}>
-                  {category.name}
-                </span>
-              </button>
-            ))}
-          </div>
+          <div className="overflow-x-auto w-full">
+  <div className="flex sm:justify-center gap-3 sm:gap-4 mt-6 mb-8 px-2 sm:px-0 min-w-max">
+    {categories.map((category) => (
+      <button
+        key={category.id}
+        onClick={() => handleCategoryClick(category.id)}
+        className={`px-4 py-2 whitespace-nowrap rounded-lg font-medium transition-all duration-300 relative overflow-hidden border ${
+          selectedCategory === category.id
+            ? 'bg-white text-black scale-105 shadow-lg border-white'
+            : 'bg-[#1F1D1A] text-white hover:bg-[#2F2D2A] border-gray-600'
+        }`}
+      >
+        {isAutoRotating && selectedCategory === category.id && (
+          <span className="absolute inset-0 w-0 bg-white transition-all duration-300 ease-out animate-fill-progress"></span>
+        )}
+        <span className={`relative z-10 ${isAutoRotating && selectedCategory === category.id ? 'text-black' : ''}`}>
+          {category.name}
+        </span>
+      </button>
+    ))}
+  </div>
+</div>
 
           {/* Auto-rotation indicator */}
           {isAutoRotating && (

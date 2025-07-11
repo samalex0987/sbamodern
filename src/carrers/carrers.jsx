@@ -47,17 +47,19 @@ function Carrers(){
         <>
         <br /><br />
         {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center text-center pt-20 px-4">
-        <div data-aos="fade-up">
-          <h1 className="text-6xl font-extrabold tracking-tight mb-4 text-white">
-            Build Your Future with Us
-          </h1>
-          {/* <p className="text-lg mb-6 max-w-xl mx-auto text-white">
-            With Trusted AI Solutions
-          </p> */}
-          
-        </div>
-      </section>
+<section className="min-h-screen flex items-center justify-center text-center pt-20 px-4">
+  <div data-aos="fade-up">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-white">
+      Build Your Future with Us
+    </h1>
+    {/* Uncomment this if needed */}
+    
+    <p className="text-sm sm:text-base md:text-lg mb-6 max-w-xl mx-auto text-white">
+      Your Vision. Our Expertise. A Smarter Future.
+    </p> 
+   
+  </div>
+</section>
 
        <style jsx>{`
         @keyframes fadeIn {
