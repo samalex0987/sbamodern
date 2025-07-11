@@ -293,7 +293,7 @@ function Dataandai() {
                 fast, straightforward, and accurate answers to their questions, across any
                 application, device, or channel.
               </p>
-              <a href="#" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+              <a href="https://www.ibm.com/products/watsonx-assistant" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
                 <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                 <span className="relative z-10 group-hover:text-black">Learn More</span>
               </a>
@@ -313,7 +313,7 @@ function Dataandai() {
                 that breaks open data silos and retrieves specific answers to your questions while
                 analyzing trends and relationships buried in enterprise data.
               </p>
-              <a href="#" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+              <a href="https://www.ibm.com/products/watson-discovery" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
                 <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                 <span className="relative z-10 group-hover:text-black">Learn More</span>
               </a>
@@ -345,7 +345,7 @@ function Dataandai() {
               <p className="text-lg mb-6">
                 Unleash the power of your data through AI-driven automation and insights in Cognos Analytics. Simply pose a question or hypothesis, and let AI provide the insights you require.
               </p>
-              <a href="#" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+              <a href="https://www.ibm.com/products/cognos-analytics" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
                 <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                 <span className="relative z-10 group-hover:text-black">Learn More</span>
               </a>

@@ -10,6 +10,7 @@ import Company from './company/company'
 import Carrers from './carrers/carrers'
 import Apply from './apply/apply'
 import Test from './test'
+import SuccessStories from './stories/stories'
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Route path='/Join-with-us' element={<Carrers />} />
             <Route path='/Apply' element={<Apply />} />
             <Route path='/test' element={<Test />} />
+            <Route path='/our-stories' element={<SuccessStories />} />
         </Routes>
      </BrowserRouter>
     </>

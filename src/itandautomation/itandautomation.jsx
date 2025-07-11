@@ -297,7 +297,7 @@ function It_and_buisness_automation() {
               <p className="text-lg mb-6">
                 provides real-time, full-stack observability for applications, enabling automatic discovery and continuous monitoring of performance metrics across various environments
               </p>
-              <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+              <a href="https://www.ibm.com/products/instana" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
                   <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                   <span class="relative z-10 group-hover:text-black">Learn More</span>
                 </a>
@@ -315,7 +315,7 @@ function It_and_buisness_automation() {
               <p className="text-lg mb-6">
                 offers visibility into application performance and resource utilization, allowing organizations to optimize their infrastructure based on real-time data.
               </p>
-              <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+              <a href="https://www.ibm.com/products/turbonomic" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
                   <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                   <span class="relative z-10 group-hover:text-black">Learn More</span>
                 </a>

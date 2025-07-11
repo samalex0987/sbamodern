@@ -293,7 +293,7 @@ function Security_and_sustainability() {
                 LinuxONE is a portfolio of hardware, software, and solutions designed for an enterprise-grade Linux environment. It is optimized for running more transactions faster and with more security and reliability, specifically for the open-source community.
               </p>
               <a
-                href="#"
+                href="https://www.ibm.com/products/linuxone"
                 className="inline-block px-6 py-3 bg-gray-100 hover:bg-gray-300 rounded text-black font-medium transition"
               >
                 Learn More
@@ -314,7 +314,7 @@ function Security_and_sustainability() {
                 Mainframe computing uses large, powerful computers for high-volume data processing and critical applications. These systems offer exceptional reliability, security, and processing power for industries like banking and healthcare.
               </p>
               <a
-                href="#"
+                href="https://www.ibm.com/think/topics/mainframe"
                 className="inline-block px-6 py-3 bg-gray-100 hover:bg-gray-300 rounded text-black font-medium transition"
               >
                 Learn More

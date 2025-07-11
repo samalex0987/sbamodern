@@ -314,7 +314,7 @@ function Open_hybrid_cloud() {
                 for vulnerability management, and extensive documentation to
                 aid system administrators in maintaining their infrastructure.
               </p>
-               <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+               <a href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
                   <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                   <span class="relative z-10 group-hover:text-black">Learn More</span>
                 </a>
@@ -338,7 +338,7 @@ function Open_hybrid_cloud() {
                 deployment, and orchestration by using human-readable YAML
                 playbooks, eliminating the need for agents on target systems.
               </p>
-               <a href="#" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+               <a href="https://www.redhat.com/en/ansible-collaborative" class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
                   <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                   <span class="relative z-10 group-hover:text-black">Learn More</span>
                 </a>

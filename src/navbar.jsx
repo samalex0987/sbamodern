@@ -205,15 +205,15 @@ const Navbar = () => {
                 </span>
               </a>
               <div className="absolute hidden group-hover:block bg-black bg-opacity-90 py-2 w-48 rounded-md shadow-lg">
-                <a href="#" className="block px-4 py-2 text-sm text-white">
+                <a href="Company" className="block px-4 py-2 text-sm text-white">
                   About us
                 </a>
-                <a href="#" className="block px-4 py-2 text-sm text-white">
+                {/* <a href="#" className="block px-4 py-2 text-sm text-white">
                   Blog
-                </a>
+                </a> */}
               </div>
             </div>
-            <a href="#" className="hover:text-gray-300 text-sm text-white">
+            <a href="our-stories" className="hover:text-gray-300 text-sm text-white">
               Stories
             </a>
           </div>
@@ -244,9 +244,21 @@ const Navbar = () => {
               <span className={`block h-[2px] bg-white transition-all duration-300 ease-in-out w-[0.75rem] mt-1 ${isOpen ? 'w-[1.25rem]' : ''}`}></span>
             </div>
             <div
-              className={`nav-links fixed top-0 left-0 w-full h-screen bg-black bg-opacity-95 z-20 flex flex-col justify-start pt-20 pl-4 transition-all duration-300 ease-in-out ${isOpen ? 'block' : 'hidden'}`}
-              id="nav-links"
-            >
+            
+                className={`nav-links fixed top-0 left-0 w-full h-screen bg-black bg-opacity-95 z-20 flex flex-col justify-start pt-20 pl-4 transition-all duration-300 ease-in-out
+                  ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+                id="nav-links"
+              >
+                {/* Close Button */}
+              <button
+              
+                onClick={toggleMenu}
+                className="absolute top-4 right-4 text-white text-3xl focus:outline-none"
+                aria-label="Close Menu"
+              >
+                ×
+              </button>
+
               <div className="flex flex-col items-start space-y-2">
                 <div className="relative group w-full">
                   <a
@@ -319,7 +331,7 @@ const Navbar = () => {
                     </a>
                   </div>
                 </div>
-                <a href="#" className="hover:text-gray-300 text-white text-[1.1rem] p-3 w-full">
+                <a href="our-stories" className="hover:text-gray-300 text-white text-[1.1rem] p-3 w-full">
                   Stories
                 </a>
                 
