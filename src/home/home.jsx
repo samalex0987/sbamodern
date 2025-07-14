@@ -3,9 +3,38 @@ import herosectionvideo from "./nature.mp4"
 import VideoCarousel from './carousal';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Ourservices from './ourservices';
+import CountUp from 'react-countup';
 
 function Home(){
 
+
+  const ImpactCard = ({ value, label, suffix = '', duration = 2, delay = 0 }) => {
+    return (
+      <div
+        className="p-6 bg-black/90 backdrop-blur-sm rounded-2xl shadow hover:shadow-md transition flex flex-col items-center"
+        data-aos="fade-up"
+        data-aos-delay={delay * 1000}
+      >
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
+          {typeof value === 'number' ? (
+            <CountUp
+              start={0}
+              end={value}
+              duration={duration}
+              suffix={suffix}
+              enableScrollSpy={true}
+              scrollSpyOnce={true}
+            />
+          ) : (
+            value
+          )}
+        </h3>
+        <p className="text-base sm:text-lg md:text-xl text-gray-400 text-center">{label}</p>
+      </div>
+    );
+  };
+  
  const videoRef = useRef(null);
 
   const handlePlayPause = () => {
@@ -233,6 +262,9 @@ const [showPopup, setShowPopup] = useState(false);
 </section>
 
         <br /><br /><br />
+        <Ourservices />
+        <br /><br /><br />
+
       <div className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
@@ -248,7 +280,7 @@ const [showPopup, setShowPopup] = useState(false);
             {/* Feature 1 */}
             <div className="p-6 shadow hover:shadow-md transition border-b border-[#1F1D1A] lg:border-b-0 lg:border-r" data-aos="fade-up">
               <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
-                300+
+                <ImpactCard value={300} suffix="+" duration={5}  delay={0.1} />
               </h3>
               <p className="text-base sm:text-lg md:text-xl text-white text-center">
                 Customers
@@ -257,7 +289,7 @@ const [showPopup, setShowPopup] = useState(false);
 
             <div className="p-6 shadow hover:shadow-md transition border-b border-[#1F1D1A] lg:border-b-0 lg:border-r" data-aos="fade-up">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
-                  30+
+                   <ImpactCard value={30} suffix="+" duration={5}  delay={1.0} />
                 </h3>
                 <p className="text-base sm:text-lg md:text-xl text-white text-center">
                   Years in Market
@@ -266,10 +298,10 @@ const [showPopup, setShowPopup] = useState(false);
 
             <div className="p-6 shadow hover:shadow-md transition border-b border-[#1F1D1A] lg:border-b-0 lg:border-r" data-aos="fade-up">
                 <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
-                  Best
+                  <ImpactCard value="Best"  delay={2.0} />
                 </h3>
                 <p className="text-base sm:text-lg md:text-xl text-white text-center">
-                  Predictive Support
+                   Predictive Support
                 </p>
               </div>
 

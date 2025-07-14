@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 
 import watson_assistant from "./watson_assistant.gif";
 import watson_discovery from "./watson_discovery.gif";
+import { CloudCheck, ShieldUserIcon, Workflow } from "lucide-react";
 
 function Open_hybrid_cloud() {
 
@@ -219,20 +220,13 @@ function Open_hybrid_cloud() {
         style={{ borderRight: "1px solid #1F1D1A" }}
       >
         <div className="mb-4 w-12 h-12 mx-auto">
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-full h-full text-white transition-transform transform group-hover:scale-110"
-          >
-            {/* Cloud Network Icon */}
-            <path d="M19 10.55c-1.38 0-2.69.58-3.57 1.53-.92-2.65-3.32-4.53-6.43-4.53-3.56 0-6.45 2.74-6.89 6.2C5.65 13.88 3 15.5 3 17.5c0 1.66 1.34 3 3 3h13c1.66 0 3-1.34 3-3 0-2.66-2.34-4.95-5.57-4.95z" />
-          </svg>
+          <CloudCheck className="w-full h-full text-white transition-transform transform hover:scale-110" />
         </div>
-        <h3 className="text-lg font-semibold text-gray-100  mb-2">
+        <h3 className="text-lg font-semibold text-center text-gray-100  mb-2">
           Unified Cloud Infrastructure
         </h3>
-        <p className="text-sm text-gray-100">
-          Simplify hybrid deployments with a consistent platform across public and private clouds — improving workload mobility and governance.
+        <p className="text-sm text-gray-100 text-center">
+          Simplify hybrid deployments with a consistent platform across public and private clouds improving workload mobility and governance.
         </p>
       </div>
 
@@ -245,14 +239,7 @@ function Open_hybrid_cloud() {
       >
         <div className="mb-4 w-12 h-12 mx-auto">
           <div>
-            <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-full h-full text-white transition-transform transform group-hover:scale-110"
-          >
-            {/* API Integration Icon */}
-            <path d="M12 2v4h8v12h-8v4h4v-6h-4v-4h4V2h-8z" />
-          </svg>
+              <Workflow className="w-full h-full text-white transition-transform transform hover:scale-110" />
           </div>
         </div>
         <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
@@ -270,14 +257,7 @@ function Open_hybrid_cloud() {
         // data-aos-delay="500"
       >
         <div className="mb-4 w-12 h-12 mx-auto">
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-full h-full text-white transition-transform transform group-hover:scale-110"
-          >
-            {/* Shield/Lock Icon for Security */}
-            <path d="M12 2L2 7v10c0 5 3 8 8 8s8-3 8-8V7l-10-5zm0 13H9v-2h3v2zm0-4H9V7h3v4z" />
-          </svg>
+            <ShieldUserIcon className="w-full h-full text-white transition-transform transform hover:scale-110" />
         </div>
         <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
           Secure & Scalable Architecture

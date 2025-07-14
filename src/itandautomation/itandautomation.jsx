@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 
 import watson_assistant from "./watson_assistant.gif";
 import watson_discovery from "./watson_discovery.gif";
+import { Activity, Cloud, Settings } from "lucide-react";
 
 function It_and_buisness_automation() {
 
@@ -210,14 +211,9 @@ function It_and_buisness_automation() {
         style={{ borderRight: "1px solid #1F1D1A" }}
       >
         <div className="mb-4 w-12 h-12 mx-auto">
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-full h-full text-white transition-transform transform group-hover:scale-110"
-          >
-            {/* Cloud Icon */}
-            <path d="M19 10.55c-1.38 0-2.69.58-3.57 1.53-.92-2.65-3.32-4.53-6.43-4.53-3.56 0-6.45 2.74-6.89 6.2C5.65 13.88 3 15.5 3 17.5c0 1.66 1.34 3 3 3h13c1.66 0 3-1.34 3-3 0-2.66-2.34-4.95-5.57-4.95z" />
-          </svg>
+          {/* className="w-full h-full text-white transition-transform transform group-hover:scale-110" */}
+          
+          <Activity className="w-full h-full text-white transition-transform transform hover:scale-110" />
         </div>
         <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
           Modernize IT Operations
@@ -235,14 +231,8 @@ function It_and_buisness_automation() {
         style={{ borderRight: "1px solid #1F1D1A" }}
       >
         <div className="mb-4 w-12 h-12 mx-auto">
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-full h-full text-white transition-transform transform group-hover:scale-110"
-          >
-            {/* Gear Icon for Automation */}
-            <path d="M21 12l-3.56-2.56c.21-.7.36-1.43.36-2.17 0-2.35-1.03-4.47-2.67-5.96l1.42-1.42c1.99 2.17 3.14 4.89 3.14 7.38 0 2.86-1.08 5.53-2.88 7.57L21 12zm-7 3c0 1.11-.89 2-2 2s-2-.89-2-2 .89-2 2-2 2 .89 2 2zm-2-7c0-.55-.45-1-1-1s-1 .45-1 1 .45 1 1 1 1-.45 1-1zm0 5c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1zm0-6c0 .55-.45 1-1 1s-1-.45-1-1 .45-1 1-1 1 .45 1 1z" />
-          </svg>
+            <Cloud className="w-full h-full text-white transition-transform transform hover:scale-110" />
+
         </div>
         <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
           Automate Workflows End-to-End
@@ -259,14 +249,7 @@ function It_and_buisness_automation() {
         // data-aos-delay="500"
       >
         <div className="mb-4 w-12 h-12 mx-auto">
-          <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="w-full h-full text-white transition-transform transform group-hover:scale-110"
-          >
-            {/* Heartbeat Icon for Monitoring */}
-            <path d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm1 12h-2v-2h2v2zm0-4h-2V7h2v5z" />
-          </svg>
+          <Settings className="w-full h-full text-white transition-transform transform hover:scale-110" />
         </div>
         <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
           Boost IT Agility & Uptime
