@@ -1,103 +1,120 @@
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function Test(){
 
-    return(
-        <>
-        <br /><br /><br />
-        <section className="py-16 bg-black text-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-12" data-aos="fade-up">
-      <h2 className="text-3xl font-bold sm:text-4xl mb-4 text-white">
-        Request a Demo
-      </h2>
-      <p className="text-lg mb-8">
-        Want to see how our platform works? Fill out the form below to schedule a personalized demo.
-      </p>
-    </div>
+useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 100,
+    });
+  }, []);
 
-    <div className="max-w-3xl mx-auto bg-white text-black p-8 rounded-lg shadow-lg">
-      <form action="#" method="POST">
-        <div className="space-y-6">
-          {/* Full Name */}
-          <div className="flex flex-col">
-            <label className="text-lg font-semibold mb-2">Full Name</label>
-            <input
-              type="text"
-              name="fullName"
-              id="fullName"
-              placeholder="John Doe"
-              className="p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
-              required
-            />
-          </div>
+  const services = [
+    {
+      id: 1,
+      title: "AI-Powered Automation",
+      description: "Transform your operations with intelligent automation driven by advanced AI algorithms.",
+      icon: (
+        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+      ),
+      animation: 'fade-right',
+    },
+    {
+      id: 2,
+      title: "Cloud Integration",
+      description: "Seamlessly integrate your systems with scalable cloud solutions for maximum efficiency.",
+      icon: (
+        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+      ),
+      animation: 'fade-left',
+    },
+    {
+      id: 3,
+      title: "Process Optimization",
+      description: "Streamline workflows with precision automation for unparalleled business performance.",
+      icon: (
+        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      ),
+      animation: 'fade-up',
+    },
+    {
+      id: 4,
+      title: "Digital Transformation",
+      description: "Modernize legacy systems with innovative solutions to stay ahead in the digital era.",
+      icon: (
+        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+      ),
+      animation: 'fade-down',
+    },
+  ];
 
-          {/* Email Address */}
-          <div className="flex flex-col">
-            <label className="text-lg font-semibold mb-2">Email Address</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="john.doe@example.com"
-              className="p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
-              required
-            />
+  const ServiceCard = ({ service, index }) => {
+    return (
+      <div
+        className="relative hover:cursor-pointer bg-black/90 backdrop-blur-sm rounded-2xl p-8 border border-[#1F1D1A] overflow-hidden group"
+        data-aos={service.animation}
+        data-aos-delay={index * 600}
+      >
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-[#1F1D1A]/20 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        />
+        <div className="relative z-10 flex flex-col h-full">
+          <div className="w-16 h-16 bg-[#1F1D1A] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-10 transition-transform duration-300">
+            {service.icon}
           </div>
-
-          {/* Company Name */}
-          <div className="flex flex-col">
-            <label className="text-lg font-semibold mb-2">Company Name</label>
-            <input
-              type="text"
-              name="companyName"
-              id="companyName"
-              placeholder="ABC Corp"
-              className="p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
-              required
-            />
-          </div>
-
-          {/* Preferred Date for Demo */}
-          <div className="flex flex-col">
-            <label className="text-lg font-semibold mb-2">Preferred Date for Demo</label>
-            <input
-              type="date"
-              name="demoDate"
-              id="demoDate"
-              className="p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
-              required
-            />
-          </div>
-
-          {/* Brief Message */}
-          <div className="flex flex-col">
-            <label className="text-lg font-semibold mb-2">Message (Optional)</label>
-            <textarea
-              name="message"
-              id="message"
-              placeholder="Tell us about your specific requirements or any questions you have."
-              className="p-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black"
-              rows="4"
-            ></textarea>
-          </div>
-
-          {/* Submit Button */}
-          <div className="flex justify-center">
-            <button
-              type="submit"
-              className="bg-black text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-white hover:text-black transition-all"
-            >
-              Request Demo
-            </button>
-          </div>
+          <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
+          <p className="text-gray-400 mb-6 flex-grow">{service.description}</p>
+          <button
+            className="relative inline-flex items-center justify-center px-6 py-3 font-medium text-white bg-[#1F1D1A] rounded-lg overflow-hidden transition-all duration-1000 group-hover:bg-gray-200 group-hover:text-black w-full"
+          >
+            <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-1000 ease-out group-hover:w-full"></span>
+            <span className="relative z-10">Learn More</span>
+          </button>
         </div>
-      </form>
-    </div>
-  </div>
-</section>
+      </div>
+    );
+  };
 
-        </>
-    )
-}
+  return (
+    <div className="min-h-screen bg-black text-white py-20 px-4 relative overflow-hidden">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 10% 20%, rgba(31, 29, 26, 0.2) 0%, transparent 50%),
+            radial-gradient(circle at 90% 80%, rgba(31, 29, 26, 0.2) 0%, transparent 50%)
+          `,
+        }}
+      />
+      <div className="max-w-6xl mx-auto relative z-10">
+        <h1
+          className="text-5xl md:text-7xl font-bold text-center mb-12"
+          data-aos="fade-down"
+          data-aos-duration="800"
+        >
+          Our <span className="bg-gradient-to-r from-[#1F1D1A] to-gray-400 bg-clip-text text-transparent">Services</span>
+        </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((service, index) => (
+            <ServiceCard key={service.id} service={service} index={index} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Test
