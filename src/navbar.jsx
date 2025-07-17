@@ -145,7 +145,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center py-4">
           <div className="text-2xl font-bold text-white">
             <a href="/">
-              <img src={logo} alt="" width={50} />
+              <img src={logo} alt="" width={50} fetchpriority="high" />
             </a>
           </div>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from "./logo.png"
 
 const Footer = () => {
   return (
@@ -7,7 +8,12 @@ const Footer = () => {
   <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:flex-wrap justify-between gap-8">
     
     {/* Logo */}
-    <div className="text-2xl font-bold">SBA</div>
+    <div className="text-2xl font-bold text-white">
+                <a href="/">
+                  <img src={logo} alt="" width={50} />
+                </a>
+              </div>
+    {/* <div className="text-2xl font-bold">SBA</div> */}
 
     {/* Solutions */}
     <div className="min-w-[140px]">
@@ -49,7 +55,7 @@ const Footer = () => {
 
   {/* Copyright */}
   <div className="mt-8 text-center text-gray-500 text-xs">
-    © 1996 - 2025, SBA Info Solutions. All rights reserved.
+    © 1996 - {new Date().getFullYear()}, SBA Info Solutions. All rights reserved.
   </div>
 </footer>
 
