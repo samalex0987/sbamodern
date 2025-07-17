@@ -200,7 +200,7 @@ function Carrers(){
         <p className="text-sm text-gray-100 mb-4">
           Join our development team to build robust, scalable software solutions that drive business success. Experience with AI and automation preferred.
         </p>
-        <button onClick={() => setShowPopup(true)} class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+        <button onClick={() => setShowPopup(true)} class="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
                 <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                 <span class="relative z-10 group-hover:text-black">Apply</span>
             </button>
@@ -212,7 +212,7 @@ function Carrers(){
         <p className="text-sm text-gray-100 mb-4">
           We are looking for a Data Scientist to analyze complex data sets and deliver actionable insights. Expertise in machine learning and AI is a plus.
         </p>
-        <button onClick={() => setShowPopup(true)} class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+        <button onClick={() => setShowPopup(true)} class="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
                 <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                 <span class="relative z-10 group-hover:text-black">Apply</span>
             </button >
@@ -224,7 +224,7 @@ function Carrers(){
         <p className="text-sm text-gray-100 mb-4">
           Help us optimize our network infrastructure by designing, implementing, and maintaining scalable network solutions for seamless connectivity.
         </p>
-        <button onClick={() => setShowPopup(true)} class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+        <button onClick={() => setShowPopup(true)} class="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
                 <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                 <span class="relative z-10 group-hover:text-black">Apply</span>
             </button>
@@ -236,7 +236,7 @@ function Carrers(){
         <p className="text-sm text-gray-100 mb-4">
           We're looking for a Cybersecurity Analyst to help protect our organization’s data and infrastructure. Experience in threat detection and mitigation is required.
         </p>
-        <button onClick={() => setShowPopup(true)} class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+        <button onClick={() => setShowPopup(true)} class="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
                 <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                 <span class="relative z-10 group-hover:text-black">Apply</span>
             </button>
@@ -248,7 +248,7 @@ function Carrers(){
         <p className="text-sm text-gray-100 mb-4">
           Lead our HR department in managing talent acquisition, employee relations, and organizational development strategies.
         </p>
-        <button onClick={() => setShowPopup(true)} class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+        <button onClick={() => setShowPopup(true)} class="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
                 <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                 <span class="relative z-10 group-hover:text-black">Apply</span>
         </button>
@@ -260,7 +260,7 @@ function Carrers(){
         <p className="text-sm text-gray-100 mb-4">
           Manage the day-to-day operations of the company, ensuring seamless workflow between departments and optimizing business processes.
         </p>
-         <button onClick={() => setShowPopup(true)} class="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+         <button onClick={() => setShowPopup(true)} class="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
                 <span class="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                 <span class="relative z-10 group-hover:text-black">Apply</span>
         </button>

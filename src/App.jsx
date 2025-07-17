@@ -11,6 +11,7 @@ import Carrers from './carrers/carrers'
 import Apply from './apply/apply'
 import Test from './test'
 import SuccessStories from './stories/stories'
+import About_us from './about_us/About_us'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <Route path='/Apply' element={<Apply />} />
             <Route path='/test' element={<Test />} />
             <Route path='/our-stories' element={<SuccessStories />} />
+            <Route path='/About-us' element={<About_us />} />
         </Routes>
      </BrowserRouter>
     </>

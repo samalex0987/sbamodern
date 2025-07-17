@@ -97,7 +97,7 @@ const [showPopup, setShowPopup] = useState(false);
           </p>
           <button
             onClick={() => setShowPopup(true)}
-            className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded transition"
+            className="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded transition"
           >
             <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
             <span className="relative z-10 group-hover:text-black">Request a Demo</span>
@@ -238,24 +238,24 @@ const [showPopup, setShowPopup] = useState(false);
       </div>
     </div>
 
-    <section className="py-16 bg-[#121212] text-white" data-aos="fade-up">
+<section className="py-16 bg-black text-white" data-aos="fade-up">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 className="text-4xl font-bold mb-6">Automation Powered by IBM & Red Hat</h2>
-    <p className="max-w-3xl mx-auto text-lg mb-8">
+    <p className="max-w-3xl mx-auto text-lg mb-12">
       Streamline your business processes with intelligent automation solutions using IBM's AI and analytics tools combined with Red Hat's open-source automation platforms.
     </p>
-    <div className="flex flex-col sm:flex-row justify-center gap-8">
-      <div className="bg-[#1F1D1A] p-6 rounded-lg shadow-md w-full sm:w-1/3">
-        <h3 className="text-xl font-semibold mb-3">IBM Watson AI</h3>
-        <p>Leverage AI-powered chatbots and assistants to automate customer service and insights.</p>
+    <div className="flex flex-col sm:flex-row justify-center gap-12">
+      <div className="bg-[#1a1a1a] p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-1/3">
+        <h3 className="text-xl font-semibold mb-4">IBM Watson AI</h3>
+        <p className="text-lg">Leverage AI-powered chatbots and assistants to automate customer service and insights.</p>
       </div>
-      <div className="bg-[#1F1D1A] p-6 rounded-lg shadow-md w-full sm:w-1/3">
-        <h3 className="text-xl font-semibold mb-3">Red Hat Ansible Automation</h3>
-        <p>Automate IT infrastructure, application deployment, and configuration management seamlessly.</p>
+      <div className="bg-[#1a1a1a] p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-1/3">
+        <h3 className="text-xl font-semibold mb-4">Red Hat Ansible Automation</h3>
+        <p className="text-lg">Automate IT infrastructure, application deployment, and configuration management seamlessly.</p>
       </div>
-      <div className="bg-[#1F1D1A] p-6 rounded-lg shadow-md w-full sm:w-1/3">
-        <h3 className="text-xl font-semibold mb-3">Hybrid Cloud & DevOps</h3>
-        <p>Enable continuous integration and delivery with flexible hybrid cloud automation solutions.</p>
+      <div className="bg-[#1a1a1a] p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-1/3">
+        <h3 className="text-xl font-semibold mb-4">Hybrid Cloud & DevOps</h3>
+        <p className="text-lg">Enable continuous integration and delivery with flexible hybrid cloud automation solutions.</p>
       </div>
     </div>
   </div>
@@ -323,7 +323,7 @@ const [showPopup, setShowPopup] = useState(false);
             Empower with Data, Accelerate with Agility
             
           </h2>
-          <button onClick={() => setShowPopup(true)} className="relative inline-block px-6 py-3 font-medium group overflow-hidden border bg-black text-white rounded">
+          <button onClick={() => setShowPopup(true)} className="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border bg-black text-white rounded">
             <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-300 ease-out group-hover:w-full"></span>
             <span className="relative z-10 group-hover:text-black">Request a Demo</span>
           </button>

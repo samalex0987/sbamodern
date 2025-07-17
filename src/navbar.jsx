@@ -205,7 +205,7 @@ const Navbar = () => {
                 </span>
               </a>
               <div className="absolute hidden group-hover:block bg-black bg-opacity-90 py-2 w-48 rounded-md shadow-lg">
-                <a href="Company" className="block px-4 py-2 text-sm text-white">
+                <a href="About-us" className="block px-4 py-2 text-sm text-white">
                   About us
                 </a>
                 {/* <a href="#" className="block px-4 py-2 text-sm text-white">
@@ -223,7 +223,7 @@ const Navbar = () => {
             <div className={`transition-all duration-300 ${showDemoButton ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'}`}>
               <button 
                 onClick={() => setShowPopup(true)} 
-                className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
+                className="relative inline-block cursor-pointer px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
               >
                 <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
                 <span className="relative z-10 group-hover:text-black">Request a Demo</span>

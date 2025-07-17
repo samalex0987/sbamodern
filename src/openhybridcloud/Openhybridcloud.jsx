@@ -97,7 +97,7 @@ function Open_hybrid_cloud() {
           {/* Responsive Button */}
           <button 
             onClick={() => setShowPopup(true)} 
-            className="relative inline-block px-5 py-2.5 sm:px-6 sm:py-3 font-medium group overflow-hidden border border-white text-white rounded"
+            className="relative inline-block cursor-pointer px-5 py-2.5 sm:px-6 sm:py-3 font-medium group overflow-hidden border border-white text-white rounded"
           >
             <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
             <span className="relative z-10 group-hover:text-black">Request a Demo</span>
@@ -452,7 +452,7 @@ function Open_hybrid_cloud() {
             <br />
             Build resilient infrastructure while reducing your environmental impact.
           </h2>
-           <button onClick={() => setShowPopup(true)} className="relative inline-block px-6 py-3 font-medium group overflow-hidden border bg-black text-white rounded">
+           <button onClick={() => setShowPopup(true)} className="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border bg-black text-white rounded">
             <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-300 ease-out group-hover:w-full"></span>
             <span className="relative z-10 group-hover:text-black">Discover</span>
           </button>
