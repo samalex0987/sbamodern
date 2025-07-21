@@ -1,10 +1,12 @@
 import React from 'react';
 import logo from "./logo.png"
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Footer = () => {
   return (
    <>
-   <footer className="bg-[#1a1a1a] text-white py-8 px-4 font-arial">
+   <footer className="bg-[#1a1a1a] text-white py-8 px-4 font-arial" data-aos="fade-up" >
   <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:flex-wrap justify-between gap-8">
     
     {/* Logo */}

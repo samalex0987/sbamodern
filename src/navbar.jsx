@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from "./logo.png"
 
+
 const Navbar = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [formData, setFormData] = useState({
@@ -123,6 +124,17 @@ const Navbar = () => {
             transform: translateX(20px);
           }
         }
+
+        @keyframes slideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
         
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out;
@@ -139,14 +151,70 @@ const Navbar = () => {
         .animate-slideOutRight {
           animation: slideOutRight 0.3s ease-out;
         }
+
+        .animate-slideDown {
+          animation: slideDown 0.3s ease-out;
+        }
+
+        .mega-menu-backdrop {
+          background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(0, 0, 0, 0.95) 100%);
+          backdrop-filter: blur(10px);
+        }
+
+        /* Hamburger Menu Styles */
+        .burger {
+          display: flex;
+          flex-direction: column;
+          cursor: pointer;
+          padding: 8px;
+        }
+
+        .burger span {
+          display: block;
+          height: 2px;
+          background-color: white;
+          transition: all 0.3s ease-in-out;
+          transform-origin: center;
+        }
+
+        .burger span:nth-child(1) {
+          width: 1.25rem;
+        }
+
+        .burger span:nth-child(2) {
+          width: 1rem;
+          margin-top: 4px;
+        }
+
+        .burger span:nth-child(3) {
+          width: 0.75rem;
+          margin-top: 4px;
+        }
+
+        /* Hamburger Animation when opened */
+        .burger.toggle-burger span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .burger.toggle-burger span:nth-child(2) {
+          opacity: 0;
+        }
+
+        .burger.toggle-burger span:nth-child(3) {
+          width: 1.25rem;
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
       `}</style>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="text-2xl font-bold text-white">
-            <a href="/">
-              <img src={logo} alt="" width={50} fetchpriority="high" />
-            </a>
+           
+             <div className="text-2xl font-bold text-white">
+                <a href="/">
+                  <img src={logo} alt="" width={50} />
+                </a>
+              </div>
           </div>
 
           {/* Desktop Menu */}
@@ -154,66 +222,196 @@ const Navbar = () => {
             <div className="relative group">
               <a
                 href="#"
-                className="flex items-center pr-7 text-sm text-white"
+                className="flex items-center pr-7 text-sm text-white hover:text-blue-400 transition-colors duration-200"
               >
                 Solutions
                 <span className="ml-1 transition-transform duration-200 group-hover:rotate-180">
                   <i className="fa-solid fa-angle-down"></i>
                 </span>
               </a>
-              <div className="absolute hidden group-hover:block bg-black bg-opacity-90 py-2 w-48 rounded-md shadow-lg">
-                <a
-                  href="data-and-ai"
-                  className="block px-4 py-2 text-sm text-white"
-                >
-                  Data and AI
-                </a>
-                <a
-                  href="It_and_buisness_automation"
-                  className="block px-4 py-2 text-sm text-white"
-                >
-                  IT and Business Automation
-                </a>
-                <a
-                  href="Open_hybrid_cloud"
-                  className="block px-4 py-2 text-sm text-white"
-                >
-                  Open Hybrid Cloud
-                </a>
-                <a
-                  href="Security_and_sustainability"
-                  className="block px-4 py-2 text-sm text-white"
-                >
-                  Security and Sustainability
-                </a>
+              
+              {/* Mega Menu for Solutions */}
+              <div className="absolute left-0 top-full pt-2 hidden group-hover:block animate-slideDown">
+                <div className="mega-menu-backdrop rounded-xl shadow-2xl border border-gray-700 p-8 w-[600px] -translate-x-1/4">
+                  <div className="grid grid-cols-2 gap-8">
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-4 border-b border-gray-600 pb-2">
+                        Core Solutions
+                      </h3>
+                      <div className="space-y-3">
+                        <a
+                          href="data-and-ai"
+                          className="group/item flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-all duration-200"
+                        >
+                          <div className="w-10 h-10 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-gray-900 group-hover/item:border-white transition-all duration-200">
+                            <i className="fa-solid fa-brain text-black group-hover/item:text-red-500 text-sm transition-colors duration-200"></i>
+                          </div>
+                          <div>
+                            <h4 className="text-white font-medium group-hover/item:text-white transition-colors">
+                              Data and AI
+                            </h4>
+                            <p className="text-gray-400 text-xs mt-1">
+                              Harness the power of artificial intelligence
+                            </p>
+                          </div>
+                        </a>
+                        
+                        <a
+                          href="It_and_buisness_automation"
+                          className="group/item flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-all duration-200"
+                        >
+                          <div className="w-10 h-10 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-gray-900 group-hover/item:border-white transition-all duration-200">
+                            <i className="fa-solid fa-cogs text-black group-hover/item:text-red-500 text-sm transition-colors duration-200"></i>
+                          </div>
+                          <div>
+                            <h4 className="text-white font-medium group-hover/item:text-white transition-colors">
+                              IT & Business Automation
+                            </h4>
+                            <p className="text-gray-400 text-xs mt-1">
+                              Streamline your operations
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-4 border-b border-gray-600 pb-2">
+                        Infrastructure
+                      </h3>
+                      <div className="space-y-3">
+                        <a
+                          href="Open_hybrid_cloud"
+                          className="group/item flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-all duration-200"
+                        >
+                          <div className="w-10 h-10 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-gray-900 group-hover/item:border-white transition-all duration-200">
+                            <i className="fa-solid fa-cloud text-black group-hover/item:text-red-500 text-sm transition-colors duration-200"></i>
+                          </div>
+                          <div>
+                            <h4 className="text-white font-medium group-hover/item:text-white transition-colors">
+                              Open Hybrid Cloud
+                            </h4>
+                            <p className="text-gray-400 text-xs mt-1">
+                              Flexible cloud solutions
+                            </p>
+                          </div>
+                        </a>
+                        
+                        <a
+                          href="Security_and_sustainability"
+                          className="group/item flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-all duration-200"
+                        >
+                          <div className="w-10 h-10 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-gray-900 group-hover/item:border-white transition-all duration-200">
+                            <i className="fa-solid fa-shield-alt text-black group-hover/item:text-red-500 text-sm transition-colors duration-200"></i>
+                          </div>
+                          <div>
+                            <h4 className="text-white font-medium group-hover/item:text-white transition-colors">
+                              Security & Sustainability
+                            </h4>
+                            <p className="text-gray-400 text-xs mt-1">
+                              Secure and sustainable tech
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Call to Action */}
+                  <div className="mt-8 pt-6 border-t border-gray-600">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h4 className="text-white font-medium">Need help choosing?</h4>
+                        <p className="text-gray-400 text-sm">Talk to our solution experts</p>
+                      </div>
+                      <button onClick={() => setShowPopup(true)} className="px-4 py-2 bg-black-600 text-white rounded-lg hover:bg-gray-900 cursor-pointer transition-colors duration-200 text-sm">
+                        Get Consultation
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <a href="Company" className="hover:text-gray-300 pr-7 text-sm text-white">
+            
+            <a href="Company" className="hover:text-blue-400 pr-7 text-sm text-white transition-colors duration-200">
               Company
             </a>
-            <a href="Join-with-us" className="hover:text-gray-300 pr-7 text-sm text-white">
+            <a href="Join-with-us" className="hover:text-blue-400 pr-7 text-sm text-white transition-colors duration-200">
               Careers
             </a>
+            
             <div className="relative group">
               <a
                 href="#"
-                className="hover:text-gray-300 flex items-center pr-7 text-sm text-white"
+                className="hover:text-blue-400 flex items-center pr-7 text-sm text-white transition-colors duration-200"
               >
                 News
                 <span className="ml-1 transition-transform duration-200 group-hover:rotate-180">
                   <i className="fa-solid fa-angle-down"></i>
                 </span>
               </a>
-              <div className="absolute hidden group-hover:block bg-black bg-opacity-90 py-2 w-48 rounded-md shadow-lg">
-                <a href="About-us" className="block px-4 py-2 text-sm text-white">
-                  About us
-                </a>
-                {/* <a href="#" className="block px-4 py-2 text-sm text-white">
-                  Blog
-                </a> */}
+              
+              {/* Mega Menu for News */}
+              <div className="absolute left-0 top-full pt-2 hidden group-hover:block animate-slideDown">
+                <div className="mega-menu-backdrop rounded-xl shadow-2xl border border-gray-700 p-6 w-[400px] -translate-x-1/3">
+                  <div className="space-y-4">
+                    <div>
+                      <h3 className="text-lg font-semibold text-white mb-4 border-b border-gray-600 pb-2">
+                        Stay Updated
+                      </h3>
+                      <div className="space-y-3">
+                        <a
+                          href="About-us"
+                          className="group/item flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-all duration-200"
+                        >
+                          <div className="w-8 h-8 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-gray-900 group-hover/item:border-white transition-all duration-200">
+                            <i className="fa-solid fa-info-circle text-black group-hover/item:text-red-500 text-xs transition-colors duration-200"></i>
+                          </div>
+                          <div>
+                            <h4 className="text-white font-medium group-hover/item:text-white transition-colors">
+                              About Us
+                            </h4>
+                            <p className="text-gray-400 text-xs">Learn about our mission</p>
+                          </div>
+                        </a>
+                        
+                        <a
+                          href="#"
+                          className="group/item flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-all duration-200"
+                        >
+                          <div className="w-8 h-8 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-gray-900 group-hover/item:border-white transition-all duration-200">
+                            <i className="fa-solid fa-newspaper text-black group-hover/item:text-red-500 text-xs transition-colors duration-200"></i>
+                          </div>
+                          <div>
+                            <h4 className="text-white font-medium group-hover/item:text-white transition-colors">
+                              Press Releases
+                            </h4>
+                            <p className="text-gray-400 text-xs">Latest company news</p>
+                          </div>
+                        </a>
+                        
+                        <a
+                          href="#"
+                          className="group/item flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-all duration-200"
+                        >
+                          <div className="w-8 h-8 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-gray-900 group-hover/item:border-white transition-all duration-200">
+                            <i className="fa-solid fa-blog text-black group-hover/item:text-red-500 text-xs transition-colors duration-200"></i>
+                          </div>
+                          <div>
+                            <h4 className="text-white font-medium group-hover/item:text-white transition-colors">
+                              Blog
+                            </h4>
+                            <p className="text-gray-400 text-xs">Insights and articles</p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <a href="our-stories" className="hover:text-gray-300 text-sm text-white">
+            
+            <a href="our-stories" className="hover:text-blue-400 text-sm text-white transition-colors duration-200">
               Stories
             </a>
           </div>
@@ -223,10 +421,10 @@ const Navbar = () => {
             <div className={`transition-all duration-300 ${showDemoButton ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'}`}>
               <button 
                 onClick={() => setShowPopup(true)} 
-                className="relative inline-block cursor-pointer px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
+                className="relative inline-block cursor-pointer px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded-lg hover:border-blue-400 transition-all duration-200"
               >
-                <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                <span className="relative z-10 group-hover:text-black">Request a Demo</span>
+                <span className="absolute inset-0 w-0 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-500 ease-out group-hover:w-full"></span>
+                <span className="relative z-10 group-hover:text-white">Request a Demo</span>
               </button>
             </div>
           </div>
@@ -244,14 +442,12 @@ const Navbar = () => {
               <span className={`block h-[2px] bg-white transition-all duration-300 ease-in-out w-[0.75rem] mt-1 ${isOpen ? 'w-[1.25rem]' : ''}`}></span>
             </div>
             <div
-            
                 className={`nav-links fixed top-0 left-0 w-full h-screen bg-black bg-opacity-95 z-20 flex flex-col justify-start pt-20 pl-4 transition-all duration-300 ease-in-out
                   ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
                 id="nav-links"
               >
                 {/* Close Button */}
               <button
-              
                 onClick={toggleMenu}
                 className="absolute top-4 right-4 text-white text-3xl focus:outline-none"
                 aria-label="Close Menu"
@@ -320,8 +516,8 @@ const Navbar = () => {
                   <div
                     className={`bg-black bg-opacity-90 py-2 w-full transition-all duration-300 ease-in-out ${openDropdown === 'news' ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
                   >
-                    <a href="#" className="block px-8 py-2 hover:bg-gray-800 text-white">
-                      Updates
+                    <a href="About-us" className="block px-8 py-2 hover:bg-gray-800 text-white">
+                      About us
                     </a>
                     <a href="#" className="block px-8 py-2 hover:bg-gray-800 text-white">
                       Press
@@ -438,6 +634,12 @@ const Navbar = () => {
           </div>
         </div>
       )}
+      
+      {/* FontAwesome CDN for icons */}
+      <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+      />
     </nav>
   );
 };

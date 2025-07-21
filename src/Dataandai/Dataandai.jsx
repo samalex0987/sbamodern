@@ -335,6 +335,30 @@ function Dataandai() {
   </div>
 </div>
 
+<div className="py-16 text-white" data-aos="fade-up">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
+      <div className="order-1 lg:order-1">
+        <img
+          src={watson_assistant}
+          alt="Watson Assistant"
+          className="w-full rounded-lg shadow-lg"
+        />
+      </div>
+      <div className="order-2 lg:order-2 px-4 sm:px-6 lg:pl-10 pb-5">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Instana</h2>
+        <p className="text-base sm:text-lg mb-6">
+          Instana Observability is a fully-automated application performance management solution designed for the challenges of managing microservice and cloud-native applications. It makes your applications visible and enables intelligent actions based on observed information.
+        </p>
+        <a href="https://www.ibm.com/products/watsonx-assistant" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+          <span className="relative z-10 group-hover:text-black">Learn More</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 {/* Cognos Section */}
 <div className="py-16 text-white" data-aos="fade-up">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
