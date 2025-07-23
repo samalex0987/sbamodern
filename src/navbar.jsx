@@ -32,7 +32,7 @@ const ResponsiveNavbar = () => {
       const closePopup = () => {
         setShowPopup(false);
       };
-      
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -92,7 +92,7 @@ const ResponsiveNavbar = () => {
 
   {/* Demo Request Popup */}
       {showPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 animate-fadeIn">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-100 p-4 animate-fadeIn">
           <div className=" rounded-lg p-6 w-full max-w-md relative animate-scaleIn transform">
             <button
               onClick={closePopup}
@@ -182,7 +182,7 @@ const ResponsiveNavbar = () => {
 
 
 
-    <nav className="bg-black border-gray-200 dark:border-gray-600 dark:bg-gray-900 shadow-sm">
+    <nav className="sticky top-0 z-50  bg-black border-gray-200 dark:border-gray-600 dark:bg-gray-900 shadow-sm">
       <div className="flex justify-between items-center mx-auto max-w-screen-xl p-4">
         {/* Logo */}
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -194,7 +194,7 @@ const ResponsiveNavbar = () => {
         <div className="hidden md:flex items-center justify-center flex-1">
           <ul className="flex space-x-8 font-medium">
             <li>
-              <a href="#" className="relative block py-2 px-3 text-gray-100 hover:text-red-600 dark:text-white dark:hover:text-blue-500 transition-colors duration-200 group">
+              <a href="/" className="relative block py-2 px-3 text-gray-100 hover:text-red-600 dark:text-white dark:hover:text-blue-500 transition-colors duration-200 group">
                 Home
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
               </a>
@@ -221,7 +221,7 @@ const ResponsiveNavbar = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="relative block py-2 px-3 text-gray-100 hover:text-red-600 dark:text-white dark:hover:text-blue-500 transition-colors duration-200 group">
+              <a href="/Join-with-us" className="relative block py-2 px-3 text-gray-100 hover:text-red-600 dark:text-white dark:hover:text-blue-500 transition-colors duration-200 group">
                 Join with us
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
               </a>
@@ -262,17 +262,17 @@ const ResponsiveNavbar = () => {
 
       {/* Mobile Navigation */}
       <div className={`md:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-        <div className="px-4 pt-2 pb-3 space-y-1 bg-gray-50 dark:bg-gray-800">
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+        <div className="px-4 pt-2 pb-3 space-y-1 bg-black dark:bg-gray-800">
+          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
             Home
           </a>
           <button
             onClick={toggleDropdown}
-            className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200 focus:outline-none"
+            className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200 focus:outline-none"
             aria-haspopup="true"
             aria-expanded={isDropdownOpen}
           >
-            Company
+            Services
             <svg className={`w-2.5 h-2.5 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
             </svg>
@@ -281,35 +281,35 @@ const ResponsiveNavbar = () => {
           {/* Mobile Dropdown Items */}
           {isDropdownOpen && (
             <div className="pl-4 space-y-1 border-l-2  border-blue-200 ml-3">
-              <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
-                Online Stores
+              <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-100 hover:text-blue-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-blue-500 dark:hover:bg-gray-700 transi1ion-all duration-200">
+                Data and AI
               </a>
-              <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
-                Segmentation
+              <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-100 hover:text-blue-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+                 IT and Buisness Automation
               </a>
-              <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
-                Marketing CRM
+              <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-100 hover:text-blue-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+                Security and Sustainability
               </a>
-              <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
-                Analytics
+              <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-100 hover:text-blue-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+                Open Hybrid Cloud 
               </a>
             </div>
           )}
           
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
-            Marketplace
+          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+            Who we are
           </a>
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
-            Resources
+          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+            Join with us
           </a>
-          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-100 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
             Contact
           </a>
           <div className="pt-4 space-y-2">
-            <button className="w-full px-3 py-2 text-sm font-medium text-blue-600 hover:text-blue-800 hover:bg-gray-100 dark:text-blue-400 dark:hover:text-blue-300 dark:hover:bg-gray-700 rounded-md transition-all duration-200 focus:outline-none">
+            {/* <button className="w-full px-3 py-2 text-sm font-medium text-blue-600 hover:text-blue-800 hover:bg-gray-100 dark:text-blue-400 dark:hover:text-blue-300 dark:hover:bg-gray-700 rounded-md transition-all duration-200 focus:outline-none">
               Sign In
-            </button>
-            <button className="w-full px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-all duration-200 focus:outline-none">
+            </button> */}
+            <button onClick={() => setShowPopup(true)} className="w-full px-3 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-all duration-200 focus:outline-none">
               Get Started
             </button>
           </div>

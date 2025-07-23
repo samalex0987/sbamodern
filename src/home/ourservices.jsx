@@ -66,7 +66,7 @@ const ServiceCard = ({ service, index }) => {
       
       {/* Rotating border animation */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-blue-500 to-transparent animate-spin-slow"></div>
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-red-500 to-transparent animate-spin-slow"></div>
       </div>
       
       <div className="absolute inset-0 bg-gradient-to-br from-[#1F1D1A]/20 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

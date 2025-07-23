@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 import one from "./one.jpg"
 import CountUp from 'react-countup';
 import ModernMVVSection from "./MVV";
+import About_us from "../about_us/About_us";
 
 
 function Company() {
@@ -314,6 +315,7 @@ function Company() {
         </div>
       </div>
 
+<About_us />
       {/* Closing CTA */}
     <section className="bg-[#D5D1DB] py-24 text-center" data-aos="fade-up">
   <div className="max-w-3xl mx-auto px-4">
@@ -330,6 +332,8 @@ function Company() {
     </button>
   </div>
 </section>
+
+
 
     </>
   );

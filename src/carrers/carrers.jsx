@@ -45,7 +45,7 @@ function Carrers(){
 
     return(
         <>
-        <br /><br />
+ 
         {/* Hero Section */}
 <section className="min-h-screen flex items-center justify-center text-center pt-20 px-4">
   <div data-aos="fade-up">
@@ -181,6 +181,31 @@ function Carrers(){
         </div>
       )}
 
+{/* Why Work With Us Section */}
+<section className="py-16" data-aos="fade-up">
+  <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-100">
+    <h2 className="text-3xl font-bold mb-8">Why Work With Us?</h2>
+    <p className="mb-6 max-w-3xl mx-auto text-lg">
+      At our company, you’re not just joining a team — you’re joining a community driven by innovation, diversity, and a passion for making a difference. We invest in your growth and offer opportunities to build a rewarding career.
+    </p>
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-12">
+      <div>
+        <h3 className="font-semibold mb-2">Growth Opportunities</h3>
+        <p>Access to continuous learning, mentorship, and career development.</p>
+      </div>
+      <div>
+        <h3 className="font-semibold mb-2">Inclusive Culture</h3>
+        <p>We foster diversity and encourage ideas from every voice.</p>
+      </div>
+      <div>
+        <h3 className="font-semibold mb-2">Innovative Projects</h3>
+        <p>Work on cutting-edge technology that shapes the future.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br /><br /><br />
 
 <section className="py-16 bg-[#1F1D1A]" data-aos="fade-up">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
