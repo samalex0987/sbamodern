@@ -277,11 +277,12 @@ function Security_and_sustainability() {
         </div>
       </div>
 
+<br /><br /><br />
      
       {/* Powered By Heading */}
       <div className="text-center mb-12" data-aos="fade-up">
         <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl">
-          Intelligent Solutions by Redhat
+          Our Solutions
         </h2>
       </div>
 
@@ -297,9 +298,9 @@ function Security_and_sustainability() {
         />
       </div>
       <div className="order-2 lg:order-2 lg:pl-10 px-4 sm:px-6 pb-6">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4">LinuxOne</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">Cybersecurity</h2>
         <p className="text-base sm:text-lg mb-6">
-          LinuxONE is a portfolio of hardware, software, and solutions designed for an enterprise-grade Linux environment. It is optimized for running more transactions faster and with more security and reliability, specifically for the open-source community.
+          Strengthen your digital defenses with proactive threat detection, vulnerability assessments, and risk mitigation strategies. We help you secure systems, data, and customer trust.
         </p>
         <a
           href="https://www.ibm.com/products/linuxone"
@@ -317,9 +318,9 @@ function Security_and_sustainability() {
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
       <div className="order-2 lg:order-1 lg:pl-10 px-4 sm:px-6 pb-6">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4">Mainframe</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">Green Technology</h2>
         <p className="text-base sm:text-lg mb-6">
-          Mainframe computing uses large, powerful computers for high-volume data processing and critical applications. These systems offer exceptional reliability, security, and processing power for industries like banking and healthcare.
+            Promote environmental responsibility through sustainable IT practices. We offer energy-efficient solutions, carbon-conscious infrastructure, and tools that align with green initiatives.
         </p>
         <a
           href="https://www.ibm.com/think/topics/mainframe"
@@ -339,6 +340,32 @@ function Security_and_sustainability() {
   </div>
 </div>
 
+
+<div className="py-16 text-white" data-aos="fade-up">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
+      <div className="order-1 lg:order-1">
+        <img
+          src={watson_assistant}
+          alt="Watson Assistant"
+          className="w-full rounded-lg shadow-lg"
+        />
+      </div>
+      <div className="order-2 lg:order-2 lg:pl-10 px-4 sm:px-6 pb-6">
+        <h2 className="text-3xl sm:text-4xl font-bold mb-4">Compliance Management</h2>
+        <p className="text-base sm:text-lg mb-6">
+          Stay ahead of regulatory requirements with automated compliance tracking, reporting tools, and governance frameworks. We support security, privacy, and sustainability standards.
+        </p>
+        <a
+          href="https://www.ibm.com/products/linuxone"
+          className="inline-block px-6 py-3 bg-gray-100 hover:bg-gray-300 rounded text-black font-medium transition"
+        >
+          Learn More
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
       {/* Grid Section 2 */}
       <section className="max-w-7xl mx-auto px-4 py-16" data-aos="fade-up">

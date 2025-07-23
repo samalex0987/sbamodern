@@ -1,554 +1,99 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import logo from "./logo.png"
 
+const ResponsiveNavbar = () => {
 
-const Navbar = () => {
   const [showPopup, setShowPopup] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: ''
-  });
+        const [formData, setFormData] = useState({
+          name: '',
+          email: '',
+          company: '',
+          message: ''
+        });
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [showDemoButton, setShowDemoButton] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = () => {
-    if (formData.name && formData.email) {
-      alert("Demo booked successfully!");
-      setShowPopup(false);
-      setFormData({ name: '', email: '', company: '', message: '' });
-    } else {
-      alert("Please fill in required fields (Name and Email)");
-    }
-  };
-
-  const closePopup = () => {
-    setShowPopup(false);
-  };
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    if (!isOpen) setOpenDropdown(null);
-  };
-
-  const toggleDropdown = (dropdown) => {
-    if (window.innerWidth <= 768) {
-      setOpenDropdown(openDropdown === dropdown ? null : dropdown);
-    }
-  };
-
-  const handleClickOutside = (e) => {
-    if (window.innerWidth <= 768 && !e.target.closest('.burger') && !e.target.closest('.group')) {
-      setOpenDropdown(null);
-    }
-  };
-
-  // Scroll handler for showing/hiding demo button
-  const handleScroll = () => {
-    const currentScrollY = window.scrollY;
-    const scrollThreshold = 300; // Adjust this value as needed
+   const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+          ...prev,
+          [name]: value
+        }));
+      };
     
-    // Show button when scrolling up and past threshold
-    if (currentScrollY < lastScrollY && currentScrollY > scrollThreshold) {
-      setShowDemoButton(true);
-    } else if (currentScrollY <= scrollThreshold || currentScrollY > lastScrollY) {
-      setShowDemoButton(false);
-    }
+      const handleSubmit = () => {
+        if (formData.name && formData.email) {
+          alert("Demo booked successfully!");
+          setShowPopup(false);
+          setFormData({ name: '', email: '', company: '', message: '' });
+        } else {
+          alert("Please fill in required fields (Name and Email)");
+        }
+      };
     
-    setLastScrollY(currentScrollY);
+      const closePopup = () => {
+        setShowPopup(false);
+      };
+      
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const toggleRef = useRef(null);
+  const hoverTimeoutRef = useRef(null);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
+  };
+
+  const handleMouseEnter = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    setIsDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    hoverTimeoutRef.current = setTimeout(() => {
+      setIsDropdownOpen(false);
+    }, 150); // Small delay to prevent flickering
+  };
+
+  // Close dropdown on outside click
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
-    window.addEventListener('scroll', handleScroll);
-    
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-      window.removeEventListener('scroll', handleScroll);
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        toggleRef.current &&
+        !toggleRef.current.contains(event.target)
+      ) {
+        setIsDropdownOpen(false);
+      }
     };
-  }, [lastScrollY]);
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <nav className="fixed w-full bg-black bg-opacity-90 shadow-md z-10">
-      <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-        
-        @keyframes scaleIn {
-          from {
-            opacity: 0;
-            transform: scale(0.8);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-        
-        @keyframes slideInRight {
-          from {
-            opacity: 0;
-            transform: translateX(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        
-        @keyframes slideOutRight {
-          from {
-            opacity: 1;
-            transform: translateX(0);
-          }
-          to {
-            opacity: 0;
-            transform: translateX(20px);
-          }
-        }
+    <>
 
-        @keyframes slideDown {
-          from {
-            opacity: 0;
-            transform: translateY(-10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-out;
-        }
-        
-        .animate-scaleIn {
-          animation: scaleIn 0.3s ease-out;
-        }
-        
-        .animate-slideInRight {
-          animation: slideInRight 0.3s ease-out;
-        }
-        
-        .animate-slideOutRight {
-          animation: slideOutRight 0.3s ease-out;
-        }
 
-        .animate-slideDown {
-          animation: slideDown 0.3s ease-out;
-        }
-
-        .mega-menu-backdrop {
-          background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(0, 0, 0, 0.95) 100%);
-          backdrop-filter: blur(10px);
-        }
-
-        /* Hamburger Menu Styles */
-        .burger {
-          display: flex;
-          flex-direction: column;
-          cursor: pointer;
-          padding: 8px;
-        }
-
-        .burger span {
-          display: block;
-          height: 2px;
-          background-color: white;
-          transition: all 0.3s ease-in-out;
-          transform-origin: center;
-        }
-
-        .burger span:nth-child(1) {
-          width: 1.25rem;
-        }
-
-        .burger span:nth-child(2) {
-          width: 1rem;
-          margin-top: 4px;
-        }
-
-        .burger span:nth-child(3) {
-          width: 0.75rem;
-          margin-top: 4px;
-        }
-
-        /* Hamburger Animation when opened */
-        .burger.toggle-burger span:nth-child(1) {
-          transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .burger.toggle-burger span:nth-child(2) {
-          opacity: 0;
-        }
-
-        .burger.toggle-burger span:nth-child(3) {
-          width: 1.25rem;
-          transform: rotate(-45deg) translate(7px, -6px);
-        }
-      `}</style>
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-white">
-           
-             <div className="text-2xl font-bold text-white">
-                <a href="/">
-                  <img src={logo} alt="" width={50} />
-                </a>
-              </div>
-          </div>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex md:space-x-4">
-            <div className="relative group">
-              <a
-                href="#"
-                className="flex items-center pr-7 text-sm text-white hover:text-blue-400 transition-colors duration-200"
-              >
-                Solutions
-                <span className="ml-1 transition-transform duration-200 group-hover:rotate-180">
-                  <i className="fa-solid fa-angle-down"></i>
-                </span>
-              </a>
-              
-              {/* Mega Menu for Solutions */}
-              <div className="absolute left-0 top-full pt-2 hidden group-hover:block animate-slideDown">
-                <div className="mega-menu-backdrop rounded-xl shadow-2xl border border-gray-700 p-8 w-[600px] -translate-x-1/4">
-                  <div className="grid grid-cols-2 gap-8">
-                    <div>
-                      <h3 className="text-lg font-semibold text-white mb-4 border-b border-gray-600 pb-2">
-                        Core Solutions
-                      </h3>
-                      <div className="space-y-3">
-                        <a
-                          href="data-and-ai"
-                          className="group/item flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-all duration-200"
-                        >
-                          <div className="w-10 h-10 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-gray-900 group-hover/item:border-white transition-all duration-200">
-                            <i className="fa-solid fa-brain text-black group-hover/item:text-red-500 text-sm transition-colors duration-200"></i>
-                          </div>
-                          <div>
-                            <h4 className="text-white font-medium group-hover/item:text-white transition-colors">
-                              Data and AI
-                            </h4>
-                            <p className="text-gray-400 text-xs mt-1">
-                              Harness the power of artificial intelligence
-                            </p>
-                          </div>
-                        </a>
-                        
-                        <a
-                          href="It_and_buisness_automation"
-                          className="group/item flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-all duration-200"
-                        >
-                          <div className="w-10 h-10 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-gray-900 group-hover/item:border-white transition-all duration-200">
-                            <i className="fa-solid fa-cogs text-black group-hover/item:text-red-500 text-sm transition-colors duration-200"></i>
-                          </div>
-                          <div>
-                            <h4 className="text-white font-medium group-hover/item:text-white transition-colors">
-                              IT & Business Automation
-                            </h4>
-                            <p className="text-gray-400 text-xs mt-1">
-                              Streamline your operations
-                            </p>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <h3 className="text-lg font-semibold text-white mb-4 border-b border-gray-600 pb-2">
-                        Infrastructure
-                      </h3>
-                      <div className="space-y-3">
-                        <a
-                          href="Open_hybrid_cloud"
-                          className="group/item flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-all duration-200"
-                        >
-                          <div className="w-10 h-10 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-gray-900 group-hover/item:border-white transition-all duration-200">
-                            <i className="fa-solid fa-cloud text-black group-hover/item:text-red-500 text-sm transition-colors duration-200"></i>
-                          </div>
-                          <div>
-                            <h4 className="text-white font-medium group-hover/item:text-white transition-colors">
-                              Open Hybrid Cloud
-                            </h4>
-                            <p className="text-gray-400 text-xs mt-1">
-                              Flexible cloud solutions
-                            </p>
-                          </div>
-                        </a>
-                        
-                        <a
-                          href="Security_and_sustainability"
-                          className="group/item flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-all duration-200"
-                        >
-                          <div className="w-10 h-10 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-gray-900 group-hover/item:border-white transition-all duration-200">
-                            <i className="fa-solid fa-shield-alt text-black group-hover/item:text-red-500 text-sm transition-colors duration-200"></i>
-                          </div>
-                          <div>
-                            <h4 className="text-white font-medium group-hover/item:text-white transition-colors">
-                              Security & Sustainability
-                            </h4>
-                            <p className="text-gray-400 text-xs mt-1">
-                              Secure and sustainable tech
-                            </p>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Call to Action */}
-                  <div className="mt-8 pt-6 border-t border-gray-600">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="text-white font-medium">Need help choosing?</h4>
-                        <p className="text-gray-400 text-sm">Talk to our solution experts</p>
-                      </div>
-                      <button onClick={() => setShowPopup(true)} className="px-4 py-2 bg-black-600 text-white rounded-lg hover:bg-gray-900 cursor-pointer transition-colors duration-200 text-sm">
-                        Get Consultation
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <a href="Company" className="hover:text-blue-400 pr-7 text-sm text-white transition-colors duration-200">
-              Company
-            </a>
-            <a href="Join-with-us" className="hover:text-blue-400 pr-7 text-sm text-white transition-colors duration-200">
-              Careers
-            </a>
-            
-            <div className="relative group">
-              <a
-                href="#"
-                className="hover:text-blue-400 flex items-center pr-7 text-sm text-white transition-colors duration-200"
-              >
-                News
-                <span className="ml-1 transition-transform duration-200 group-hover:rotate-180">
-                  <i className="fa-solid fa-angle-down"></i>
-                </span>
-              </a>
-              
-              {/* Mega Menu for News */}
-              <div className="absolute left-0 top-full pt-2 hidden group-hover:block animate-slideDown">
-                <div className="mega-menu-backdrop rounded-xl shadow-2xl border border-gray-700 p-6 w-[400px] -translate-x-1/3">
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="text-lg font-semibold text-white mb-4 border-b border-gray-600 pb-2">
-                        Stay Updated
-                      </h3>
-                      <div className="space-y-3">
-                        <a
-                          href="About-us"
-                          className="group/item flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-all duration-200"
-                        >
-                          <div className="w-8 h-8 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-gray-900 group-hover/item:border-white transition-all duration-200">
-                            <i className="fa-solid fa-info-circle text-black group-hover/item:text-red-500 text-xs transition-colors duration-200"></i>
-                          </div>
-                          <div>
-                            <h4 className="text-white font-medium group-hover/item:text-white transition-colors">
-                              About Us
-                            </h4>
-                            <p className="text-gray-400 text-xs">Learn about our mission</p>
-                          </div>
-                        </a>
-                        
-                        <a
-                          href="#"
-                          className="group/item flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-all duration-200"
-                        >
-                          <div className="w-8 h-8 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-gray-900 group-hover/item:border-white transition-all duration-200">
-                            <i className="fa-solid fa-newspaper text-black group-hover/item:text-red-500 text-xs transition-colors duration-200"></i>
-                          </div>
-                          <div>
-                            <h4 className="text-white font-medium group-hover/item:text-white transition-colors">
-                              Press Releases
-                            </h4>
-                            <p className="text-gray-400 text-xs">Latest company news</p>
-                          </div>
-                        </a>
-                        
-                        <a
-                          href="#"
-                          className="group/item flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-all duration-200"
-                        >
-                          <div className="w-8 h-8 bg-white border-2 border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0 group-hover/item:bg-gray-900 group-hover/item:border-white transition-all duration-200">
-                            <i className="fa-solid fa-blog text-black group-hover/item:text-red-500 text-xs transition-colors duration-200"></i>
-                          </div>
-                          <div>
-                            <h4 className="text-white font-medium group-hover/item:text-white transition-colors">
-                              Blog
-                            </h4>
-                            <p className="text-gray-400 text-xs">Insights and articles</p>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <a href="our-stories" className="hover:text-blue-400 text-sm text-white transition-colors duration-200">
-              Stories
-            </a>
-          </div>
-
-          {/* Desktop Demo Button - Only show when scrolling up past threshold */}
-          <div className="hidden md:block">
-            <div className={`transition-all duration-300 ${showDemoButton ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'}`}>
-              <button 
-                onClick={() => setShowPopup(true)} 
-                className="relative inline-block cursor-pointer px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded-lg hover:border-blue-400 transition-all duration-200"
-              >
-                <span className="absolute inset-0 w-0 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-500 ease-out group-hover:w-full"></span>
-                <span className="relative z-10 group-hover:text-white">Request a Demo</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <div className="md:hidden">
-            <div
-              className={`burger ${isOpen ? 'toggle-burger' : ''}`}
-              aria-expanded={isOpen}
-              aria-controls="nav-links"
-              onClick={toggleMenu}
-            >
-              <span className="block h-[2px] bg-white transition-all duration-300 ease-in-out w-[1.25rem]"></span>
-              <span className={`block h-[2px] bg-white transition-all duration-300 ease-in-out w-[1rem] mt-1 ${isOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`block h-[2px] bg-white transition-all duration-300 ease-in-out w-[0.75rem] mt-1 ${isOpen ? 'w-[1.25rem]' : ''}`}></span>
-            </div>
-            <div
-                className={`nav-links fixed top-0 left-0 w-full h-screen bg-black bg-opacity-95 z-20 flex flex-col justify-start pt-20 pl-4 transition-all duration-300 ease-in-out
-                  ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-                id="nav-links"
-              >
-                {/* Close Button */}
-              <button
-                onClick={toggleMenu}
-                className="absolute top-4 right-4 text-white text-3xl focus:outline-none"
-                aria-label="Close Menu"
-              >
-                ×
-              </button>
-
-              <div className="flex flex-col items-start space-y-2">
-                <div className="relative group w-full">
-                  <a
-                    href="#"
-                    className="hover:text-gray-300 flex items-center text-white text-[1.1rem] p-3 w-full"
-                    onClick={() => toggleDropdown('solutions')}
-                  >
-                    Solutions
-                    <span className={`ml-1 transition-transform duration-200 ${openDropdown === 'solutions' ? 'rotate-180' : ''}`}>
-                      <i className="fa-solid fa-angle-down"></i>
-                    </span>
-                  </a>
-                  <div
-                    className={`bg-black bg-opacity-90 py-2 w-full transition-all duration-300 ease-in-out ${openDropdown === 'solutions' ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
-                  >
-                    <a
-                      href="data-and-ai"
-                      className="block px-8 py-2 hover:bg-gray-800 text-white"
-                    >
-                      Data and AI
-                    </a>
-                    <a
-                      href="It_and_buisness_automation"
-                      className="block px-8 py-2 hover:bg-gray-800 text-white"
-                    >
-                      IT and Business Automation
-                    </a>
-                    <a
-                      href="Open_hybrid_cloud"
-                      className="block px-8 py-2 hover:bg-gray-800 text-white"
-                    >
-                      Open Hybrid Cloud
-                    </a>
-                    <a
-                      href="Security_and_sustainability"
-                      className="block px-8 py-2 hover:bg-gray-800 text-white"
-                    >
-                      Security and Sustainability
-                    </a>
-                  </div>
-                </div>
-                <a href="Company" className="hover:text-gray-300 text-white text-[1.1rem] p-3 w-full">
-                  Company
-                </a>
-                <a href="Join-with-us" className="hover:text-gray-300 text-white text-[1.1rem] p-3 w-full">
-                  Careers
-                </a>
-                <div className="relative group w-full">
-                  <a
-                    href="#"
-                    className="hover:text-gray-300 flex items-center text-white text-[1.1rem] p-3 w-full"
-                    onClick={() => toggleDropdown('news')}
-                  >
-                    News
-                    <span className={`ml-1 transition-transform duration-200 ${openDropdown === 'news' ? 'rotate-180' : ''}`}>
-                      <i className="fa-solid fa-angle-down"></i>
-                    </span>
-                  </a>
-                  <div
-                    className={`bg-black bg-opacity-90 py-2 w-full transition-all duration-300 ease-in-out ${openDropdown === 'news' ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
-                  >
-                    <a href="About-us" className="block px-8 py-2 hover:bg-gray-800 text-white">
-                      About us
-                    </a>
-                    <a href="#" className="block px-8 py-2 hover:bg-gray-800 text-white">
-                      Press
-                    </a>
-                    <a href="#" className="block px-8 py-2 hover:bg-gray-800 text-white">
-                      Blog
-                    </a>
-                  </div>
-                </div>
-                <a href="our-stories" className="hover:text-gray-300 text-white text-[1.1rem] p-3 w-full">
-                  Stories
-                </a>
-                
-                {/* Mobile Demo Button - Always visible */}
-                <button 
-                  onClick={() => setShowPopup(true)} 
-                  className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
-                >
-                  <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-                  <span className="relative z-10 group-hover:text-black">Request a Demo</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Demo Request Popup */}
+  {/* Demo Request Popup */}
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 animate-fadeIn">
-          <div className="bg-black bg-opacity-90 rounded-lg p-6 w-full max-w-md relative animate-scaleIn transform">
+          <div className=" rounded-lg p-6 w-full max-w-md relative animate-scaleIn transform">
             <button
               onClick={closePopup}
               className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl"
@@ -568,7 +113,7 @@ const Navbar = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-100 bg-black text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-100  text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
@@ -582,7 +127,7 @@ const Navbar = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border text-white border-gray-100 bg-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border text-white border-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
               </div>
@@ -596,7 +141,7 @@ const Navbar = () => {
                   name="company"
                   value={formData.company}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border text-white border-gray-100 bg-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border text-white border-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
               
@@ -609,7 +154,7 @@ const Navbar = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={3}
-                  className="w-full px-3 py-2 text-white border border-gray-100 bg-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 text-white border border-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Tell us about your requirements..."
                 />
               </div>
@@ -618,14 +163,14 @@ const Navbar = () => {
                 <button
                   type="button"
                   onClick={closePopup}
-                  className="flex-1 px-4 py-2 border border-gray-100 text-gray-100 rounded-md hover:bg-gray-800"
+                  className="flex-1 px-4 py-2 border border-gray-100 text-gray-100 rounded-md hover:bg-gray-50"
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="flex-1 px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700"
+                  className="flex-1 px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-blue-700"
                 >
                   Submit Request
                 </button>
@@ -634,14 +179,292 @@ const Navbar = () => {
           </div>
         </div>
       )}
+
+
+
+    <nav className="bg-black border-gray-200 dark:border-gray-600 dark:bg-gray-900 shadow-sm">
+      <div className="flex justify-between items-center mx-auto max-w-screen-xl p-4">
+        {/* Logo */}
+        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src={logo} className="h-10" alt="Flowbite Logo" />
+          {/* <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span> */}
+        </a>
+
+        {/* Center nav - Desktop */}
+        <div className="hidden md:flex items-center justify-center flex-1">
+          <ul className="flex space-x-8 font-medium">
+            <li>
+              <a href="#" className="relative block py-2 px-3 text-gray-100 hover:text-red-600 dark:text-white dark:hover:text-blue-500 transition-colors duration-200 group">
+                Home
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
+              </a>
+            </li>
+            <li className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+              <button
+                ref={toggleRef}
+                onClick={toggleDropdown}
+                className="relative flex cursor-pointer items-center py-2 px-3 font-medium text-gray-100 hover:text-red-600 dark:text-white dark:hover:text-blue-500 transition-colors duration-200 group focus:outline-none"
+                aria-haspopup="true"
+                aria-expanded={isDropdownOpen}
+              >
+                Solutions
+                <svg className={`w-2.5 h-2.5 ms-2 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+                </svg>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
+              </button>
+            </li>
+            <li>
+              <a href="Company" className="relative block py-2 px-3 text-gray-100 hover:text-red-600 dark:text-white dark:hover:text-blue-500 transition-colors duration-200 group">
+                Who we Are
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className="relative block py-2 px-3 text-gray-100 hover:text-red-600 dark:text-white dark:hover:text-blue-500 transition-colors duration-200 group">
+                Join with us
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
+              </a>
+            </li>
+            <li>
+              <a href="#" className="relative block py-2 px-3 text-gray-100 hover:text-red-600 dark:text-white dark:hover:text-blue-500 transition-colors duration-200 group">
+                Contact
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Right side - Desktop */}
+        <div className="hidden md:flex items-center space-x-4">
+          {/* <button className="px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-300 rounded">
+            Sign In
+          </button> */}
+          <button onClick={() => setShowPopup(true)} className="px-6 py-2 text-sm font-medium cursor-pointer text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-all duration-200 transform hover:scale-105 focus:outline-none">
+            Get Started
+          </button>
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          onClick={toggleMobileMenu}
+          type="button"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 transition-colors duration-200"
+          aria-controls="mobile-menu"
+          aria-expanded={isMobileMenuOpen}
+        >
+          <span className="sr-only">Open main menu</span>
+          <svg className={`w-5 h-5 transition-transform duration-200 ${isMobileMenuOpen ? 'rotate-90' : ''}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      <div className={`md:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+        <div className="px-4 pt-2 pb-3 space-y-1 bg-gray-50 dark:bg-gray-800">
+          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+            Home
+          </a>
+          <button
+            onClick={toggleDropdown}
+            className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200 focus:outline-none"
+            aria-haspopup="true"
+            aria-expanded={isDropdownOpen}
+          >
+            Company
+            <svg className={`w-2.5 h-2.5 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
+            </svg>
+          </button>
+          
+          {/* Mobile Dropdown Items */}
+          {isDropdownOpen && (
+            <div className="pl-4 space-y-1 border-l-2  border-blue-200 ml-3">
+              <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+                Online Stores
+              </a>
+              <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+                Segmentation
+              </a>
+              <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+                Marketing CRM
+              </a>
+              <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+                Analytics
+              </a>
+            </div>
+          )}
+          
+          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+            Marketplace
+          </a>
+          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+            Resources
+          </a>
+          <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-blue-600 hover:bg-gray-100 dark:text-white dark:hover:text-blue-500 dark:hover:bg-gray-700 transition-all duration-200">
+            Contact
+          </a>
+          <div className="pt-4 space-y-2">
+            <button className="w-full px-3 py-2 text-sm font-medium text-blue-600 hover:text-blue-800 hover:bg-gray-100 dark:text-blue-400 dark:hover:text-blue-300 dark:hover:bg-gray-700 rounded-md transition-all duration-200 focus:outline-none">
+              Sign In
+            </button>
+            <button className="w-full px-3 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition-all duration-200 focus:outline-none">
+              Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+
       
-      {/* FontAwesome CDN for icons */}
-      <link 
-        rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-      />
+      {/* Desktop Dropdown Menu */}
+      {isDropdownOpen && (
+        <div
+          ref={dropdownRef}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          className="absolute left-0 right-0 z-50 bg-[#1F1D1A] border-gray-200 shadow-lg border-t dark:bg-gray-800 dark:border-gray-600 transition-all duration-300 ease-in-out"
+        >
+          <div className="grid max-w-screen-xl px-4 py-8 mx-auto text-sm text-gray-500 dark:text-gray-400 md:grid-cols-2 lg:grid-cols-4 md:px-6 gap-8">
+            
+            {/* Data and AI Column */}
+            <div className="space-y-4">
+              <h3 className="font-semibold text-white text-lg mb-3 cursor-pointer" onClick={()=>{window.location.href = "/Data-and-ai"}}>Data and AI</h3>
+              <a href="Data-and-ai#machinelearning" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  Machine Learning
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Build intelligent applications with advanced ML algorithms and predictive analytics
+                </p>
+              </a>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  Data Analytics
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Transform raw data into actionable insights with powerful visualization tools
+                </p>
+              </a>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  AI Integration
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Seamlessly integrate AI capabilities into your existing business processes
+                </p>
+              </a>
+            </div>
+
+            {/* IT and Business Automation Column */}
+            <div className="space-y-4">
+              <h3 className="font-semibold text-white text-lg mb-3 cursor-pointer" onClick={()=>{ window.location.href = "/It_and_buisness_automation"}}>IT & Business Automation</h3>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  Workflow Automation
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Streamline repetitive tasks and optimize business processes automatically
+                </p>
+              </a>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  System Integration
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Connect disparate systems and create unified digital ecosystems
+                </p>
+              </a>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  Process Optimization
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Identify bottlenecks and improve operational efficiency across departments
+                </p>
+              </a>
+            </div>
+
+            {/* Security and Sustainability Column */}
+            <div className="space-y-4">
+              <h3 className="font-semibold text-white text-lg mb-3 cursor-pointer" onClick={()=>{ window.location.href = "/Security_and_sustainability"}}>Security & Sustainability</h3>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  Cybersecurity
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Protect your digital assets with advanced threat detection and prevention
+                </p>
+              </a>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  Green Technology
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Reduce environmental impact with sustainable and energy-efficient solutions
+                </p>
+              </a>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  Compliance Management
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Ensure regulatory compliance with automated monitoring and reporting
+                </p>
+              </a>
+            </div>
+
+            {/* Open Hybrid Cloud Column */}
+            <div className="space-y-4">
+              <h3 className="font-semibold text-white text-lg cursor-pointer mb-3" onClick={()=>{ window.location.href = "/Open_hybrid_cloud"}}>Open Hybrid Cloud</h3>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  Cloud Migration
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Seamlessly transition your infrastructure to flexible cloud environments
+                </p>
+              </a>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  Multi-Cloud Management
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Manage workloads across multiple cloud providers with unified control
+                </p>
+              </a>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  Container Solutions
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Deploy and scale applications efficiently with containerization technology
+                </p>
+              </a>
+            </div>
+
+          </div>
+          
+          {/* Bottom CTA Section */}
+          <div className="border-t border-gray-700 bg-[#171512] px-4 py-6">
+            <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between">
+              <div className="mb-4 md:mb-0">
+                <h4 className="text-white font-semibold mb-1">Ready to transform your business?</h4>
+                <p className="text-gray-400 text-sm">Discover how our solutions can drive your success</p>
+              </div>
+              <a href="#" className="inline-flex items-center px-6 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors duration-200">
+                Explore All Solutions
+                <svg className="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
+    </>
   );
 };
 
-export default Navbar;
+export default ResponsiveNavbar;

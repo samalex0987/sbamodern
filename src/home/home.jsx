@@ -238,28 +238,65 @@ const [showPopup, setShowPopup] = useState(false);
       </div>
     </div>
 
-<section className="py-16 bg-black text-white" data-aos="fade-up">
+  <section className="py-16 bg-black text-white" >
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 className="text-4xl font-bold mb-6">Automation Powered by IBM & Red Hat</h2>
+    <h2 className="text-4xl font-bold mb-6">Unlock Efficiency with Intelligent Automation</h2>
     <p className="max-w-3xl mx-auto text-lg mb-12">
-      Streamline your business processes with intelligent automation solutions using IBM's AI and analytics tools combined with Red Hat's open-source automation platforms.
+      Transform your business operations with smart automation solutions that enhance productivity, streamline workflows, and deliver faster results across all areas of your business.
     </p>
+
     <div className="flex flex-col sm:flex-row justify-center gap-12">
-      <div className="bg-[#1a1a1a] p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-1/3">
-        <h3 className="text-xl font-semibold mb-4">IBM Watson AI</h3>
-        <p className="text-lg">Leverage AI-powered chatbots and assistants to automate customer service and insights.</p>
+      {/* Card 1 */}
+      <div data-aos="fade-up" className="group relative w-full sm:w-1/3 bg-[#1a1a1a] text-left p-8 rounded-lg shadow-lg overflow-hidden transition-transform duration-500 hover:scale-105">
+        {/* Border Animations */}
+        <span className="absolute left-0 top-0 h-0.5 w-0 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+        <span className="absolute right-0 top-0 h-0 w-0.5 bg-red-600 transition-all duration-300 delay-500 group-hover:h-full"></span>
+        <span className="absolute bottom-0 right-0 h-0.5 w-0 bg-red-600 transition-all duration-300 delay-500 group-hover:w-full"></span>
+        <span className="absolute bottom-0 left-0 h-0 w-0.5 bg-red-600 transition-all duration-300 delay-500 group-hover:h-full"></span>
+
+        <div className="relative z-10">
+          <h3 className="text-xl font-semibold mb-4">AI-Powered Automation</h3>
+          <p className="text-lg">
+            Empower your business with AI-driven automation tools to enhance customer engagement, support, and insights.
+          </p>
+        </div>
       </div>
-      <div className="bg-[#1a1a1a] p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-1/3">
-        <h3 className="text-xl font-semibold mb-4">Red Hat Ansible Automation</h3>
-        <p className="text-lg">Automate IT infrastructure, application deployment, and configuration management seamlessly.</p>
+
+      {/* Card 2 */}
+      <div data-aos="fade-up" className="group relative w-full sm:w-1/3 bg-[#1a1a1a] text-left p-8 rounded-lg shadow-lg overflow-hidden transition-transform duration-500 hover:scale-105">
+        {/* Border Animations */}
+        <span className="absolute left-0 top-0 h-0.5 w-0 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+        <span className="absolute right-0 top-0 h-0 w-0.5 bg-red-600 transition-all duration-300 delay-150 group-hover:h-full"></span>
+        <span className="absolute bottom-0 right-0 h-0.5 w-0 bg-red-600 transition-all duration-300 delay-300 group-hover:w-full"></span>
+        <span className="absolute bottom-0 left-0 h-0 w-0.5 bg-red-600 transition-all duration-300 delay-500 group-hover:h-full"></span>
+
+        <div className="relative z-10">
+          <h3 className="text-xl font-semibold mb-4">IT & Infrastructure Automation</h3>
+          <p className="text-lg">
+            Automate and manage your IT infrastructure and operations to ensure scalability, reliability, and speed.
+          </p>
+        </div>
       </div>
-      <div className="bg-[#1a1a1a] p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 w-full sm:w-1/3">
-        <h3 className="text-xl font-semibold mb-4">Hybrid Cloud & DevOps</h3>
-        <p className="text-lg">Enable continuous integration and delivery with flexible hybrid cloud automation solutions.</p>
+
+      {/* Card 3 */}
+      <div data-aos="fade-up" className="group relative w-full sm:w-1/3 bg-[#1a1a1a] text-left p-8 rounded-lg shadow-lg overflow-hidden transition-transform duration-500 hover:scale-105">
+        {/* Border Animations */}
+        <span className="absolute left-0 top-0 h-0.5 w-0 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+        <span className="absolute right-0 top-0 h-0 w-0.5 bg-red-600 transition-all duration-300 delay-150 group-hover:h-full"></span>
+        <span className="absolute bottom-0 right-0 h-0.5 w-0 bg-red-600 transition-all duration-300 delay-300 group-hover:w-full"></span>
+        <span className="absolute bottom-0 left-0 h-0 w-0.5 bg-red-600 transition-all duration-300 delay-500 group-hover:h-full"></span>
+
+        <div className="relative z-10">
+          <h3 className="text-xl font-semibold mb-4">Cloud & DevOps Automation</h3>
+          <p className="text-lg">
+            Achieve seamless integration, delivery, and management with powerful cloud automation and DevOps solutions.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 
         <br /><br /><br />
         <Ourservices />

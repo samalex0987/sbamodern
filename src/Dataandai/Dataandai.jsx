@@ -274,32 +274,33 @@ function Dataandai() {
         </div>
       </div>
 
-      {/* WatsonX Header */}
-      <div className="text-center mb-12" data-aos="fade-up">
-        <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl">
-          Intelligent Solutions by watsonX
-        </h2>
-      </div>
+<br /><br /><br />
+{/* What We Do */}
 
-     {/* Watson Assistant Section */}
+    {/* Section Header */}
+<div className="text-center mb-12" data-aos="fade-up">
+  <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl">
+    Solution We Offer
+  </h2>
+</div>
+
+{/* Machine Learning Models Section */}
 <div className="py-16 text-white" data-aos="fade-up">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]" id="machinelearning">
       <div className="order-1 lg:order-1">
         <img
           src={watson_assistant}
-          alt="Watson Assistant"
+          alt="Machine Learning Models"
           className="w-full rounded-lg shadow-lg"
         />
       </div>
       <div className="order-2 lg:order-2 px-4 sm:px-6 lg:pl-10 pb-5">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Watson Assistant</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Machine Learning Models</h2>
         <p className="text-base sm:text-lg mb-6">
-          IBM Watson Assistant is a conversation AI platform that helps you provide customers
-          fast, straightforward, and accurate answers to their questions, across any
-          application, device, or channel.
+          Build intelligent systems with our ready-to-integrate machine learning models. From predictive analytics to natural language processing, we tailor solutions to match your business needs.
         </p>
-        <a href="https://www.ibm.com/products/watsonx-assistant" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+        <a href="#" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
           <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
           <span className="relative z-10 group-hover:text-black">Learn More</span>
         </a>
@@ -308,74 +309,48 @@ function Dataandai() {
   </div>
 </div>
 
-{/* Watson Discovery Section */}
+{/* Data Analytics Section */}
 <div className="py-16 text-white" data-aos="fade-up">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
       <div className="order-2 lg:order-1 px-4 sm:px-6 lg:pl-10 pb-5">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Watson Discovery</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Data Analytics</h2>
         <p className="text-base sm:text-lg mb-6">
-          IBM Watson Discovery is an award-winning enterprise search and AI search technology
-          that breaks open data silos and retrieves specific answers to your questions while
-          analyzing trends and relationships buried in enterprise data.
+          Transform raw data into valuable insights. Our analytics platform provides interactive dashboards, trend forecasting, and deep data exploration tailored for decision-makers.
         </p>
-        <a href="https://www.ibm.com/products/watson-discovery" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+        <a href="#" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
           <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
           <span className="relative z-10 group-hover:text-black">Learn More</span>
         </a>
       </div>
       <div className="order-1 lg:order-2">
         <img
-          src={watson_discovery}
-          alt="Watson Discovery"
-          className="w-full rounded-lg shadow-lg"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-
-<div className="py-16 text-white" data-aos="fade-up">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-      <div className="order-1 lg:order-1">
-        <img
-          src={watson_assistant}
-          alt="Watson Assistant"
-          className="w-full rounded-lg shadow-lg"
-        />
-      </div>
-      <div className="order-2 lg:order-2 px-4 sm:px-6 lg:pl-10 pb-5">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Instana</h2>
-        <p className="text-base sm:text-lg mb-6">
-          Instana Observability is a fully-automated application performance management solution designed for the challenges of managing microservice and cloud-native applications. It makes your applications visible and enables intelligent actions based on observed information.
-        </p>
-        <a href="https://www.ibm.com/products/watsonx-assistant" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-          <span className="relative z-10 group-hover:text-black">Learn More</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-{/* Cognos Section */}
-<div className="py-16 text-white" data-aos="fade-up">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-      <div className="order-1 lg:order-1">
-        <img
           src={cognos}
-          alt="Cognos"
+          alt="Data Analytics"
           className="w-full rounded-lg shadow-lg"
-        />
+          />
+      </div>
+    </div>
+  </div>
+</div>
+
+{/* AI Integrations Section */}
+<div className="py-16 text-white" data-aos="fade-up">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
+      <div className="order-1 lg:order-1">
+        <img
+          src={watson_discovery}
+          alt="AI Integrations"
+          className="w-full rounded-lg shadow-lg"
+          />
       </div>
       <div className="order-2 lg:order-2 px-4 sm:px-6 lg:pl-10 pb-5">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Cognos</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">AI Integrations</h2>
         <p className="text-base sm:text-lg mb-6">
-          Unleash the power of your data through AI-driven automation and insights in Cognos Analytics. Simply pose a question or hypothesis, and let AI provide the insights you require.
+          Seamlessly integrate AI into your workflows, tools, and customer touchpoints. From chatbots to smart search and recommendations, our solutions enhance efficiency and experience.
         </p>
-        <a href="https://www.ibm.com/products/cognos-analytics" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
+        <a href="#" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
           <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
           <span className="relative z-10 group-hover:text-black">Learn More</span>
         </a>
@@ -383,6 +358,8 @@ function Dataandai() {
     </div>
   </div>
 </div>
+
+  {/* What We Do */}
 
       {/* Final Feature Grid */}
       <section className="max-w-7xl mx-auto px-4 py-16" data-aos="fade-up">
@@ -406,7 +383,7 @@ function Dataandai() {
               className="bg-neutral-900 p-6 rounded-xl"
               data-aos="fade-up"
               data-aos-delay={idx * 100}
-            >
+              >
               <h3 className="text-lg font-semibold mb-2 text-white">{title}</h3>
               <p className="text-sm text-gray-300">
                 {
@@ -418,11 +395,11 @@ function Dataandai() {
                     "Data Governance":
                       "Ensure data quality, lineage, and compliance across the organization with automated policies and role-based access control.",
                     "Intelligent Automation":
-                      "Combine AI with automation to optimize business processes, improve decision-making, and drive operational efficiency.",
+                    "Combine AI with automation to optimize business processes, improve decision-making, and drive operational efficiency.",
                     "Real-Time Analytics":
                       "Analyze data in real-time to uncover insights, detect anomalies, and respond instantly to changing business conditions.",
                     "Scalable Data Infrastructure":
-                      "Leverage cloud-native and hybrid data platforms to store, process, and serve AI workloads at scale with high performance.",
+                    "Leverage cloud-native and hybrid data platforms to store, process, and serve AI workloads at scale with high performance.",
                   }[title]
                 }
               </p>

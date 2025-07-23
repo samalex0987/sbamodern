@@ -90,7 +90,7 @@ function Company() {
     {/* Button */}
     <button 
       onClick={() => setShowPopup(true)} 
-      className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
+      className="relative inline-block px-6 py-3 cursor-pointer font-medium group overflow-hidden border border-white text-white rounded"
     >
       <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
       <span className="relative z-10 group-hover:text-black">Request a Demo</span>
@@ -323,7 +323,7 @@ function Company() {
       Empower the Future with Cutting-Edge Technology.
     </h2>
     <button onClick={() => setShowPopup(true)}
-      className="relative inline-block px-6 py-3 font-medium group overflow-hidden border bg-black text-white rounded"
+      className="relative inline-block px-6 py-3 cursor-pointer font-medium group overflow-hidden border bg-black text-white rounded"
     >
       <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-300 ease-out group-hover:w-full"></span>
       <span className="relative z-10 group-hover:text-black">Join With Us</span>

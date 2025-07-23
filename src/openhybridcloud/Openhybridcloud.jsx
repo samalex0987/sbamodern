@@ -270,10 +270,12 @@ function Open_hybrid_cloud() {
   </div>
 </div>
 
+
+<br /><br /><br />
 {/* Powered By */}
 <div className="text-center mb-12" data-aos="fade-up" data-aos-delay="600">
   <h2 className="text-2xl sm:text-3xl font-bold text-gray-100 sm:text-4xl">
-    Intelligent Solutions by Redhat
+    Our Solutions
   </h2>
 </div>
 
@@ -292,14 +294,9 @@ function Open_hybrid_cloud() {
       </div>
 
       <div className="order-2 lg:order-2 lg:pl-10 px-4 sm:px-6 pb-5">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">RHEL</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Cloud Migration</h2>
         <p className="text-base sm:text-lg mb-6">
-          Red Hat Enterprise Linux (RHEL) is a stable and secure Linux
-          distribution tailored for enterprise environments, offering
-          robust performance and comprehensive support. It includes
-          features like SELinux for enhanced security, regular updates
-          for vulnerability management, and extensive documentation to
-          aid system administrators in maintaining their infrastructure.
+          Seamlessly transition your applications and data to the cloud with minimal downtime. Our migration strategies ensure scalability, security, and optimized performance.
         </p>
         <a
           href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux"
@@ -320,12 +317,9 @@ function Open_hybrid_cloud() {
       data-aos="fade-up"
     >
       <div className="order-2 lg:order-1 lg:pl-10 px-4 sm:px-6 pb-5">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Ansible</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Multi-Cloud Management</h2>
         <p className="text-base sm:text-lg mb-6">
-          Ansible is an open-source automation tool that simplifies IT
-          processes such as configuration management, application
-          deployment, and orchestration by using human-readable YAML
-          playbooks, eliminating the need for agents on target systems.
+          Manage multiple cloud environments efficiently with centralized tools. We help you balance workloads, ensure compliance, and optimize costs across providers.
         </p>
         <a
           href="https://www.redhat.com/en/ansible-collaborative"
@@ -347,6 +341,37 @@ function Open_hybrid_cloud() {
   </div>
 </div>
 
+
+<div className="py-16 text-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]"
+      data-aos="fade-up"
+    >
+      <div className="order-1 lg:order-1">
+        <img
+          src={watson_assistant}
+          alt="RHEL Illustration"
+          className="w-full rounded-lg shadow-lg"
+        />
+      </div>
+
+      <div className="order-2 lg:order-2 lg:pl-10 px-4 sm:px-6 pb-5">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Container Solutions</h2>
+        <p className="text-base sm:text-lg mb-6">
+          Deploy and manage containerized applications with robust orchestration platforms. We help accelerate development cycles and ensure consistency across environments.
+        </p>
+        <a
+          href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux"
+          className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
+        >
+          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
+          <span className="relative z-10 group-hover:text-black">Learn More</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
 
       {/* Powered By */}
       <section className="max-w-7xl mx-auto px-4 py-16">
