@@ -1,6 +1,7 @@
 import React, { useState, Suspense, lazy } from 'react'
 import Navbar from './navbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ContactUsPage from './contactus/contact'
 
 // Lazy load route components
 const Home = lazy(() => import('./home/home'))
@@ -34,6 +35,7 @@ function App() {
           <Route path='/test' element={<Test />} />
           <Route path='/our-stories' element={<SuccessStories />} />
           <Route path='/About-us' element={<About_us />} />
+          <Route path='/Connect-with-us' element={<ContactUsPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

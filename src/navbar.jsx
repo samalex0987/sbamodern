@@ -227,7 +227,7 @@ const ResponsiveNavbar = () => {
               </a>
             </li>
             <li>
-              <a href="#" className="relative block py-2 px-3 text-gray-100 hover:text-red-600 dark:text-white dark:hover:text-blue-500 transition-colors duration-200 group">
+              <a href="/Connect-with-us" className="relative block py-2 px-3 text-gray-100 hover:text-red-600 dark:text-white dark:hover:text-blue-500 transition-colors duration-200 group">
                 Contact
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-red-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
               </a>

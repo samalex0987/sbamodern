@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import watson_assistant from "./watson_assistant.gif";
-import watson_discovery from "./watson_discovery.gif";
+import cybersecurity from "./cybersecurity.gif";
+import green_technology from "./green_technology.gif";
 
 function Security_and_sustainability() {
  
@@ -292,7 +292,7 @@ function Security_and_sustainability() {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
       <div className="order-1 lg:order-1">
         <img
-          src={watson_assistant}
+          src={cybersecurity}
           alt="Watson Assistant"
           className="w-full rounded-lg shadow-lg"
         />
@@ -331,7 +331,7 @@ function Security_and_sustainability() {
       </div>
       <div className="order-1 lg:order-2">
         <img
-          src={watson_discovery}
+          src={green_technology}
           alt="Watson Discovery"
           className="w-full rounded-lg shadow-lg"
         />
@@ -346,7 +346,7 @@ function Security_and_sustainability() {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
       <div className="order-1 lg:order-1">
         <img
-          src={watson_assistant}
+          src={cybersecurity}
           alt="Watson Assistant"
           className="w-full rounded-lg shadow-lg"
         />

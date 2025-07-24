@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import watson_assistant from "./watson_assistant.gif";
-import watson_discovery from "./watson_discovery.gif";
+import workflow_automation from "./workflow_automation.gif";
+import system_integration from "./system_integration.gif";
+import process_optimization from "./process_optimization.gif";
 import { Activity, Cloud, Settings } from "lucide-react";
 
 function It_and_buisness_automation() {
@@ -277,7 +278,7 @@ function It_and_buisness_automation() {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
       <div className="order-1 lg:order-1">
         <img
-          src={watson_assistant} // replace with your image
+          src={workflow_automation} // replace with your image
           alt="Workflow Automation"
           className="w-full rounded-lg shadow-lg"
         />
@@ -316,7 +317,7 @@ function It_and_buisness_automation() {
       </div>
       <div className="order-1 lg:order-2">
         <img
-          src={watson_discovery}
+          src={system_integration}
           alt="Watson Discovery"
           className="w-full rounded-lg shadow-lg"
         />
@@ -330,7 +331,7 @@ function It_and_buisness_automation() {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
       <div className="order-1 lg:order-1">
         <img
-          src={watson_assistant} // replace with your image
+          src={process_optimization} // replace with your image
           alt="Workflow Automation"
           className="w-full rounded-lg shadow-lg"
         />
