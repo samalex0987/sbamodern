@@ -5,6 +5,7 @@ import one from "./one.jpg"
 import CountUp from 'react-countup';
 import ModernMVVSection from "./MVV";
 import About_us from "../about_us/About_us";
+import AnimatedTimeline from "./Timeline";
 
 
 function Company() {
@@ -263,6 +264,7 @@ function Company() {
 
   <br /><br /><br />
 
+
   
     {/* Values Section */}
     <ModernMVVSection />  
@@ -270,6 +272,39 @@ function Company() {
   </div>
 </div>
 
+{/* Core Values Section */}
+<div className="py-16 bg-gray-900 text-white" data-aos="fade-up">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-6">
+        Our Core Values
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="text-center">
+          <h3 className="text-2xl font-semibold text-gray-300 mb-3">Innovation</h3>
+          <p className="text-lg text-gray-400">
+            We are committed to fostering innovation that delivers long-term business value and transformative impact.
+          </p>
+        </div>
+        <div className="text-center">
+          <h3 className="text-2xl font-semibold text-gray-300 mb-3">Integrity</h3>
+          <p className="text-lg text-gray-400">
+            We uphold the highest standards of integrity, transparency, and accountability in all our operations.
+          </p>
+        </div>
+        <div className="text-center">
+          <h3 className="text-2xl font-semibold text-gray-300 mb-3">Collaboration</h3>
+          <p className="text-lg text-gray-400">
+            We believe in teamwork and collaboration, both within our company and with our clients, to achieve shared success.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<AnimatedTimeline />
 
  <div className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
