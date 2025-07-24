@@ -77,28 +77,21 @@ function Company() {
   return (
     <>
      {/* Hero Section */}
-<section className="min-h-screen flex items-center justify-center text-center pt-20 px-4">
-  <div data-aos="fade-up">
-    
-    {/* Responsive Heading */}
-    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-white">
-      Intelligent Solutions, Limitless Potential
+  <section className="min-h-screen flex items-center justify-center text-center pt-10 px-4 sm:px-6 lg:px-8 bg-black">
+  <div data-aos="fade-up" className="max-w-3xl mx-auto">
+    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
+      Intelligent Solutions, <span className="text-red-500">Limitless potential</span>
     </h1>
-
-    {/* Responsive Paragraph */}
-    <p className="text-sm sm:text-base md:text-lg mb-6 max-w-xl mx-auto text-white">
-      With Trusted AI Solutions
+    <p className="text-base sm:text-lg md:text-xl mb-6 text-gray-300 max-w-xl mx-auto">
+      With Trusted AI <span className="text-red-400">Solutions</span>
     </p>
-
-    {/* Button */}
-    <button 
-      onClick={() => setShowPopup(true)} 
-      className="relative inline-block px-6 py-3 cursor-pointer font-medium group overflow-hidden border border-white text-white rounded"
+    <button
+      onClick={() => setShowPopup(true)}
+      className="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border-2 border-red-500 text-white rounded bg-black hover:bg-red-500 transition-all duration-300"
     >
-      <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-      <span className="relative z-10 group-hover:text-black">Request a Demo</span>
+      <span className="absolute inset-0 w-0 bg-red-500 transition-all duration-500 ease-out group-hover:w-full"></span>
+      <span className="relative z-10 group-hover:text-white">Request a Demo</span>
     </button>
-    
   </div>
 </section>
 

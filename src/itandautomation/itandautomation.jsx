@@ -6,6 +6,7 @@ import workflow_automation from "./workflow_automation.gif";
 import system_integration from "./system_integration.gif";
 import process_optimization from "./process_optimization.gif";
 import { Activity, Cloud, Settings } from "lucide-react";
+import ITAutomationPlatform from "./Whatwedo";
 
 function It_and_buisness_automation() {
 
@@ -79,24 +80,23 @@ function It_and_buisness_automation() {
         }
       `}</style>
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center text-center pt-20 px-4 sm:px-6 lg:px-8">
-        <div data-aos="fade-up" className="max-w-3xl mx-auto">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-white">
-            IT Automation
-          </h1>
-          <p className="text-base sm:text-lg md:text-xl mb-6 text-white max-w-xl mx-auto">
-            Empower Your Operation
-          </p>
-          <button
-            onClick={() => setShowPopup(true)}
-            className="relative inline-block px-6 py-3 cursor-pointer font-medium group overflow-hidden border border-white text-white rounded transition"
-          >
-            <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-            <span className="relative z-10 group-hover:text-black">Request a Demo</span>
-          </button>
-        </div>
-      </section>
-
+      <section className="min-h-screen flex items-center justify-center text-center pt-10 px-4 sm:px-6 lg:px-8 bg-black">
+  <div data-aos="fade-up" className="max-w-3xl mx-auto">
+    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
+      IT  <span className="text-red-500">Automation</span>
+    </h1>
+    <p className="text-base sm:text-lg md:text-xl mb-6 text-gray-300 max-w-xl mx-auto">
+      Empower Your <span className="text-red-400">Operation</span>
+    </p>
+    <button
+      onClick={() => setShowPopup(true)}
+      className="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border-2 border-red-500 text-white rounded bg-black hover:bg-red-500 transition-all duration-300"
+    >
+      <span className="absolute inset-0 w-0 bg-red-500 transition-all duration-500 ease-out group-hover:w-full"></span>
+      <span className="relative z-10 group-hover:text-white">Request a Demo</span>
+    </button>
+  </div>
+</section>
 
        {/* Demo Request Popup */}
       {showPopup && (
@@ -191,78 +191,7 @@ function It_and_buisness_automation() {
 
 
       {/* Feature Grid 1 */}
-<div className="py-16">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div
-      className="text-center mb-12"
-      data-aos="fade-up"
-      // data-aos-delay="200"
-    >
-      <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl text-white">
-        Unlock Modern IT & Automation Capabilities
-      </h2>
-    </div>
-
-    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {/* Feature 1: Cloud Network */}
-      <div
-        className="p-6 shadow hover:shadow-md transition"
-        data-aos="fade-up"
-        // data-aos-delay="300"
-        style={{ borderRight: "1px solid #1F1D1A" }}
-      >
-        <div className="mb-4 w-12 h-12 mx-auto">
-          {/* className="w-full h-full text-white transition-transform transform group-hover:scale-110" */}
-          
-          <Activity className="w-full h-full text-white transition-transform transform hover:scale-110" />
-        </div>
-        <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
-          Modernize IT Operations
-        </h3>
-        <p className="text-sm text-gray-100 text-center">
-          Streamline infrastructure, reduce legacy bottlenecks, and adopt cloud-native practices to support faster, scalable, and more secure operations.
-        </p>
-      </div>
-
-      {/* Feature 2: Automation */}
-      <div
-        className="p-6 shadow hover:shadow-md transition"
-        data-aos="fade-up"
-        // data-aos-delay="400"
-        style={{ borderRight: "1px solid #1F1D1A" }}
-      >
-        <div className="mb-4 w-12 h-12 mx-auto">
-            <Cloud className="w-full h-full text-white transition-transform transform hover:scale-110" />
-
-        </div>
-        <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
-          Automate Workflows End-to-End
-        </h3>
-        <p className="text-sm text-gray-100 text-center">
-          Build, manage, and scale automated IT workflows for provisioning, patching, incident response, and more — with minimal code and maximum control.
-        </p>
-      </div>
-
-      {/* Feature 3: Monitoring */}
-      <div
-        className="p-6 rounded-xl shadow hover:shadow-md transition"
-        data-aos="fade-up"
-        // data-aos-delay="500"
-      >
-        <div className="mb-4 w-12 h-12 mx-auto">
-          <Settings className="w-full h-full text-white transition-transform transform hover:scale-110" />
-        </div>
-        <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
-          Boost IT Agility & Uptime
-        </h3>
-        <p className="text-sm text-gray-100 text-center">
-          Detect issues early, reduce downtime, and respond faster with integrated monitoring, intelligent alerting, and proactive remediation capabilities.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
+<ITAutomationPlatform />
 
       {/* Powered By Heading */}
       <div className="text-center mb-12" data-aos="fade-up">

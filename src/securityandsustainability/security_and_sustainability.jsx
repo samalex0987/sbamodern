@@ -367,61 +367,81 @@ function Security_and_sustainability() {
   </div>
 </div>
 
-      {/* Grid Section 2 */}
-      <section className="max-w-7xl mx-auto px-4 py-16" data-aos="fade-up">
-        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12 text-white">
-          Everything You Need to Build an Open Hybrid Cloud
-          <br className="hidden md:block" /> in One Unified Platform
-        </h2>
+{/* Grid Section 2 */}
+<section className="max-w-7xl mx-auto px-4 py-16 bg-black" data-aos="fade-up">
+  <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12 text-white">
+    Everything You Need to Build an <span className="text-red-500">Open Hybrid Cloud</span>
+    <br className="hidden md:block" /> in One <span className="text-red-400">Unified Platform</span>
+  </h2>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            {
-              title: "Zero Trust Architecture",
-              description:
-                "Enforce continuous verification and least-privilege access across users, devices, and services to reduce attack surfaces.",
-            },
-            {
-              title: "Sustainable Infrastructure",
-              description:
-                "Design and deploy cloud environments with energy-efficient architectures and carbon-aware workload scheduling.",
-            },
-            {
-              title: "Automated Compliance",
-              description:
-                "Meet evolving regulatory standards with real-time compliance monitoring, automated controls, and centralized auditing.",
-            },
-            {
-              title: "Resilient Operations",
-              description:
-                "Maintain business continuity through self-healing systems, intelligent failover strategies, and cross-cloud resilience.",
-            },
-            {
-              title: "Carbon Intelligence",
-              description:
-                "Monitor, measure, and reduce emissions across your IT estate with granular insights and AI-driven sustainability metrics.",
-            },
-            {
-              title: "Secure Edge Deployment",
-              description:
-                "Extend data protection and policy enforcement to edge locations while enabling real-time insights and AI at the edge.",
-            },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="bg-neutral-900 p-6 rounded-xl"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-            >
-              <div className="mb-4 text-2xl"></div>
-              <h3 className="text-lg font-semibold text-white mb-2">
-                {item.title}
-              </h3>
-              <p className="text-sm text-gray-300">{item.description}</p>
-            </div>
-          ))}
+  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {[
+      {
+        title: "Zero Trust Architecture",
+        description:
+          "Enforce continuous verification and least-privilege access across users, devices, and services to reduce attack surfaces.",
+        animation: 'fade-right',
+      },
+      {
+        title: "Sustainable Infrastructure",
+        description:
+          "Design and deploy cloud environments with energy-efficient architectures and carbon-aware workload scheduling.",
+        animation: 'fade-left',
+      },
+      {
+        title: "Automated Compliance",
+        description:
+          "Meet evolving regulatory standards with real-time compliance monitoring, automated controls, and centralized auditing.",
+        animation: 'fade-up',
+      },
+      {
+        title: "Resilient Operations",
+        description:
+          "Maintain business continuity through self-healing systems, intelligent failover strategies, and cross-cloud resilience.",
+        animation: 'fade-right',
+      },
+      {
+        title: "Carbon Intelligence",
+        description:
+          "Monitor, measure, and reduce emissions across your IT estate with granular insights and AI-driven sustainability metrics.",
+        animation: 'fade-left',
+      },
+      {
+        title: "Secure Edge Deployment",
+        description:
+          "Extend data protection and policy enforcement to edge locations while enabling real-time insights and AI at the edge.",
+        animation: 'fade-up',
+      },
+    ].map((item, index) => (
+      <div
+        key={index}
+        className="relative hover:cursor-pointer bg-black/90 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 overflow-hidden group"
+        data-aos={item.animation}
+        data-aos-delay={index * 200}
+      >
+        {/* Animated border gradient */}
+        <div className="absolute inset-0 rounded-2xl p-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-red-500 via-white to-red-500 animate-pulse"></div>
+          <div className="absolute inset-[2px] rounded-2xl bg-black/90 backdrop-blur-sm"></div>
         </div>
-      </section>
+        
+        {/* Rotating border animation */}
+        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-red-500 to-transparent animate-spin-slow"></div>
+        </div>
+        
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-800/20 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        <div className="relative z-10 flex flex-col h-full">
+          
+          <h3 className="text-xl font-bold text-white mb-4 group-hover:text-red-400 transition-colors duration-300">{item.title}</h3>
+          <p className="text-gray-300 mb-6 flex-grow">{item.description}</p>
+          
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* Closing CTA */}
       <section className="bg-[#D5D1DB] py-24 text-center" data-aos="fade-up">

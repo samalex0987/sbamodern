@@ -5,6 +5,7 @@ import venkatesh from "./venkatesh.jpg"
 import sadeesh from "./sadeesh.png"
 import kandhan from "./kandhan.jpg"
 import viswanathan from "./viswanathan.jpg"
+import ananth_narayanan from "./Anantha_narayanan.jpg"
 
 function About_us(){
     const [showPopup, setShowPopup] = useState(false);
@@ -57,21 +58,21 @@ function About_us(){
       <div className="bg-[#1a1a1a] p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
         <img src={venkatesh} alt="Team Member 1" className="w-full h-64 object-cover mb-6 rounded-lg shadow-md" />
         <h3 className="text-xl font-semibold mb-2">Venkatesh A</h3>
-        <p className="text-lg text-gray-400">Generative AI Expert</p>
+        <p className="text-lg text-gray-400">CGO</p>
       </div>
 
       {/* Team Member 2 */}
       <div className="bg-[#1a1a1a] p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
-        <img src={kandhan} alt="Team Member 2" className="w-full h-64 object-cover mb-6 rounded-lg shadow-md" />
-        <h3 className="text-xl font-semibold mb-2">Kanthanathan S</h3>
-        <p className="text-lg text-gray-400">Technology Strategist & Transformation Leader</p>
+        <img src={ananth_narayanan} alt="Team Member 2" className="w-full h-64 object-cover mb-6 rounded-lg shadow-md" />
+        <h3 className="text-xl font-semibold mb-2">Anantha Narayanan</h3>
+        <p className="text-lg text-gray-400">CEO</p>
       </div>
 
       {/* Team Member 3 */}
       <div className="bg-[#1a1a1a] p-6 rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
         <img src={sadeesh} alt="Team Member 3" className="w-full h-64 object-cover mb-6 rounded-lg shadow-md" />
         <h3 className="text-xl font-semibold mb-2">Sadeeshkumar G</h3>
-        <p className="text-lg text-gray-400">HManager, Service and Delivery</p>
+        <p className="text-lg text-gray-400">Lead client Engineering Team</p>
       </div>
 
       {/* Team Member 4 */}

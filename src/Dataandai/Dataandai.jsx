@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import watson_assistant from "./watson_assistant.gif";
-import watson_discovery from "./watson_discovery.gif";
+import machine_learning from "./machine_learning.gif";
+import ai_integrate from "./ai_integrate.gif";
 import cognos from "./cognos.gif";
+import ITAutomationPlatform from "./Whatwedo";
+import SolutionsSection from "./solutions";
 
 
 function Dataandai() {
@@ -77,25 +79,20 @@ function Dataandai() {
         }
       `}</style>
      {/* Hero Section */}
-<section className="min-h-screen flex items-center justify-center text-center pt-20 px-4">
-  <div data-aos="fade-up">
-    {/* Responsive Heading */}
-    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-white">
-      Empower Your Business
+<section className="min-h-screen flex items-center justify-center text-center pt-10 px-4 sm:px-6 lg:px-8 bg-black">
+  <div data-aos="fade-up" className="max-w-3xl mx-auto">
+    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
+      Empower your  <span className="text-red-500">Buisness</span>
     </h1>
-
-    {/* Responsive Subheading */}
-    <p className="text-sm sm:text-base md:text-lg mb-6 max-w-xl mx-auto text-white">
-      With Trusted AI Solutions
+    <p className="text-base sm:text-lg md:text-xl mb-6 text-gray-300 max-w-xl mx-auto">
+      With Trusted <span className="text-red-400">AI Solutions</span>
     </p>
-
-    {/* Styled Button */}
-    <button 
+    <button
       onClick={() => setShowPopup(true)}
-      className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded cursor-pointer"
+      className="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border-2 border-red-500 text-white rounded bg-black hover:bg-red-500 transition-all duration-300"
     >
-      <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-      <span className="relative z-10 group-hover:text-black">Request a Demo</span>
+      <span className="absolute inset-0 w-0 bg-red-500 transition-all duration-500 ease-out group-hover:w-full"></span>
+      <span className="relative z-10 group-hover:text-white">Request a Demo</span>
     </button>
   </div>
 </section>
@@ -191,173 +188,12 @@ function Dataandai() {
         </div>
       )}
 
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className="text-center mb-12"
-            data-aos="fade-up"
-          >
-            <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl text-white">
-              Everything You Need to Power IT & Automation in One Platform
-            </h2>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Feature 1 */}
-            <div
-              className="p-6 shadow hover:shadow-md transition"
-              data-aos="fade-up"
-              style={{ borderRight: "1px solid #1F1D1A" }}
-            >
-              <div className="mb-4 w-12 h-12 mx-auto">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-full h-full text-white transition-transform transform group-hover:scale-110"
-                >
-                  <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
-                Augment Human Expertise with AI
-              </h3>
-              <p className="text-sm text-gray-100 text-center">
-                Enhance decision-making by pairing human intelligence with real-time insights from AI. Empower your workforce to focus on high-value tasks, not manual analysis.
-              </p>
-            </div>
-
-            {/* Feature 2 */}
-            <div
-              className="p-6 shadow hover:shadow-md transition"
-              data-aos="fade-up"
-              style={{ borderRight: "1px solid #1F1D1A" }}
-            >
-              <div className="mb-4 w-12 h-12 mx-auto">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-full h-full text-white transition-transform transform group-hover:scale-110"
-                >
-                  <path d="M4 4h16v2H4zm0 5h16v2H4zm0 5h10v2H4z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
-                Operationalize AI at Scale
-              </h3>
-              <p className="text-sm text-gray-100 text-center">
-                Deploy machine learning models faster and with confidence. Automate workflows, monitor performance, and drive outcomes with responsible, explainable AI tailored to your business needs.
-              </p>
-            </div>
-
-            {/* Feature 3 */}
-            <div
-              className="p-6 rounded-xl shadow hover:shadow-md transition"
-              data-aos="fade-up"
-            >
-              <div className="mb-4 w-12 h-12 mx-auto">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-full h-full text-white transition-transform transform group-hover:scale-110"
-                >
-                  <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-3.31 0-6 2.69-6 6h2a4 4 0 0 1 8 0h2c0-3.31-2.69-6-6-6z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
-                Accelerate Time to Value
-              </h3>
-              <p className="text-sm text-gray-100 text-center">
-                Leverage pre-built data pipelines, model templates, and intelligent automations to move from idea to impact in weeks — not months.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <ITAutomationPlatform />
 <br /><br /><br />
 {/* What We Do */}
 
     {/* Section Header */}
-<div className="text-center mb-12" data-aos="fade-up">
-  <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl">
-    Solution We Offer
-  </h2>
-</div>
-
-{/* Machine Learning Models Section */}
-<div className="py-16 text-white" data-aos="fade-up">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]" id="machinelearning">
-      <div className="order-1 lg:order-1">
-        <img
-          src={watson_assistant}
-          alt="Machine Learning Models"
-          className="w-full rounded-lg shadow-lg"
-        />
-      </div>
-      <div className="order-2 lg:order-2 px-4 sm:px-6 lg:pl-10 pb-5">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Machine Learning Models</h2>
-        <p className="text-base sm:text-lg mb-6">
-          Build intelligent systems with our ready-to-integrate machine learning models. From predictive analytics to natural language processing, we tailor solutions to match your business needs.
-        </p>
-        <a href="#" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-          <span className="relative z-10 group-hover:text-black">Learn More</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-{/* Data Analytics Section */}
-<div className="py-16 text-white" data-aos="fade-up">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-      <div className="order-2 lg:order-1 px-4 sm:px-6 lg:pl-10 pb-5">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Data Analytics</h2>
-        <p className="text-base sm:text-lg mb-6">
-          Transform raw data into valuable insights. Our analytics platform provides interactive dashboards, trend forecasting, and deep data exploration tailored for decision-makers.
-        </p>
-        <a href="#" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-          <span className="relative z-10 group-hover:text-black">Learn More</span>
-        </a>
-      </div>
-      <div className="order-1 lg:order-2">
-        <img
-          src={cognos}
-          alt="Data Analytics"
-          className="w-full rounded-lg shadow-lg"
-          />
-      </div>
-    </div>
-  </div>
-</div>
-
-{/* AI Integrations Section */}
-<div className="py-16 text-white" data-aos="fade-up">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-      <div className="order-1 lg:order-1">
-        <img
-          src={watson_discovery}
-          alt="AI Integrations"
-          className="w-full rounded-lg shadow-lg"
-          />
-      </div>
-      <div className="order-2 lg:order-2 px-4 sm:px-6 lg:pl-10 pb-5">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">AI Integrations</h2>
-        <p className="text-base sm:text-lg mb-6">
-          Seamlessly integrate AI into your workflows, tools, and customer touchpoints. From chatbots to smart search and recommendations, our solutions enhance efficiency and experience.
-        </p>
-        <a href="#" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-          <span className="relative z-10 group-hover:text-black">Learn More</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
+    <SolutionsSection />
 
   {/* What We Do */}
 

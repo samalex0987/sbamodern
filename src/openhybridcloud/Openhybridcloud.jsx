@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import watson_assistant from "./watson_assistant.gif";
-import watson_discovery from "./watson_discovery.gif";
+import cloud_migration from "./cloud_migration.gif";
+import multi_cloud from "./multi_cloud.gif";
+import container_solution from "./container_solution.gif";
 import { CloudCheck, ShieldUserIcon, Workflow } from "lucide-react";
 
 function Open_hybrid_cloud() {
@@ -287,7 +288,7 @@ function Open_hybrid_cloud() {
     >
       <div className="order-1 lg:order-1">
         <img
-          src={watson_assistant}
+          src={cloud_migration}
           alt="RHEL Illustration"
           className="w-full rounded-lg shadow-lg"
         />
@@ -332,7 +333,7 @@ function Open_hybrid_cloud() {
 
       <div className="order-1 lg:order-2">
         <img
-          src={watson_discovery}
+          src={multi_cloud}
           alt="Ansible Illustration"
           className="w-full rounded-lg shadow-lg"
         />
@@ -350,7 +351,7 @@ function Open_hybrid_cloud() {
     >
       <div className="order-1 lg:order-1">
         <img
-          src={watson_assistant}
+          src={container_solution}
           alt="RHEL Illustration"
           className="w-full rounded-lg shadow-lg"
         />
