@@ -10,7 +10,11 @@ import {
   Sparkles,
   Target,
   Zap,
-  BrainCircuit
+  BrainCircuit,
+  CalendarSync,
+  Workflow,
+  Rocket,
+  ShieldCheck
 } from 'lucide-react';
 
 const SolutionsSection = () => {
@@ -20,23 +24,33 @@ const SolutionsSection = () => {
   const solutions = [
     {
       id: 1,
-      icon: <Brain className="w-12 h-12" />,
-      title: "Machine Learning Models",
-      description: "Build intelligent systems with our ready-to-integrate machine learning models. From predictive analytics to natural language processing, we tailor solutions to match your business needs.",
-      features: ["Predictive Analytics", "Natural Language Processing", "Computer Vision", "Custom Model Development"],
+      icon: <ShieldCheck className="w-12 h-12" />,
+      title: "Cybersecurity",
+      description: "Strengthen your digital defenses with proactive threat detection, vulnerability assessments, and risk mitigation strategies. We help you secure systems, data, and customer trust.",
+      features: ["Advanced Threat Protection", "Multi-Layered Defense", "Real-Time Threat Detection", "Secure Access Control"],
       image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       imageAlt: "Machine Learning Models",
       reverse: false
     },
     {
       id: 2,
-      icon: <BrainCircuit className="w-12 h-12" />,
-      title: "AI Integrations",
-      description: "Seamlessly integrate AI into your workflows, tools, and customer touchpoints. From chatbots to smart search and recommendations, our solutions enhance efficiency and experience.",
-      features: ["Real-time Dashboards", "Advanced Reporting", "Data Visualization", "Predictive Insights"],
+      icon: <Workflow className="w-12 h-12" />,
+      title: "Green Technology",
+      description: "Connect disconnected systems, apps, and platforms into one cohesive environment. We ensure seamless data flow and interoperability to support better decision-making and collaboration.",
+      features: ["Energy-Efficient Solutions", "Waste Reduction", "Eco-Friendly Innovation", "Sustainable Materials"],
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       imageAlt: "AI Integrations Dashboard",
       reverse: true
+    },
+    {
+      id: 3,
+      icon: <Rocket className="w-12 h-12" />,
+      title: "Compliance Management",
+      description: "Stay ahead of regulatory requirements with automated compliance tracking, reporting tools, and governance frameworks. We support security, privacy, and sustainability standards.",
+      features: ["Simplify Regulatory Compliance", "Centralized Compliance Oversight", "Real-Time Compliance Monitoring", "Audit-Ready Documentation"],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      imageAlt: "AI Integrations Dashboard",
+      reverse: false
     },
   ];
 

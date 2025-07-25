@@ -7,6 +7,7 @@ import system_integration from "./system_integration.gif";
 import process_optimization from "./process_optimization.gif";
 import { Activity, Cloud, Settings } from "lucide-react";
 import ITAutomationPlatform from "./Whatwedo";
+import SolutionsSection from "./solutions";
 
 function It_and_buisness_automation() {
 
@@ -192,92 +193,9 @@ function It_and_buisness_automation() {
 
       {/* Feature Grid 1 */}
 <ITAutomationPlatform />
-
+<br /><br /><br />
       {/* Powered By Heading */}
-      <div className="text-center mb-12" data-aos="fade-up">
-        <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl">
-          Intelligent Solutions by watsonX
-        </h2>
-      </div>
-
-      {/* Instana Section */}
-{/* Workflow Automation Section */}
-<div className="py-16 text-white" data-aos="fade-up">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-      <div className="order-1 lg:order-1">
-        <img
-          src={workflow_automation} // replace with your image
-          alt="Workflow Automation"
-          className="w-full rounded-lg shadow-lg"
-        />
-      </div>
-      <div className="order-2 lg:order-2 px-4 sm:px-6 lg:pl-10 pb-5">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Workflow Automation</h2>
-        <p className="text-base sm:text-lg mb-6">
-          Automate repetitive tasks, reduce human error, and streamline your day-to-day business operations. Our automation solutions adapt to your unique processes and boost operational speed.
-        </p>
-        <a href="#" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-          <span className="relative z-10 group-hover:text-black">Learn More</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-{/* Turbonomic Section */}
-<div className="py-16 text-white" data-aos="fade-up">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-      <div className="order-2 lg:order-1 px-4 sm:px-6 lg:pl-10 pb-5">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">System Integration</h2>
-        <p className="text-base sm:text-lg mb-6">
-          Connect disconnected systems, apps, and platforms into one cohesive environment. We ensure seamless data flow and interoperability to support better decision-making and collaboration.
-        </p>
-        <a
-          href="https://www.ibm.com/products/turbonomic"
-          className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded"
-        >
-          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-          <span className="relative z-10 group-hover:text-black">Learn More</span>
-        </a>
-      </div>
-      <div className="order-1 lg:order-2">
-        <img
-          src={system_integration}
-          alt="Watson Discovery"
-          className="w-full rounded-lg shadow-lg"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-
-<div className="py-16 text-white" data-aos="fade-up">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-      <div className="order-1 lg:order-1">
-        <img
-          src={process_optimization} // replace with your image
-          alt="Workflow Automation"
-          className="w-full rounded-lg shadow-lg"
-        />
-      </div>
-      <div className="order-2 lg:order-2 px-4 sm:px-6 lg:pl-10 pb-5">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Process Optimization</h2>
-        <p className="text-base sm:text-lg mb-6">
-          Improve efficiency, reduce waste, and enhance performance across all operations. Our optimization tools uncover bottlenecks and align your processes with business goals.
-        </p>
-        <a href="#" className="relative inline-block px-6 py-3 font-medium group overflow-hidden border border-white text-white rounded">
-          <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-          <span className="relative z-10 group-hover:text-black">Learn More</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
+      <SolutionsSection />
 
 
       {/* Final Grid */}

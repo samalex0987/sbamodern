@@ -10,7 +10,10 @@ import {
   Sparkles,
   Target,
   Zap,
-  BrainCircuit
+  BrainCircuit,
+  CalendarSync,
+  Workflow,
+  Rocket
 } from 'lucide-react';
 
 const SolutionsSection = () => {
@@ -20,20 +23,30 @@ const SolutionsSection = () => {
   const solutions = [
     {
       id: 1,
-      icon: <Brain className="w-12 h-12" />,
-      title: "Machine Learning Models",
-      description: "Build intelligent systems with our ready-to-integrate machine learning models. From predictive analytics to natural language processing, we tailor solutions to match your business needs.",
-      features: ["Predictive Analytics", "Natural Language Processing", "Computer Vision", "Custom Model Development"],
+      icon: <CalendarSync className="w-12 h-12" />,
+      title: "Workflow Automation",
+      description: "Automate repetitive tasks, reduce human error, and streamline your day-to-day business operations. Our automation solutions adapt to your unique processes and boost operational speed.",
+      features: ["Document Processing ", "Custom Task Bots", "Email & Message Handling", "Custom Automation Model"],
       image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       imageAlt: "Machine Learning Models",
       reverse: false
     },
     {
       id: 2,
-      icon: <BrainCircuit className="w-12 h-12" />,
-      title: "AI Integrations",
-      description: "Seamlessly integrate AI into your workflows, tools, and customer touchpoints. From chatbots to smart search and recommendations, our solutions enhance efficiency and experience.",
-      features: ["Real-time Dashboards", "Advanced Reporting", "Data Visualization", "Predictive Insights"],
+      icon: <Workflow className="w-12 h-12" />,
+      title: "System Integration",
+      description: "Connect disconnected systems, apps, and platforms into one cohesive environment. We ensure seamless data flow and interoperability to support better decision-making and collaboration.",
+      features: ["Data Sync Across Tools", "API-Based Automation", "AI-Powered Connectors", "Custom Integration Workflows"],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      imageAlt: "AI Integrations Dashboard",
+      reverse: true
+    },
+    {
+      id: 3,
+      icon: <Rocket className="w-12 h-12" />,
+      title: "Process Optimization",
+      description: "Improve efficiency, reduce waste, and enhance performance across all operations. Our optimization tools uncover bottlenecks and align your processes with business goals.",
+      features: ["Continuous Improvement", "Task Prioritization", "Identify Bottlenecks", "Smart Recommendations"],
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       imageAlt: "AI Integrations Dashboard",
       reverse: true

@@ -114,10 +114,10 @@ const AutomationSection = () => {
               <span className="absolute bottom-0 left-0 h-0 w-0.5 bg-gradient-to-t from-red-500 to-red-400 transition-all duration-500 delay-600 group-hover:h-full"></span>
               
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-red-900/10 to-gray-900/40 opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
+              <div className="absolute  inset-0 bg-gradient-to-br from-red-900/10 to-gray-900/40 opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
               
               {/* Content */}
-              <div className="relative z-10 p-8 h-full flex flex-col">
+              <div className="relative cursor-pointer z-10 p-8 h-full flex flex-col">
                 {/* Icon */}
                 <div className="mb-6">
                   <div className="bg-gradient-to-r from-red-500 to-red-400 p-4 rounded-xl w-16 h-16 flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
@@ -183,7 +183,7 @@ const AutomationSection = () => {
           
           <p className="text-gray-500 mb-8">Ready to transform your business operations?</p>
           
-          <button className="bg-gradient-to-r from-red-500 to-red-400 text-white font-semibold py-4 px-8 rounded-lg hover:from-red-600 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 flex items-center space-x-2 mx-auto">
+          <button className="bg-gradient-to-r cursor-pointer from-red-500 to-red-400 text-white font-semibold py-4 px-8 rounded-lg hover:from-red-600 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 flex items-center space-x-2 mx-auto">
             <span>Get Started Today</span>
             <ArrowRight className="w-5 h-5" />
           </button>

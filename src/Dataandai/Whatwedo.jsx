@@ -80,7 +80,7 @@ const ITAutomationPlatform = () => {
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent leading-tight">
             Everything You Need to Power
-            <span className="block bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent">
+            <span className="block text-red-500 ">
               IT & Automation
             </span>
             <span className="block text-3xl md:text-4xl lg:text-5xl mt-2">
@@ -121,7 +121,7 @@ const ITAutomationPlatform = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-red-900/10 to-gray-900/40 opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
               
               {/* Content */}
-              <div className="relative z-10 p-8 text-center h-full flex flex-col">
+              <div className="relative z-10 cursor-pointer p-8 text-center h-full flex flex-col">
                 {/* Icon */}
                 <div className="mb-6">
                   <div className={`bg-gradient-to-r ${feature.accent} p-4 rounded-2xl w-16 h-16 mx-auto flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
@@ -165,7 +165,7 @@ const ITAutomationPlatform = () => {
                 
                 {/* Learn More Button */}
                 <div className="mt-auto">
-                  <button className="flex items-center justify-center space-x-2 w-full bg-gray-900/50 hover:bg-red-900/30 border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white font-medium py-3 px-4 rounded-lg transition-all duration-300 group-hover:scale-105">
+                  <button className="flex  items-center justify-center space-x-2 w-full bg-gray-900/50 hover:bg-red-900/30 border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white font-medium py-3 px-4 rounded-lg transition-all duration-300 group-hover:scale-105">
                     <span className="text-sm">Learn More</span>
                     <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
                   </button>
@@ -216,7 +216,7 @@ const ITAutomationPlatform = () => {
           
           <p className="text-gray-500 mb-8 text-lg">Ready to transform your IT operations?</p>
           
-          <button className="bg-gradient-to-r from-red-500 to-red-400 text-white font-semibold py-4 px-8 rounded-lg hover:from-red-600 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 flex items-center space-x-2 mx-auto">
+          <button className="bg-gradient-to-r cursor-pointer from-red-500 to-red-400 text-white font-semibold py-4 px-8 rounded-lg hover:from-red-600 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 flex items-center space-x-2 mx-auto">
             <span>Start Your Journey</span>
             <ArrowRight className="w-5 h-5" />
           </button>

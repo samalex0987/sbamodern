@@ -6,6 +6,7 @@ import cloud_migration from "./cloud_migration.gif";
 import multi_cloud from "./multi_cloud.gif";
 import container_solution from "./container_solution.gif";
 import { CloudCheck, ShieldUserIcon, Workflow } from "lucide-react";
+import ITAutomationPlatform from "./Whatwedo";
 
 function Open_hybrid_cloud() {
 
@@ -80,31 +81,23 @@ function Open_hybrid_cloud() {
         }
       `}</style>
 
-      <section
-        className="min-h-screen flex items-center justify-center text-center pt-20 px-4"
-        data-aos="fade-up"
-      >
-        <div>
-          {/* Responsive Heading */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-white">
-            Open Hybrid Cloud
-          </h1>
-
-          {/* Responsive Subheading */}
-          <p className="text-sm sm:text-base md:text-lg mb-6 max-w-xl mx-auto text-white">
-            Integrated Cloud Solutions
-          </p>
-
-          {/* Responsive Button */}
-          <button 
-            onClick={() => setShowPopup(true)} 
-            className="relative inline-block cursor-pointer px-5 py-2.5 sm:px-6 sm:py-3 font-medium group overflow-hidden border border-white text-white rounded"
-          >
-            <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-            <span className="relative z-10 group-hover:text-black">Request a Demo</span>
-          </button>
-        </div>
-      </section>
+     <section className="min-h-screen flex items-center justify-center text-center pt-10 px-4 sm:px-6 lg:px-8 bg-black">
+  <div data-aos="fade-up" className="max-w-3xl mx-auto">
+    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
+      Open Hybrid <span className="text-red-500">Cloud</span>
+    </h1>
+    <p className="text-base sm:text-lg md:text-xl mb-6 text-gray-300 max-w-xl mx-auto">
+      integrated <span className="text-red-400">Cloud Solutions</span>
+    </p>
+    <button
+      onClick={() => setShowPopup(true)}
+      className="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border-2 border-red-500 text-white rounded bg-black hover:bg-red-500 transition-all duration-600"
+    >
+      <span className="absolute inset-0 w-0 bg-red-500 transition-all duration-800 ease-out group-hover:w-full"></span>
+      <span className="relative z-10 group-hover:text-white">Request a Demo</span>
+    </button>
+  </div>
+</section>
 
 
 
@@ -200,78 +193,8 @@ function Open_hybrid_cloud() {
 
 
       {/* Open Hybrid Cloud Strategy Section */}
-<div className="py-16">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div
-      className="text-center mb-12"
-      data-aos="fade-up"
-      // data-aos-delay="200"
-    >
-      <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl text-white">
-        Enable an Open Hybrid Cloud Strategy
-      </h2>
-    </div>
 
-    <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {/* Feature 1: Unified Cloud Infrastructure */}
-      <div
-        className="p-6 shadow hover:shadow-md transition"
-        data-aos="fade-up"
-        // data-aos-delay="300"
-        style={{ borderRight: "1px solid #1F1D1A" }}
-      >
-        <div className="mb-4 w-12 h-12 mx-auto">
-          <CloudCheck className="w-full h-full text-white transition-transform transform hover:scale-110" />
-        </div>
-        <h3 className="text-lg font-semibold text-center text-gray-100  mb-2">
-          Unified Cloud Infrastructure
-        </h3>
-        <p className="text-sm text-gray-100 text-center">
-          Simplify hybrid deployments with a consistent platform across public and private clouds improving workload mobility and governance.
-        </p>
-      </div>
-
-      {/* Feature 2: Open Ecosystem Integration */}
-      <div
-        className="p-6 shadow hover:shadow-md transition"
-        data-aos="fade-up"
-        // data-aos-delay="400"
-        style={{ borderRight: "1px solid #1F1D1A" }}
-      >
-        <div className="mb-4 w-12 h-12 mx-auto">
-          <div>
-              <Workflow className="w-full h-full text-white transition-transform transform hover:scale-110" />
-          </div>
-        </div>
-        <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
-          Open Ecosystem Integration
-        </h3>
-        <p className="text-sm text-gray-100 text-center">
-          Integrate seamlessly with open-source tools and APIs to support innovation while avoiding vendor lock-in.
-        </p>
-      </div>
-
-      {/* Feature 3: Secure & Scalable Architecture */}
-      <div
-        className="p-6 rounded-xl shadow hover:shadow-md transition"
-        data-aos="fade-up"
-        // data-aos-delay="500"
-      >
-        <div className="mb-4 w-12 h-12 mx-auto">
-            <ShieldUserIcon className="w-full h-full text-white transition-transform transform hover:scale-110" />
-        </div>
-        <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
-          Secure & Scalable Architecture
-        </h3>
-        <p className="text-sm text-gray-100 text-center">
-          Ensure enterprise-grade security, compliance, and scalability from edge to core to cloud with a unified approach.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
+<ITAutomationPlatform />
 <br /><br /><br />
 {/* Powered By */}
 <div className="text-center mb-12" data-aos="fade-up" data-aos-delay="600">

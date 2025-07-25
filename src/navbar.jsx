@@ -338,14 +338,7 @@ const ResponsiveNavbar = () => {
                   Build intelligent applications with advanced ML algorithms and predictive analytics
                 </p>
               </a>
-              <a href="#" className="block group">
-                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
-                  Data Analytics
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Transform raw data into actionable insights with powerful visualization tools
-                </p>
-              </a>
+              
               <a href="#" className="block group">
                 <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
                   AI Integration

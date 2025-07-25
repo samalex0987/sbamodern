@@ -4,6 +4,8 @@ import "aos/dist/aos.css";
 
 import cybersecurity from "./cybersecurity.gif";
 import green_technology from "./green_technology.gif";
+import ITAutomationPlatform from "./Whatwedo";
+import SolutionsSection from "./solutions";
 
 function Security_and_sustainability() {
  
@@ -77,25 +79,20 @@ function Security_and_sustainability() {
         }
       `}</style>
       {/* Hero Section */}
-<section className="min-h-screen flex items-center justify-center text-center pt-20 px-4" data-aos="fade-up">
-  <div>
-    {/* Responsive Heading */}
-    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 text-white">
-      Security and Sustainability
+<section className="min-h-screen flex items-center justify-center text-center pt-10 px-4 sm:px-6 lg:px-8 bg-black">
+  <div data-aos="fade-up" className="max-w-3xl mx-auto">
+    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
+      Security and  <span className="text-red-500">Sustainability</span>
     </h1>
-
-    {/* Responsive Subheading */}
-    <p className="text-sm sm:text-base md:text-lg mb-6 max-w-xl mx-auto text-white">
-      Secure Enterprise Computing
+    <p className="text-base sm:text-lg md:text-xl mb-6 text-gray-300 max-w-xl mx-auto">
+      Secure Enterprise <span className="text-red-400">Computing</span>
     </p>
-
-    {/* Responsive Button */}
     <button
       onClick={() => setShowPopup(true)}
-      className="relative inline-block cursor-pointer px-5 py-2.5 sm:px-6 sm:py-3 font-medium group overflow-hidden border border-white text-white rounded"
+      className="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border-2 border-red-500 text-white rounded bg-black hover:bg-red-500 transition-all duration-300"
     >
-      <span className="absolute inset-0 w-0 bg-gray-200 transition-all duration-500 ease-out group-hover:w-full"></span>
-      <span className="relative z-10 group-hover:text-black">Request a Demo</span>
+      <span className="absolute inset-0 w-0 bg-red-500 transition-all duration-500 ease-out group-hover:w-full"></span>
+      <span className="relative z-10 group-hover:text-white">Request a Demo</span>
     </button>
   </div>
 </section>
@@ -192,181 +189,11 @@ function Security_and_sustainability() {
       )}
 
 
-      {/* Grid Section 1 */}
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className="text-center mb-12"
-            data-aos="fade-up"
-            // data-aos-delay="200"
-          >
-            <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl text-white">
-              Empower Your Enterprise with Security & Sustainability
-            </h2>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3" >
-            <div
-              className="p-6 shadow hover:shadow-md transition"
-              data-aos="fade-up"
-              // data-aos-delay="300"
-              style={{borderRight:"1px solid #1F1D1A"}}
-            >
-              <div className="mb-4 w-12 h-12 mx-auto" >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-full h-full text-white"
-                >
-                  <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
-                Enterprise-Grade Security
-              </h3>
-              <p className="text-sm text-gray-100 text-center">
-                Protect sensitive data and workloads with layered security, threat detection, and zero-trust architecture across all environments.
-              </p>
-            </div>
-
-            <div
-              className="p-6  shadow hover:shadow-md transition"
-              data-aos="fade-up"
-              // data-aos-delay="400"
-              style={{borderRight:"1px solid #1F1D1A"}}
-            >
-              <div className="mb-4 w-12 h-12 mx-auto">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-full h-full text-white"
-                >
-                  <path d="M4 4h16v2H4zm0 5h16v2H4zm0 5h10v2H4z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
-                Sustainable Cloud Operations
-              </h3>
-              <p className="text-sm text-gray-100 text-center">
-                Optimize resource usage and reduce carbon footprint with intelligent workload placement and energy-efficient infrastructure strategies.
-              </p>
-            </div>
-
-            <div
-              className="p-6 rounded-xl shadow hover:shadow-md transition"
-              data-aos="fade-up"
-              // data-aos-delay="500"
-            >
-              <div className="mb-4 w-12 h-12 mx-auto">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-full h-full text-white"
-                >
-                  <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-3.31 0-6 2.69-6 6h2a4 4 0 0 1 8 0h2c0-3.31-2.69-6-6-6z" />
-                </svg>
-              </div>
-              <h3 className="text-lg font-semibold text-gray-100 text-center mb-2">
-                Compliance & Risk Resilience
-              </h3>
-              <p className="text-sm text-gray-100 text-center">
-                Stay audit-ready and meet evolving regulations with automated compliance frameworks and real-time risk visibility.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      <ITAutomationPlatform />
 <br /><br /><br />
      
-      {/* Powered By Heading */}
-      <div className="text-center mb-12" data-aos="fade-up">
-        <h2 className="text-3xl font-bold text-gray-100 sm:text-4xl">
-          Our Solutions
-        </h2>
-      </div>
-
-      {/* Watson Assistant Section */}
-<div className="py-16 text-white" data-aos="fade-up">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-      <div className="order-1 lg:order-1">
-        <img
-          src={cybersecurity}
-          alt="Watson Assistant"
-          className="w-full rounded-lg shadow-lg"
-        />
-      </div>
-      <div className="order-2 lg:order-2 lg:pl-10 px-4 sm:px-6 pb-6">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4">Cybersecurity</h2>
-        <p className="text-base sm:text-lg mb-6">
-          Strengthen your digital defenses with proactive threat detection, vulnerability assessments, and risk mitigation strategies. We help you secure systems, data, and customer trust.
-        </p>
-        <a
-          href="https://www.ibm.com/products/linuxone"
-          className="inline-block px-6 py-3 bg-gray-100 hover:bg-gray-300 rounded text-black font-medium transition"
-        >
-          Learn More
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-{/* Watson Discovery Section */}
-<div className="py-16 text-white" data-aos="fade-up">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-      <div className="order-2 lg:order-1 lg:pl-10 px-4 sm:px-6 pb-6">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4">Green Technology</h2>
-        <p className="text-base sm:text-lg mb-6">
-            Promote environmental responsibility through sustainable IT practices. We offer energy-efficient solutions, carbon-conscious infrastructure, and tools that align with green initiatives.
-        </p>
-        <a
-          href="https://www.ibm.com/think/topics/mainframe"
-          className="inline-block px-6 py-3 bg-gray-100 hover:bg-gray-300 rounded text-black font-medium transition"
-        >
-          Learn More
-        </a>
-      </div>
-      <div className="order-1 lg:order-2">
-        <img
-          src={green_technology}
-          alt="Watson Discovery"
-          className="w-full rounded-lg shadow-lg"
-        />
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div className="py-16 text-white" data-aos="fade-up">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#1F1D1A]">
-      <div className="order-1 lg:order-1">
-        <img
-          src={cybersecurity}
-          alt="Watson Assistant"
-          className="w-full rounded-lg shadow-lg"
-        />
-      </div>
-      <div className="order-2 lg:order-2 lg:pl-10 px-4 sm:px-6 pb-6">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4">Compliance Management</h2>
-        <p className="text-base sm:text-lg mb-6">
-          Stay ahead of regulatory requirements with automated compliance tracking, reporting tools, and governance frameworks. We support security, privacy, and sustainability standards.
-        </p>
-        <a
-          href="https://www.ibm.com/products/linuxone"
-          className="inline-block px-6 py-3 bg-gray-100 hover:bg-gray-300 rounded text-black font-medium transition"
-        >
-          Learn More
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
+    <SolutionsSection />
+     
 {/* Grid Section 2 */}
 <section className="max-w-7xl mx-auto px-4 py-16 bg-black" data-aos="fade-up">
   <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12 text-white">

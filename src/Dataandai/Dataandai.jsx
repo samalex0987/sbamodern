@@ -89,9 +89,9 @@ function Dataandai() {
     </p>
     <button
       onClick={() => setShowPopup(true)}
-      className="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border-2 border-red-500 text-white rounded bg-black hover:bg-red-500 transition-all duration-300"
+      className="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border-2 border-red-500 text-white rounded bg-black hover:bg-red-500 transition-all duration-600"
     >
-      <span className="absolute inset-0 w-0 bg-red-500 transition-all duration-500 ease-out group-hover:w-full"></span>
+      <span className="absolute inset-0 w-0 bg-red-500 transition-all duration-800 ease-out group-hover:w-full"></span>
       <span className="relative z-10 group-hover:text-white">Request a Demo</span>
     </button>
   </div>
@@ -186,9 +186,9 @@ function Dataandai() {
             </div>
           </div>
         </div>
-      )}
+      )} 
 
-      <ITAutomationPlatform />
+      <ITAutomationPlatform  />
 <br /><br /><br />
 {/* What We Do */}
 
@@ -202,7 +202,7 @@ function Dataandai() {
         <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12 text-white">
           Everything You Need to Accelerate Data & AI
           <br className="hidden md:block" />
-          in One Unified Platform
+           in One Unified Platform
         </h2>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

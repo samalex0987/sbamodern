@@ -10,25 +10,25 @@ const ITAutomationPlatform = () => {
     {
       id: 1,
       icon: <Brain className="w-8 h-8" />,
-      title: "Modernize IT Operations",
-      description: "Streamline infrastructure, reduce legacy bottlenecks, and adopt cloud-native practices to support faster, scalable, and more secure operations.",
-      features: ["Real-time Insights", "Smart Analytics", "Intelligent Assistance"],
+      title: "Unified Cloud Infrastructure",
+      description: "Simplify hybrid deployments with a consistent platform across public and private clouds improving workload mobility and governance.",
+      features: ["Unified Real-Time Insights", "Cloud-Native Smart Analytics", "Intelligent Cloud Assistance"],
       accent: "from-red-500 to-red-400"
     },
     {
       id: 2,
       icon: <Cpu className="w-8 h-8" />,
-      title: "Automate Workflows End-to-End",
-      description: "Build, manage, and scale automated IT workflows for provisioning, patching, incident response, and more — with minimal code and maximum control.",
-      features: ["ML Model Deployment", "Automated Workflows", "Performance Monitoring"],
+      title: "Open Ecosystem Integration",
+      description: "Integrate seamlessly with open-source tools and APIs to support innovation while avoiding vendor lock-in.",
+      features: ["Seamless Connectivity", "Interoperability by Design", "Partner-Friendly Architecture"],
       accent: "from-red-500 to-red-400"
     },
     {
       id: 3,
       icon: <Clock className="w-8 h-8" />,
-      title: "Boost IT Agility & Uptime",
-      description: "Detect issues early, reduce downtime, and respond faster with integrated monitoring, intelligent alerting, and proactive remediation capabilities.",
-      features: ["Pre-built Pipelines", "Model Templates", "Rapid Deployment"],
+      title: "Secure & Scalable Architecture",
+      description: "Ensure enterprise-grade security, compliance, and scalability from edge to core to cloud with a unified approach.",
+      features: ["Enterprise-Grade Security", "Scales as You Grow", "Zero Trust Foundations"],
       accent: "from-red-500 to-red-400"
     }
   ];
@@ -73,23 +73,23 @@ const ITAutomationPlatform = () => {
         >
           <div className="flex items-center justify-center mb-6">
             <Zap className="w-8 h-8 text-red-500 mr-3" />
-            <span className="text-red-400 font-semibold tracking-wider uppercase text-sm">
+            {/* <span className="text-red-400 font-semibold tracking-wider uppercase text-sm">
               All-in-One Platform
-            </span>
+            </span> */}
           </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent leading-tight">
-            Everything You Need to Power
+           Enable and Open
             <span className="block bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent">
-              IT & Automation
+              Hybrid Cloud
             </span>
             <span className="block text-3xl md:text-4xl lg:text-5xl mt-2">
-              in One Platform
+              Startegy
             </span>
           </h2>
           
           <p className="max-w-4xl mx-auto text-xl text-gray-400 leading-relaxed mb-8">
-            Streamline your operations with our comprehensive platform that brings together AI, automation, and intelligent insights to transform your business.
+            Our open hybrid cloud platform helps you streamline operations by combining AI, automation, and real-time insights—delivering flexibility and security across your entire IT ecosystem.
           </p>
           
           <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-300 mx-auto"></div>
