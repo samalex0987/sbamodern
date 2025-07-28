@@ -3,6 +3,8 @@ import logo from "./logo.png"
 
 const ResponsiveNavbar = () => {
 
+  const [display, Updatedisply] = useState("Media")
+
   const [showPopup, setShowPopup] = useState(false);
         const [formData, setFormData] = useState({
           name: '',
@@ -85,6 +87,123 @@ const ResponsiveNavbar = () => {
       }
     };
   }, []);
+  
+  
+  let data_and_ai = {
+    BFSI: [
+      { id: 1, name: "Fraud Detection", discription: "Detect fraudulent transactions in real-time using AI and machine learning algorithms" },
+    { id: 2, name: "Credit Risk Scoring", discription: "Analyze creditworthiness with predictive models to improve lending decisions" }
+  ],
+  Media: [
+    { id: 1, name: "Content Recommendation", discription: "Enhance user engagement with personalized AI-driven content suggestions" },
+    { id: 2, name: "Audience Analytics", discription: "Use data and AI to understand audience behavior and optimize content strategy" }
+  ],
+  Telecommunication: [
+    { id: 1, name: "Network Optimization", discription: "Predict and manage network congestion using advanced analytics" },
+    { id: 2, name: "Churn Prediction", discription: "Identify customers at risk of leaving and take proactive retention measures" }
+  ],
+  Manufacturing: [
+    { id: 1, name: "Predictive Maintenance", discription: "Reduce downtime by forecasting equipment failures using AI models" },
+    { id: 2, name: "Quality Control", discription: "Automate defect detection and ensure consistent product quality with computer vision" }
+  ],
+  Healthcare: [
+    { id: 1, name: "Disease Prediction", discription: "Leverage patient data to forecast health risks and enable early intervention" },
+    { id: 2, name: "Medical Imaging Analysis", discription: "Improve diagnostic accuracy through AI-based image interpretation" }
+  ],
+  IT_ITES: [
+    { id: 1, name: "IT Operations Analytics", discription: "Enhance system reliability by using AI to monitor and resolve IT issues" },
+    { id: 2, name: "Chatbots & Virtual Assistants", discription: "Automate customer support and internal helpdesk with AI-powered bots" }
+  ],
+  Media:[
+     { id: 1, name: "Machine Learning", discription:"Build intelligent applications with advanced ML algorithms and predictive analytics" },
+     { id: 2, name: "AI Integration", discription:"Seamlessly integrate AI capabilities into your existing business processes" }
+  ]
+};
+
+
+let it_and_business_automation = {
+  BFSI: [
+    { id: 1, name: "Robotic Process Automation (RPA)", discription: "Automate loan processing, compliance, and back-office operations" },
+    { id: 2, name: "Document Management", discription: "Digitize and manage large volumes of financial documents efficiently" }
+  ],
+  Media: [
+    { id: 1, name: "Content Publishing Automation", discription: "Automatically schedule and distribute content across platforms" },
+    { id: 2, name: "Rights Management", discription: "Automate licensing workflows and content usage tracking" }
+  ],
+  Telecommunication: [
+    { id: 1, name: "Service Provisioning", discription: "Accelerate customer onboarding with automated network setup" },
+    { id: 2, name: "Billing Automation", discription: "Streamline complex billing processes and reduce manual errors" }
+  ],
+  Manufacturing: [
+    { id: 1, name: "Inventory Automation", discription: "Automate inventory tracking and reduce stock inconsistencies" },
+    { id: 2, name: "Production Scheduling", discription: "Optimize factory operations with real-time scheduling systems" }
+  ],
+  Healthcare: [
+    { id: 1, name: "Patient Record Automation", discription: "Digitally manage patient data and streamline administrative tasks" },
+    { id: 2, name: "Claims Processing", discription: "Automate health insurance claims for faster settlements" }
+  ],
+  IT_ITES: [
+    { id: 1, name: "Workflow Automation", discription: "Automate ticketing systems and project management pipelines" },
+    { id: 2, name: "System Integration", discription: "Create seamless connections between enterprise applications and services" }
+  ]
+};
+
+
+let security_and_sustainability = {
+  BFSI: [
+    { id: 1, name: "Cybersecurity", discription: "Safeguard financial data with multi-layered threat detection and prevention systems" },
+    { id: 2, name: "Compliance Management", discription: "Automate risk assessments and ensure adherence to financial regulations" }
+  ],
+  Media: [
+    { id: 1, name: "Content Protection", discription: "Prevent piracy and unauthorized access through digital rights management (DRM)" },
+    { id: 2, name: "Sustainable Broadcasting", discription: "Implement energy-efficient infrastructure in media production and delivery" }
+  ],
+  Telecommunication: [
+    { id: 1, name: "Network Security", discription: "Secure network infrastructure against cyber threats and breaches" },
+    { id: 2, name: "Energy Optimization", discription: "Use AI to reduce energy consumption in data centers and network equipment" }
+  ],
+  Manufacturing: [
+    { id: 1, name: "Industrial Cybersecurity", discription: "Protect OT systems and IoT devices from cyber attacks" },
+    { id: 2, name: "Sustainable Manufacturing", discription: "Implement smart systems to reduce waste and lower emissions" }
+  ],
+  Healthcare: [
+    { id: 1, name: "Patient Data Protection", discription: "Ensure HIPAA-compliant data security across healthcare systems" },
+    { id: 2, name: "Eco-friendly Healthcare IT", discription: "Adopt sustainable IT practices in hospitals and clinics" }
+  ],
+  IT_ITES: [
+    { id: 1, name: "Endpoint Security", discription: "Protect devices and data in distributed IT environments" },
+    { id: 2, name: "Green IT Practices", discription: "Optimize energy usage in data centers and reduce carbon footprint" }
+  ]
+};
+
+
+let open_hybrid_cloud_by_industry = {
+  BFSI: [
+    { id: 1, name: "Secure Cloud Migration", discription: "Migrate sensitive financial data to the cloud with security and compliance in mind" },
+    { id: 2, name: "Hybrid Infrastructure", discription: "Integrate on-prem banking systems with scalable cloud platforms for improved agility" }
+  ],
+  Media: [
+    { id: 1, name: "Content Delivery in the Cloud", discription: "Leverage hybrid cloud for faster media rendering, storage, and streaming" },
+    { id: 2, name: "Multi-Cloud Content Management", discription: "Distribute and manage content across various platforms effortlessly" }
+  ],
+  Telecommunication: [
+    { id: 1, name: "Cloud-Native Network Functions", discription: "Modernize telecom infrastructure using cloud-based NFV and orchestration" },
+    { id: 2, name: "Edge and Core Cloud Integration", discription: "Deploy hybrid cloud for latency-sensitive telco workloads" }
+  ],
+  Manufacturing: [
+    { id: 1, name: "Smart Factory Cloud Integration", discription: "Enable smart operations by connecting shop floors to the cloud" },
+    { id: 2, name: "Data Mobility Across Plants", discription: "Manage and analyze production data across locations using hybrid cloud" }
+  ],
+  Healthcare: [
+    { id: 1, name: "Secure Health Data Storage", discription: "Store patient records in compliant, scalable hybrid cloud environments" },
+    { id: 2, name: "Interoperability via Cloud", discription: "Enable seamless data exchange across health systems and providers" }
+  ],
+  IT_ITES: [
+    { id: 1, name: "Multi-Cloud Operations", discription: "Manage applications across AWS, Azure, and private cloud efficiently" },
+    { id: 2, name: "DevOps in Hybrid Environments", discription: "Run CI/CD pipelines in hybrid infrastructure with flexibility and speed" }
+  ]
+};
+
 
   return (
     <>
@@ -317,144 +436,272 @@ const ResponsiveNavbar = () => {
       </div>
 
       
-      {/* Desktop Dropdown Menu */}
-      {isDropdownOpen && (
-        <div
-          ref={dropdownRef}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          className="absolute left-0 right-0 z-50 bg-[#1F1D1A] border-gray-200 shadow-lg border-t dark:bg-gray-800 dark:border-gray-600 transition-all duration-300 ease-in-out"
-        >
-          <div className="grid max-w-screen-xl px-4 py-8 mx-auto text-sm text-gray-500 dark:text-gray-400 md:grid-cols-2 lg:grid-cols-4 md:px-6 gap-8">
-            
-            {/* Data and AI Column */}
-            <div className="space-y-4">
-              <h3 className="font-semibold text-white text-lg mb-3 cursor-pointer" onClick={()=>{window.location.href = "/Data-and-ai"}}>Data and AI</h3>
-              <a href="Data-and-ai#machinelearning" className="block group">
-                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
-                  Machine Learning
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Build intelligent applications with advanced ML algorithms and predictive analytics
-                </p>
-              </a>
-              
-              <a href="#" className="block group">
-                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
-                  AI Integration
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Seamlessly integrate AI capabilities into your existing business processes
-                </p>
-              </a>
-            </div>
-
-            {/* IT and Business Automation Column */}
-            <div className="space-y-4">
-              <h3 className="font-semibold text-white text-lg mb-3 cursor-pointer" onClick={()=>{ window.location.href = "/It_and_buisness_automation"}}>IT & Business Automation</h3>
-              <a href="#" className="block group">
-                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
-                  Workflow Automation
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Streamline repetitive tasks and optimize business processes automatically
-                </p>
-              </a>
-              <a href="#" className="block group">
-                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
-                  System Integration
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Connect disparate systems and create unified digital ecosystems
-                </p>
-              </a>
-              <a href="#" className="block group">
-                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
-                  Process Optimization
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Identify bottlenecks and improve operational efficiency across departments
-                </p>
-              </a>
-            </div>
-
-            {/* Security and Sustainability Column */}
-            <div className="space-y-4">
-              <h3 className="font-semibold text-white text-lg mb-3 cursor-pointer" onClick={()=>{ window.location.href = "/Security_and_sustainability"}}>Security & Sustainability</h3>
-              <a href="#" className="block group">
-                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
-                  Cybersecurity
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Protect your digital assets with advanced threat detection and prevention
-                </p>
-              </a>
-              <a href="#" className="block group">
-                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
-                  Green Technology
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Reduce environmental impact with sustainable and energy-efficient solutions
-                </p>
-              </a>
-              <a href="#" className="block group">
-                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
-                  Compliance Management
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Ensure regulatory compliance with automated monitoring and reporting
-                </p>
-              </a>
-            </div>
-
-            {/* Open Hybrid Cloud Column */}
-            <div className="space-y-4">
-              <h3 className="font-semibold text-white text-lg cursor-pointer mb-3" onClick={()=>{ window.location.href = "/Open_hybrid_cloud"}}>Open Hybrid Cloud</h3>
-              <a href="#" className="block group">
-                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
-                  Cloud Migration
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Seamlessly transition your infrastructure to flexible cloud environments
-                </p>
-              </a>
-              <a href="#" className="block group">
-                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
-                  Multi-Cloud Management
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Manage workloads across multiple cloud providers with unified control
-                </p>
-              </a>
-              <a href="#" className="block group">
-                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
-                  Container Solutions
-                </div>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Deploy and scale applications efficiently with containerization technology
-                </p>
-              </a>
-            </div>
-
+     {isDropdownOpen && (
+  <div
+    ref={dropdownRef}
+    onMouseEnter={handleMouseEnter}
+    onMouseLeave={handleMouseLeave}
+    className="absolute left-0 right-0 z-50 bg-[#1F1D1A] border-gray-200 shadow-lg border-t dark:bg-gray-800 dark:border-gray-600 transition-all duration-300 ease-in-out"
+  >
+    <div className="flex max-w-screen-xl px-4 py-4 mx-auto text-sm text-gray-500 dark:text-gray-400 gap-8 overflow-x-auto">
+      
+       {/* Fifth Column (Example Content) */}
+      <div className="space-y-4 min-w-[200px]">
+        <h3 className="font-semibold text-white text-lg mb-3 cursor-pointer">Solutions By Industries</h3>
+        
+        <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1" onMouseEnter={()=>{
+            Updatedisply("Media")
+          }}>
+            Media
           </div>
-          
-          {/* Bottom CTA Section */}
-          <div className="border-t border-gray-700 bg-[#171512] px-4 py-6">
-            <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between">
-              <div className="mb-4 md:mb-0">
-                <h4 className="text-white font-semibold mb-1">Ready to transform your business?</h4>
-                <p className="text-gray-400 text-sm">Discover how our solutions can drive your success</p>
-              </div>
-              <a href="#" className="inline-flex items-center px-6 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors duration-200">
-                Explore All Solutions
-                <svg className="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                </svg>
-              </a>
-            </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Upskill your team with tailored technology training
+          </p>
+        </a>
+        <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1" onMouseEnter={()=>{
+            Updatedisply("BFSI")
+          }}>
+            BFSI
           </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Upskill your team with tailored technology training
+          </p>
+        </a>
+        <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1" onMouseEnter={()=>{
+            Updatedisply("Manufacturing")
+          }}>
+            Manufacturing
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Upskill your team with tailored technology training
+          </p>
+        </a>
+        <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1" onMouseEnter={()=>{
+            Updatedisply("Healthcare")
+          }}>
+            Healthcare
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Upskill your team with tailored technology training
+          </p>
+        </a>
+        <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1" onMouseEnter={()=>{
+            Updatedisply("IT_ITES")
+          }}>
+            IT/ITES
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Upskill your team with tailored technology training
+          </p>
+        </a>
+        <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1" onMouseEnter={()=>{
+            Updatedisply("Telecommunication")
+          }}>
+            Telecommunications
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Upskill your team with tailored technology training
+          </p>
+        </a>
+      </div>
+
+      {/* Data and AI Column */}
+      <div className="space-y-4 min-w-[200px]">
+        <h3 className="font-semibold text-white text-lg mb-3 cursor-pointer" onClick={() => { window.location.href = "/Data-and-ai" }}>
+          Data and AI
+        </h3>
+        {
+          data_and_ai[display].map((list)=>(
+            <>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  {list.name}
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  {list.discription}
+                </p>
+              </a>
+            </>
+          ))
+        }
+        {/* <a href="Data-and-ai#machinelearning" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+            Machine Learning
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Build intelligent applications with advanced ML algorithms and predictive analytics
+          </p>
+        </a>
+        <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+            AI Integration
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Seamlessly integrate AI capabilities into your existing business processes
+          </p>
+        </a> */}
+      </div>
+
+      {/* IT and Business Automation Column */}
+      <div className="space-y-4 min-w-[200px]">
+        <h3 className="font-semibold text-white text-lg mb-3 cursor-pointer" onClick={() => { window.location.href = "/It_and_buisness_automation" }}>
+          IT & Business Automation
+        </h3>
+        {
+          it_and_business_automation[display].map((list)=>(
+            <>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  {list.name}
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  {list.discription}
+                </p>
+              </a>
+            </>
+          ))
+        }
+        {/* <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+            Workflow Automation
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Streamline repetitive tasks and optimize business processes automatically
+          </p>
+        </a>
+        <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+            System Integration
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Connect disparate systems and create unified digital ecosystems
+          </p>
+        </a>
+        <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+            Process Optimization
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Identify bottlenecks and improve operational efficiency across departments
+          </p>
+        </a> */}
+      </div>
+
+      {/* Security and Sustainability Column */}
+      <div className="space-y-4 min-w-[200px]">
+        <h3 className="font-semibold text-white text-lg mb-3 cursor-pointer" onClick={() => { window.location.href = "/Security_and_sustainability" }}>
+          Security & Sustainability
+        </h3>
+         {
+          security_and_sustainability[display].map((list)=>(
+            <>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  {list.name}
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  {list.discription}
+                </p>
+              </a>
+            </>
+          ))
+        }
+        {/* <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+            Cybersecurity
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Protect your digital assets with advanced threat detection and prevention
+          </p>
+        </a>
+        <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+            Green Technology
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Reduce environmental impact with sustainable and energy-efficient solutions
+          </p>
+        </a>
+        <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+            Compliance Management
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Ensure regulatory compliance with automated monitoring and reporting
+          </p>
+        </a> */}
+      </div>
+
+      {/* Open Hybrid Cloud Column */}
+      <div className="space-y-4 min-w-[200px]">
+        <h3 className="font-semibold text-white text-lg cursor-pointer mb-3" onClick={() => { window.location.href = "/Open_hybrid_cloud" }}>
+          Open Hybrid Cloud
+        </h3>
+        {
+          open_hybrid_cloud_by_industry[display].map((list)=>(
+            <>
+              <a href="#" className="block group">
+                <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+                  {list.name}
+                </div>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  {list.discription}
+                </p>
+              </a>
+            </>
+          ))
+        }
+        {/* <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+            Cloud Migration
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Seamlessly transition your infrastructure to flexible cloud environments
+          </p>
+        </a>
+        <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+            Multi-Cloud Management
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Manage workloads across multiple cloud providers with unified control
+          </p>
+        </a>
+        <a href="#" className="block group">
+          <div className="text-white hover:text-red-600 transition-colors duration-200 font-medium mb-1">
+            Container Solutions
+          </div>
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Deploy and scale applications efficiently with containerization technology
+          </p>
+        </a> */}
+      </div>
+
+    </div>
+
+    {/* Bottom CTA Section */}
+    <div className="border-t border-gray-700 bg-[#171512] px-4 py-6">
+      <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center justify-between">
+        <div className="mb-4 md:mb-0">
+          <h4 className="text-white font-semibold mb-1">Ready to transform your business?</h4>
+          <p className="text-gray-400 text-sm">Discover how our solutions can drive your success</p>
         </div>
-      )}
+        <a href="/Our-solutions" className="inline-flex items-center px-6 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 transition-colors duration-200">
+          Explore All Solutions
+          <svg className="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+)}
     </nav>
     </>
   );

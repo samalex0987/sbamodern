@@ -12,21 +12,24 @@ const AutomationSection = () => {
       icon: <Bot className="w-8 h-8" />,
       title: "AI-Powered Automation",
       description: "Empower your business with AI-driven automation tools to enhance customer engagement, support, and insights.",
-      features: ["Machine Learning", "Predictive Analytics", "Smart Workflows"]
+      features: ["Machine Learning", "Predictive Analytics", "Smart Workflows"],
+      link:"/Data-and-ai"
     },
     {
       id: 2,
       icon: <Server className="w-8 h-8" />,
       title: "IT & Infrastructure Automation",
       description: "Automate and manage your IT infrastructure and operations to ensure scalability, reliability, and speed.",
-      features: ["Network Management", "System Monitoring", "Auto-scaling"]
+      features: ["Network Management", "System Monitoring", "Auto-scaling"],
+      link:"/It_and_buisness_automation"
     },
     {
       id: 3,
       icon: <Cloud className="w-8 h-8" />,
       title: "Cloud & DevOps Automation",
       description: "Achieve seamless integration, delivery, and management with powerful cloud automation and DevOps solutions.",
-      features: ["CI/CD Pipelines", "Container Orchestration", "Infrastructure as Code"]
+      features: ["CI/CD Pipelines", "Container Orchestration", "Infrastructure as Code"],
+      link:"Open_hybrid_cloud"
     }
   ];
 
@@ -117,7 +120,9 @@ const AutomationSection = () => {
               <div className="absolute  inset-0 bg-gradient-to-br from-red-900/10 to-gray-900/40 opacity-50 group-hover:opacity-70 transition-opacity duration-500"></div>
               
               {/* Content */}
-              <div className="relative cursor-pointer z-10 p-8 h-full flex flex-col">
+              <div className="relative cursor-pointer z-10 p-8 h-full flex flex-col" onClick={()=>{
+                window.location.href = card.link
+              }}>
                 {/* Icon */}
                 <div className="mb-6">
                   <div className="bg-gradient-to-r from-red-500 to-red-400 p-4 rounded-xl w-16 h-16 flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">

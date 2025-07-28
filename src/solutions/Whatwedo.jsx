@@ -11,47 +11,121 @@ import {
   Target,
   Zap,
   BrainCircuit,
-  CalendarSync,
-  Workflow,
-  Rocket
+  Landmark,
+  Factory,
+  ImagePlay,
+  Building,
+  Headset,
+  HeartPulse
 } from 'lucide-react';
 
 const SolutionsSection = () => {
   const [visibleSections, setVisibleSections] = useState([]);
   const sectionRefs = useRef([]);
 
-  const solutions = [
-    {
-      id: 1,
-      icon: <CalendarSync className="w-12 h-12" />,
-      title: "Workflow Automation",
-      description: "Automate repetitive tasks, reduce human error, and streamline your day-to-day business operations. Our automation solutions adapt to your unique processes and boost operational speed.",
-      features: ["Document Processing ", "Custom Task Bots", "Email & Message Handling", "Custom Automation Model"],
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      imageAlt: "Machine Learning Models",
-      reverse: false
-    },
-    {
-      id: 2,
-      icon: <Workflow className="w-12 h-12" />,
-      title: "System Integration",
-      description: "Connect disconnected systems, apps, and platforms into one cohesive environment. We ensure seamless data flow and interoperability to support better decision-making and collaboration.",
-      features: ["Data Sync Across Tools", "API-Based Automation", "AI-Powered Connectors", "Custom Integration Workflows"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      imageAlt: "AI Integrations Dashboard",
-      reverse: true
-    },
-    {
-      id: 3,
-      icon: <Rocket className="w-12 h-12" />,
-      title: "Process Optimization",
-      description: "Improve efficiency, reduce waste, and enhance performance across all operations. Our optimization tools uncover bottlenecks and align your processes with business goals.",
-      features: ["Continuous Improvement", "Task Prioritization", "Identify Bottlenecks", "Smart Recommendations"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-      imageAlt: "AI Integrations Dashboard",
-      reverse: false 
-    },
-  ];
+const solutions = [
+  {
+    id: 1,
+    icon: <Landmark className="w-12 h-12" />,
+    title: "BFSI",
+    description:
+      "We empower the Banking, Financial Services, and Insurance sector with digital transformation, AI-powered insights, cybersecurity frameworks, and compliance automation. Enhance customer experiences, optimize operations, and ensure regulatory alignment.",
+    features: [
+      "Fraud Detection",
+      "Risk Scoring Models",
+      "AI-driven KYC Automation",
+      "RegTech & Compliance Monitoring"
+    ],
+    image:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    imageAlt: "BFSI Industry",
+    reverse: false
+  },
+  {
+    id: 2,
+    icon: <Factory className="w-12 h-12" />,
+    title: "Manufacturing",
+    description:
+      "Enable smart factories with AI, IoT, and predictive analytics. From process automation to real-time monitoring, we help manufacturers increase efficiency, reduce downtime, and enhance product quality.",
+    features: [
+      "Predictive Maintenance",
+      "Supply Chain Optimization",
+      "Computer Vision QA",
+      "Robotic Process Automation (RPA)"
+    ],
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    imageAlt: "Manufacturing AI",
+    reverse: true
+  },
+  {
+    id: 3,
+    icon: <ImagePlay className="w-12 h-12" />,
+    title: "Media",
+    description:
+      "Transform content creation, personalization, and audience engagement through AI-driven media workflows. Our solutions power recommendation engines, automated editing, and targeted advertising.",
+    features: [
+      "AI Content Tagging",
+      "Audience Segmentation",
+      "Personalized Recommendations",
+      "Speech & Video Recognition"
+    ],
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    imageAlt: "Media Industry AI",
+    reverse: false
+  },
+  {
+    id: 4,
+    icon: <Building className="w-12 h-12" />,
+    title: "IT / ITES",
+    description:
+      "Optimize IT and IT-enabled services with intelligent automation, cloud migration, and advanced analytics. Drive efficiency, reduce manual effort, and enhance service delivery across your ecosystem.",
+    features: [
+      "Process Automation",
+      "Multi-cloud Deployment",
+      "AI-Driven Support Systems",
+      "Service Desk Automation"
+    ],
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    imageAlt: "IT and ITES Solutions",
+    reverse: true
+  },
+  {
+    id: 5,
+    icon: <Headset className="w-12 h-12" />,
+    title: "Telecom / BPO / KPO",
+    description:
+      "Revolutionize the way customer experience, operations, and backend processing work in the telecom and outsourcing industries. AI enables faster resolution, personalized engagement, and cost savings.",
+    features: [
+      "Conversational AI",
+      "Customer Sentiment Analysis",
+      "Call Center Automation",
+      "Workforce Optimization"
+    ],
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    imageAlt: "Telecom and BPO AI",
+    reverse: false
+  },
+  {
+    id: 6,
+    icon: <HeartPulse className="w-12 h-12" />,
+    title: "Healthcare",
+    description:
+      "Accelerate diagnostics, patient care, and hospital management through AI-powered tools. We enable clinical decision support, remote monitoring, and intelligent automation in the healthcare ecosystem.",
+    features: [
+      "Medical Image Analysis",
+      "Remote Patient Monitoring",
+      "Clinical Decision Support",
+      "Electronic Health Record (EHR) Automation"
+    ],
+    image:
+      "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    imageAlt: "Healthcare AI",
+    reverse: true
+  }
+];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -96,23 +170,19 @@ const SolutionsSection = () => {
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <div className="flex items-center justify-center mb-6">
-            <Target className="w-8 h-8 text-red-500 mr-3" />
-            <span className="text-red-400 font-semibold tracking-wider uppercase text-sm">
-              Our Expertise
-            </span>
-          </div>
           
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-            Solutions We 
-            <span className="block  text-red-500">
-              Offer
-            </span>
-          </h2>
           
-          <p className="max-w-3xl mx-auto text-xl text-gray-400 leading-relaxed mb-8">
-            Comprehensive technology solutions designed to transform your business operations and drive sustainable growth.
-          </p>
+         <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+            Shaping the Future with  
+            <span className="block text-red-500">
+            Intelligent Solutions
+            </span>
+        </h2>
+
+        <p className="max-w-3xl mx-auto text-xl text-gray-400 leading-relaxed mb-8">
+            We deliver industry-specific technology solutions that accelerate digital transformation and unlock new levels of productivity and innovation.
+        </p>
+
           
           <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-300 mx-auto"></div>
         </div>
@@ -220,34 +290,7 @@ const SolutionsSection = () => {
           ))}
         </div>
 
-        {/* Stats Section */}
-        <div className="mt-32 grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="text-center p-6 rounded-2xl bg-gray-900/30 border border-gray-800">
-            <div className="text-4xl font-bold bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent mb-2">
-              500+
-            </div>
-            <div className="text-gray-400">Projects Delivered</div>
-          </div>
-          <div className="text-center p-6 rounded-2xl bg-gray-900/30 border border-gray-800">
-            <div className="text-4xl font-bold bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent mb-2">
-              98%
-            </div>
-            <div className="text-gray-400">Client Satisfaction</div>
-          </div>
-          <div className="text-center p-6 rounded-2xl bg-gray-900/30 border border-gray-800">
-            <div className="text-4xl font-bold bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent mb-2">
-              24/7
-            </div>
-            <div className="text-gray-400">Support Available</div>
-          </div>
-          <div className="text-center p-6 rounded-2xl bg-gray-900/30 border border-gray-800">
-            <div className="text-4xl font-bold bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent mb-2">
-              15+
-            </div>
-            <div className="text-gray-400">Years Experience</div>
-          </div>
-        </div>
-
+        
         {/* Bottom CTA */}
         <div className="text-center mt-20">
           <div className="inline-flex items-center space-x-4 mb-6">
@@ -259,7 +302,7 @@ const SolutionsSection = () => {
           <p className="text-gray-500 text-lg mb-8">Ready to explore our solutions?</p>
           
           <button className="bg-gradient-to-r cursor-pointer from-red-500 to-red-400 text-white font-semibold py-4 px-8 rounded-lg hover:from-red-600 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 flex items-center space-x-2 mx-auto">
-            <span>Discover All Solutions</span>
+            <span>Get a Call Back</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
