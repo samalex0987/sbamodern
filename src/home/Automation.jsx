@@ -74,20 +74,19 @@ const AutomationSection = () => {
           <div className="flex items-center justify-center mb-6">
             <Zap className="w-8 h-8 text-red-500 mr-3" />
             <span className="text-red-400 font-semibold tracking-wider uppercase text-sm">
-              Intelligent Solutions
+              Achieve Enterprise-Wide Fluidity.
             </span>
           </div>
           
           <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-            Unlock Efficiency with 
+            Achieve Enterprise-Wide
             <span className="block bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent">
-              Intelligent Automation
+              Fluidity
             </span>
           </h2>
           
           <p className="max-w-4xl mx-auto text-xl text-gray-400 leading-relaxed mb-8">
-            Transform your business operations with smart automation solutions that enhance productivity, 
-            streamline workflows, and deliver faster results across all areas of your business.
+            Unified solutions built to solve challenges for any team, in any industry.
           </p>
           
           <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-300 mx-auto"></div>
@@ -186,10 +185,10 @@ const AutomationSection = () => {
             <div className="w-3 h-3 bg-gray-600 rounded-full animate-pulse" style={{animationDelay: '0.6s'}}></div>
           </div>
           
-          <p className="text-gray-500 mb-8">Ready to transform your business operations?</p>
+          <p className="text-gray-500 mb-8">Ready to eliminate digital friction in your operations today?</p>
           
           <button className="bg-gradient-to-r cursor-pointer from-red-500 to-red-400 text-white font-semibold py-4 px-8 rounded-lg hover:from-red-600 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 flex items-center space-x-2 mx-auto">
-            <span>Get Started Today</span>
+            <span>Shedule A Statergy Session</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>

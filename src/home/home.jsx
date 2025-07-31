@@ -6,6 +6,8 @@ import "aos/dist/aos.css";
 import Ourservices from './ourservices';
 import CountUp from 'react-countup';
 import AutomationSection from './Automation';
+import venkatesh from "./venkatesh.jpg"
+import PartnersSection from './Partners';
 
 function Home(){
 
@@ -88,23 +90,23 @@ const [showPopup, setShowPopup] = useState(false);
     
     return(
         <>
-   <section className="min-h-screen flex items-center justify-center text-center pt-10 px-4 sm:px-6 lg:px-8 bg-black">
-  <div data-aos="fade-up" className="max-w-3xl mx-auto">
-    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-4">
+<section className="min-h-screen flex items-center justify-center text-center pt-10 px-4 sm:px-6 lg:px-8 bg-black">
+  <div data-aos="fade-up" className="max-w-4xl mx-auto">
+    <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
       Automate The <span className="text-red-500">Mundane</span>
     </h1>
-    <p className="text-base sm:text-lg md:text-xl mb-6 text-gray-300 max-w-xl mx-auto">
-      Elevate The <span className="text-red-400">Human Potential</span>
+    <p className="text-lg sm:text-xl md:text-2xl mb-8 text-gray-300">
+      Elevate <span className="text-red-400">Human Potential</span>
     </p>
-    <button
-      onClick={() => setShowPopup(true)}
-      className="relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border-2 border-red-500 text-white rounded bg-black hover:bg-red-500 transition-all duration-300"
-    >
-      <span className="absolute inset-0 w-0 bg-red-500 transition-all duration-500 ease-out group-hover:w-full"></span>
-      <span className="relative z-10 group-hover:text-white">Request a Demo</span>
+    <button className="bg-gradient-to-r cursor-pointer from-red-500 to-red-400 text-white font-semibold py-4 px-8 rounded-lg hover:from-red-600 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 flex items-center space-x-2 mx-auto">
+      <span>Schedule a Strategy Session</span>
+      {/* <ArrowRight className="w-5 h-5" /> */}
     </button>
+      
   </div>
 </section>
+
+
   <style jsx>{`
         @keyframes fadeIn {
           from {
@@ -224,7 +226,7 @@ const [showPopup, setShowPopup] = useState(false);
         </div>
       )}
 
-        <br /><br /><br />
+
         <div data-aos="fade-up" className="video-container relative w-full max-w-[1300px] mx-auto aspect-[16/9]">
             <video ref={videoRef} className="w-full h-full object-cover">
                 <source src={herosectionvideo} type="video/mp4" />
@@ -240,63 +242,46 @@ const [showPopup, setShowPopup] = useState(false);
 
   
 <AutomationSection />
-        <br /><br /><br />
-        {/* <Ourservices /> */}
-        <br /><br /><br />
-
-      <div className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div
-            className="text-center mb-12"
-            data-aos="fade-up"
-          >
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
-              Our Impact
-            </h2>
-          </div>
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Feature 1 */}
-            <div className="p-6 shadow hover:shadow-md transition border-b border-[#1F1D1A] lg:border-b-0 lg:border-r" data-aos="fade-up">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
-                <ImpactCard value={300} suffix="+" duration={5}  delay={0.1} />
-              </h3>
-              <p className="text-base sm:text-lg md:text-xl text-white text-center">
-                Customers
-              </p>
-            </div>
-
-            <div className="p-6 shadow hover:shadow-md transition border-b border-[#1F1D1A] lg:border-b-0 lg:border-r" data-aos="fade-up">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
-                   <ImpactCard value={30} suffix="+" duration={5}  delay={1.0} />
-                </h3>
-                <p className="text-base sm:text-lg md:text-xl text-white text-center">
-                  Years in Market
-                </p>
-              </div>
-
-            <div className="p-6 shadow hover:shadow-md transition border-b border-[#1F1D1A] lg:border-b-0 lg:border-r" data-aos="fade-up">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center mb-2">
-                  <ImpactCard value="Best"  delay={2.0} />
-                </h3>
-                <p className="text-base sm:text-lg md:text-xl text-white text-center">
-                   Predictive Support
-                </p>
-              </div>
-
-          </div>
-        </div>
-      </div>
-
-        <br /><br /><br />
-
+       <br />
         <div data-aos="fade-up">
-    <VideoCarousel/>
+    <PartnersSection />
+    {/* <VideoCarousel/> */}
+    
 
         </div>
-        <br />
+        <section className="bg-[#D5D1DB] py-16 px-4" data-aos="fade-up">
+            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-12">
+              
+              {/* Left - Image */}
+              <div className="w-full md:w-1/2 flex justify-center">
+                <img 
+                  src={venkatesh}
+                  alt="Person smiling" 
+                  className="rounded-lg shadow-lg max-w-full h-auto"
+                />
+              </div>
+
+              {/* Right - Quote */}
+              <div className="w-full md:w-1/2 text-left">
+                <p className="text-2xl md:text-3xl font-serif text-black leading-relaxed mb-6">
+                  “In the modern workplace, repetitive tasks like data entry and information retrieval
+                  hinder employees from engaging in strategic and creative aspects of their roles.”
+                </p>
+                <p className="font-medium text-black">Venkatesh A</p>
+                <p className="text-gray-700 text-sm mb-6">CGO</p>
+{/* "relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border-2 border-red-500 text-white rounded bg-black hover:bg-red-500 transition-all duration-300 */}
+               <button className="bg-gradient-to-r cursor-pointer from-red-500 to-red-400 text-white font-semibold py-4 px-8 rounded-lg hover:from-red-600 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 flex items-center space-x-2 mx-auto">
+                           <span>Get Started Today</span>
+                           {/* <ArrowRight className="w-5 h-5" /> */}
+                         </button>
+              </div>
+            </div>
+          </section>
+
+
+
               {/* Closing CTA */}
-      <section className="bg-[#D5D1DB] py-24 text-center" data-aos="fade-up">
+      {/* <section className="bg-[#D5D1DB] py-24 text-center" data-aos="fade-up">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl md:text-3xl  font-medium text-black mb-8">
             Empower with Data, Accelerate with Agility
@@ -307,7 +292,7 @@ const [showPopup, setShowPopup] = useState(false);
             <span className="relative z-10 group-hover:text-black">Request a Demo</span>
           </button>
         </div>
-      </section>
+      </section> */}
         </>
     )
 }
