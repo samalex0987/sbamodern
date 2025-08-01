@@ -155,36 +155,6 @@ const PartnersSection = () => {
           </div>
         </div> */}
 
-        {/* Partnership Benefits */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {[
-            {
-              icon: <Building2 className="w-6 h-6" />,
-              title: "Enterprise Solutions",
-              description: "Comprehensive solutions for large-scale operations"
-            },
-            {
-              icon: <Globe className="w-6 h-6" />,
-              title: "Global Reach",
-              description: "Worldwide network of trusted technology partners"
-            },
-            {
-              icon: <Star className="w-6 h-6" />,
-              title: "Premium Support",
-              description: "24/7 dedicated support from certified experts"
-            }
-          ].map((benefit, index) => (
-            <div key={index} className="group p-6 rounded-xl bg-gradient-to-br from-white/5 to-transparent border border-gray-800 hover:border-red-500 transition-all duration-300">
-              <div className="bg-gradient-to-r from-red-500 to-red-400 p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                <div className="text-white">
-                  {benefit.icon}
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-white mb-2">{benefit.title}</h3>
-              <p className="text-gray-400">{benefit.description}</p>
-            </div>
-          ))}
-        </div>
 
         {/* Bottom CTA */}
         <div className="text-center">
@@ -197,7 +167,7 @@ const PartnersSection = () => {
           <p className="text-gray-500 mb-8">Interested in becoming a strategic partner?</p>
           
           <button className="bg-gradient-to-r cursor-pointer from-red-500 to-red-400 text-white font-semibold py-4 px-8 rounded-lg hover:from-red-600 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 flex items-center space-x-2 mx-auto">
-            <span>Partner With Us</span>
+            <span>Shedule a Startegy Session</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>

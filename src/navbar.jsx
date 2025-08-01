@@ -361,7 +361,7 @@ const ResponsiveNavbar = () => {
             </ul>
           </div>
           <div className="hidden md:flex items-center">
-            <button onClick={() => setShowPopup(true)} className="px-6 py-2 text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:ring-red-300 transition-all duration-200 transform hover:scale-105 focus:outline-none">
+            <button onClick={() => setShowPopup(true)} className="px-6 py-2 cursor-pointer text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:ring-red-300 transition-all duration-200 transform hover:scale-105 focus:outline-none">
               Get Started
             </button>
           </div>
@@ -431,12 +431,12 @@ const ResponsiveNavbar = () => {
             ref={dropdownRef}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            className="absolute left-0 right-0 z-50 bg-gray-900 border-t border-gray-800 shadow-xl transition-all duration-300 ease-in-out"
+            className="absolute left-0 right-0 z-50 bg-black border-t border-gray-800 shadow-xl transition-all duration-300 ease-in-out"
           >
             <div className="flex max-w-screen-xl px-6 py-8 mx-auto text-sm gap-6">
               {/* Solutions By Industries and Departments */}
               <div className="flex-1 min-w-[220px]">
-                <h3 className="font-semibold text-white text-lg mb-4">Our Solutions</h3>
+                <h3 className="font-semibold text-white text-lg mb-4 pt-1">Our Solutions</h3>
                 <div className="space-y-4">
                   <div>
                     <button

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import herosectionvideo from "./nature.mp4"
+import herosectionvideo from "./hero_section_video.mp4"
 import VideoCarousel from './carousal';
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -39,13 +39,35 @@ function Home(){
   };
   
  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+
+    if (video) {
+      video.addEventListener('play', handlePlay);
+      video.addEventListener('pause', handlePause);
+    }
+
+    // Cleanup
+    return () => {
+      if (video) {
+        video.removeEventListener('play', handlePlay);
+        video.removeEventListener('pause', handlePause);
+      }
+    };
+  }, []);
 
   const handlePlayPause = () => {
-    if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play();
+    const video = videoRef.current;
+    if (video) {
+      if (video.paused) {
+        video.play();
       } else {
-        videoRef.current.pause();
+        video.pause();
       }
     }
   };
@@ -90,7 +112,7 @@ const [showPopup, setShowPopup] = useState(false);
     
     return(
         <>
-<section className="min-h-screen flex items-center justify-center text-center pt-10 px-4 sm:px-6 lg:px-8 bg-black">
+<section className=" flex items-center justify-center text-center pt-50 px-4 sm:px-6 lg:px-8 bg-black pb-20">
   <div data-aos="fade-up" className="max-w-4xl mx-auto">
     <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
       Automate The <span className="text-red-500">Mundane</span>
@@ -106,7 +128,22 @@ const [showPopup, setShowPopup] = useState(false);
   </div>
 </section>
 
-
+<div
+      // data-aos="fade-up"
+      className="video-container relative w-full max-w-[1300px] mx-auto aspect-[16/9]"
+    >
+      <video ref={videoRef} className="w-full h-full object-cover">
+        <source src={herosectionvideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div
+        className="play-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[1.5rem] bg-[rgba(121,119,119,0.7)] py-2 px-4 rounded-md cursor-pointer transition-colors duration-300 hover:bg-[rgba(103,102,102,0.9)]"
+        onClick={handlePlayPause}
+      >
+        <i className={`fa-solid ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
+      </div>
+    </div>
+    <br />
   <style jsx>{`
         @keyframes fadeIn {
           from {
@@ -227,28 +264,64 @@ const [showPopup, setShowPopup] = useState(false);
       )}
 
 
-        <div data-aos="fade-up" className="video-container relative w-full max-w-[1300px] mx-auto aspect-[16/9]">
-            <video ref={videoRef} className="w-full h-full object-cover">
-                <source src={herosectionvideo} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
-            <div
-                className="play-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[1.5rem] bg-[rgba(121,119,119,0.7)] py-2 px-4 rounded-md cursor-pointer transition-colors duration-300 hover:bg-[rgba(103,102,102,0.9)]"
-                onClick={handlePlayPause}
-            >
-                <i className={`fa-solid ${videoRef.current?.paused ? 'fa-play' : 'fa-pause'}`}></i>
-      </div>
-    </div>
+      
 
   
 <AutomationSection />
        <br />
         <div data-aos="fade-up">
     <PartnersSection />
+    
     {/* <VideoCarousel/> */}
     
 
         </div>
+
+        <section className="max-w-7xl mx-auto px-4 py-16" data-aos="fade-up">
+        <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12 text-white">
+          Engineered for Your Enterprise
+        </h2>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            "Bespoke Solution Architecture",
+            "Dedicated Strategy & Support",
+            "Enterprise-Wide Integration",
+            "Uncompromising Security & Privacy",
+            "Real-Time Analytics",
+            "Scalable Data Infrastructure",
+          ].map((title, idx) => (
+            <div
+              key={idx}
+              className="bg-neutral-900 p-6 rounded-xl"
+              data-aos="fade-up"
+              data-aos-delay={idx * 100}
+              >
+              <h3 className="text-lg font-semibold mb-2 text-white">{title}</h3>
+              <p className="text-sm text-gray-300">
+                {
+                  {
+                    "Bespoke Solution Architecture":
+                      "We don't offer a one-size-fits-all product. We architect and configure solutions precisely to your team's workflows, eliminating friction and delivering on your specific outcomes..",
+                    "Dedicated Strategy & Support":
+                      "Your success is our core metric. From the initial discovery call to ongoing optimization, you get a dedicated team of experts committed to helping you achieve your goals.",
+                    "Enterprise-Wide Integration":
+                      "Our solutions are designed to be the connective tissue for your operations. We unify disparate systems and break down data silos across any department or industry.",
+                    "Uncompromising Security & Privacy":
+                      "Built on an enterprise-grade security framework that puts your data first. We provide robust protection, and your proprietary information is safeguarded.",
+                    "Real-Time Analytics":
+                      "Analyze data in real-time to uncover insights, detect anomalies, and respond instantly to changing business conditions.",
+                    "Scalable Data Infrastructure":
+                    "Leverage cloud-native and hybrid data platforms to store, process, and serve AI workloads at scale with high performance.",
+                  }[title]
+                }
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+        
         <section className="bg-[#D5D1DB] py-16 px-4" data-aos="fade-up">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-12">
               
