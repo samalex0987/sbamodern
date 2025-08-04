@@ -34,35 +34,6 @@ function Solutions(){
             </div>
         </section>
 
-
-        {/* SECTION 2 */}
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-            {/* Header */}
-            <div className="text-center mb-16">
-            <div className="flex items-center justify-center mb-6">
-                <span className="text-red-400 font-semibold tracking-wider uppercase text-sm">
-                Smarter Business Starts Here
-                </span>
-            </div>
-
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
-                Accelerate Growth with
-                <span className="block bg-gradient-to-r from-red-500 to-red-300 bg-clip-text text-transparent">
-                AI-Powered Automation
-                </span>
-            </h2>
-
-            <p className="max-w-4xl mx-auto text-xl text-gray-400 leading-relaxed mb-8">
-                Leverage intelligent technologies to reduce manual work, improve decision-making, 
-                and build agile, future-ready operations — all while freeing up your teams to focus on innovation.
-            </p>
-
-            <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-300 mx-auto"></div>
-            </div>
-            </div>
-
-        {/* SECTION 2 */}
-
         <SolutionsSection />
     
         </>

@@ -1,10 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import machine_learning from "./machine_learning.jpg"
-import ai_integrate from "./ai_integrate.jpg"
 import { 
-  Brain, 
-  Database, 
   Cloud, 
+  Database, 
   Shield, 
   Cpu, 
   Network,
@@ -12,34 +9,58 @@ import {
   Sparkles,
   Target,
   Zap,
-  BrainCircuit
+  Server,
+  Globe,
+  Lock,
+  Layers
 } from 'lucide-react';
+
 
 const SolutionsSection = () => {
   const [visibleSections, setVisibleSections] = useState([]);
   const sectionRefs = useRef([]);
 
-  const solutions = [
+ const solutions = [
     {
       id: 1,
-      icon: <Brain className="w-12 h-12" />,
-      title: "Machine Learning Models",
-      description: "Build intelligent systems with our ready-to-integrate machine learning models. From predictive analytics to natural language processing, we tailor solutions to match your business needs.",
-      features: ["Predictive Analytics", "Natural Language Processing", "Computer Vision", "Custom Model Development"],
-      image: machine_learning,
-      imageAlt: "Machine Learning Models",
+      icon: <Cloud className="w-12 h-12" />,
+      title: "Hybrid Cloud Infrastructure",
+      description: "Seamlessly bridge your on-premises infrastructure with cloud resources. Our hybrid solutions provide the flexibility to run workloads where they perform best while maintaining unified management and security.",
+      features: ["Multi-Cloud Management", "Workload Migration", "Data Synchronization", "Unified Security"],
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      imageAlt: "Hybrid Cloud Infrastructure",
       reverse: false
     },
     {
       id: 2,
-      icon: <BrainCircuit className="w-12 h-12" />,
-      title: "AI Integrations",
-      description: "Seamlessly integrate AI into your workflows, tools, and customer touchpoints. From chatbots to smart search and recommendations, our solutions enhance efficiency and experience.",
-      features: ["Real-time Dashboards", "Advanced Reporting", "Data Visualization", "Predictive Insights"],
-      image: ai_integrate,
-      imageAlt: "AI Integrations Dashboard",
+      icon: <Shield className="w-12 h-12" />,
+      title: "Enterprise Security & Compliance",
+      description: "Protect your data and applications with enterprise-grade security solutions. From zero-trust architecture to compliance automation, we ensure your cloud environment meets the highest security standards.",
+      features: ["Zero-Trust Architecture", "Compliance Automation", "Threat Detection", "Identity Management"],
+      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      imageAlt: "Enterprise Security Dashboard",
       reverse: true
     },
+    {
+      id: 3,
+      icon: <Database className="w-12 h-12" />,
+      title: "Data & Analytics Platform",
+      description: "Transform your data into actionable insights with our comprehensive analytics platform. From real-time processing to machine learning pipelines, unlock the full potential of your data.",
+      features: ["Real-time Analytics", "ML/AI Integration", "Data Lake Solutions", "Business Intelligence"],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      imageAlt: "Data Analytics Platform",
+      reverse: false
+    },
+    {
+      id: 4,
+      icon: <Network className="w-12 h-12" />,
+      title: "DevOps & Container Orchestration",
+      description: "Accelerate your development lifecycle with modern DevOps practices and container orchestration. Our platform enables rapid deployment, scaling, and management of containerized applications.",
+      features: ["CI/CD Pipelines", "Kubernetes Management", "Auto-scaling", "Monitoring & Logging"],
+      image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
+      imageAlt: "DevOps Container Orchestration",
+      reverse: true
+    }
   ];
 
   useEffect(() => {

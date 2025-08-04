@@ -36,9 +36,9 @@ const contactInfo = [
     {
       icon: <MapPin className="w-6 h-6" />,
       title: "Visit Us",
-      primary: "123 Business District",
-      secondary: "Tech City, TC 12345",
-      description: "Our headquarters location"
+      primary: "SBA House #19, (Old, No.17, 46th St, Manthope Colony)",
+      secondary: "Ashok Nagar, Chennai, Tamil Nadu 600083",
+      description: "Company location"
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -232,12 +232,12 @@ const ContactUsPage = () => {
             >
               <div className="space-y-8">
                 {/* Map Placeholder */}
-                <div className="relative overflow-hidden rounded-2xl backdrop-blur-sm border border-gray-800 h-64"
+                <div className="relative overflow-hidden rounded-2xl backdrop-blur-sm border border-gray-800 h-100"
                      style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)' }}>
                   
                   <div className="absolute inset-0 bg-gradient-to-br from-red-900/10 to-gray-900/40 opacity-30"></div>
                   <div className="relative z-10 flex justify-center items-center h-full">
-                    <p className="text-white">Our Location on the Map</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3517.522461378325!2d80.2156767!3d13.036381599999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266e1fecbc9db%3A0x792c9b430ee8bd4a!2sSBA%20Info%20Solutions%20Private%20Limited!5e1!3m2!1sen!2sin!4v1754297916751!5m2!1sen!2sin" width={600} height={400} style={{border:"0px"}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                   </div>
                 </div>
 
