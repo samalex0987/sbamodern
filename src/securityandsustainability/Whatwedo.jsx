@@ -209,9 +209,9 @@ const ITAutomationPlatform = () => {
         {/* Bottom CTA */}
         <div className="text-center mt-16">
           <div className="inline-flex items-center space-x-4 mb-6">
-            <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+            {/* <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
             <div className="w-2 h-2 bg-white rounded-full animate-pulse" style={{animationDelay: '0.3s'}}></div>
-            <div className="w-3 h-3 bg-gray-600 rounded-full animate-pulse" style={{animationDelay: '0.6s'}}></div>
+            <div className="w-3 h-3 bg-gray-600 rounded-full animate-pulse" style={{animationDelay: '0.6s'}}></div> */}
           </div>
           
           <p className="text-gray-500 mb-8 text-lg">Ready to transform your IT operations?</p>

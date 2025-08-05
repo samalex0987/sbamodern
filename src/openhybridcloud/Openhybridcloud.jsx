@@ -82,7 +82,7 @@ function Open_hybrid_cloud() {
         }
       `}</style>
 
-    <section className=" flex items-center justify-center text-center pt-50 px-4 sm:px-6 lg:px-8 bg-black pb-20">
+      <section className=" flex items-center justify-center text-center pt-50 px-4 sm:px-6 lg:px-8 bg-black pb-20">
           <div data-aos="fade-up" className="max-w-4xl mx-auto">
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
               Open hybrid<span className="text-red-500"> Cloud</span>

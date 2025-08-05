@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import workflow_automation from "./workflow_automation.gif";
-import system_integration from "./system_integration.gif";
-import process_optimization from "./process_optimization.gif";
+
 import { Activity, Cloud, Settings } from "lucide-react";
 import ITAutomationPlatform from "./Whatwedo";
 import SolutionsSection from "./solutions";

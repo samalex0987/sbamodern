@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import cybersecurity from "./cybersecurity.gif";
-import green_technology from "./green_technology.gif";
 import ITAutomationPlatform from "./Whatwedo";
 import SolutionsSection from "./solutions";
 
