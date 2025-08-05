@@ -333,7 +333,7 @@ const CareersPage = () => {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl backdrop-blur-sm border border-gray-800 hover:border-red-500 transition-all duration-700 p-6"
+                className="group relative overflow-hidden cursor-pointer rounded-2xl backdrop-blur-sm border border-gray-800 hover:border-red-500 transition-all duration-700 p-6"
                 style={{ 
                   background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)'
                 }}

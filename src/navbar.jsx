@@ -379,46 +379,37 @@ const ResponsiveNavbar = () => {
           </button>
         </div>
         <div className={`md:hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-          <div className="px-4 pt-2 pb-4 space-y-2 bg-gray-900 border-t border-gray-800">
-            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
+          <div className="px-4 pt-2 pb-4 space-y-2 bg-black border-t border-gray-800">
+            <a href="/" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
               Home
             </a>
-            <button
-              onClick={toggleDropdown}
-              className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200 focus:outline-none"
-              aria-haspopup="true"
-              aria-expanded={isDropdownOpen}
-            >
-              Solutions
-              <svg className={`w-2.5 h-2.5 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
-              </svg>
-            </button>
-            {isDropdownOpen && (
-              <div className="pl-4 space-y-1 border-l-2 border-red-500 ml-3">
-                <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-400 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
+            <hr />
+            {/* <p className='text-white pl-3'>our Solutions</p> */}
+             <a href="/Data-and-ai" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
                   Data and AI
-                </a>
-                <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-400 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
-                  IT and Business Automation
-                </a>
-                <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-400 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
-                  Security and Sustainability
-                </a>
-                <a href="#" className="block px-3 py-2 rounded-md text-sm font-medium text-gray-400 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
-                  Open Hybrid Cloud
-                </a>
-              </div>
-            )}
-            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
+              </a>
+              <a href="/It_and_buisness_automation" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
+                IT and Business Automation
+              </a>
+              <a href="/Security_and_sustainability" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
+                Security and Sustainability
+              </a>
+              <a href="/Open_hybrid_cloud" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
+                Open Hybrid Cloud
+              </a>
+          <hr />
+            <a href="/Company" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
               Who we are
             </a>
-            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
+            <hr />
+            <a href="/Join-with-us" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
               Join with us
             </a>
-            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
+            <hr />
+            <a href="/Connect-with-us" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
               Contact
             </a>
+            <hr />
             <div className="pt-4">
               <button onClick={() => setShowPopup(true)} className="w-full px-3 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:ring-4 focus:ring-red-300 transition-all duration-200 focus:outline-none">
                 Get Started
