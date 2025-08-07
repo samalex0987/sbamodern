@@ -3,6 +3,7 @@ import Navbar from './navbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ContactUsPage from './contactus/contact'
 import Solutions from './solutions/Solutions'
+import Dashboard from './Hr/Dashboard'
 
 // Lazy load route components
 const Home = lazy(() => import('./home/home'))
@@ -38,6 +39,7 @@ function App() {
           <Route path='/About-us' element={<About_us />} />
           <Route path='/Connect-with-us' element={<ContactUsPage />} />
           <Route path='/Our-solutions' element={<Solutions />} />
+          <Route path='hr/Dashboard' element={<Dashboard />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
