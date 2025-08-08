@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Plus,
   Edit,
@@ -14,7 +14,9 @@ import {
   Users,
   Eye,
   AlertCircle,
-  CheckCircle
+  CheckCircle,
+  ChevronDown,
+  Check
 } from 'lucide-react';
 
 const JobManagement = () => {
@@ -35,12 +37,23 @@ const JobManagement = () => {
     experience: '',
     salary: '',
     description: '',
-    requirements: '',
+    requirements: [],
     posted: new Date().toLocaleDateString()
   });
 
   const departments = ['All', 'Engineering', 'Product', 'Design', 'Marketing', 'Analytics', 'Sales', 'HR'];
   const jobTypes = ['Full-time', 'Part-time', 'Contract', 'Internship'];
+  
+  // Common requirements/skills options
+  const availableRequirements = [
+    'React', 'Vue.js', 'Angular', 'JavaScript', 'TypeScript', 'Node.js', 'Python', 'Java', 'PHP',
+    'HTML', 'CSS', 'SASS', 'Tailwind CSS', 'Bootstrap', 'jQuery', 'GraphQL', 'REST API',
+    'MongoDB', 'MySQL', 'PostgreSQL', 'Redis', 'Docker', 'Kubernetes', 'AWS', 'Azure', 'GCP',
+    'Git', 'CI/CD', 'Agile', 'Scrum', 'Figma', 'Adobe Creative Suite', 'Sketch',
+    'Project Management', 'Team Leadership', 'Communication Skills', 'Problem Solving',
+    'Data Analysis', 'SEO', 'Content Marketing', 'Social Media', 'Google Analytics',
+    'Bachelor\'s Degree', 'Master\'s Degree', 'Certification Required'
+  ].sort();
 
   // Fetch jobs from API
   const fetchJobs = async () => {
@@ -108,7 +121,7 @@ const JobManagement = () => {
       experience: '',
       salary: '',
       description: '',
-      requirements: '',
+      requirements: [],
       posted: new Date().toLocaleDateString()
     });
     setShowModal(true);
@@ -125,7 +138,7 @@ const JobManagement = () => {
       experience: job.experience,
       salary: job.salary || '',
       description: job.description,
-      requirements: Array.isArray(job.requirements) ? job.requirements.join(', ') : job.requirements,
+      requirements: Array.isArray(job.requirements) ? job.requirements : [],
       posted: job.posted
     });
     setShowModal(true);
@@ -141,7 +154,6 @@ const JobManagement = () => {
     try {
       const jobData = {
         ...formData,
-        requirements: formData.requirements.split(',').map(req => req.trim()).filter(req => req),
         id: editingJob ? editingJob.id : Date.now() // Use timestamp as ID for new jobs
       };
 
@@ -326,7 +338,6 @@ const JobManagement = () => {
                     <div className="mb-4">
                       {job.salary && (
                         <div className="flex items-center gap-2 text-red-400 font-semibold mb-2">
-                          {/* <DollarSign className="w-4 h-4" /> */}
                           {job.salary}
                         </div>
                       )}
@@ -338,22 +349,21 @@ const JobManagement = () => {
 
                     {/* Requirements */}
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {(Array.isArray(job.requirements) ? job.requirements : []).slice(0, 3).map((req, index) => (
+                      {(Array.isArray(job.requirements) ? job.requirements : []).slice(0, ).map((req, index) => (
                         <span key={index} className="px-3 py-1 bg-red-900/30 text-red-300 rounded-full text-xs">
                           {req}
                         </span>
                       ))}
-                      {job.requirements && job.requirements.length > 3 && (
+                      {/* {job.requirements && job.requirements.length > 3 && (
                         <span className="px-3 py-1 bg-gray-800 text-gray-400 rounded-full text-xs">
                           +{job.requirements.length - 3} more
                         </span>
-                      )}
+                      )} */}
                     </div>
 
                     {/* Footer */}
                     <div className="flex justify-between items-center text-sm">
                       <span className="text-gray-500">Posted: {job.posted}</span>
-                      {/* <span className="text-gray-400">ID: {job.id}</span> */}
                     </div>
                   </div>
                 </div>
@@ -440,14 +450,32 @@ const JobManagement = () => {
               {/* Experience */}
               <div>
                 <label className="block text-gray-300 mb-2">Experience</label>
-                <input
-                  type="text"
+                <select
                   name="experience"
                   value={formData.experience}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-red-500 focus:outline-none"
-                  placeholder="e.g., 3-5 years"
-                />
+                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white focus:border-red-500 focus:outline-none"
+                >
+                  <option value="">Select Experience</option>
+                  <optgroup label='Range Wise'>
+                    <option value="0-1 years">0-1 years</option>
+                    <option value="1-2 years">1-2 years</option>
+                    <option value="2-3 years">2-3 years</option>
+                    <option value="3-4 years">3-4 years</option>
+                  </optgroup>
+                  <optgroup label='Year Wise'>
+                    <option value="1+ years">1+ years</option>
+                    <option value="2+ years">2+ years</option>
+                    <option value="3+ years">3+ years</option>
+                    <option value="4+ years">4+ years</option>
+                    <option value="5+ years">5+ years</option>
+                    <option value="6+ years">6+ years</option>
+                    <option value="7+ years">7+ years</option>
+                    <option value="8+ years">8+ years</option>
+                    <option value="9+ years">9+ years</option>
+                    <option value="10+ years">10+ years</option>
+                  </optgroup>
+                </select>
               </div>
 
               {/* Salary */}
@@ -476,16 +504,14 @@ const JobManagement = () => {
                 />
               </div>
 
-              {/* Requirements */}
+              {/* Requirements - Multiselect */}
               <div className="md:col-span-2">
-                <label className="block text-gray-300 mb-2">Requirements</label>
-                <textarea
-                  name="requirements"
-                  value={formData.requirements}
-                  onChange={handleInputChange}
-                  rows="3"
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-red-500 focus:outline-none resize-none"
-                  placeholder="Separate requirements with commas (e.g., React, TypeScript, CSS, GraphQL)"
+                <label className="block text-gray-300 mb-2">Requirements & Skills</label>
+                <MultiSelect
+                  options={availableRequirements}
+                  selected={formData.requirements}
+                  onChange={(selected) => setFormData(prev => ({ ...prev, requirements: selected }))}
+                  placeholder="Select skills and requirements..."
                 />
               </div>
             </div>
@@ -494,18 +520,136 @@ const JobManagement = () => {
             <div className="flex gap-3 mt-6">
               <button
                 onClick={() => setShowModal(false)}
-                className="flex-1 px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors duration-300"
+                className="flex-1 px-6 py-3 bg-gray-800 cursor-pointer text-white rounded-lg hover:bg-gray-700 transition-colors duration-300"
               >
                 Cancel
               </button>
               <button
                 onClick={handleSaveJob}
-                className="flex-1 px-6 py-3 bg-gradient-to-r from-red-500 to-red-400 text-white rounded-lg hover:from-red-600 hover:to-red-500 transition-all duration-300 flex items-center justify-center gap-2"
+                className="flex-1 px-6 py-3 cursor-pointer bg-gradient-to-r from-red-500 to-red-400 text-white rounded-lg hover:from-red-600 hover:to-red-500 transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <Save className="w-5 h-5" />
                 {editingJob ? 'Update Job' : 'Add Job'}
               </button>
             </div>
+          </div>
+        </div>
+      )}
+    </div>
+  
+  );
+};
+
+// MultiSelect Component
+const MultiSelect = ({ options, selected, onChange, placeholder }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const dropdownRef = useRef(null);
+
+  const filteredOptions = options.filter(option =>
+    option.toLowerCase().includes(searchTerm.toLowerCase()) &&
+    !selected.includes(option)
+  );
+
+  const handleToggle = () => setIsOpen(!isOpen);
+
+  const handleSelect = (option) => {
+    if (!selected.includes(option)) {
+      onChange([...selected, option]);
+    }
+    setSearchTerm('');
+  };
+
+  const handleRemove = (option) => {
+    onChange(selected.filter(item => item !== option));
+  };
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsOpen(false);
+      setSearchTerm('');
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  return (
+    <div className="relative" ref={dropdownRef}>
+      {/* Selected Items */}
+      <div
+        onClick={handleToggle}
+        className="min-h-[48px] px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg cursor-pointer hover:border-red-500 focus-within:border-red-500 transition-colors duration-300"
+      >
+        <div className="flex flex-wrap gap-2">
+          {selected.length === 0 && (
+            <span className="text-gray-500">{placeholder}</span>
+          )}
+          {selected.map((item) => (
+            <span
+              key={item}
+              className="inline-flex items-center gap-1 px-3 py-1 bg-red-900/30 text-red-300 rounded-full text-sm"
+            >
+              {item}
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleRemove(item);
+                }}
+                className="hover:bg-red-800/50 rounded-full p-0.5 transition-colors duration-200"
+              >
+                <X className="w-3 h-3" />
+              </button>
+            </span>
+          ))}
+        </div>
+        <ChevronDown
+          className={`absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 transition-transform duration-200 ${
+            isOpen ? 'rotate-180' : ''
+          }`}
+        />
+      </div>
+
+      {/* Dropdown */}
+      {isOpen && (
+        <div className="absolute z-50 w-full mt-1 bg-gray-800 border border-gray-700 rounded-lg shadow-xl max-h-64 overflow-hidden">
+          {/* Search Input */}
+          <div className="p-3 border-b border-gray-700">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 w-4 h-4" />
+              <input
+                type="text"
+                placeholder="Search requirements..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 bg-gray-700 border border-gray-600 rounded text-white placeholder-gray-500 focus:border-red-500 focus:outline-none text-sm"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+          </div>
+
+          {/* Options List */}
+          <div className="max-h-48 overflow-y-auto">
+            {filteredOptions.length === 0 ? (
+              <div className="px-4 py-3 text-gray-500 text-sm">
+                {searchTerm ? 'No matching options found' : 'All options selected'}
+              </div>
+            ) : (
+              filteredOptions.map((option) => (
+                <button
+                  key={option}
+                  type="button"
+                  onClick={() => handleSelect(option)}
+                  className="w-full px-4 py-2 text-left hover:bg-gray-700 transition-colors duration-200 text-sm text-white flex items-center gap-2"
+                >
+                  <Plus className="w-4 h-4 text-green-400" />
+                  {option}
+                </button>
+              ))
+            )}
           </div>
         </div>
       )}

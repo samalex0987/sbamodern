@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
 // Import your icons from lucide-react
 import { 
   Mail, 
@@ -73,6 +74,15 @@ const ContactUsPage = () => {
     }));
   };
 
+
+  useEffect(() => {
+      AOS.init({
+        duration: 800, // Animation duration in milliseconds
+        easing: 'ease-in-out', // Easing function
+        once: true, // Animation happens only once
+        mirror: false // Whether elements should animate out while scrolling past
+      });
+    }, []);
   const validateForm = () => {
     if (!formData.name.trim()) {
       return "Please enter your name";

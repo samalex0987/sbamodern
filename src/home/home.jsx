@@ -8,6 +8,7 @@ import CountUp from 'react-countup';
 import AutomationSection from './Automation';
 import venkatesh from "./venkatesh.jpg"
 import PartnersSection from './Partners';
+import Shedule from '../shedule/Shedule';
 
 function Home(){
 
@@ -40,6 +41,7 @@ function Home(){
   
  const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -96,15 +98,48 @@ const [showPopup, setShowPopup] = useState(false);
         }));
       };
     
-      const handleSubmit = () => {
+      const handleSubmit = async () => {
         if (formData.name && formData.email) {
-          alert("Demo booked successfully!");
-          setShowPopup(false);
-          setFormData({ name: '', email: '', company: '', message: '' });
+          setIsSubmitting(true);
+          
+          try {
+            // Use environment variable or relative path for production
+            const response = await fetch('http://localhost:5000/demo/send-mail', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(formData),
+            });
+    
+            if (response.ok) {
+              const result = await response.json();
+              alert("Demo booked successfully! We'll contact you soon.");
+              setShowPopup(false);
+              // Fixed: Reset all form fields consistently
+              setFormData({ 
+                name: '', 
+                email: '', 
+                company: '', 
+                message: '',
+                phone:'' 
+              });
+            } else {
+              const errorData = await response.json();
+              throw new Error(errorData.message || 'Failed to send request');
+            }
+          } catch (error) {
+            console.error('Error sending form:', error);
+            alert("Sorry, there was an error sending your request. Please try again later or contact us directly.");
+          } finally {
+            setIsSubmitting(false);
+          }
         } else {
           alert("Please fill in required fields (Name and Email)");
         }
       };
+
+  
     
       const closePopup = () => {
         setShowPopup(false);
@@ -113,6 +148,7 @@ const [showPopup, setShowPopup] = useState(false);
     return(
         <>
 <section className=" flex items-center justify-center text-center pt-50 px-4 sm:px-6 lg:px-8 bg-black pb-20">
+  
   <div data-aos="fade-up" className="max-w-4xl mx-auto">
     <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
       Automate The <span className="text-red-500">Mundane</span>
@@ -120,11 +156,11 @@ const [showPopup, setShowPopup] = useState(false);
     <p className="text-lg sm:text-xl md:text-2xl mb-8 text-gray-300">
       Elevate <span className="text-red-400">Human Potential</span>
     </p>
-    <button className="bg-gradient-to-r cursor-pointer from-red-500 to-red-400 text-white font-semibold py-4 px-8 rounded-lg hover:from-red-600 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 flex items-center space-x-2 mx-auto">
+    {/* <Shedule />  */}
+    <button onClick={() => setShowPopup(true)} className="bg-gradient-to-r cursor-pointer from-red-500 to-red-400 text-white font-semibold py-4 px-8 rounded-lg hover:from-red-600 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 flex items-center space-x-2 mx-auto">
       <span>Schedule a Strategy Session</span>
       {/* <ArrowRight className="w-5 h-5" /> */}
-    </button>
-      
+  </button>
   </div>
 </section>
 
@@ -176,10 +212,10 @@ const [showPopup, setShowPopup] = useState(false);
         {/* Demo Request Popup */}
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 animate-fadeIn">
-          <div className=" rounded-lg p-6 w-full max-w-md relative animate-scaleIn transform">
+          <div className="bg-black rounded-lg p-6 w-full max-w-md relative animate-scaleIn transform shadow-2xl">
             <button
               onClick={closePopup}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-xl"
+              className="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-xl transition-colors duration-200"
             >
               ×
             </button>
@@ -196,7 +232,7 @@ const [showPopup, setShowPopup] = useState(false);
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-100  text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 text-gray-100  rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                   required
                 />
               </div>
@@ -210,8 +246,22 @@ const [showPopup, setShowPopup] = useState(false);
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border text-white border-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border text-gray-100  border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                   required
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-100 mb-1">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border text-gray-100  border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
+                  // placeholder="Contact Number"
                 />
               </div>
               
@@ -224,7 +274,7 @@ const [showPopup, setShowPopup] = useState(false);
                   name="company"
                   value={formData.company}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border text-white border-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border text-gray-100 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors"
                 />
               </div>
               
@@ -237,7 +287,7 @@ const [showPopup, setShowPopup] = useState(false);
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={3}
-                  className="w-full px-3 py-2 text-white border border-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 text-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors resize-none"
                   placeholder="Tell us about your requirements..."
                 />
               </div>
@@ -246,23 +296,22 @@ const [showPopup, setShowPopup] = useState(false);
                 <button
                   type="button"
                   onClick={closePopup}
-                  className="flex-1 px-4 py-2 border border-gray-100 text-gray-100 rounded-md hover:bg-gray-50"
+                  className="flex-1 px-4 py-2 border border-gray-300 text-gray-800 cursor-pointer bg-white rounded-md hover:bg-gray-50 transition-colors duration-200"
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
                   onClick={handleSubmit}
-                  className="flex-1 px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-blue-700"
+                  className="flex-1 px-4 py-2 bg-red-600 text-white rounded-md cursor-pointer hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors duration-200"
                 >
-                  Submit Request
+                  Request
                 </button>
               </div>
             </div>
           </div>
         </div>
       )}
-
 
       
 
