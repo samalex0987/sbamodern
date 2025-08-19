@@ -52,7 +52,7 @@ const JobManagement = () => {
     'Git', 'CI/CD', 'Agile', 'Scrum', 'Figma', 'Adobe Creative Suite', 'Sketch',
     'Project Management', 'Team Leadership', 'Communication Skills', 'Problem Solving',
     'Data Analysis', 'SEO', 'Content Marketing', 'Social Media', 'Google Analytics',
-    'Bachelor\'s Degree', 'Master\'s Degree', 'Certification Required'
+    'Bachelor\'s Degree', 'Master\'s Degree', 'Certification Required', 'Machinelearning'
   ].sort();
 
   // Fetch jobs from API
@@ -632,10 +632,31 @@ const MultiSelect = ({ options, selected, onChange, placeholder }) => {
           </div>
 
           {/* Options List */}
+          
+          {/* Options List */}
           <div className="max-h-48 overflow-y-auto">
-            {filteredOptions.length === 0 ? (
+            {/* Add new requirement option when searching and no exact match */}
+            {searchTerm && !options.some(option => option.toLowerCase() === searchTerm.toLowerCase()) && (
+              <button
+                type="button"
+                onClick={() => handleSelect(searchTerm)}
+                className="w-full px-4 py-3 text-left hover:bg-green-600/40 transition-colors duration-200 text-sm text-white flex items-center gap-3 border-b-2 border-green-500/50 bg-green-500/20 font-medium"
+              >
+                <div className="flex items-center justify-center w-6 h-6 bg-green-500 rounded-full">
+                  <Plus className="w-4 h-4 text-white" />
+                </div>
+                <span className="text-green-300 font-semibold">Add new:</span> 
+                <span className="text-white font-bold">"{searchTerm}"</span>
+              </button>
+            )}
+            
+            {filteredOptions.length === 0 && !searchTerm ? (
               <div className="px-4 py-3 text-gray-500 text-sm">
-                {searchTerm ? 'No matching options found' : 'All options selected'}
+                All options selected
+              </div>
+            ) : searchTerm && filteredOptions.length === 0 && options.some(option => option.toLowerCase() === searchTerm.toLowerCase()) ? (
+              <div className="px-4 py-3 text-gray-500 text-sm">
+                "{searchTerm}" is already selected
               </div>
             ) : (
               filteredOptions.map((option) => (
@@ -643,9 +664,11 @@ const MultiSelect = ({ options, selected, onChange, placeholder }) => {
                   key={option}
                   type="button"
                   onClick={() => handleSelect(option)}
-                  className="w-full px-4 py-2 text-left hover:bg-gray-700 transition-colors duration-200 text-sm text-white flex items-center gap-2"
+                  className="w-full px-4 py-2 text-left hover:bg-gray-700 transition-colors duration-200 text-sm text-white flex items-center gap-3"
                 >
-                  <Plus className="w-4 h-4 text-green-400" />
+                  <div className="flex items-center justify-center w-5 h-5 bg-gray-600 rounded-full">
+                    <Plus className="w-3 h-3 text-gray-300" />
+                  </div>
                   {option}
                 </button>
               ))
