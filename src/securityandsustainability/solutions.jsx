@@ -122,7 +122,7 @@ const SolutionsSection = () => {
         </div>
 
         {/* Solutions */}
-        <div className="space-y-32">
+        <div className="space-y-15">
           {solutions.map((solution, index) => (
             <div
               key={solution.id}

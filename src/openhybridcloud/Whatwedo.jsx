@@ -164,12 +164,12 @@ const ITAutomationPlatform = () => {
                 </div>
                 
                 {/* Learn More Button */}
-                <div className="mt-auto">
+                {/* <div className="mt-auto">
                   <button className="flex items-center cursor-pointer justify-center space-x-2 w-full bg-gray-900/50 hover:bg-red-900/30 border border-gray-700 hover:border-red-500 text-gray-300 hover:text-white font-medium py-3 px-4 rounded-lg transition-all duration-300 group-hover:scale-105">
                     <span className="text-sm">Learn More</span>
                     <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" />
                   </button>
-                </div>
+                </div> */}
                 
                 {/* Decorative Elements */}
                 <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-gradient-to-r from-red-500/10 to-transparent blur-xl group-hover:from-red-500/20 transition-all duration-500"></div>

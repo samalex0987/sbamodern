@@ -283,7 +283,7 @@ const ResponsiveNavbar = () => {
               </li>
               <li>
                 <a href="/Company" className="relative block py-2 px-3 text-gray-300 hover:text-red-500 transition-colors duration-200 group">
-                  Who we Are
+                  Who We Are
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-red-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left"></span>
                 </a>
               </li>
@@ -415,8 +415,8 @@ const ResponsiveNavbar = () => {
                             transitionDelay: isContentVisible ? `${index * 50}ms` : '0ms' 
                           }}
                         > 
-                          <div onClick={()=>{ window.location.href = solutionsStructure[selectedSection].links[index] }}  className="p-4 border  rounded-lg hover:border-red-300 hover:shadow-md transition-all duration-200 transform hover:scale-105">
-                            <h4 className="font-semibold text-gray-100 group-hover:text-red-600 mb-2">
+                          <div onClick={()=>{ window.location.href = solutionsStructure[selectedSection].links[index] }}  className="p-4 border  rounded-lg hover:bg-red-600 hover:shadow-md transition-all duration-200 transform hover:scale-105">
+                            <h4 className="font-semibold text-gray-100 group-hover:text-white mb-2">
                               {item}
                             </h4>
                             <p className="text-sm text-gray-100">

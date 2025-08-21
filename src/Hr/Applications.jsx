@@ -4,14 +4,12 @@ const styles = {
   container: {
     backgroundColor: '#121212',
     color: '#fff',
-    // minHeight: '100vh',
     height: 'auto',
     padding: '1rem',
     paddingBottom: '2rem',
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     overflowY: 'auto',
     width: '100%',
-    // boxSizing: 'border-box',
   },
   heading: {
     color: '#ff3b3f',
@@ -20,6 +18,93 @@ const styles = {
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  
+  // Filter section styles
+  filterSection: {
+    backgroundColor: '#1e1e1e',
+    border: '1px solid #ff3b3f40',
+    borderRadius: '12px',
+    padding: '0.75rem',
+    marginBottom: '1.5rem',
+    boxShadow: '0 2px 8px rgba(255, 59, 63, 0.1)',
+  },
+  filterTitle: {
+    color: '#ff3b3f',
+    fontSize: '1rem',
+    fontWeight: '600',
+    marginBottom: '0.75rem',
+    textAlign: 'center',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '0.5rem',
+  },
+  filterRow: {
+    display: 'flex',
+    gap: '0.75rem',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    marginBottom: '0.5rem',
+  },
+  filterGroup: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '0.25rem',
+    alignItems: 'center',
+    minWidth: '120px',
+  },
+  filterLabel: {
+    color: '#ff3b3f',
+    fontSize: '0.75rem',
+    fontWeight: '500',
+    textAlign: 'center',
+  },
+  filterInput: {
+    backgroundColor: '#333',
+    border: '1px solid #ff3b3f60',
+    borderRadius: '8px',
+    color: '#fff',
+    padding: '0.4rem 0.6rem',
+    fontSize: '0.8rem',
+    width: '110px',
+    textAlign: 'center',
+    transition: 'all 0.3s ease',
+    boxShadow: '0 1px 3px rgba(0,0,0,0.3)',
+  },
+  filterInputFocus: {
+    outline: 'none',
+    borderColor: '#ff3b3f',
+    boxShadow: '0 0 0 2px rgba(255, 59, 63, 0.2)',
+    transform: 'translateY(-1px)',
+  },
+  filterButtons: {
+    display: 'flex',
+    gap: '0.5rem',
+    marginTop: '0.75rem',
+    justifyContent: 'center',
+  },
+  clearButton: {
+    backgroundColor: '#555',
+    border: 'none',
+    color: '#fff',
+    padding: '0.4rem 0.8rem',
+    cursor: 'pointer',
+    fontWeight: '500',
+    borderRadius: '8px',
+    transition: 'all 0.3s ease',
+    fontSize: '0.8rem',
+    boxShadow: '0 1px 3px rgba(0,0,0,0.3)',
+  },
+  
+  // Results summary
+  resultsInfo: {
+    color: '#ccc',
+    fontSize: '0.9rem',
+    marginBottom: '1rem',
+    textAlign: 'center',
+  },
+  
   // Desktop table styles
   tableContainer: {
     overflowX: 'auto',
@@ -133,30 +218,18 @@ const styles = {
     color: '#888',
     textAlign: 'center',
   },
-  
-  // Media query styles (will be applied via className)
-  '@media (max-width: 768px)': {
-    container: {
-      padding: '0.5rem',
-    },
-    heading: {
-      fontSize: '1.5rem',
-      marginBottom: '1rem',
-    },
-    tableContainer: {
-      display: 'none',
-    },
-    cardContainer: {
-      display: 'block',
-    }
-  }
 };
 
 const Applications = () => {
   const [applications, setApplications] = useState([]);
+  const [filteredApplications, setFilteredApplications] = useState([]);
   const [btnHoverId, setBtnHoverId] = useState(null);
   const [downloadingId, setDownloadingId] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  
+  // Filter states
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
 
   useEffect(() => {
     // Check if mobile view
@@ -169,13 +242,46 @@ const Applications = () => {
     
     fetch('http://localhost:5000/applications')
       .then((res) => res.json())
-      .then((data) => setApplications(data))
+      .then((data) => {
+        setApplications(data);
+        setFilteredApplications(data);
+      })
       .catch((err) => {
         console.error('Failed to fetch applications:', err);
       });
       
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
+  // Filter applications based on date range
+  useEffect(() => {
+    let filtered = [...applications];
+
+    if (startDate) {
+      const start = new Date(startDate);
+      start.setHours(0, 0, 0, 0);
+      filtered = filtered.filter(app => {
+        const appDate = new Date(app.appliedAt);
+        return appDate >= start;
+      });
+    }
+
+    if (endDate) {
+      const end = new Date(endDate);
+      end.setHours(23, 59, 59, 999);
+      filtered = filtered.filter(app => {
+        const appDate = new Date(app.appliedAt);
+        return appDate <= end;
+      });
+    }
+
+    setFilteredApplications(filtered);
+  }, [applications, startDate, endDate]);
+
+  const clearFilters = () => {
+    setStartDate('');
+    setEndDate('');
+  };
 
   const downloadBase64File = (base64Data, fileName, mimeType) => {
     try {
@@ -262,6 +368,13 @@ const Applications = () => {
             font-size: 1.5rem !important;
             margin-bottom: 1rem !important;
           }
+          .filter-row {
+            flex-direction: column !important;
+            align-items: stretch !important;
+          }
+          .filter-group {
+            min-width: auto !important;
+          }
         }
         
         @media (min-width: 769px) {
@@ -276,8 +389,91 @@ const Applications = () => {
       
       <h2 style={styles.heading} className="heading">Job Applications</h2>
 
+      {/* Date Filter Section */}
+      <div style={styles.filterSection}>
+        <h3 style={styles.filterTitle}>
+          📅 Filter by Date
+        </h3>
+        <div style={styles.filterRow} className="filter-row">
+          <div style={styles.filterGroup} className="filter-group">
+            <label style={styles.filterLabel}>From</label>
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              style={styles.filterInput}
+              onFocus={(e) => {
+                e.target.style.borderColor = '#ff3b3f';
+                e.target.style.boxShadow = '0 0 0 2px rgba(255, 59, 63, 0.2)';
+                e.target.style.transform = 'translateY(-1px)';
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = '#ff3b3f60';
+                e.target.style.boxShadow = '0 1px 3px rgba(0,0,0,0.3)';
+                e.target.style.transform = 'translateY(0)';
+              }}
+            />
+          </div>
+          
+          <div style={styles.filterGroup} className="filter-group">
+            <label style={styles.filterLabel}>To</label>
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              style={styles.filterInput}
+              onFocus={(e) => {
+                e.target.style.borderColor = '#ff3b3f';
+                e.target.style.boxShadow = '0 0 0 2px rgba(255, 59, 63, 0.2)';
+                e.target.style.transform = 'translateY(-1px)';
+              }}
+              onBlur={(e) => {
+                e.target.style.borderColor = '#ff3b3f60';
+                e.target.style.boxShadow = '0 1px 3px rgba(0,0,0,0.3)';
+                e.target.style.transform = 'translateY(0)';
+              }}
+            />
+          </div>
+        </div>
+        
+        <div style={styles.filterButtons}>
+          <button
+            style={styles.clearButton}
+            onClick={clearFilters}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#777';
+              e.target.style.transform = 'translateY(-1px)';
+              e.target.style.boxShadow = '0 2px 6px rgba(0,0,0,0.4)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = '#555';
+              e.target.style.transform = 'translateY(0)';
+              e.target.style.boxShadow = '0 1px 3px rgba(0,0,0,0.3)';
+            }}
+          >
+            ✨ Clear
+          </button>
+        </div>
+      </div>
+
+      {/* Results Summary */}
+      {applications.length > 0 && (
+        <div style={styles.resultsInfo}>
+          Showing {filteredApplications.length} of {applications.length} applications
+          {(startDate || endDate) && (
+            <span>
+              {' '}• Filtered by: {startDate && `From ${new Date(startDate).toLocaleDateString()}`}
+              {startDate && endDate && ' '}
+              {endDate && `To ${new Date(endDate).toLocaleDateString()}`}
+            </span>
+          )}
+        </div>
+      )}
+
       {applications.length === 0 ? (
         <p style={styles.noData}>No applications found.</p>
+      ) : filteredApplications.length === 0 ? (
+        <p style={styles.noData}>No applications found for the selected date range.</p>
       ) : (
         <>
           {/* Desktop Table View */}
@@ -295,7 +491,7 @@ const Applications = () => {
                 </tr>
               </thead>
               <tbody>
-                {applications.map((app, index) => (
+                {filteredApplications.map((app, index) => (
                   <tr key={app.id} style={{ backgroundColor: index % 2 === 0 ? '#1e1e1e' : '#121212' }}>
                     <td style={styles.td}>{index + 1}</td>
                     <td style={styles.td}>{app.name}</td>
@@ -316,7 +512,7 @@ const Applications = () => {
 
           {/* Mobile Card View */}
           <div style={styles.cardContainer} className="card-container">
-            {applications.map((app, index) => (
+            {filteredApplications.map((app, index) => (
               <div key={app.id} style={styles.card}>
                 <div style={styles.cardHeader}>
                   <div style={styles.cardNumber}>{index + 1}</div>

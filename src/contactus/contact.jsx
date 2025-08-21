@@ -23,15 +23,15 @@ const contactInfo = [
   {
     icon: <Mail className="w-6 h-6" />,
     title: "Email Us",
-    primary: "hello@sbainfo.com",
-    secondary: "support@sbainfo.com",
+    primary: "marketing@sbainfo.in",
+    secondary: "",
     description: "Get in touch for business inquiries"
   },
   {
     icon: <Phone className="w-6 h-6" />,
     title: "Call Us",
-    primary: "+1 (555) 123-4567",
-    secondary: "+1 (555) 987-6543",
+    primary: "044 24897598",
+    secondary: "044 24897598",
     description: "Available Monday to Friday"
   },
   {
@@ -39,7 +39,7 @@ const contactInfo = [
     title: "Visit Us",
     primary: "SBA House #19, (Old, No.17, 46th St, Manthope Colony)",
     secondary: "Ashok Nagar, Chennai, Tamil Nadu 600083",
-    description: "Company location"
+    description: "india"
   },
   {
     icon: <Clock className="w-6 h-6" />,
@@ -238,7 +238,7 @@ const ContactUsPage = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-red-900/10 to-gray-900/40 opacity-30"></div>
                 
                 <div className="relative z-10">
-                  <h2 className="text-3xl font-bold mb-6 text-white">Send us a Message</h2>
+                  <h2 className="text-3xl font-bold mb-6 text-white">Send Us A Message</h2>
                   
                   {/* Status Messages */}
                   {submitStatus.success && (
@@ -401,7 +401,7 @@ const ContactUsPage = () => {
                   >
                     <Linkedin className="w-6 h-6" />
                   </a>
-                  <a 
+                  {/* <a 
                     href="https://twitter.com/sbainfosolutions" 
                     target="_blank" 
                     rel="noopener noreferrer"
@@ -416,7 +416,7 @@ const ContactUsPage = () => {
                     className="text-gray-400 hover:text-red-500 transition-colors duration-300 p-3 bg-gray-900/50 rounded-lg border border-gray-700 hover:border-red-500 hover:scale-110 transform"
                   >
                     <Facebook className="w-6 h-6" />
-                  </a>
+                  </a> */}
                 </div>
 
                 {/* Additional Contact Info */}
@@ -427,13 +427,13 @@ const ContactUsPage = () => {
                       href="mailto:hello@sbainfo.com"
                       className="block text-red-400 hover:text-red-300 transition-colors duration-300"
                     >
-                      hello@sbainfo.com
+                      marketing@sbainfo.in
                     </a>
                     <a 
                       href="tel:+15551234567"
                       className="block text-red-400 hover:text-red-300 transition-colors duration-300"
                     >
-                      +1 (555) 123-4567
+                      044 24897598
                     </a>
                   </div>
                 </div>

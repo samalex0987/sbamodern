@@ -183,7 +183,7 @@ function Dataandai() {
       )} 
 
       <ITAutomationPlatform  />
-<br /><br /><br />
+
 {/* What We Do */}
 
     {/* Section Header */}

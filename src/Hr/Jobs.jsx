@@ -479,7 +479,7 @@ const JobManagement = () => {
               </div>
 
               {/* Salary */}
-              <div className="md:col-span-2">
+              {/* <div className="md:col-span-2">
                 <label className="block text-gray-300 mb-2">Salary Range</label>
                 <input
                   type="text"
@@ -489,7 +489,7 @@ const JobManagement = () => {
                   className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-red-500 focus:outline-none"
                   placeholder="e.g., $120K - $160K"
                 />
-              </div>
+              </div> */}
 
               {/* Description */}
               <div className="md:col-span-2">

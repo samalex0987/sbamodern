@@ -386,7 +386,7 @@ const [showPopup, setShowPopup] = useState(false);
               {/* Right - Quote */}
               <div className="w-full md:w-1/2 text-left">
                 <p className="text-2xl md:text-3xl font-serif text-black leading-relaxed mb-6">
-                  “In the modern workplace, repetitive tasks like data entry and information retrieval
+                  “In the modern workplace, repetative tasks like data entry and information retrieval
                   hinder employees from engaging in strategic and creative aspects of their roles.”
                 </p>
                 

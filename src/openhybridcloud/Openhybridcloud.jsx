@@ -194,7 +194,7 @@ function Open_hybrid_cloud() {
       {/* Open Hybrid Cloud Strategy Section */}
 
 <ITAutomationPlatform />
-<br /><br /><br />
+
 {/* Powered By */}
 <SolutionsSection />
       {/* Powered By */}

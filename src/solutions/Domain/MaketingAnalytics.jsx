@@ -172,7 +172,7 @@ const MarketAnalytics = () => {
                     </p>
                   </div>
         
-                  <div className="space-y-32">
+                  <div className="space-y-15">
                             {services.map((solution, index) => (
                               <div
                                 key={solution.id}
@@ -295,7 +295,7 @@ const MarketAnalytics = () => {
                   </p>
                   
                   <div className="animate-fade-in-up delay-400">
-                    <button className="group relative bg-gradient-to-r from-red-600 via-red-700 to-red-800 hover:from-red-700 hover:via-red-800 hover:to-red-900 text-white font-bold py-6 px-12 rounded-xl transition-all duration-300 transform hover:scale-110 hover:shadow-2xl hover:shadow-red-500/40 overflow-hidden">
+                    <button onClick={ ()=>{ window.location.href = "/Connect-with-us" } } className="group cursor-pointer relative bg-gradient-to-r from-red-600 via-red-700 to-red-800 hover:from-red-700 hover:via-red-800 hover:to-red-900 text-white font-bold py-6 px-12 rounded-xl transition-all duration-300 transform hover:scale-110 hover:shadow-2xl hover:shadow-red-500/40 overflow-hidden">
                       
                       {/* Animated background */}
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
