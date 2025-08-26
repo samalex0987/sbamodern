@@ -9,8 +9,8 @@ const AnimatedTimeline = () => {
   const journeyData = [
     {
       id: 1,
-      year: "1990",
-      title: "Founded in 1990",
+      year: "1991",
+      title: "Founded in 1991",
       description: "SBA Info Solutions was founded with the goal of delivering high-quality automation solutions.",
       icon: Rocket
     },
@@ -23,7 +23,7 @@ const AnimatedTimeline = () => {
     },
     {
       id: 3,
-      year: "2020",
+      year: "2023",
       title: "Pioneering AI Integration",
       description: "Became one of the leaders in AI-driven business automation for large enterprises.",
       icon: Bot

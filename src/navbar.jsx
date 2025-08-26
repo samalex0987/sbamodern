@@ -148,7 +148,7 @@ const ResponsiveNavbar = () => {
             <div className="p-4 sm:p-6">
               <button
                 onClick={closePopup}
-                className="absolute top-2 right-2 sm:top-4 sm:right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 z-10"
+                className="absolute top-2 cursor-pointer right-2 sm:top-4 sm:right-4 text-gray-400 hover:text-white text-xl transition-colors duration-200 z-10"
               >
                 ×
               </button>
@@ -163,17 +163,19 @@ const ResponsiveNavbar = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
+                      placeholder="Name"
                       className="w-full px-3 py-2 text-sm bg-gray-700 border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">Email *</label>
+                    <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">Company Email*</label>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
+                      placeholder="Company Email"
                       className="w-full px-3 py-2 text-sm bg-gray-700 border border-gray-600 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
                       required
                     />
@@ -234,7 +236,7 @@ const ResponsiveNavbar = () => {
                     type="button"
                     onClick={closePopup}
                     disabled={isSubmitting}
-                    className="w-full sm:flex-1 px-4 py-2 text-sm border border-gray-600 text-gray-300 rounded-md hover:bg-gray-700 hover:text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full sm:flex-1 cursor-pointer px-4 py-2 text-sm border border-gray-600 text-gray-300 rounded-md hover:bg-gray-700 hover:text-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Cancel
                   </button>
@@ -242,7 +244,7 @@ const ResponsiveNavbar = () => {
                     type="button"
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className="w-full sm:flex-1 px-4 py-2 text-sm bg-red-600 text-white rounded-md hover:bg-red-700 focus:ring-4 focus:ring-red-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full sm:flex-1 px-4 py-2 cursor-pointer text-sm bg-red-600 text-white rounded-md hover:bg-red-700 focus:ring-4 focus:ring-red-300 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? 'Submitting...' : 'Submit Request'}
                   </button>
@@ -415,7 +417,7 @@ const ResponsiveNavbar = () => {
                             transitionDelay: isContentVisible ? `${index * 50}ms` : '0ms' 
                           }}
                         > 
-                          <div onClick={()=>{ window.location.href = solutionsStructure[selectedSection].links[index] }}  className="p-4 border  rounded-lg hover:bg-red-600 hover:shadow-md transition-all duration-200 transform hover:scale-105">
+                          <div onClick={()=>{ window.location.href = solutionsStructure[selectedSection].links[index] }}  className="p-4 border  rounded-lg hover:bg-red-800 hover:shadow-md transition-all duration-200 transform hover:scale-105">
                             <h4 className="font-semibold text-gray-100 group-hover:text-white mb-2">
                               {item}
                             </h4>

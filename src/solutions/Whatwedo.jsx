@@ -1,4 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
+import bfsi from "./bfsi.jpg"
+import manufacturing from "./manufacturing.jpg"
+import media from "./media.jpg"
+import it from "./it.jpg"
+import telecom from "./telecom.jpg"
+import healthcare from "./healthcare.jpg"
+import cyber from "./cyber.jpg"
 import { 
   Brain, 
   Database, 
@@ -16,7 +23,8 @@ import {
   ImagePlay,
   Building,
   Headset,
-  HeartPulse
+  HeartPulse,
+  ShieldBan
 } from 'lucide-react';
 
 const SolutionsSection = () => {
@@ -36,7 +44,7 @@ const solutions = [
       "AI-driven KYC Automation",
       "RegTech & Compliance Monitoring"
     ],
-    image:"https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image:bfsi,
     imageAlt: "BFSI Industry",
     reverse: false,
     link:"Our-solutions/BFSI"
@@ -53,8 +61,7 @@ const solutions = [
       "Computer Vision QA",
       "Robotic Process Automation (RPA)"
     ],
-    image:
-    "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image:manufacturing,
     imageAlt: "Manufacturing AI",
     reverse: true,
     link:"Our-solutions/Manufacturing"
@@ -71,8 +78,7 @@ const solutions = [
       "Personalized Recommendations",
       "Speech & Video Recognition"
     ],
-    image:
-    "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image:media,
     imageAlt: "Media Industry AI",
     reverse: false,
     link:"Our-solutions/Media"
@@ -89,8 +95,7 @@ const solutions = [
       "AI-Driven Support Systems",
       "Service Desk Automation"
     ],
-    image:
-    "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image:it,
     imageAlt: "IT and ITES Solutions",
     reverse: true,
     link:"Our-solutions/IT-and-ITES"
@@ -107,8 +112,7 @@ const solutions = [
       "Call Center Automation",
       "Workforce Optimization"
     ],
-    image:
-    "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image:telecom,
     imageAlt: "Telecom and BPO AI",
     reverse: false,
     link:"Our-solutions/Telecommunication"
@@ -125,12 +129,29 @@ const solutions = [
       "Clinical Decision Support",
       "Electronic Health Record (EHR) Automation"
     ],
-    image:
-    "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image:healthcare,
     imageAlt: "Healthcare AI",
     reverse: true,
     link:"Our-solutions/Healthcare"
-  }
+  },
+  {
+    id: 7,
+    icon: <ShieldBan className='w-12 h-12' />,
+    title: "Data Protection & Cyber Resiliency",
+    description: "In today's landscape of cyber threats, traditional backup methods fall short. Our solution goes beyond backup, offering comprehensive cyber resiliency to ensure your data is always available, clean, and recoverable from any attack.",
+    features: [
+        "Immutable and Isolated Backups",
+        "Proactive Threat Detection with Machine Learning",
+        "Automated and Orchestrated Recovery",
+        "Clean Room Recovery and Validation",
+        "Simplified Management & Control"
+    ],
+    image:cyber,
+    imageAlt: "Data Protection & Cyber Resiliency",
+    reverse: false,
+    link: "Our-solutions/Data-Protection"
+}
+
 ];
 
   useEffect(() => {

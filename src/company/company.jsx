@@ -84,7 +84,7 @@ function Company() {
           Intelligent Solutions, <span className="text-red-500">Limitless Potential</span>
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl mb-8 text-gray-300">
-          With Trustes AI <span className="text-red-400">Solutions</span>
+          With Trusted AI <span className="text-red-400">Solutions</span>
         </p>
         <button onClick={()=>{ window.location.href = "/Connect-with-us"}} className="bg-gradient-to-r cursor-pointer from-red-500 to-red-400 text-white font-semibold py-4 px-8 rounded-lg hover:from-red-600 hover:to-red-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-500/25 flex items-center space-x-2 mx-auto">
           <span>Schedule a Strategy Session</span>

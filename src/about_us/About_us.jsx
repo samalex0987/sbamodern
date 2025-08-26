@@ -167,7 +167,7 @@ function About_us(){
               </h3>
               <div className="inline-block">
                 <span className="text-red-500 font-semibold text-lg tracking-wide">
-                  Head of Service & Delivery
+                  Chief Architect & Head S&D  
                 </span>
               </div>
               <p className="text-gray-400 text-sm mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 min-h-[1.25rem]">

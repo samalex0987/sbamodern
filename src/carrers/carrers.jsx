@@ -99,14 +99,14 @@ const benefits = [
 ];
 
 const companyStats = [
-  { label: "Team Members", value: "250+" },
-  { label: "Countries", value: "12" },
-  { label: "Years of Excellence", value: "8" },
+  { label: "Team Members", value: "100+" },
+  // { label: "Countries", value: "12" },
+  { label: "Years of Excellence", value: "30+" },
   { label: "Client Satisfaction", value: "98%" }
 ];
 
 const CareersPage = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(''); 
   const [selectedDepartment, setSelectedDepartment] = useState('All');
   const [selectedJob, setSelectedJob] = useState(null);
   const [filteredJobs, setFilteredJobs] = useState([]);
@@ -236,7 +236,7 @@ const CareersPage = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-300 mx-auto mb-8" data-aos="fade-up" data-aos-delay="200"></div>
             
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-12">
               {companyStats.map((stat, index) => (
                 <div key={index} className="text-center" data-aos="fade-up" data-aos-delay={300 + index * 100}>
                   <div className="text-3xl md:text-4xl font-bold text-red-500 mb-2">{stat.value}</div>

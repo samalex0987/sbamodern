@@ -19,6 +19,7 @@ import ProcessOptimization from './solutions/technology/Processoptimization'
 import CustomerAnalytics from './solutions/Domain/CustomerAnalytics'
 import HRAnalytics from './solutions/Domain/HRAnalytics'
 import MarketAnalytics from './solutions/Domain/MaketingAnalytics'
+import CyberResiliencyPage from './cyber'
 
 // Lazy load route components
 const Home = lazy(() => import('./home/home'))
@@ -70,6 +71,7 @@ function App() {
           <Route path='Our-solutions/Domain/CustomerAnalytics' element={<CustomerAnalytics />} />
           <Route path='Our-solutions/Domain/HRAnalytics' element={<HRAnalytics />} />
           <Route path='Our-solutions/Domain/MarketingAnalytics' element={<MarketAnalytics />} />
+          <Route path='Cyber' element={<CyberResiliencyPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

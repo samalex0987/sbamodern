@@ -1,20 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react';
-import CountUp from 'react-countup';
- 
+import React, { useState, useEffect } from 'react';
+import { Shield, Lock, Eye, RefreshCw, Monitor, CheckCircle, Zap, Server, Cloud, AlertTriangle } from 'lucide-react';
 
-
-function Test(){
- 
-
-  return (
+function Test() {
+  
+  return(
     <>
-    <br /><br /><br />
-    <br /><br /><br />
-    
-  <Navbar />
-
+    <CyberResiliencyPage />
     </>
-  );
-};
+  )
+}
 
-export default Test
+export default Test;

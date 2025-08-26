@@ -23,15 +23,15 @@ const contactInfo = [
   {
     icon: <Mail className="w-6 h-6" />,
     title: "Email Us",
-    primary: "marketing@sbainfo.in",
+    primary: "sales@sbainfo.in",
     secondary: "",
-    description: "Get in touch for business inquiries"
+    description: "Contact us for IT transformation"
   },
   {
     icon: <Phone className="w-6 h-6" />,
     title: "Call Us",
     primary: "044 24897598",
-    secondary: "044 24897598",
+    secondary: "",
     description: "Available Monday to Friday"
   },
   {
@@ -39,14 +39,14 @@ const contactInfo = [
     title: "Visit Us",
     primary: "SBA House #19, (Old, No.17, 46th St, Manthope Colony)",
     secondary: "Ashok Nagar, Chennai, Tamil Nadu 600083",
-    description: "india"
+    description: "India"
   },
   {
     icon: <Clock className="w-6 h-6" />,
     title: "Business Hours",
     primary: "Mon - Fri: 9:00 AM - 6:00 PM",
     secondary: "Sat: 10:00 AM - 4:00 PM",
-    description: "We're here to help"
+    description: "we are here to help – can we say"
   }
 ];
 
@@ -187,7 +187,7 @@ const ContactUsPage = () => {
       {/* Contact Info Cards */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 cursor-pointer">
             {contactInfo.map((info, index) => (
               <div
                 key={index}
@@ -292,7 +292,7 @@ const ContactUsPage = () => {
                         <input
                           type="text"
                           name="company"
-                          placeholder="Company (Optional)"
+                          placeholder="Company Email"
                           value={formData.company}
                           onChange={handleInputChange}
                           className="w-full pl-12 pr-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-red-500 focus:outline-none transition-colors duration-300"
@@ -427,7 +427,7 @@ const ContactUsPage = () => {
                       href="mailto:hello@sbainfo.com"
                       className="block text-red-400 hover:text-red-300 transition-colors duration-300"
                     >
-                      marketing@sbainfo.in
+                      sales@sbainfo.in
                     </a>
                     <a 
                       href="tel:+15551234567"
