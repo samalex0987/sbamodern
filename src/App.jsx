@@ -71,7 +71,7 @@ function App() {
           <Route path='Our-solutions/Domain/CustomerAnalytics' element={<CustomerAnalytics />} />
           <Route path='Our-solutions/Domain/HRAnalytics' element={<HRAnalytics />} />
           <Route path='Our-solutions/Domain/MarketingAnalytics' element={<MarketAnalytics />} />
-          <Route path='Cyber' element={<CyberResiliencyPage />} />
+          <Route path='Cyber-Resiliency' element={<CyberResiliencyPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

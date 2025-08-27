@@ -149,7 +149,7 @@ const solutions = [
     image:cyber,
     imageAlt: "Data Protection & Cyber Resiliency",
     reverse: false,
-    link: "Our-solutions/Data-Protection"
+    link: "/Cyber-Resiliency"
 }
 
 ];
