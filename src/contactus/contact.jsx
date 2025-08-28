@@ -25,7 +25,7 @@ const contactInfo = [
     title: "Email Us",
     primary: "sales@sbainfo.in",
     secondary: "",
-    description: "Contact us for IT transformation"
+    description: "Get in touch with us for your IT Transformation initiatives"
   },
   {
     icon: <Phone className="w-6 h-6" />,
@@ -46,7 +46,7 @@ const contactInfo = [
     title: "Business Hours",
     primary: "Mon - Fri: 9:00 AM - 6:00 PM",
     secondary: "Sat: 10:00 AM - 4:00 PM",
-    description: "we are here to help – can we say"
+    description: "We look forward to partner with you in your IT initiatives"
   }
 ];
 
@@ -120,7 +120,7 @@ const ContactUsPage = () => {
     
     try {
       // Replace this URL with your actual backend endpoint
-      const response = await fetch('http://localhost:5000/send-mail', {
+      const response = await fetch('http://ww1.sbainfo.in/send-mail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
