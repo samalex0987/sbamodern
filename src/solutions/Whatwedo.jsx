@@ -133,25 +133,7 @@ const solutions = [
     imageAlt: "Healthcare AI",
     reverse: true,
     link:"Our-solutions/Healthcare"
-  },
-  {
-    id: 7,
-    icon: <ShieldBan className='w-12 h-12' />,
-    title: "Data Protection & Cyber Resiliency",
-    description: "In today's landscape of cyber threats, traditional backup methods fall short. Our solution goes beyond backup, offering comprehensive cyber resiliency to ensure your data is always available, clean, and recoverable from any attack.",
-    features: [
-        "Immutable and Isolated Backups",
-        "Proactive Threat Detection with Machine Learning",
-        "Automated and Orchestrated Recovery",
-        "Clean Room Recovery and Validation",
-        "Simplified Management & Control"
-    ],
-    image:cyber,
-    imageAlt: "Data Protection & Cyber Resiliency",
-    reverse: false,
-    link: "/Cyber-Resiliency"
-}
-
+  }
 ];
 
   useEffect(() => {

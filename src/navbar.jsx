@@ -126,8 +126,8 @@ const ResponsiveNavbar = () => {
   // Solutions structure
   const solutionsStructure = {
     "Technical Expertise": {
-      items: ["Data And AI", "IT & Buisness Automation", "Security & Sustainability", "Open Hybrid Cloud"],
-      links:["/Data-and-ai","/It_and_buisness_automation","/Security_and_sustainability","/Open_hybrid_cloud"]
+      items: ["Data And AI", "IT & Buisness Automation", "Security & Sustainability", "Open Hybrid Cloud", "Cyber Resiliency"],
+      links:["/Data-and-ai","/It_and_buisness_automation","/Security_and_sustainability","/Open_hybrid_cloud","/Cyber-Resiliency"]
     },
     "Domain Expertise": {
       items: ["Customer Analytics", "Marketing Analytics", "HR Analytics"],
@@ -329,17 +329,13 @@ const ResponsiveNavbar = () => {
               Home
             </a>
             <hr />
-            <a href="/Data-and-ai" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
-              Data and AI
+            
+            <a href="/Our-solutions" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
+              Solutions
             </a>
-            <a href="/It_and_buisness_automation" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
-              IT and Business Automation
-            </a>
-            <a href="/Security_and_sustainability" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
-              Security and Sustainability
-            </a>
-            <a href="/Open_hybrid_cloud" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
-              Open Hybrid Cloud
+            <hr />
+            <a href="/Cyber-Resiliency" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
+                 Cyber Resilency
             </a>
             <hr />
             <a href="/Company" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
