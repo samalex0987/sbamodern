@@ -258,7 +258,7 @@ const ResponsiveNavbar = () => {
       <nav className="sticky top-0 z-50 bg-black border-b border-gray-800 shadow-lg">
         <div className="flex justify-between items-center mx-auto max-w-screen-xl px-4 py-4">
           <a href="/" className="flex items-center space-x-3">
-            <img src={logo} className="h-10" alt="Company Logo" />
+            <img src={logo} className="h-20" alt="Company Logo" />
           </a>
           <div className="hidden md:flex items-center justify-center flex-1">
             <ul className="flex space-x-8 font-medium">
