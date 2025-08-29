@@ -1,3 +1,5 @@
+cmd
+code satelite
 
-l
-git add .
+cmd
+

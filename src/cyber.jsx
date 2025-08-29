@@ -112,7 +112,7 @@ const CyberResiliencyPage = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <button className="group cursor-pointer px-6 sm:px-8 py-3 sm:py-4 border-2 border-red-500/50 text-red-300 font-semibold rounded-lg hover:bg-red-500/20 hover:border-red-400 hover:text-white hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 hover:scale-105">
+              <button onClick={ ()=>{ window.location.href = "/Connect-with-us"} } className="group cursor-pointer px-6 sm:px-8 py-3 sm:py-4 border-2 border-red-500/50 text-red-300 font-semibold rounded-lg hover:bg-red-500/20 hover:border-red-400 hover:text-white hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 hover:scale-105">
                 <span className="group-hover:tracking-wider transition-all duration-300">Know More ?</span>
               </button>
             </div>
@@ -294,7 +294,7 @@ const CyberResiliencyPage = () => {
                 Don't wait for the next cyber attack. Secure your business with true cyber resiliency today.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                <button className="group/btn cursor-pointer px-8 sm:px-10 py-3 sm:py-4 border-2 border-red-500/50 text-red-300 font-semibold rounded-lg hover:bg-red-500/20 hover:border-red-400 hover:text-white hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+                <button onClick={ ()=>{ window.location.href = "/Connect-with-us"} } className="group/btn cursor-pointer px-8 sm:px-10 py-3 sm:py-4 border-2 border-red-500/50 text-red-300 font-semibold rounded-lg hover:bg-red-500/20 hover:border-red-400 hover:text-white hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1">
                   <span className="group-hover/btn:tracking-widest transition-all duration-500">Contact Sales</span>
                 </button>
               </div>
