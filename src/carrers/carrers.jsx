@@ -227,7 +227,7 @@ const CareersPage = () => {
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center">
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent" data-aos="zoom-in">
+            <h1 className="text-4xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent" data-aos="zoom-in">
               Build Your Future
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="100">
@@ -236,7 +236,7 @@ const CareersPage = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-red-300 mx-auto mb-8" data-aos="fade-up" data-aos-delay="200"></div>
             
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               {companyStats.map((stat, index) => (
                 <div key={index} className="text-center" data-aos="fade-up" data-aos-delay={300 + index * 100}>
                   <div className="text-3xl md:text-4xl font-bold text-red-500 mb-2">{stat.value}</div>

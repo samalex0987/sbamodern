@@ -120,7 +120,7 @@ const ContactUsPage = () => {
     
     try {
       // Replace this URL with your actual backend endpoint
-      const response = await fetch('http://ww1.sbainfo.in/send-mail', {
+      const response = await fetch('http://localhost:5000/send-mail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -173,7 +173,7 @@ const ContactUsPage = () => {
         
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center">
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
               Get In Touch
             </h1>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">

@@ -1,2 +1,3 @@
-# num = int(input("Enter the"))
-print(int(eval(input("enter"))))
+import streamlit as st
+
+st.write("HEllo")

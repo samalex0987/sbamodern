@@ -80,7 +80,7 @@ function Company() {
      {/* Hero Section */}
      <section className=" flex items-center justify-center text-center pt-50 px-4 sm:px-6 lg:px-8 bg-black pb-20">
       <div data-aos="fade-up" className="max-w-4xl mx-auto">
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
           Intelligent Solutions, <span className="text-red-500">Limitless Potential</span>
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl mb-8 text-gray-300">

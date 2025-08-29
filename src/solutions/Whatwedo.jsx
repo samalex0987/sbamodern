@@ -181,7 +181,7 @@ const solutions = [
         >
           
           
-         <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
+         <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
             Shaping the Future with  
             <span className="block text-red-500">
             Intelligent Solutions
