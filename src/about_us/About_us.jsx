@@ -50,7 +50,7 @@ function About_us(){
         <div className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-3xl border border-gray-800 hover:border-red-500/50 h-full flex flex-col">
           <div className="absolute inset-0 rounded-2xl bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
           
-          <div className="relative z-10">
+          <div className="relative z-10 cursor-pointer" onClick={ ()=>{ window.location.href = "https://www.linkedin.com/in/anantha-narayanan-varadharajan-6b2bb9b/"} }>
             <div className="relative mb-6 overflow-hidden rounded-2xl aspect-square cursor-pointer">
               <img 
                 src={ananth_narayanan} 
@@ -88,7 +88,7 @@ function About_us(){
       
       {/* Team Member 2 */}
 
-      <div className="group relative h-full">
+      <div className="group relative h-full cursor-pointer" onClick={ ()=>{ window.location.href = "https://www.linkedin.com/in/venkatesh95/"} }>
         <div className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-3xl border border-gray-800 hover:border-red-500/50 h-full flex flex-col">
           {/* Red Glow Effect */}
           <div className="absolute inset-0 rounded-2xl bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
@@ -139,7 +139,7 @@ function About_us(){
       
       {/* Team Member 3 */}
       
-       <div className="group relative h-full">
+       <div className="group relative h-full cursor-pointer" onClick={ ()=>{ window.location.href = "https://www.linkedin.com/in/viswanathan-narayanan-3a328146/"} }>
         <div className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-3xl border border-gray-800 hover:border-red-500/50 h-full flex flex-col">
           <div className="absolute inset-0 rounded-2xl bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
           
@@ -180,7 +180,7 @@ function About_us(){
 
       {/* Team Member 4 */}
 
-      <div className="group relative h-full">
+      <div className="group relative h-full cursor-pointer" onClick={ ()=>{ window.location.href = "https://www.linkedin.com/in/sadeesh-kumar-gopalan-a6a60217/"} }>
         <div className="bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-3xl border border-gray-800 hover:border-red-500/50 h-full flex flex-col">
           <div className="absolute inset-0 rounded-2xl bg-red-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
           

@@ -33,7 +33,7 @@ const AnimatedTimeline = () => {
       id: 4,
       year: new Date().getFullYear(),
       title: "Our Journey",
-      description: "Will be continue",
+      description: "Will continue",
       icon: ArrowRight
     },
   ];
