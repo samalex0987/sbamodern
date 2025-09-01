@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import logo from "./logo.png";
+import logo from "/logo.png"
 
 const ResponsiveNavbar = () => {
   const [display, setDisplay] = useState("Media");
@@ -123,19 +123,96 @@ const ResponsiveNavbar = () => {
     };
   }, []);
 
+  // Nav pills for different sections
+  const pills = {
+    "Data And AI": [
+      { name: 'Enhanced Customer Experience', icon: '👥' },
+      { name: 'Optimized Operations', icon: '⚡' },
+
+    ],
+    "IT & Buisness Automation": [
+      { name: 'Process Automation', icon: '🔄' },
+      { name: 'Workflow Optimization', icon: '📊' },
+     
+    ],
+    "Security & Sustainability": [
+      { name: 'Cyber Protection', icon: '🔐' },
+      { name: 'Green Technology', icon: '🌱' },
+    
+    ],
+    "Open Hybrid Cloud": [
+      { name: 'Cloud Migration', icon: '☁️' },
+      { name: 'Hybrid Infrastructure', icon: '🔗' },
+
+    ],
+    "Cyber Resiliency": [
+      { name: 'Threat Detection', icon: '🎯' },
+      { name: 'Incident Response', icon: '🚨' },
+     
+    ],
+    "Customer Analytics": [
+      { name: 'Behavior Analysis', icon: '📊' },
+      { name: 'Segmentation', icon: '🎯' },
+
+    ],
+    "Marketing Analytics": [
+      { name: 'Campaign Performance', icon: '📈' },
+      { name: 'ROI Measurement', icon: '💰' },
+     
+    ],
+    "HR Analytics": [
+      { name: 'Talent Insights', icon: '👤' },
+      { name: 'Performance Tracking', icon: '📊' },
+   
+    ],
+    "BFSI Solutions": [
+      { name: 'Risk Management', icon: '⚖️' },
+      { name: 'Fraud Detection', icon: '🔍' },
+     
+    ],
+    "Media & Entertainment": [
+      { name: 'Content Analytics', icon: '📺' },
+      { name: 'Audience Insights', icon: '👥' },
+  
+    ],
+    "Manufacturing": [
+      { name: 'IoT Integration', icon: '🔗' },
+      { name: 'Quality Control', icon: '✅' },
+    
+    ],
+    "Healthcare": [
+      { name: 'Patient Analytics', icon: '🏥' },
+      { name: 'Clinical Intelligence', icon: '🔬' },
+ 
+    ],
+    "IT & ITES": [
+      { name: 'Service Analytics', icon: '⚙️' },
+      { name: 'Performance Monitoring', icon: '📊' },
+    
+    ],
+    "Telecommunications": [
+      { name: 'Network Analytics', icon: '📡' },
+      { name: 'Customer Insights', icon: '📱' },
+
+    ]
+  };
+
   // Solutions structure
   const solutionsStructure = {
     "Technical Expertise": {
       items: ["Data And AI", "IT & Buisness Automation", "Security & Sustainability", "Open Hybrid Cloud", "Cyber Resiliency"],
-      links:["/Data-and-ai","/It_and_buisness_automation","/Security_and_sustainability","/Open_hybrid_cloud","/Cyber-Resiliency"]
+      links:["/Data-and-ai","/It_and_buisness_automation","/Security_and_sustainability","/Open_hybrid_cloud","/Cyber-Resiliency"],
+      discription:["Leverage AI-powered insights to unlock smarter business decisions.","Protect digital assets while promoting sustainable technology practices for long-term resilience.","Build flexible, scalable infrastructure with open-source and hybrid cloud technologies.","Ensure business continuity with advanced threat detection and recovery strategies.","Ensure continuity and quick recovery from cyber threats with robust protection."]
     },
     "Domain Expertise": {
       items: ["Customer Analytics", "Marketing Analytics", "HR Analytics"],
-      links:["/Our-solutions/Domain/CustomerAnalytics","/Our-solutions/Domain/MarketingAnalytics","/Our-solutions/Domain/HRAnalytics"]
+      links:["/Our-solutions/Domain/CustomerAnalytics","/Our-solutions/Domain/MarketingAnalytics","/Our-solutions/Domain/HRAnalytics"],
+      discription:["Gain deep insights into customer behavior to drive personalized experiences and loyalty.","Optimize campaign performance and maximize ROI with data-driven marketing strategies.","Enhance workforce planning, talent acquisition, and employee engagement using analytics."]
     },
     "Industry Solutions": {
       items: ["BFSI Solutions", "Media & Entertainment", "Manufacturing", "Healthcare", "IT & ITES", "Telecommunications"],
-      links: ["/Our-solutions/BFSI","/Our-solutions/Media","/Our-solutions/Manufacturing","/Our-solutions/Healthcare","/Our-solutions/IT-and-ITES","/Our-solutions/Telecommunication"]
+      links: ["/Our-solutions/BFSI","/Our-solutions/Media","/Our-solutions/Manufacturing","/Our-solutions/Healthcare","/Our-solutions/IT-and-ITES","/Our-solutions/Telecommunication"],
+      discription:["Drive digital transformation in banking, financial services, and insurance with tailored tech solutions.","Deliver immersive content experiences and streamline media operations with AI and cloud.","Enable smart manufacturing with IoT, AI, and predictive analytics.","Transform patient care and operational efficiency through data-driven healthcare solutions.","Accelerate service delivery and innovation with advanced IT-enabled services.","Empower next-gen connectivity and customer experience with AI and 5G technologies."]
     }
   };
  
@@ -143,8 +220,8 @@ const ResponsiveNavbar = () => {
     <>
       {/* Demo Request Popup */}
       {showPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-100 p-2 sm:p-4">
-          <div className="bg-gray-800 rounded-lg w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg relative animate-scaleIn max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100] p-2 sm:p-4">
+          <div className="bg-gray-800 rounded-lg w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg relative max-h-[95vh] sm:max-h-[90vh] overflow-y-auto">
             <div className="p-4 sm:p-6">
               <button
                 onClick={closePopup}
@@ -346,7 +423,7 @@ const ResponsiveNavbar = () => {
               Join with us
             </a>
             <hr />
-            <a href="/Connect-with-us" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-505 hover:bg-gray-800 transition-all duration-200">
+            <a href="/Connect-with-us" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
               Contact
             </a>
             <hr />
@@ -384,7 +461,7 @@ const ResponsiveNavbar = () => {
                           className={`w-full text-left py-3 px-3 text-sm cursor-pointer font-medium rounded-md transition-all duration-200 ${
                             selectedSection === sectionName 
                               ? 'bg-red-800 text-white shadow-sm' 
-                              : 'text-gray-100 hover:bg-red-800 hover:text-white-100'
+                              : 'text-gray-100 hover:bg-red-800 hover:text-white'
                           }`}
                         >
                           {sectionName}
@@ -401,8 +478,9 @@ const ResponsiveNavbar = () => {
                       ? 'opacity-100 transform translate-y-0' 
                       : 'opacity-0 transform translate-y-4'
                   }`}>
-                    <h3 className="text-2xl font-bold text-gray-100 mb-6">{selectedSection}</h3>
-                    <div className="grid grid-cols-2 gap-6">
+                    <h3 className="text-2xl font-bold text-gray-100 mb-4">{selectedSection}</h3>
+                    
+                    <div className="grid grid-cols-2 gap-2">
                       {solutionsStructure[selectedSection].items.map((item, index) => (
                         <div 
                           key={index}  
@@ -413,13 +491,20 @@ const ResponsiveNavbar = () => {
                             transitionDelay: isContentVisible ? `${index * 50}ms` : '0ms' 
                           }}
                         > 
-                          <div onClick={()=>{ window.location.href = solutionsStructure[selectedSection].links[index] }}  className="p-4 border  rounded-lg hover:bg-red-800 hover:shadow-md transition-all duration-200 transform hover:scale-105">
-                            <h4 className="font-semibold text-gray-100 group-hover:text-white mb-2">
+                          <div onClick={()=>{ window.location.href = solutionsStructure[selectedSection].links[index] }}  className="p-4 border rounded-lg hover:bg-red-800 hover:shadow-md transition-all duration-200 transform hover:scale-105">
+                            <h4 className="font-semibold text-gray-100 group-hover:text-white mb-3">
                               {item}
                             </h4>
-                            <p className="text-sm text-gray-100">
-                              Comprehensive {item.toLowerCase()} solutions tailored to your business needs.
+                            
+                            <p className="text-sm text-gray-100 mb-4">
+                              {solutionsStructure[selectedSection].discription[index]}
                             </p>
+                              <button onClick={()=>{ window.location.href = solutionsStructure[selectedSection].links[index] }} className="px-6 py-2 cursor-pointer text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:ring-red-300 transition-all duration-200 transform hover:scale-105 focus:outline-none">
+                                Explore
+                                </button>
+
+                            {/* Pills for each specific item */}
+                            
                           </div>
                         </div>
                       ))}
