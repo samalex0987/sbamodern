@@ -491,7 +491,7 @@ const ResponsiveNavbar = () => {
                             transitionDelay: isContentVisible ? `${index * 50}ms` : '0ms' 
                           }}
                         > 
-                          <div onClick={()=>{ window.location.href = solutionsStructure[selectedSection].links[index] }}  className="p-4 border rounded-lg hover:bg-red-800 hover:shadow-md transition-all duration-200 transform hover:scale-105">
+                          <div onClick={()=>{ window.location.href = solutionsStructure[selectedSection].links[index] }}  className="p-4 border rounded-lg  hover:shadow-md transition-all duration-200 transform hover:scale-105">
                             <h4 className="font-semibold text-gray-100 group-hover:text-white mb-3">
                               {item}
                             </h4>

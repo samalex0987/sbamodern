@@ -20,6 +20,7 @@ import CustomerAnalytics from './solutions/Domain/CustomerAnalytics'
 import HRAnalytics from './solutions/Domain/HRAnalytics'
 import MarketAnalytics from './solutions/Domain/MaketingAnalytics'
 import CyberResiliencyPage from './cyber'
+import Test from './test.jsx'
 
 // Lazy load route components
 const Home = lazy(() => import('./home/home'))
@@ -30,7 +31,7 @@ const Security_and_sustainability = lazy(() => import('./securityandsustainabili
 const Company = lazy(() => import('./company/company'))
 const Carrers = lazy(() => import('./carrers/carrers'))
 const Apply = lazy(() => import('./apply/apply'))
-const Test = lazy(() => import('./test'))
+// const Test = lazy(() => import('./test'))
 const SuccessStories = lazy(() => import('./stories/stories'))
 const About_us = lazy(() => import('./about_us/About_us'))
 
