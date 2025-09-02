@@ -1,5 +1,0 @@
-cmd
-code satelite
-
-cmd
-
