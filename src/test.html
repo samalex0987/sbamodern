@@ -3,41 +3,977 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <title>Document</title>
+    <title>AudioScribe - AI Transcription</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#1E3A8A',
+                        'primary-light': '#3B82F6',
+                        'primary-dark': '#1E40AF',
+                        'accent': '#F59E0B',
+                        'accent-light': '#FBBF24',
+                        'accent-dark': '#D97706',
+                        'secondary': '#6366F1',
+                        'glass-light': 'rgba(255, 255, 255, 0.8)',
+                        'glass-border': 'rgba(30, 58, 138, 0.1)'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                        'wave': 'wave 2s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
+                        'progress': 'progress 2s linear infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        wave: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0px)', opacity: '1' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-5px)' }
+                        },
+                        progress: {
+                            '0%': { transform: 'translateX(-100%)' },
+                            '100%': { transform: 'translateX(100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(30, 58, 138, 0.1);
+            box-shadow: 0 8px 32px rgba(30, 58, 138, 0.1);
+        }
+        
+        .glassmorphism-dark {
+            background: rgba(30, 58, 138, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(30, 58, 138, 0.2);
+        }
+        
+        .audio-visualizer {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            height: 16px;
+        }
+        
+        .audio-bar {
+            width: 2px;
+            background: #1E3A8A;
+            border-radius: 2px;
+            animation: audioWave 1.5s ease-in-out infinite;
+        }
+        
+        .audio-bar:nth-child(2) { animation-delay: 0.1s; }
+        .audio-bar:nth-child(3) { animation-delay: 0.2s; }
+        .audio-bar:nth-child(4) { animation-delay: 0.3s; }
+        .audio-bar:nth-child(5) { animation-delay: 0.4s; }
+        
+        @keyframes audioWave {
+            0%, 100% { height: 4px; opacity: 0.4; }
+            50% { height: 16px; opacity: 1; }
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent 25%, rgba(30, 58, 138, 0.1) 50%, transparent 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(30, 58, 138, 0.1);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #1E3A8A;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.1), 0 2px 4px -1px rgba(30, 58, 138, 0.06);
+        }
+
+        .card-shadow-hover {
+            box-shadow: 0 20px 25px -5px rgba(30, 58, 138, 0.1), 0 10px 10px -5px rgba(30, 58, 138, 0.04);
+        }
+
+        .tab-button {
+            border: 1px solid transparent;
+        }
+        .tab-button.active {
+            background: rgba(30, 58, 138, 0.2);
+            border-color: #1E3A8A;
+            color: #1E3A8A;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-left: 1px solid rgba(30, 58, 138, 0.1);
+            padding: 1rem;
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(30, 58, 138, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1E3A8A, #3B82F6);
+            width: 0%;
+            transition: width 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
+            background-size: 20px 20px;
+            animation: progress 2s linear infinite;
+        }
+
+        .progress-text {
+            font-size: 0.875rem;
+            color: #1E3A8A;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .progress-text svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .progress-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(30, 58, 138, 0.1);
+        }
+    </style>
 </head>
-<body>
-    
-    <h1>YOUR CART</h1>
-
-    <div>
-        <h1>APPLE</h1>
-        <button onclick="Addtocart('Apple')" class="btn btn-primary">ADD TO CART</button>
-    </div>
-    <div>
-        <h1>ORANGE</h1>
-        <button onclick="Addtocart('Orange')" class="btn btn-primary">ADD TO CART</button>
+<body class="font-sans gradient-bg min-h-screen text-gray-800 overflow-hidden">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/80 via-indigo-50/50 to-slate-50/80"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute top-3/4 left-1/2 w-64 h-64 bg-secondary/5 rounded-full blur-2xl animate-bounce-gentle"></div>
     </div>
 
-    <h1>CART</h1>
-    <div id="cart">
+    <!-- Main Container -->
+  
+    <div class="relative z-10 flex h-screen w-full  mx-auto glassmorphism rounded-3xl overflow-hidden my-4 card-shadow animate-slide-up" id="mainContainer">
+        <!-- Left Panel -->
+        <div class="flex-1 p-6 flex flex-col backdrop-blur-xl bg-white/50 border-r border-primary/10">
+            <!-- Header -->
+            <div class="text-center mb-6 animate-fade-in">
+                <br><br>
+                <div class="text-4xl font-bold text-primary mb-3 animate-float">
+                    AudioScribe
+                </div>
+                <div class="text-primary/70 text-lg font-light">AI-Powered Audio Transcription</div>
+                <div class="mt-3 flex justify-center space-x-2">
+                    <div class="w-2 h-2 bg-primary rounded-full animate-bounce"></div>
+                    <div class="w-2 h-2 bg-secondary rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                    <div class="w-2 h-2 bg-accent rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                </div>
+            </div>
 
+            <!-- Upload Area -->
+            <div class="relative group mb-4 animate-slide-up" style="animation-delay: 0.2s">
+                <div class="absolute inset-0 bg-primary/20 rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                <div class="relative border-2 border-dashed border-primary/30 rounded-2xl p-8 text-center glassmorphism transition-all duration-500 hover:border-primary hover:scale-[1.02] card-shadow hover:card-shadow-hover cursor-pointer group" onclick="document.getElementById('fileInput').click()">
+                    
+                    <div class="text-xl font-bold mb-3 text-primary">
+                        Drop Audio File Here
+                    </div>
+                    <div class="text-primary/60 text-xs mb-4">Supports MP3, WAV, M4A files up to 100MB</div>
+                    <button class="bg-primary text-white px-8 py-3 rounded-full text-base font-semibold transition-all duration-500 hover:bg-primary-dark hover:scale-105 hover:shadow-2xl transform">
+                        Choose File
+                    </button>
+                    <input type="file" id="fileInput" class="hidden" accept=".mp3,.wav,.m4a" onchange="handleFileUpload(event)">
+                </div>
+            </div>
+
+            <!-- Upload History -->
+            <div class="flex-1 flex flex-col animate-slide-up" style="animation-delay: 0.4s">
+                <div class="text-xl font-bold mb-4 text-primary flex items-center gap-3">
+                    <div class="p-2 bg-primary rounded-lg text-white card-shadow">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
+                        </svg>
+                    </div>
+                    Recent Files
+                </div>
+                <div id="historyContainer" class="flex-1 overflow-y-auto space-y-3 pr-2 max-h-40 custom-scrollbar">
+                    <!-- Loading skeleton initially -->
+                    <div id="historySkeleton" class="space-y-3 pr-2">
+                        <div class="glassmorphism rounded-xl p-3 shimmer h-16 card-shadow"></div>
+                        <div class="glassmorphism rounded-xl p-3 shimmer h-16 card-shadow"></div>
+                        <div class="glassmorphism rounded-xl p-3 shimmer h-16 card-shadow"></div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="flex-[3] bg-gradient-to-br from-white/80 to-blue-50/80 backdrop-blur-xl p-8 flex flex-col relative">
+            <!-- Progress Panel -->
+            <div id="progressContainer" class="progress-container">
+                <div class="text-lg font-bold text-primary mb-4 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Upload Progress
+                </div>
+                <div id="progressList" class="space-y-3"></div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="mb-6 animate-slide-up" style="animation-delay: 0.6s">
+                <div class="text-2xl font-bold mb-3 flex items-center gap-3 text-primary">
+                    <div class="p-3 glassmorphism rounded-xl card-shadow">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-primary">Audio Analysis</span>
+                </div>
+                <div class="text-primary/60 text-sm" id="transcriptInfo">Select an audio file to view details</div>
+                <br>
+                <div class="flex gap-2 mb-4">
+                    <button class="tab-button active px-4 py-2 rounded-full glassmorphism card-shadow text-sm font-medium text-primary hover:text-primary-dark transition-all duration-300 hover:scale-105" onclick="switchTab('transcript')">Transcript</button>
+                    <button class="tab-button px-4 py-2 rounded-full glassmorphism card-shadow text-sm font-medium text-primary hover:text-primary-dark transition-all duration-300 hover:scale-105" onclick="switchTab('business')">Business View</button>
+                    <button class="tab-button px-4 py-2 rounded-full glassmorphism card-shadow text-sm font-medium text-primary hover:text-primary-dark transition-all duration-300 hover:scale-105" onclick="switchTab('diagnostic')">Diagnostic View</button>
+                </div>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="flex-1 glassmorphism rounded-2xl p-6 overflow-y-auto card-shadow animate-slide-up custom-scrollbar" style="animation-delay: 0.8s" id="tabContent">
+                <div id="transcriptContent" class="tab-content active">
+                    <div class="text-center text-primary/60 flex items-center justify-center h-full">
+                        <div>
+                            <div class="p-6 glassmorphism-dark rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center animate-pulse-slow card-shadow">
+                                <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-base font-medium mb-2 text-primary">No audio selected</div>
+                            <div class="text-sm opacity-70">Upload or select from history to see transcript</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="businessContent" class="tab-content hidden"></div>
+                <div id="diagnosticContent" class="tab-content hidden"></div>
+            </div>
+
+            <div class="flex gap-3 mt-4 animate-slide-up" style="animation-delay: 1s">
+                <button class="flex-1 glassmorphism card-shadow px-5 py-2.5 rounded-full transition-all duration-300 hover:card-shadow-hover hover:scale-105 text-sm flex items-center justify-center gap-2 font-medium text-white bg-primary hover:bg-primary-dark" onclick="downloadTranscript()">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    Download
+                </button>
+                <button class="flex-1 glassmorphism card-shadow px-5 py-2.5 rounded-full transition-all duration-300 hover:card-shadow-hover hover:scale-105 text-sm flex items-center justify-center gap-2 font-medium text-white bg-primary hover:bg-primary-dark" onclick="copyTranscript()">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copy
+                </button>
+            </div>
+        </div>
+       
     </div>
 
     <script>
+        // Enhanced sample data with local audio file paths
+        const uploadHistory = [
+            {
+                id: 1,
+                filename: "meeting_recording.mp3",
+                date: "2024-02-15T10:30:00Z",
+                duration: "15:23",
+                audioSrc: "data:audio/wav;base64,...",
+                transcript: "Today's quarterly review meeting was highly productive. We discussed the implementation of new AI technologies in our workflow, focusing particularly on automated transcription services. The team expressed enthusiasm about the potential time savings and accuracy improvements. Sarah mentioned that the current manual transcription process takes approximately 4 hours per hour of audio, which could be reduced to minutes with AI assistance. John raised important questions about data security and privacy compliance, especially when dealing with sensitive client information. We agreed to conduct a thorough security audit before full implementation. The budget allocation for this initiative was approved at $50,000 for the initial phase. Next steps include vendor evaluation, pilot testing with a small group, and developing training materials for the entire team. The expected rollout timeline is 3 months, with monthly progress reviews scheduled."
+            },
+            {
+                id: 2,
+                filename: "interview_session.wav",
+                date: "2024-02-14T14:20:00Z",
+                duration: "32:17",
+                audioSrc: "data:audio/wav;base64,...",
+                transcript: "This interview session focused on understanding user requirements for the new transcription platform. The interviewee emphasized the importance of speaker identification and timestamp accuracy. Key requirements include support for multiple languages, real-time processing capabilities, and integration with existing project management tools. The discussion revealed that current solutions fall short in handling technical jargon and industry-specific terminology. Custom vocabulary training was identified as a critical feature for improving accuracy in specialized domains."
+            },
+            {
+                id: 3,
+                filename: "conference_call.m4a",
+                date: "2024-02-13T09:15:00Z",
+                duration: "48:52",
+                audioSrc: "data:audio/wav;base64,...",
+                transcript: "The conference call involved stakeholders from multiple departments discussing the integration of AI transcription services. Marketing highlighted the need for social media content generation from podcast transcripts. Engineering raised technical concerns about API limitations and processing speeds. Finance requested detailed cost analysis including per-minute pricing models and volume discounts. The consensus was to proceed with a phased approach, starting with internal meetings before expanding to client-facing applications."
+            },
+            {
+                id: 4,
+                filename: "training_session.mp3",
+                date: "2024-02-12T16:45:00Z",
+                duration: "1:12:33",
+                audioSrc: "data:audio/wav;base64,...",
+                transcript: "The training session covered best practices for audio transcription and quality assurance. Participants learned about proper microphone placement, noise reduction techniques, and speaker identification protocols. The instructor emphasized the importance of clean audio input for optimal AI transcription results. Common challenges such as overlapping speech, background noise, and accents were discussed with practical solutions provided."
+            },
+            {
+                id: 5,
+                filename: "client_presentation.wav",
+                date: "2024-02-11T11:00:00Z",
+                duration: "25:18",
+                audioSrc: "data:audio/wav;base64,...",
+                transcript: "The client presentation showcased the capabilities of our AI transcription platform. We demonstrated real-time processing, multi-speaker identification, and custom vocabulary integration. The client was particularly impressed with the accuracy rates and the ability to handle technical discussions. Questions were raised about data retention policies and GDPR compliance, which were addressed comprehensively."
+            }
+        ];
 
-        let cart = []
-        function Addtocart(product){
+        // Sample data for Business and Diagnostic Views
+        const viewData = {
+            1: {
+                business: {
+                    summary: "The quarterly review meeting focused on implementing AI transcription services to enhance workflow efficiency.",
+                    keyPoints: [
+                        "AI transcription reduces manual transcription time from 4 hours to minutes per hour of audio.",
+                        "Budget of $50,000 approved for initial phase.",
+                        "Security audit planned before full implementation."
+                    ],
+                    actionItems: [
+                        "Conduct vendor evaluation.",
+                        "Initiate pilot testing with a small group.",
+                        "Develop training materials for team."
+                    ]
+                },
+                diagnostic: {
+                    confidence: "94%",
+                    language: "English",
+                    processingTime: "2.3 seconds",
+                    speakerCount: 3,
+                    noiseLevel: "Low",
+                    transcriptionEngine: "xAI Whisper Model"
+                }
+            },
+            2: {
+                business: {
+                    summary: "The interview highlighted user needs for a new transcription platform with advanced features.",
+                    keyPoints: [
+                        "Users require speaker identification and timestamp accuracy.",
+                        "Support for multiple languages and real-time processing is critical.",
+                        "Custom vocabulary training needed for technical jargon."
+                    ],
+                    actionItems: [
+                        "Integrate speaker identification features.",
+                        "Develop multi-language support.",
+                        "Implement custom vocabulary training module."
+                    ]
+                },
+                diagnostic: {
+                    confidence: "92%",
+                    language: "English",
+                    processingTime: "4.1 seconds",
+                    speakerCount: 2,
+                    noiseLevel: "Moderate",
+                    transcriptionEngine: "xAI Whisper Model"
+                }
+            },
+            3: {
+                business: {
+                    summary: "The conference call discussed AI transcription service integration across departments.",
+                    keyPoints: [
+                        "Marketing needs transcripts for social media content.",
+                        "Engineering concerned about API limitations and processing speeds.",
+                        "Finance requests detailed cost analysis."
+                    ],
+                    actionItems: [
+                        "Start with internal meeting transcription.",
+                        "Conduct API performance testing.",
+                        "Prepare cost analysis report."
+                    ]
+                },
+                diagnostic: {
+                    confidence: "90%",
+                    language: "English",
+                    processingTime: "6.8 seconds",
+                    speakerCount: 5,
+                    noiseLevel: "High",
+                    transcriptionEngine: "xAI Whisper Model"
+                }
+            },
+            4: {
+                business: {
+                    summary: "Training session on audio transcription best practices and quality assurance.",
+                    keyPoints: [
+                        "Proper microphone placement improves transcription accuracy.",
+                        "Noise reduction techniques are essential for clean audio.",
+                        "Speaker identification protocols enhance output quality."
+                    ],
+                    actionItems: [
+                        "Implement microphone setup guidelines.",
+                        "Deploy noise reduction tools.",
+                        "Train team on speaker identification methods."
+                    ]
+                },
+                diagnostic: {
+                    confidence: "96%",
+                    language: "English",
+                    processingTime: "8.2 seconds",
+                    speakerCount: 8,
+                    noiseLevel: "Low",
+                    transcriptionEngine: "xAI Whisper Model"
+                }
+            },
+            5: {
+                business: {
+                    summary: "Client presentation showcasing AI transcription platform capabilities.",
+                    keyPoints: [
+                        "Real-time processing demonstrated successfully.",
+                        "Multi-speaker identification impressed the client.",
+                        "GDPR compliance questions addressed comprehensively."
+                    ],
+                    actionItems: [
+                        "Finalize data retention policy documentation.",
+                        "Prepare GDPR compliance report.",
+                        "Schedule follow-up demonstration."
+                    ]
+                },
+                diagnostic: {
+                    confidence: "95%",
+                    language: "English",
+                    processingTime: "3.1 seconds",
+                    speakerCount: 4,
+                    noiseLevel: "Low",
+                    transcriptionEngine: "xAI Whisper Model"
+                }
+            }
+        };
 
-            cart.push(product)
-            document.getElementById("cart").innerHTML = ""
-            for(i of cart){
-                
-                document.getElementById("cart").innerHTML += i + "<br>"
+        let currentTranscriptId = null;
+        let currentAudio = null;
+        let uploadProgress = {};
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('mainContainer').style.display = 'flex';
+            setTimeout(() => {
+                loadUploadHistory();
+            }, 300);
+
+            const uploadArea = document.querySelector('[onclick*="fileInput"]');
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.classList.add('scale-105', 'card-shadow-hover');
+            });
+            
+            uploadArea.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                this.classList.remove('scale-105', 'card-shadow-hover');
+            });
+            
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                this.classList.remove('scale-105', 'card-shadow-hover');
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    const fileInput = document.getElementById('fileInput');
+                    fileInput.files = files;
+                    handleFileUpload({ target: fileInput });
+                }
+            });
+        });
+
+        function loadUploadHistory() {
+            const container = document.getElementById('historyContainer');
+            const skeleton = document.getElementById('historySkeleton');
+            if (skeleton) skeleton.style.display = 'none';
+            
+            // Clear existing content
+            container.innerHTML = '';
+
+            uploadHistory.forEach((item, index) => {
+                const historyItem = createHistoryItem(item, index);
+                container.appendChild(historyItem);
+            });
+        }
+
+        function createHistoryItem(item, index) {
+            const historyItem = document.createElement('div');
+            historyItem.className = 'glassmorphism rounded-xl p-3 card-shadow cursor-pointer transition-all duration-300 hover:card-shadow-hover hover:scale-[1.02] transform animate-slide-up hover:bg-primary/5';
+            historyItem.style.animationDelay = `${index * 0.1}s`;
+            historyItem.dataset.itemId = item.id;
+            
+            // Add click event listener
+            historyItem.addEventListener('click', function() {
+                selectTranscript(item.id);
+            });
+            
+            const date = new Date(item.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            historyItem.innerHTML = `
+                <div class="font-bold text-primary mb-1 flex items-center gap-2">
+                    <div class="p-1.5 bg-primary rounded-lg text-white card-shadow">
+                        <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path>
+                        </svg>
+                    </div>
+                    <span class="truncate text-sm">${item.filename}</span>
+                </div>
+                <div class="text-primary/70 text-xs mb-1 flex items-center gap-1.5 ml-1">
+                    <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    ${date}
+                </div>
+                <div class="text-primary text-xs flex items-center gap-1.5 ml-1">
+                    <div class="audio-visualizer">
+                        <div class="w-0.5 h-2.5 bg ویت
+
+System: primary rounded-full"></div>
+                        <div class="w-0.5 h-1.5 bg-primary rounded-full"></div>
+                        <div class="w-0.5 h-3 bg-primary rounded-full"></div>
+                        <div class="w-0.5 h-1.5 bg-primary rounded-full"></div>
+                    </div>
+                    Duration: ${item.duration}
+                    <audio src='' controls></audio>
+                </div>
+            `;
+
+            return historyItem;
+        }
+
+        // Tab switching function
+        function switchTab(tab) {
+            // Update button states
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.querySelector(`.tab-button[onclick="switchTab('${tab}')"]`).classList.add('active');
+
+            // Update content visibility
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`${tab}Content`).classList.add('active');
+
+            // Populate content for Business or Diagnostic View
+            if (tab !== 'transcript' && currentTranscriptId) {
+                const selectedItem = viewData[currentTranscriptId];
+                const contentDiv = document.getElementById(`${tab}Content`);
+                if (selectedItem && selectedItem[tab]) {
+                    if (tab === 'business') {
+                        contentDiv.innerHTML = `
+                            <div class="leading-relaxed text-lg text-gray-700 animate-fade-in">
+                                <div class="mb-4 p-4 glassmorphism-dark rounded-lg border border-primary/20 card-shadow">
+                                    <div class="text-xs text-primary uppercase tracking-wider mb-2">Business Insights</div>
+                                    <div class="text-primary text-sm mb-2">Generated from ${uploadHistory.find(item => item.id === currentTranscriptId).filename}</div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div>
+                                        <h3 class="text-lg font-bold text-primary mb-2">Summary</h3>
+                                        <p class="text-gray-700">${selectedItem.business.summary}</p>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold text-primary mb-2">Key Points</h3>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                            ${selectedItem.business.keyPoints.map(point => `<li>${point}</li>`).join('')}
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-bold text-primary mb-2">Action Items</h3>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                            ${selectedItem.business.actionItems.map(item => `<li>${item}</li>`).join('')}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    } else if (tab === 'diagnostic') {
+                        contentDiv.innerHTML = `
+                            <div class="leading-relaxed text-lg text-gray-700 animate-fade-in">
+                                <div class="mb-4 p-4 glassmorphism-dark rounded-lg border border-primary/20 card-shadow">
+                                    <div class="text-xs text-primary uppercase tracking-wider mb-2">Diagnostic Details</div>
+                                    <div class="text-primary text-sm mb-2">Generated for ${uploadHistory.find(item => item.id === currentTranscriptId).filename}</div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <span class="text-primary font-bold">Confidence Score:</span> ${selectedItem.diagnostic.confidence}
+                                        </div>
+                                        <div>
+                                            <span class="text-primary font-bold">Language:</span> ${selectedItem.diagnostic.language}
+                                        </div>
+                                        <div>
+                                            <span class="text-primary font-bold">Processing Time:</span> ${selectedItem.diagnostic.processingTime}
+                                        </div>
+                                        <div>
+                                            <span class="text-primary font-bold">Speaker Count:</span> ${selectedItem.diagnostic.speakerCount}
+                                        </div>
+                                        <div>
+                                            <span class="text-primary font-bold">Noise Level:</span> ${selectedItem.diagnostic.noiseLevel}
+                                        </div>
+                                        <div>
+                                            <span class="text-primary font-bold">Transcription Engine:</span> ${selectedItem.diagnostic.transcriptionEngine}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                } else {
+                    contentDiv.innerHTML = `
+                        <div class="text-center text-primary/60 flex items-center justify-center h-full">
+                            <div>
+                                <div class="text-base font-medium mb-2 text-primary">No data available</div>
+                                <div class="text-sm opacity-70">Select an audio file to view ${tab} details</div>
+                            </div>
+                        </div>
+                    `;
+                }
             }
         }
 
-    </script>
+       
+        function selectTranscript(id) {
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio = null;
+        }
 
+        // Remove selection from all items
+        document.querySelectorAll('#historyContainer > div').forEach(item => {
+            item.classList.remove('bg-primary/10', 'scale-105', 'card-shadow-hover', 'border-primary/20');
+            item.classList.add('bg-white/0');
+        });
+
+        // Find and select the clicked item 
+        const clickedItem = document.querySelector(`#historyContainer > div[data-item-id="${id}"]`);
+        if (clickedItem) {
+            clickedItem.classList.remove('bg-white/0');
+            clickedItem.classList.add('bg-primary/10', 'scale-105', 'card-shadow-hover', 'border-primary/20');
+        }
+
+        const selectedItem = uploadHistory.find(item => item.id === id);
+        if (selectedItem) {
+            currentTranscriptId = id;
+            document.getElementById('transcriptInfo').innerHTML = `
+                <div class="flex items-center gap-4 mb-2">
+                    <span class="text-primary/70">${selectedItem.filename} • ${selectedItem.duration}</span>
+                    <button onclick="playAudio(${id})" class="p-2 glassmorphism rounded-full hover:bg-primary/10 transition-all duration-300 group card-shadow">
+                        <svg class="w-4 h-4 text-primary group-hover:text-primary-dark transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1l4-4 4 4h1a2 2 0 012 2v4a2 2 0 01-2 2h-1l-4 4-4-4H9a2 2 0 01-2-2v-4a2 2 0 012-2z"></path>
+                        </svg>
+                    </button>
+                </div>
+            `;
+
+            // Reset to transcript tab
+            switchTab('transcript');
+
+            document.getElementById('transcriptContent').innerHTML = `
+                <div class="text-center text-primary/60 flex items-center justify-center h-full">
+                    <div>
+                        <div class="p-6 glassmorphism-dark rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center animate-pulse-slow card-shadow">
+                            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-base font-medium mb-2 text-primary">Loading transcript...</div>
+                        <div class="text-sm opacity-70">Processing audio file</div>
+                    </div>
+                </div>
+            `;
+
+            setTimeout(() => {
+                document.getElementById('transcriptContent').innerHTML = `
+                    <div class="text-center text-gray-700 p-6 flex flex-col items-center justify-center h-full bg-white/90 rounded-lg shadow-lg">
+                        <div class="p-6 glassmorphism-dark rounded-full w-20 h-20 mb-4 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-xl font-medium mb-2 text-primary">Transcript</div>
+                        <div class="text-sm text-primary/70 mb-4">From: ${selectedItem.filename}</div>
+                        <div class="text-lg leading-relaxed whitespace-pre-wrap">${selectedItem.transcript}</div>
+                    </div>
+                `;
+            }, 1500); // Simulate processing delay
+        }
+    }
+
+
+        function playAudio(id) {
+            const selectedItem = uploadHistory.find(item => item.id === id);
+            if (selectedItem && selectedItem.audioSrc) {
+                if (currentAudio) {
+                    currentAudio.pause();
+                }
+                currentAudio = new Audio(selectedItem.audioSrc);
+                currentAudio.play().catch(e => {
+                    showAudioPlayingAnimation();
+                });
+            }
+        }
+
+        function showAudioPlayingAnimation() {
+            const bars = document.querySelectorAll('.audio-visualizer .audio-bar');
+            bars.forEach((bar, index) => {
+                bar.style.animation = `audioWave 1.5s ease-in-out ${index * 0.1}s infinite`;
+            });
+        }
+
+        function downloadTranscript() {
+            const selectedItem = uploadHistory.find(item => item.id === currentTranscriptId);
+            if (!selectedItem) {
+                showUploadNotification('Please select a transcript first');
+                return;
+            }
+
+            const blob = new Blob([selectedItem.transcript], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${selectedItem.filename.replace(/\.[^/.]+$/, "")}_transcript.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showUploadNotification('Transcript downloaded successfully');
+        }
+
+        function copyTranscript() {
+            const selectedItem = uploadHistory.find(item => item.id === currentTranscriptId);
+            if (!selectedItem) {
+                showUploadNotification('Please select a transcript first');
+                return;
+            }
+
+            navigator.clipboard.writeText(selectedItem.transcript)
+                .then(() => {
+                    showUploadNotification('Transcript copied to clipboard!');
+                })
+                .catch(() => {
+                    showUploadNotification('Failed to copy transcript');
+                });
+        }
+
+        function handleFileUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        // Generate a unique ID for the new upload
+        const newId = Math.max(...uploadHistory.map(item => item.id)) + 1;
+        const currentDate = new Date().toISOString();
+
+        // Create new upload item
+        const newUpload = {
+            id: newId,
+            filename: file.name,
+            date: currentDate,
+            duration: "Processing...",
+            audioSrc: "data:audio/wav;base64,...",
+            transcript: `Processing transcript for "${file.name}". This is a demo transcript that would normally be generated by AI transcription services. The file appears to contain audio content that will be analyzed and converted to text format with high accuracy and speaker identification capabilities. In a real implementation, this would connect to actual transcription APIs like OpenAI Whisper, Google Speech-to-Text, or other AI services to process the uploaded audio file and generate accurate transcripts with timestamp information and speaker detection.`
+        };
+
+        // Add corresponding view data for the new upload
+        viewData[newId] = {
+            business: {
+                summary: `Analysis of uploaded file "${file.name}" showing key discussion points and actionable insights.`,
+                keyPoints: [
+                    "Audio file successfully processed through AI transcription pipeline.",
+                    "Content analyzed for business-relevant information extraction.",
+                    "Key themes and topics automatically identified and categorized."
+                ],
+                actionItems: [
+                    "Review transcript for accuracy and completeness.",
+                    "Extract actionable items from the discussion.",
+                    "Share insights with relevant stakeholders."
+                ]
+            },
+            diagnostic: {
+                confidence: "93%",
+                language: "English (Auto-detected)",
+                processingTime: "1.8 seconds",
+                speakerCount: "Auto-detecting...",
+                noiseLevel: "Analyzing...",
+                transcriptionEngine: "xAI Whisper Model"
+            }
+        };
+
+        // Add to beginning of history
+        uploadHistory.unshift(newUpload);
+        
+        // Show upload notification
+        showUploadNotification(`Successfully uploaded "${file.name}"`);
+        
+        // Show progress popup
+        showProgressPopup(newId, file.name);
+        
+        // Reload the history to show the new item
+        loadUploadHistory();
+        
+        // Auto-select the newly uploaded file
+        setTimeout(() => {
+            selectTranscript(newId);
+        }, 300);
+
+        // Simulate progress updates
+        let progress = 0;
+        const progressInterval = setInterval(() => {
+            progress += 10;
+            updateProgressPopup(newId, progress);
+            if (progress >= 100) {
+                clearInterval(progressInterval);
+                setTimeout(() => {
+                    removeProgressPopup(newId);
+                    const uploadedItem = uploadHistory.find(item => item.id === newId);
+                    if (uploadedItem) {
+                        uploadedItem.duration = "12:34"; // Simulated duration
+                        viewData[newId].diagnostic.speakerCount = 2;
+                        viewData[newId].diagnostic.noiseLevel = "Low";
+                        loadUploadHistory();
+                        if (currentTranscriptId === newId) {
+                            selectTranscript(newId);
+                        }
+                    }
+                }, 500);
+            }
+        }, 300);
+    }
+
+    function showProgressPopup(id, filename) {
+        let progressPopup = document.getElementById('progressPopup');
+        if (!progressPopup) {
+            progressPopup = document.createElement('div');
+            progressPopup.id = 'progressPopup';
+            progressPopup.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+            progressPopup.innerHTML = `
+                <div id="progressPopupContent-${id}" class="bg-white p-6 rounded-lg shadow-lg w-96">
+                    <h3 class="text-lg font-bold text-primary mb-2">Uploading: ${filename}</h3>
+                    <div class="progress-bar h-4 bg-gray-200 rounded-full overflow-hidden">
+                        <div id="progressBarFill-${id}" class="h-full bg-primary transition-all duration-300" style="width: 0%;"></div>
+                    </div>
+                    <p id="progressText-${id}" class="text-center mt-2 text-primary">0% Complete</p>
+                </div>
+            `;
+            document.body.appendChild(progressPopup);
+        }
+    }
+
+    function updateProgressPopup(id, percentage) {
+        const progressBarFill = document.getElementById(`progressBarFill-${id}`);
+        const progressText = document.getElementById(`progressText-${id}`);
+        if (progressBarFill && progressText) {
+            progressBarFill.style.width = `${percentage}%`;
+            progressText.textContent = `${percentage}% Complete`;
+        }
+    }
+
+    function removeProgressPopup(id) {
+        const progressPopupContent = document.getElementById(`progressPopupContent-${id}`);
+        if (progressPopupContent) {
+            progressPopupContent.parentElement.remove();
+        }
+        const remainingPopups = document.querySelectorAll('#progressPopup');
+        if (remainingPopups.length === 0) {
+            const popup = document.getElementById('progressPopup');
+            if (popup) popup.remove();
+        }
+    }
+        
+
+        function showUploadNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-primary text-white px-6 py-3 rounded-lg card-shadow animate-slide-up z-50';
+            notification.innerHTML = `
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    ${message}
+                </div>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+    </script>
 </body>
 </html>

@@ -193,7 +193,6 @@ const styles = {
   
   // Button styles
   button: {
-    backgroundColor: '#ff3b3f',
     border: 'none',
     color: '#fff',
     padding: '0.5rem 1rem',
@@ -203,13 +202,29 @@ const styles = {
     transition: 'background-color 0.3s',
     fontSize: '0.9rem',
     minWidth: '100px',
+    margin: '0 0.25rem',
   },
-  buttonHover: {
+  downloadButton: {
+    backgroundColor: '#ff3b3f',
+  },
+  downloadButtonHover: {
     backgroundColor: '#cc3236',
+  },
+  deleteButton: {
+    backgroundColor: '#dc3545',
+  },
+  deleteButtonHover: {
+    backgroundColor: '#c82333',
   },
   buttonDisabled: {
     backgroundColor: '#666',
     cursor: 'not-allowed',
+  },
+  buttonGroup: {
+    display: 'flex',
+    gap: '0.5rem',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
   },
   noData: {
     marginTop: '2rem',
@@ -225,6 +240,7 @@ const Applications = () => {
   const [filteredApplications, setFilteredApplications] = useState([]);
   const [btnHoverId, setBtnHoverId] = useState(null);
   const [downloadingId, setDownloadingId] = useState(null);
+  const [deletingId, setDeletingId] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   
   // Filter states
@@ -240,6 +256,12 @@ const Applications = () => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
+    fetchApplications();
+      
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const fetchApplications = () => {
     fetch('http://localhost:5000/applications')
       .then((res) => res.json())
       .then((data) => {
@@ -249,9 +271,7 @@ const Applications = () => {
       .catch((err) => {
         console.error('Failed to fetch applications:', err);
       });
-      
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  };
 
   // Filter applications based on date range
   useEffect(() => {
@@ -332,19 +352,65 @@ const Applications = () => {
     }
   };
 
+  const deleteApplication = async (id) => {
+    if (!window.confirm('Are you sure you want to delete this application? This action cannot be undone.')) {
+      return;
+    }
+    
+    setDeletingId(id);
+    try {
+      const response = await fetch(`http://localhost:5000/candiate/${id}`, {
+        method: 'DELETE',
+      });
+      const data = await response.json();
+      
+      if (data.success) {
+        alert('successfully deleted!');
+        // Refresh the applications data from server
+        fetchApplications();
+      } else {
+        alert('Delete panna mudila: ' + data.message);
+      }
+      
+    } catch (error) {
+      console.error('Error deleting application:', error);
+      alert('Delete la error aayiduchu. Network connection check pannunga.');
+    } finally {
+      setDeletingId(null);
+    }
+  };
+
   const DownloadButton = ({ app }) => (
     <button
       style={{
         ...styles.button,
-        ...(btnHoverId === app.id ? styles.buttonHover : {}),
+        ...styles.downloadButton,
+        ...(btnHoverId === `download-${app.id}` ? styles.downloadButtonHover : {}),
         ...(downloadingId === app.id ? styles.buttonDisabled : {})
       }}
       onClick={() => downloadResume(app.id)}
-      onMouseEnter={() => setBtnHoverId(app.id)}
+      onMouseEnter={() => setBtnHoverId(`download-${app.id}`)}
       onMouseLeave={() => setBtnHoverId(null)}
-      disabled={downloadingId === app.id}
+      disabled={downloadingId === app.id || deletingId === app.id}
     >
       {downloadingId === app.id ? 'Downloading...' : 'Download'}
+    </button>
+  );
+
+  const DeleteButton = ({ app }) => (
+    <button
+      style={{
+        ...styles.button,
+        ...styles.deleteButton,
+        ...(btnHoverId === `delete-${app.id}` ? styles.deleteButtonHover : {}),
+        ...(deletingId === app.id ? styles.buttonDisabled : {})
+      }}
+      onClick={() => deleteApplication(app.id)}
+      onMouseEnter={() => setBtnHoverId(`delete-${app.id}`)}
+      onMouseLeave={() => setBtnHoverId(null)}
+      disabled={deletingId === app.id || downloadingId === app.id}
+    >
+      {deletingId === app.id ? 'Deleting...' : 'Delete'}
     </button>
   );
 
@@ -486,7 +552,7 @@ const Applications = () => {
                   <th style={styles.th}>Email</th>
                   <th style={styles.th}>Phone</th>
                   <th style={styles.th}>Job Title</th>
-                  <th style={styles.th}>Resume</th>
+                  <th style={styles.th}>Actions</th>
                   <th style={styles.th}>Applied At</th>
                 </tr>
               </thead>
@@ -499,7 +565,10 @@ const Applications = () => {
                     <td style={styles.td}>{app.phone}</td>
                     <td style={styles.td}>{app.jobTitle}</td>
                     <td style={styles.td}>
-                      <DownloadButton app={app} />
+                      <div style={styles.buttonGroup}>
+                        <DownloadButton app={app} />
+                        <DeleteButton app={app} />
+                      </div>
                     </td>
                     <td style={styles.td}>
                       {new Date(app.appliedAt).toLocaleString()}
@@ -541,8 +610,9 @@ const Applications = () => {
                   </span>
                 </div>
                 
-                <div style={{ marginTop: '1rem', textAlign: 'center' }}>
+                <div style={{ marginTop: '1rem', ...styles.buttonGroup }}>
                   <DownloadButton app={app} />
+                  <DeleteButton app={app} />
                 </div>
               </div>
             ))}

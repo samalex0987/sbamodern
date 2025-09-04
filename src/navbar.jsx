@@ -31,30 +31,18 @@ const ResponsiveNavbar = () => {
       setIsSubmitting(true);
       
       try {
-        const response = await fetch('http://localhost:5000/send-mail', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
+        // Simulated API call - replace with actual endpoint
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        alert("Demo booked successfully! We'll contact you soon.");
+        setShowPopup(false);
+        setFormData({ 
+          name: '', 
+          email: '', 
+          company: '', 
+          message: '', 
+          phone: '', 
+          subject: '' 
         });
-
-        if (response.ok) {
-          const result = await response.json();
-          alert("Demo booked successfully! We'll contact you soon.");
-          setShowPopup(false);
-          setFormData({ 
-            name: '', 
-            email: '', 
-            company: '', 
-            message: '', 
-            phone: '', 
-            subject: '' 
-          });
-        } else {
-          const errorData = await response.json();
-          throw new Error(errorData.message || 'Failed to send request');
-        }
       } catch (error) {
         console.error('Error sending form:', error);
         alert("Sorry, there was an error sending your request. Please try again later or contact us directly.");
@@ -128,81 +116,67 @@ const ResponsiveNavbar = () => {
     "Data And AI": [
       { name: 'Enhanced Customer Experience', icon: '👥' },
       { name: 'Optimized Operations', icon: '⚡' },
-
     ],
-    "IT & Buisness Automation": [
+    "IT & Business Automation": [
       { name: 'Process Automation', icon: '🔄' },
       { name: 'Workflow Optimization', icon: '📊' },
-     
     ],
     "Security & Sustainability": [
       { name: 'Cyber Protection', icon: '🔐' },
       { name: 'Green Technology', icon: '🌱' },
-    
     ],
     "Open Hybrid Cloud": [
       { name: 'Cloud Migration', icon: '☁️' },
       { name: 'Hybrid Infrastructure', icon: '🔗' },
-
     ],
     "Cyber Resiliency": [
       { name: 'Threat Detection', icon: '🎯' },
       { name: 'Incident Response', icon: '🚨' },
-     
     ],
     "Customer Analytics": [
       { name: 'Behavior Analysis', icon: '📊' },
       { name: 'Segmentation', icon: '🎯' },
-
     ],
     "Marketing Analytics": [
       { name: 'Campaign Performance', icon: '📈' },
       { name: 'ROI Measurement', icon: '💰' },
-     
     ],
     "HR Analytics": [
       { name: 'Talent Insights', icon: '👤' },
       { name: 'Performance Tracking', icon: '📊' },
-   
     ],
     "BFSI Solutions": [
       { name: 'Risk Management', icon: '⚖️' },
       { name: 'Fraud Detection', icon: '🔍' },
-     
     ],
     "Media & Entertainment": [
       { name: 'Content Analytics', icon: '📺' },
       { name: 'Audience Insights', icon: '👥' },
-  
     ],
     "Manufacturing": [
       { name: 'IoT Integration', icon: '🔗' },
       { name: 'Quality Control', icon: '✅' },
-    
     ],
     "Healthcare": [
       { name: 'Patient Analytics', icon: '🏥' },
       { name: 'Clinical Intelligence', icon: '🔬' },
- 
     ],
     "IT & ITES": [
       { name: 'Service Analytics', icon: '⚙️' },
       { name: 'Performance Monitoring', icon: '📊' },
-    
     ],
     "Telecommunications": [
       { name: 'Network Analytics', icon: '📡' },
       { name: 'Customer Insights', icon: '📱' },
-
     ]
   };
 
   // Solutions structure
   const solutionsStructure = {
     "Technical Expertise": {
-      items: ["Data And AI", "IT & Buisness Automation", "Security & Sustainability", "Open Hybrid Cloud", "Cyber Resiliency"],
-      links:["/Data-and-ai","/It_and_buisness_automation","/Security_and_sustainability","/Open_hybrid_cloud","/Cyber-Resiliency"],
-      discription:["Leverage AI-powered insights to unlock smarter business decisions.","Protect digital assets while promoting sustainable technology practices for long-term resilience.","Build flexible, scalable infrastructure with open-source and hybrid cloud technologies.","Ensure business continuity with advanced threat detection and recovery strategies.","Ensure continuity and quick recovery from cyber threats with robust protection."]
+      items: ["Data And AI", "IT & Business Automation", "Security & Sustainability", "Open Hybrid Cloud", "Cyber Resiliency"],
+      links:["/Data-and-ai","/It_and_business_automation","/Security_and_sustainability","/Open_hybrid_cloud","/Cyber-Resiliency"],
+      discription:["Leverage AI-powered insights to unlock smarter business decisions.","Automate IT processes and business workflows for enhanced efficiency.","Protect digital assets while promoting sustainable technology practices for long-term resilience.","Build flexible, scalable infrastructure with open-source and hybrid cloud technologies.","Ensure continuity and quick recovery from cyber threats with robust protection."]
     },
     "Domain Expertise": {
       items: ["Customer Analytics", "Marketing Analytics", "HR Analytics"],
@@ -335,7 +309,7 @@ const ResponsiveNavbar = () => {
       <nav className="sticky top-0 z-50 bg-black border-b border-gray-800 shadow-lg">
         <div className="flex justify-between items-center mx-auto max-w-screen-xl px-4 py-4">
           <a href="/" className="flex items-center space-x-3">
-            <img src={logo} className="h-15" alt="Company Logo" />
+           <img src={logo} className="h-15" alt="Company Logo" />
           </a>
           <div className="hidden md:flex items-center justify-center flex-1">
             <ul className="flex space-x-8 font-medium">
@@ -412,7 +386,7 @@ const ResponsiveNavbar = () => {
             </a>
             <hr />
             <a href="/Cyber-Resiliency" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
-                 Cyber Resilency
+                 Cyber Resiliency
             </a>
             <hr />
             <a href="/Company" className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-all duration-200">
@@ -435,18 +409,22 @@ const ResponsiveNavbar = () => {
           </div>
         </div>
 
-        {/* Desktop Solutions Dropdown - Hover-based Mega Menu */}
+        {/* Desktop Solutions Dropdown - Full Screen Height Mega Menu */}
         {isDropdownOpen && (
           <div
             ref={dropdownRef}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             className="absolute left-0 right-0 z-50 bg-black shadow-2xl border-t-4 border-red-500"
+            style={{
+              height: 'calc(100vh - 80px)', // Full screen height minus navbar
+              top: '100%'
+            }}
           >
-            <div className="max-w-screen-xl mx-auto">
-              <div className="flex">
-                {/* Left Sidebar - Services */}
-                <div className="w-1/4 bg-black p-6 border-r border-gray-200">
+            <div className="max-w-screen-xl mx-auto h-full">
+              <div className="flex h-full">
+                {/* Left Sidebar - Services - Fixed Height */}
+                <div className="w-1/4 bg-black p-6 border-r border-gray-200 flex-shrink-0 h-full">
                   <div className="mb-6">
                     <h2 className="text-xl font-bold text-gray-100 mb-2">Services</h2>
                     <p className="text-sm text-gray-100">Enabling business leaders to become truly data-driven</p>
@@ -471,43 +449,49 @@ const ResponsiveNavbar = () => {
                   </div>
                 </div>
 
-                {/* Right Content Area */}
-                <div className="flex-1 p-8">
-                  <div className={`transition-all duration-300 ease-in-out ${
-                    isContentVisible 
-                      ? 'opacity-100 transform translate-y-0' 
-                      : 'opacity-0 transform translate-y-4'
-                  }`}>
-                    <h3 className="text-2xl font-bold text-gray-100 mb-4">{selectedSection}</h3>
-                    
-                    <div className="grid grid-cols-2 gap-2">
-                      {solutionsStructure[selectedSection].items.map((item, index) => (
-                        <div 
-                          key={index}  
-                          className={`group cursor-pointer transition-all duration-200 ${
-                            isContentVisible ? 'delay-75' : ''
-                          }`}
-                          style={{ 
-                            transitionDelay: isContentVisible ? `${index * 50}ms` : '0ms' 
-                          }}
-                        > 
-                          <div onClick={()=>{ window.location.href = solutionsStructure[selectedSection].links[index] }}  className="p-4 border rounded-lg  hover:shadow-md transition-all duration-200 transform hover:scale-105">
-                            <h4 className="font-semibold text-gray-100 group-hover:text-white mb-3">
-                              {item}
-                            </h4>
-                            
-                            <p className="text-sm text-gray-100 mb-4">
-                              {solutionsStructure[selectedSection].discription[index]}
-                            </p>
-                              <button onClick={()=>{ window.location.href = solutionsStructure[selectedSection].links[index] }} className="px-6 py-2 cursor-pointer text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:ring-red-300 transition-all duration-200 transform hover:scale-105 focus:outline-none">
+                {/* Right Content Area - Scrollable when content overflows */}
+                <div className="flex-1 h-full overflow-y-auto">
+                  <div className="p-8">
+                    <div className={`transition-all duration-300 ease-in-out ${
+                      isContentVisible 
+                        ? 'opacity-100 transform translate-y-0' 
+                        : 'opacity-0 transform translate-y-4'
+                    }`}>
+                      <h3 className="text-2xl font-bold text-gray-100 mb-4">{selectedSection}</h3>
+                      
+                      <div className="grid grid-cols-2 gap-4">
+                        {solutionsStructure[selectedSection].items.map((item, index) => (
+                          <div 
+                            key={index}  
+                            className={`group cursor-pointer transition-all duration-200 ${
+                              isContentVisible ? 'delay-75' : ''
+                            }`}
+                            style={{ 
+                              transitionDelay: isContentVisible ? `${index * 50}ms` : '0ms' 
+                            }}
+                          > 
+                            <div 
+                              onClick={() => { window.location.href = solutionsStructure[selectedSection].links[index] }}  
+                              className="p-4 border rounded-lg hover:shadow-md transition-all duration-200 transform hover:scale-105 h-full flex flex-col"
+                            >
+                              <h4 className="font-semibold text-base text-gray-100 group-hover:text-white mb-3">
+                                {item}
+                              </h4>
+                              
+                              <p className="text-sm text-gray-100 mb-4 flex-grow">
+                                {solutionsStructure[selectedSection].discription[index]}
+                              </p>
+                              
+                              <button 
+                                onClick={() => { window.location.href = solutionsStructure[selectedSection].links[index] }} 
+                                className="px-6 py-2 cursor-pointer text-sm font-medium text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:ring-red-300 transition-all duration-200 transform hover:scale-105 focus:outline-none self-start"
+                              >
                                 Explore
-                                </button>
-
-                            {/* Pills for each specific item */}
-                            
+                              </button>
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
