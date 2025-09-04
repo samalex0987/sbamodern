@@ -18,8 +18,8 @@ const AnimatedTimeline = () => {
     {
       id: 2,
       year: "2005",
-      title: "Expanded Globally",
-      description: "We expanded our operations to other countries, offering solutions in multiple industries.",
+      title: "Expanded Pan India",
+      description: "We expanded our operations to other states, offering solutions in multiple industries.",
       icon: Globe
     },
     {

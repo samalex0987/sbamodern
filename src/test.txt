@@ -1,2 +1,10 @@
-<img src={logo} className="h-15" alt="Company Logo" />
-import logo from "/logo.png"
+ippa na trained dataset kudukura vechikonga
+like
+
+Q: hi A: hey how are you
+
+ippa antha model tamil la peasanumna
+na tamil dataset um kudukanuma likeintha maari
+
+Q: hey enna panra A: unkooda peasikittu irruka
+

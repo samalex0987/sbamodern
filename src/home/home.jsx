@@ -386,12 +386,9 @@ const [showPopup, setShowPopup] = useState(false);
               {/* Right - Quote */}
               <div className="w-full md:w-1/2 text-left">
                 <p className="text-2xl md:text-3xl font-serif text-black leading-relaxed mb-6">
-                  “In the modern workplace, repetative tasks like data entry and information retrieval
+                  “In the modern workplace, repetitive tasks like data entry and information retrieval
                   hinder employees from engaging in strategic and creative aspects of their roles.”
                 </p>
-                
-{/* "relative cursor-pointer inline-block px-6 py-3 font-medium group overflow-hidden border-2 border-red-500 text-white rounded bg-black hover:bg-red-500 transition-all duration-300 */}
-              
               </div>
             </div>
           </section>

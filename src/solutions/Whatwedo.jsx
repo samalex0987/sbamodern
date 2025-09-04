@@ -58,7 +58,7 @@ const solutions = [
     features: [
       "Predictive Maintenance",
       "Supply Chain Optimization",
-      "Computer Vision QA",
+      "Computer Vision for Quality Assurance (QA)",
       "Robotic Process Automation (RPA)"
     ],
     image:manufacturing,
@@ -105,7 +105,7 @@ const solutions = [
     icon: <Headset className="w-12 h-12" />,
     title: "Telecom / BPO / KPO",
     description:
-    "Revolutionize the way customer experience, operations, and backend processing work in the telecom and outsourcing industries. AI enables faster resolution, personalized engagement, and cost savings.",
+    "Revolutionize customer experience, operations, and backend processing in the telecom and outsourcing industries.",
     features: [
       "Conversational AI",
       "Customer Sentiment Analysis",
@@ -151,7 +151,7 @@ const solutions = [
           }
         });
       },
-      { threshold: 0.2, rootMargin: '0px 0px -10% 0px' }
+      { threshold: 0.1, rootMargin: '0px 0px -10% 0px' }
     );
 
     sectionRefs.current.forEach((ref) => {
@@ -208,7 +208,7 @@ const solutions = [
                   ? 'opacity-100 translate-y-0' 
                   : 'opacity-0 translate-y-12'
               }`}
-              style={{ transitionDelay: `${visibleSections.includes(index + 1) ? index * 200 : 0}ms` }}
+              style={{ transitionDelay: `${visibleSections.includes(index + 1) ? index * 50 : 0}ms` }}
             >
               {/* Image/Visual */}
               <div className={`${solution.reverse ? 'lg:order-2' : 'lg:order-1'} relative group`}>

@@ -57,7 +57,7 @@ const BFSI = () => {
               BFSI
             </h1>
             <h2 data-aos="fade-up" className="text-2xl md:text-3xl font-semibold mb-8 text-gray-100">
-              Digital Transformation Excellence
+              Leading Digital Transformation in BFSI
             </h2>
             <p data-aos="fade-up" className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
               We empower the Banking, Financial Services, and Insurance sector with digital transformation, 

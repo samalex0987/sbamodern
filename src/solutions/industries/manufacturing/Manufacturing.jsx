@@ -27,7 +27,7 @@ const ManufacturingLandingPage = () => {
     },
     {
       icon: <Eye className="w-8 h-8" />,
-      title: "Computer Vision QA",
+      title: "Computer Vision Quality Assurance (QA)",
       description: "Automated quality assurance using computer vision to detect defects and ensure product excellence",
       features: ["Defect detection", "Quality metrics tracking", "Real-time inspection"]
     },
