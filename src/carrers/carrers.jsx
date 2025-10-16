@@ -27,25 +27,25 @@ import {
 
 // Sample job data - replace with your API data
 const sampleJobs = [
-  // {
-  //   id: 1,
-  //   title: "Senior Frontend Developer",
-  //   department: "Engineering",
-  //   location: "Remote / San Francisco",
-  //   type: "Full-time",
-  //   experience: "3-5 years",
-  //   salary: "$120K - $160K",
-  //   description: "Join our frontend team to build cutting-edge user interfaces using React, TypeScript, and modern web technologies.",
-  //   requirements: ["React", "TypeScript", "CSS", "GraphQL", "Testing"],
-  //   posted: "2 days ago"
-  // },
+  {
+    id: 1,
+    title: "IT Sales / Business Development Executive",
+    department: "Sales",
+    location: "Chennai",
+    type: "Full-time",
+    experience: "3 -4 years",
+    salary: "$120K - $160K",
+    description: "Join our frontend team to build cutting-edge user interfaces using React, TypeScript, and modern web technologies.",
+    requirements: ["Communication", "New Client Acquisition", "Presentation", "Building client rellationship", "Enterprise sales", "IT Modernization sales", "Solution sales", "Digital Transformation"],
+    posted: "2 days ago"
+  },
   // {
   //   id: 2,
-  //   title: "Product Designer",
+  //   title: "Data Center",
   //   department: "Design",
-  //   location: "New York",
+  //   location: "Chennai",
   //   type: "Full-time", 
-  //   experience: "2-4 years",
+  //   experience: "Fresher",
   //   salary: "$90K - $130K",
   //   description: "Create beautiful and intuitive user experiences for our platform used by millions of users worldwide.",
   //   requirements: ["Figma", "User Research", "Prototyping", "Design Systems"],

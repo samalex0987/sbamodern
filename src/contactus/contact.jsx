@@ -120,7 +120,7 @@ const ContactUsPage = () => {
     
     try {
       // Replace this URL with your actual backend endpoint
-      const response = await fetch('http://localhost:5000/send-mail', {
+      const response = await fetch('https://www.sbainfo.in/send-mail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -139,7 +139,7 @@ const ContactUsPage = () => {
           company: '',
           phone: '',
           subject: '',
-          message: ''
+          message: '',
         });
         
         // Hide success message after 5 seconds

@@ -1,10 +1,150 @@
-ippa na trained dataset kudukura vechikonga
-like
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursor Following Dot</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-color: #f0f0f0;
+      overflow: hidden;
+      cursor: none; /* Hide the default cursor */
+    }
 
-Q: hi A: hey how are you
+    #cursor {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #3498db;
+      border-radius: 50%;
+      pointer-events: none;
+      transition: transform 0.1s ease;
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
 
-ippa antha model tamil la peasanumna
-na tamil dataset um kudukanuma likeintha maari
+  <script>
+    const cursor = document.getElementById('cursor');
 
-Q: hey enna panra A: unkooda peasikittu irruka
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+      cursor.style.left = `${x - cursor.offsetWidth / 2}px`;
+      cursor.style.top = `${y - cursor.offsetHeight / 2}px`;
+    });
+  </script>
+</body>
+</html>
+
+
+=============================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <div id="display">
+    <p id="position"></p>
+    <p id="offset"></p>
+    <p id="offsethieght&width"></p>
+  </div>
+
+
+  <script>
+
+    document.addEventListener("mousemove",(e)=>{
+      document.getElementById("position").innerText = `X: ${e.clientX} Y: ${e.clientY}`
+      document.getElementById("offset").innerText = `X: ${e.offsetX} Y: ${e.offsetY}`
+      document.getElementById("offsethieght&width").innerText = `Height: ${e.target.offsetHeight} Width: ${e.target.offsetWidth}`
+    })
+
+  </script>
+  
+</body>
+</html>
+
+
+==============================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <style>
+    #ball{
+      height: 100px;
+      width: 100px;
+      background-color: red;
+      border-radius: 100%;
+      position: absolute;
+    }
+
+    #box{
+      height: 200px;
+      width: 200px;
+      background-color: blue;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+  </style>
+
+  <div id="ball"></div>
+  <div id="box"></div>
+
+  <script>
+    let ball = document.getElementById("ball");
+    let box = document.getElementById("box");
+
+    document.addEventListener("mousemove", (e) => {
+      const x = e.clientX;
+      const y = e.clientY;
+
+      // Move the ball based on mouse position
+      ball.style.left = `${x - ball.offsetWidth / 2}px`;
+      ball.style.top = `${y - ball.offsetHeight / 2}px`;
+
+      // Get the bounding rectangles for both the ball and the box
+      let ballRect = ball.getBoundingClientRect();
+      let boxRect = box.getBoundingClientRect();
+
+      // Check if the ball is touching the box
+      let isTouching = (
+        ballRect.right >= boxRect.left &&
+        ballRect.left <= boxRect.right &&
+        ballRect.bottom >= boxRect.top &&
+        ballRect.top <= boxRect.bottom
+      );
+
+      // Log the result (You can replace this with any action you want, like changing colors)
+      if (isTouching) {
+        console.log("The ball is touching the box!");
+        ball.style.backgroundColor = "green";  // Change ball color when touching
+      } else {
+        console.log("The ball is NOT touching the box.");
+        ball.style.backgroundColor = "red";  // Keep original ball color when not touching
+      }
+    });
+  </script>
+  
+</body>
+</html>
+
 

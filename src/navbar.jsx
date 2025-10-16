@@ -175,7 +175,7 @@ const ResponsiveNavbar = () => {
   const solutionsStructure = {
     "Technical Expertise": {
       items: ["Data And AI", "IT & Business Automation", "Security & Sustainability", "Open Hybrid Cloud", "Cyber Resiliency"],
-      links:["/Data-and-ai","/It_and_business_automation","/Security_and_sustainability","/Open_hybrid_cloud","/Cyber-Resiliency"],
+      links:["/Data-and-ai","/It_and_buisness_automation","/Security_and_sustainability","/Open_hybrid_cloud","/Cyber-Resiliency"],
       discription:["Leverage AI-powered insights to unlock smarter business decisions.","Automate IT processes and business workflows for enhanced efficiency.","Protect digital assets while promoting sustainable technology practices for long-term resilience.","Build flexible, scalable infrastructure with open-source and hybrid cloud technologies.","Ensure continuity and quick recovery from cyber threats with robust protection."]
     },
     "Domain Expertise": {
